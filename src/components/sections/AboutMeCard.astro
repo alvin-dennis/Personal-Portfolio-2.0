@@ -1,0 +1,52 @@
+---
+import Card from '../Card.astro'
+import { Button } from '../ui/button'
+import { LINKS } from '../../lib/constants'
+import { Linkedin, Github, Mail, Instagram } from 'lucide-astro'
+---
+
+<Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
+  <div class="flex h-full w-full">
+    <div class="flex flex-col justify-between gap-4 md:max-h-[300px]">
+      <div class="flex h-full flex-col">
+        <h1 class="text-2xl font-bold">🚀 About Me</h1>
+        <p class="m-0 text-xl font-light">
+          Hi, I'm <b class="font-bold">Alvin Dennis</b>, a Tech Enthusiast and a Web Developer with a passion for creating innovative web applications and digital experiences. With a blend of creativity and technical prowess, I specialize in building dynamic and user-friendly websites that leave a lasting impression. I look forward to learning new tools and technologies and gaining new experiences.
+        </p>
+      </div>
+      <div class="flex gap-4">
+        <a href={LINKS.github} aria-label="github profile" target="_blank">
+          <Button aria-label="github profile">
+            <Github />
+            <span class="sr-only">GitHub Profile</span>
+          </Button>
+        </a>
+        <a href={LINKS.linkedin} aria-label="linkeding profile" target="_blank">
+          <Button aria-label="linkedin profile">
+            <Linkedin />
+            <span class="sr-only">Linkedin Profile</span>
+          </Button>
+        </a>
+        <a href={LINKS.mail} aria-label="mail profile" target="_blank">
+          <Button>
+            <Mail />
+            <span class="sr-only">Email contact</span>
+          </Button>
+        </a>
+          <a href={LINKS.instagram} aria-label="instagram profile" target="_blank">
+          <Button>
+            <Instagram/>
+            <span class="sr-only">Instagram</span>
+          </Button>
+        </a>
+      </div>
+    </div>
+    <img
+      width="300"
+      height="300"
+      src="/me-nobg.png"
+      class="pointer-events-none absolute bottom-[-20px] right-[-109px] z-[-1] max-h-[300px] w-auto select-none opacity-50 md:relative md:bottom-auto md:right-auto md:z-auto md:opacity-100"
+      alt="Alvin Dennis"
+    />
+  </div>
+</Card>

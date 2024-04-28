@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { buttonVariants } from '../components/ui/button'
+---
+
+<BaseLayout
+  title="503 - Not Found"
+  description="503 Error — this page was not found"
+>
+  <main class="flex h-[80vh] flex-auto">
+    <div class="flex flex-col items-center justify-center px-8">
+      <p class="text-4x1 text-muted-foreground">503</p>
+      <h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">
+        This page is under construction.
+      </h1>
+      <p class="mb-4 leading-7 [&:not(:first-child)]:mt-6">
+        Sorry, I am currently building this page. Stay tuned..!!
+      </p>
+      <a href="https://alvindennis.vercel.app/" rel="noreferrer" class={buttonVariants()}> Go back home</a>
+    </div>
+  </main>
+</BaseLayout>

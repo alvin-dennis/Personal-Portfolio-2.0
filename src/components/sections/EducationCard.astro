@@ -1,0 +1,27 @@
+---
+import Card from '../Card.astro'
+import { Button } from '../ui/button'
+import { EDUCATION } from '../../lib/constants'
+---
+
+<Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="🎓 Education">
+  <div class="mt-2 space-y-4">
+    {
+      EDUCATION.slice(0, 3).map((exp) => (
+        <div>
+          <p class="text-lg">{exp.position}</p>
+          <a class="text-sm text-primary" href={exp?.link ?? ''}>
+            {exp.name}
+          </a>
+          <p class="text-sm text-gray-600">
+            {exp.start} - {exp.end}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+  <a href="/update">
+    <Button variant="link" className="pl-0"> View More </Button>
+  </a>
+</div>
+</Card>
