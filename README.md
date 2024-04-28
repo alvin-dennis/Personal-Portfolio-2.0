@@ -40,8 +40,4 @@ Contributions are welcome! Feel free to open an issue or submit a pull request. 
 
 Thank you for visiting, and I hope you enjoy your time here! If you have any questions or would like to collaborate, don't hesitate to reach out.
 
-## Todo
-
-- Fix the alignment of the website in mobile when it is in desktop mode in chrome.
-
 Happy browsing! ✨

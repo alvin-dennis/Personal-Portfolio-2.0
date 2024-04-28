@@ -11,10 +11,9 @@ import { Button } from '../ui/button'
         🤝 Experience
     </h1>
   </header>
-  <br/>
-<div class="mt-4 flex w-fit flex-col">
+  <div class="mt-2 space-y-4">
     {
-      EXPERIENCE.slice(0, 4).map((exp) => (
+      EXPERIENCE.slice(0, 5).map((exp) => (
         <div>
           <p class="text-lg">{exp.position}</p>
           <a class="text-sm text-primary" href={exp?.link ?? ''}>
@@ -27,6 +26,7 @@ import { Button } from '../ui/button'
       ))
     }
   </div>
+  <br/>
   <a href="/update">
     <Button variant="link" className="pl-0"> View More </Button>
   </a>

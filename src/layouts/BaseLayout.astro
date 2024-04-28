@@ -16,6 +16,7 @@ const { title, description, ogImage } = Astro.props
 <html lang="en">
   <head>
     <HeadSEO title={title} description={description} ogImage={ogImage} />
+    <link rel="sitemap" href="/sitemap.xml" />
     <ViewTransitions />
   </head>
   <body class="min-h-screen bg-background font-sans antialiased">
