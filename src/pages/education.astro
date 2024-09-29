@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import TopLayout from '../layouts/TopLayout.astro'
+import { buttonVariants } from '../components/ui/button'
 import BottomLayout from '../layouts/BottomLayout.astro'
 import { EDUCATION } from '../lib/constants'
 ---
@@ -11,7 +12,7 @@ import { EDUCATION } from '../lib/constants'
       <h2
       class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
     >
-      Education & Experience
+      Education
     </h2>
     </TopLayout>
     <BottomLayout>
@@ -38,6 +39,10 @@ import { EDUCATION } from '../lib/constants'
           ))
         }
       </ul>
+      <div class="flex flex-col items-center justify-center px-8">
+        <a href="https://alvindennis.vercel.app/" rel="noreferrer" class={buttonVariants()}>
+       Go back home</a>
+      </div>
     </BottomLayout>
   </main>
 </BaseLayout>

@@ -51,29 +51,9 @@ export const CERTIFICATIONS = [
     link: 'https://www.freecodecamp.org/certification/alvin-dennis/front-end-libraries',
   },
   {
-    title: 'ISTQB Foundation Level',
-    institution: 'Udemy',
-    link: 'https://www.udemy.com/',
-  },
-  {
     title: 'GitHub Foundations',
     institution: 'Microsoft Learn',
     link: 'https://learn.microsoft.com/en-us/collections/o1njfe825p602p?&sharingId=D29021379D713BFF',
-  },
-  {
-    title: 'cat linux.txt',
-    institution: 'TryHackMe',
-    link: 'https://tryhackme.com/p/alvindennis80',
-  },
-  {
-    title: 'OWASP Top 10',
-    institution: 'TryHackMe',
-    link: 'https://tryhackme.com/p/alvindennis80',
-  },
-  {
-    title: 'Pentesting Principles',
-    institution: 'TryHackMe',
-    link: 'https://tryhackme.com/p/alvindennis80',
   },
   {
     title: 'Introduction to Packet Tracer',
@@ -119,63 +99,94 @@ export const EDUCATION = [
 // Experience Page
 export const EXPERIENCE = [
   {
-    company: 'Gtech Mulearn SJCET',
-    position: 'Media Team & IoT IG Lead',
-    start: '2024',
+    company: 'Radio Community SJCET',
+    position: 'Operations Lead',
+    start: 'September 2024',
     end: 'Present',
-    link: 'https://mulearn@sjcetpalai.ac.in',
+    link: 'https://radiocommunitysjcet.vercel.app',
     tasks: [
-      'Lead the IoT Interest Group',
-      'Managed the Media Team',
-      'Organized Workshops',
+      'Managed the operations team, organized events, and hosted workshops.'
     ],
   },
   {
     company: 'PHICSIT',
-    position: 'Open-Source Contributor',
-    start: '2024',
+    position: 'Frontend Intern',
+    start: 'August 2024',
     end: 'Present',
     link: 'https://phicsit.in/',
     tasks: [
-      'Contributed to Open-Source Projects',
-      'Mentored Students',
-      'Participated in Hackathons',
+      'Developed user-friendly web interfaces, collaborated with designers and developers, and optimized applications for performance and accessibility.'
     ],
   },
+
   {
-    company: 'Radio Community SJCET',
-    position: 'Technical Lead',
-    start: '2023',
+    company: 'Gtech Mulearn SJCET',
+    position: 'Campus Co-Lead',
+    start: 'June 2024',
     end: 'Present',
-    link: '',
+    link: 'https://mulearn@sjcetpalai.ac.in',
     tasks: [
-      'Managed the Technical Team',
-      'Organized Events',
-      'Hosted Workshops',
+      'Co-led campus initiatives, managed QA Interest Group, and organized events and bootcamps.'
     ],
   },
   {
     company: 'Startup Bootcamp SJCET-IEDC',
     position: 'Chief Finance Officer',
-    start: '2023',
+    start: 'September 2023',
     end: 'Present',
     link: 'https://iedc.sjcetpalai.ac.in/',
     tasks: [
-      'Managed Finances',
-      'Organized Events',
-      'Hosted Workshops',
+      'Managed finances, organized events, and hosted workshops.'
+    ],
+  },
+  {
+    company: 'PHICSIT',
+    position: 'Open-Source Contributor',
+    start: 'March 2024',
+    end: 'May 2024',
+    link: 'https://phicsit.in/',
+    tasks: [
+      'Contributed to open-source projects, mentored students, and actively participated in hackathons.'
+    ],
+  },
+  {
+    company: 'Gtech Mulearn SJCET',
+    position: 'Media Team & IoT IG Lead',
+    start: 'December 2023',
+    end: 'June 2024',
+    link: 'https://mulearn@sjcetpalai.ac.in',
+    tasks: [
+      'Led the IoT Interest Group, managed the Media Team, and coordinated the organization of workshops.'
+    ],
+  },
+  {
+    company: 'Radio Community SJCET',
+    position: 'Technical Lead',
+    start: 'November 2023',
+    end: 'August 2024',
+    link: 'https://radiocommunitysjcet.vercel.app',
+    tasks: [
+      'Managed the technical team, organized events, and hosted workshops.'
+    ],
+  },
+  {
+    company: 'Gtech Mulearn',
+    position: 'QA IG Lead Intern',
+    start: 'October 2023',
+    end: 'March 2024',
+    link: 'https://mulearn.org',
+    tasks: [
+      'Led quality assurance initiatives, facilitated testing processes, created tasks and mentored members in best practices for software quality.'
     ],
   },
   {
     company: 'Startup Bootcamp SJCET-IEDC',
     position: 'Technical Officer',
-    start: '2022',
-    end: '2023',
+    start: 'June 2022',
+    end: 'August 2023',
     link: 'https://iedc.sjcetpalai.ac.in/',
     tasks: [
-      'Managed the Technical Team',
-      'Organized Events',
-      'Hosted Workshops',
+      'Managed the technical team, organized events, and facilitated workshops.'
     ],
   },
 ]
