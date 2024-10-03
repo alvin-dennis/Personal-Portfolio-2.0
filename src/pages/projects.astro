@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import TopLayout from '../layouts/TopLayout.astro'
+import BottomLayout from '../layouts/BottomLayout.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+
+interface Project {
+  name: string;
+  description: string;
+  html_url: string;
+  stargazers_count: number;
+  language: string;
+}
+
+async function getProjects(username: string): Promise<Project[]> {
+  try {
+    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+
+    return data.map((repo: any) => ({
+      name: repo.name,
+      description: repo.description || "No description provided",
+      html_url: repo.html_url,
+      stargazers_count: repo.stargazers_count,
+      language: repo.language || "Not specified"
+    }));
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return [];
+  }
+}
+
+const username = 'alvin-dennis'
+const projects: Project[] = await getProjects(username)
+---
+
+<BaseLayout
+  title="Portfolio"
+  description="My Projects"
+>
+  <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="slide">
+    <TopLayout>
+      <h2
+        class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
+      >
+        My Projects
+      </h2>
+    </TopLayout>
+    <BottomLayout>
+      <div class="flex w-full flex-wrap justify-center gap-4">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.name}
+            href={project.html_url}
+            heading={project.name}
+            subheading={project.description}
+            imagePath={`https://opengraph.githubassets.com/1/${project.html_url.split('https://github.com/')[1]}`}
+            altText={`${project.name} repository card`}
+            class="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.33%-0.75rem)]"
+            stars={project.stargazers_count}
+            language={project.language}
+          />
+        ))}
+      </div>
+    </BottomLayout>
+  </main>
+</BaseLayout>
