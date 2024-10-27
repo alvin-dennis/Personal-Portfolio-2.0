@@ -6,7 +6,6 @@ import ProjectCard from '../components/ProjectCard.astro'
 import { buttonVariants } from '../components/ui/button'
 import { PROJECTS } from '../lib/constants'
 
-// Define the Project interface
 interface Project {
   name: string;
   description: string;
@@ -15,7 +14,6 @@ interface Project {
   languages: string[];
 }
 
-// Function to load projects from the local JSON file
 async function getProjects(): Promise<Project[]> {
   try {
     return PROJECTS.map((repo: any) => ({
