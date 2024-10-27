@@ -3,38 +3,35 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import TopLayout from '../layouts/TopLayout.astro'
 import BottomLayout from '../layouts/BottomLayout.astro'
 import ProjectCard from '../components/ProjectCard.astro'
+import { buttonVariants } from '../components/ui/button'
+import { PROJECTS } from '../lib/constants'
 
+// Define the Project interface
 interface Project {
   name: string;
   description: string;
   html_url: string;
-  stargazers_count: number;
-  language: string;
+  hosted_url: string;
+  languages: string[];
 }
 
-async function getProjects(username: string): Promise<Project[]> {
+// Function to load projects from the local JSON file
+async function getProjects(): Promise<Project[]> {
   try {
-    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-
-    return data.map((repo: any) => ({
+    return PROJECTS.map((repo: any) => ({
       name: repo.name,
       description: repo.description || "No description provided",
       html_url: repo.html_url,
-      stargazers_count: repo.stargazers_count,
-      language: repo.language || "Not specified"
+      hosted_url: repo.hosted_url || "No hosted link available",
+      languages: repo.languages || ["Not specified"]
     }));
   } catch (error) {
-    console.error("Error fetching projects:", error);
+    console.error("Error loading projects data:", error);
     return [];
   }
 }
 
-const username = 'alvin-dennis'
-const projects: Project[] = await getProjects(username)
+const projects: Project[] = await getProjects();
 ---
 
 <BaseLayout
@@ -43,28 +40,30 @@ const projects: Project[] = await getProjects(username)
 >
   <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="slide">
     <TopLayout>
-      <h2
-        class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
-      >
+      <h2 class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center">
         My Projects
       </h2>
-    </TopLayout>
+    </TopLayout>    
     <BottomLayout>
-      <div class="flex w-full flex-wrap justify-center gap-4">
+      <div class="flex flex-wrap justify-center gap-4">
         {projects.map((project) => (
           <ProjectCard
-            key={project.name}
             href={project.html_url}
+            hostedUrl={project.hosted_url}
             heading={project.name}
             subheading={project.description}
-            imagePath={`https://opengraph.githubassets.com/1/${project.html_url.split('https://github.com/')[1]}`}
-            altText={`${project.name} repository card`}
-            class="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.33%-0.75rem)]"
-            stars={project.stargazers_count}
-            language={project.language}
+            altText={`${project.name} repository card`} 
+            class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+            languages={project.languages}
           />
         ))}
+      </div>
+      <br />
+      <div class="flex flex-col items-center justify-center px-8">
+        <a href="https://alvindennis.vercel.app/" rel="noreferrer" class={buttonVariants()}>
+       Go back home</a>
       </div>
     </BottomLayout>
   </main>
 </BaseLayout>
+
