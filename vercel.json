@@ -4,11 +4,5 @@
   "outputDirectory": "dist",
   "github": {
     "silent": true
-  },
-  "rewrites": [
-    {
-      "source": "/status",
-      "destination": "https://statusdashboard.betteruptime.com/" 
-    }
-  ]
+  }
 }
