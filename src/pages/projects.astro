@@ -1,67 +1,55 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import TopLayout from '../layouts/TopLayout.astro'
-import BottomLayout from '../layouts/BottomLayout.astro'
-import ProjectCard from '../components/ProjectCard.astro'
-import { buttonVariants } from '../components/ui/button'
-import { PROJECTS } from '../lib/constants'
-
-interface Project {
-  name: string;
-  description: string;
-  html_url: string;
-  hosted_url: string;
-  languages: string[];
-}
-
-async function getProjects(): Promise<Project[]> {
-  try {
-    return PROJECTS.map((repo: any) => ({
-      name: repo.name,
-      description: repo.description || "No description provided",
-      html_url: repo.html_url,
-      hosted_url: repo.hosted_url || "No hosted link available",
-      languages: repo.languages || ["Not specified"]
-    }));
-  } catch (error) {
-    console.error("Error loading projects data:", error);
-    return [];
-  }
-}
-
-const projects: Project[] = await getProjects();
+import Layout from "../layouts/Layout.astro";
+import { PROJECTS } from "../lib/constants";
+import { Github, Link } from "lucide-astro";
 ---
 
-<BaseLayout
-  title="Portfolio"
-  description="My Projects"
->
-  <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="slide">
-    <TopLayout>
-      <h2 class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center">
-        My Projects
-      </h2>
-    </TopLayout>    
-    <BottomLayout>
-      <div class="flex flex-wrap justify-center gap-4">
-        {projects.map((project) => (
-          <ProjectCard
-            href={project.html_url}
-            hostedUrl={project.hosted_url}
-            heading={project.name}
-            subheading={project.description}
-            altText={`${project.name} repository card`} 
-            class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-            languages={project.languages}
-          />
-        ))}
-      </div>
-      <br />
-      <div class="flex flex-col items-center justify-center px-8">
-        <a href="https://alvindennis.vercel.app/" rel="noreferrer" class={buttonVariants()}>
-       Go back home</a>
-      </div>
-    </BottomLayout>
-  </main>
-</BaseLayout>
+<script>
+  import { timeline, type TimelineDefinition } from "motion";
+  import { loaderAnimation } from "../lib/constants";
 
+  const sequence = [loaderAnimation];
+
+  timeline(sequence as TimelineDefinition);
+</script>
+
+<Layout title="Alvin Dennis II Portfolio" description="My Projects Page">
+  <main
+    class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8"
+  >
+  <a
+  href="/"
+  class="fixed text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border border-solid border-neutral-600 rounded-lg"
+>
+  Back
+</a>
+<br />
+<br />
+    <h1 class="text-4xl font-bold mb-4 text-neutral-100 text-center w-full">
+      My Projects
+    </h1>
+    <ul class="w-full">
+      {
+        PROJECTS.map((project) => (
+          <li class="mb-4">
+            <a href={project.url} class="text-primary-500 hover:underline">
+              {project.name}
+            </a>
+            <p class="text-neutral-400">{project.description}</p>
+            <div class="flex space-x-4 mt-2">
+              <a href={project.url} class="text-primary-500 hover:underline">
+                <Github />
+              </a>
+              <a
+                href={project.hosted_url}
+                class="text-primary-500 hover:underline"
+              >
+                <Link />
+              </a>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>

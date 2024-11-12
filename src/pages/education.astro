@@ -1,48 +1,48 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import TopLayout from '../layouts/TopLayout.astro'
-import { buttonVariants } from '../components/ui/button'
-import BottomLayout from '../layouts/BottomLayout.astro'
-import { EDUCATION } from '../lib/constants'
+import Layout from "../layouts/Layout.astro";
+import { EDUCATION } from "../lib/constants";
 ---
 
-<BaseLayout >
-  <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="fade">
-    <TopLayout>
-      <h2
-      class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
-    >
+<script>
+  import { timeline, type TimelineDefinition } from "motion";
+  import { loaderAnimation } from "../lib/constants";
+
+  const sequence = [loaderAnimation];
+
+  timeline(sequence as TimelineDefinition);
+</script>
+
+<Layout title="Alvin Dennis II Portfolio" description="Education">
+  <main
+    class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8"
+  >
+  <a
+  href="/"
+  class="fixed text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border border-solid border-neutral-600 rounded-lg"
+>
+  Back
+</a>
+<br />
+<br />
+    <h1 class="text-4xl font-bold mb-4 text-neutral-100 text-center w-full">
       Education
-    </h2>
-    </TopLayout>
-    <BottomLayout>
-      <ul>
-        {
-          EDUCATION.map((entry) => (
-            <li class="animate mt-4 border-b border-black/10 py-8 first-of-type:mt-0 first-of-type:pt-0 last-of-type:border-none dark:border-white/25">
-              <div class="mb-4 text-sm uppercase">
-                {entry.start} - {entry.end}
-              </div>
-              <a
-                href={entry.link ?? ''}
-                class={`font-semibold ${entry?.link ? 'text-primary' : 'text-foreground'}`}
-              >
-                {entry.name}
+    </h1>
+    <ul class="w-full">
+      {
+        EDUCATION.map((edu) => (
+          <li class="mb-4">
+            <div>
+              <p class="text-lg text-primary-500">{edu.position}</p>
+              <a class="text-sm text-white" href={edu?.link ?? ""}>
+                {edu.name}
               </a>
-              <div class="text-sm font-semibold">{entry.position}</div>
-              <article class="prose dark:prose-invert">
-                {entry.tasks.map((i) => (
-                  <>{i}</>
-                ))}
-              </article>
-            </li>
-          ))
-        }
-      </ul>
-      <div class="flex flex-col items-center justify-center px-8">
-        <a href="https://alvindennis.vercel.app/" rel="noreferrer" class={buttonVariants()}>
-       Go back home</a>
-      </div>
-    </BottomLayout>
+              <p class="text-sm text-white">
+                {edu.start} - {edu.end}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
   </main>
-</BaseLayout>
+</Layout>

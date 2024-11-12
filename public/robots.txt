@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://alvindennis.vercel.app/sitemap.xml

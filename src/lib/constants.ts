@@ -1,25 +1,14 @@
-import type { Site, Page } from './types'
-
 export const loaderAnimation = [
-  '.loader',
-  { opacity: [1, 0], pointerEvents: 'none' },
-  { easing: 'ease-in' },
-]
+  ".loader",
+  { opacity: [1, 0], pointerEvents: "none" },
+  { easing: "ease-out" },
+];
 
-// Social Media Links
 export const LINKS = {
-  github: 'https://github.com/alvin-dennis',
+  github: 'https://github.com/alvin-dennis/',
   linkedin: 'https://www.linkedin.com/in/alvin-dennis-0a70ba163/',
-  mail: 'mailto:alvindennis80@gmail.com',
   instagram: 'https://www.instagram.com/_a.lvin._/',
-}
-
-// Global
-export const SITE: Site = {
-  TITLE: 'Portfolio',
-  DESCRIPTION:
-    'My Personal Portfolio based on Astro and Tailwind CSS',
-  AUTHOR: 'Alvin Dennis',
+  behance: 'https://www.behance.net/alvindennis3/',
 }
 
 // Projects Page
@@ -27,7 +16,7 @@ export const PROJECTS = [
   {
     "name": "RC-SJCET",
     "description": "The official website for Radio Community SJCET, a student-led community for HAM radio enthusiasts.",
-    "html_url": "https://github.com/Radio-Community-SJCET/RC-SJCET",
+    "url": "https://github.com/Radio-Community-SJCET/RC-SJCET",
     "hosted_url": "https://radio-community-sjcet.github.io/RC-SJCET/",
     "languages": ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Firebase"]
   },
@@ -97,42 +86,11 @@ export const PROJECTS = [
   }
 ]
 
-
-// Certifications Page
-export const CERTIFICATIONS = [
-  {
-    title: 'Postman Student Expert',
-    institution: 'Postman',
-    link: 'https://badgr.com/public/assertions/uD_pSvk3QLebFhR70fBk9g',
-    date: '2024',
-  },
-  {
-    title: 'Responsive Web Design',
-    institution: 'FreeCodeCamp',
-    link: 'https://www.freecodecamp.org/certification/alvin-dennis/responsive-web-design',
-  },
-  {
-    title: 'Front-End Web Development',
-    institution: 'FreeCodeCamp',
-    link: 'https://www.freecodecamp.org/certification/alvin-dennis/front-end-libraries',
-  },
-  {
-    title: 'GitHub Foundations',
-    institution: 'Microsoft Learn',
-    link: 'https://learn.microsoft.com/en-us/collections/o1njfe825p602p?&sharingId=D29021379D713BFF',
-  },
-  {
-    title: 'Introduction to Packet Tracer',
-    institution: 'Cisco Networking Academy',
-    link: 'https://www.credly.com/badges/bc3d602d-13a3-44a4-823a-a429f43945b2/public_url',
-  },
-]
-
 // Education Page
 export const EDUCATION = [
   {
     name: 'St. Josephs College of Engineering & Technology',
-    location: 'Sharjah, United Arab Emirates',
+    location: 'Palai, Kerala, India',
     position: 'B.Tech in Electrical & Electronics Engineering',
     start: '2021',
     link: 'https://sjcetpalai.ac.in/',
@@ -169,22 +127,11 @@ export const EXPERIENCE = [
     position: 'Operations Lead',
     start: 'September 2024',
     end: 'Present',
-    link: 'https://radiocommunitysjcet.vercel.app',
+    link: 'https://radiocommunity.sjcetpalai.ac.in',
     tasks: [
       'Managed the operations team, organized events, and hosted workshops.'
     ],
   },
-  {
-    company: 'PHICSIT',
-    position: 'Frontend Intern',
-    start: 'August 2024',
-    end: 'Present',
-    link: 'https://phicsit.in/',
-    tasks: [
-      'Developed user-friendly web interfaces, collaborated with designers and developers, and optimized applications for performance and accessibility.'
-    ],
-  },
-
   {
     company: 'Gtech Mulearn SJCET',
     position: 'Campus Co-Lead',
@@ -207,12 +154,22 @@ export const EXPERIENCE = [
   },
   {
     company: 'PHICSIT',
-    position: 'Open-Source Contributor',
-    start: 'March 2024',
-    end: 'May 2024',
+    position: 'Frontend Intern',
+    start: 'August 2024',
+    end: 'November 2024',
     link: 'https://phicsit.in/',
     tasks: [
-      'Contributed to open-source projects, mentored students, and actively participated in hackathons.'
+      'Developed user-friendly web interfaces, collaborated with designers and developers, and optimized applications for performance and accessibility.'
+    ],
+  },
+  {
+    company: 'Radio Community SJCET',
+    position: 'Technical Lead',
+    start: 'November 2023',
+    end: 'August 2024',
+    link: 'https://radiocommunitysjcet.vercel.app',
+    tasks: [
+      'Managed the technical team, organized events, and hosted workshops.'
     ],
   },
   {
@@ -226,13 +183,13 @@ export const EXPERIENCE = [
     ],
   },
   {
-    company: 'Radio Community SJCET',
-    position: 'Technical Lead',
-    start: 'November 2023',
-    end: 'August 2024',
-    link: 'https://radiocommunitysjcet.vercel.app',
+    company: 'PHICSIT',
+    position: 'Open-Source Contributor',
+    start: 'March 2024',
+    end: 'May 2024',
+    link: 'https://phicsit.in/',
     tasks: [
-      'Managed the technical team, organized events, and hosted workshops.'
+      'Contributed to open-source projects, mentored students, and actively participated in hackathons.'
     ],
   },
   {

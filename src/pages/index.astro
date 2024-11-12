@@ -1,79 +1,60 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import AboutMeCard from '../components/sections/AboutMeCard.astro'
-import SkillsCard from '../components/sections/SkillsCard.astro'
-import Card from '../components/Card.astro'
-import TimeZoneCard from '../components/sections/TimeZoneCard.astro'
-import ExperienceCard from '../components/sections/ExperienceCard.astro'
-import CurrentlyCard from '../components/sections/CurrentlyCard.astro'
-import CVCard from '../components/sections/CVCard.astro'
-import EducationCard from '../components/sections/EducationCard.astro'
-import CertificationCard from '../components/sections/CertificationCard.astro'
-import ServiceStatusCard from '../components/sections/ServiceStatusCard.astro'
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card/index.astro";
+import SkillsCard from "../components/Skills.astro";
+import EducationCard from "../components/EducationCard.astro";
+import ExperienceCard from "../components/ExperienceCard.astro";
+import TimeZone from "../components/TimeZoneCard.astro";
+import AboutMe from "../components/AboutMe.astro";
+import CurrentlyCard from "../components/CurrentlyCard.astro";
 ---
 
 <script>
-  import { stagger, spring, timeline, type TimelineDefinition } from 'motion'
-  import { loaderAnimation } from '../lib/constants'
-
-  const cards = document.querySelectorAll('.card-animate')
+  import { stagger, spring, timeline, type TimelineDefinition } from "motion";
+  import { loaderAnimation } from "../lib/constants";
+  const cards = document.querySelectorAll(".card");
 
   const sequence = [
     loaderAnimation,
     [
       cards,
-      { y: ['40%', '0%'], opacity: [0, 1] },
+      { y: ["40%", "0%"], opacity: [0, 1] },
       {
-        at: '-0.1',
+        at: "-0.1",
         duration: 0.4,
         delay: stagger(0.3),
         easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
       },
     ],
-  ]
+  ];
 
-  timeline(sequence as TimelineDefinition)
+  timeline(sequence as TimelineDefinition);
 </script>
 
-<BaseLayout
-  title="Alvin Dennis II Portfolio"
-  description="Portfolio Website"
->
-  <div
-    slot="loader"
-    class="loader bg-darkslate-700 fixed bottom-0 left-0 right-0 top-0 z-50 flex h-screen w-screen items-center justify-center text-3xl font-black uppercase text-neutral-50"
-  >
-  </div>
+<Layout title="Alvin Dennis II Portfolio" description="Portfolio Website">
   <main
-    class="relative m-auto grid w-full max-w-6xl gap-2 overflow-hidden p-2 sm:gap-2 sm:p-4 md:grid-cols-2 md:gap-3 md:p-6 lg:grid-cols-4 lg:grid-rows-8 lg:gap-4"
+    class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
   >
-  <>
-    <AboutMeCard/>
+    <AboutMe />
     <SkillsCard />
-    <CVCard />
-    <CurrentlyCard/>
+    <EducationCard />
+    <TimeZone />
+    <CurrentlyCard />
     <Card
       colSpan="md:col-span-1"
-      rowSpan="md:row-span-2"
+      rowSpan="md:row-span-1"
       title="💡 My Projects"
       href="/projects"
-    >
-    <p class="text-sm text-muted-foreground">
-      My Projects & Works
-    </p>
-  </Card>
-    <TimeZoneCard />
+    />
     <ExperienceCard />
-    <EducationCard />
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
-      <div class="flex h-full flex-col justify-between">
-        <blockquote class="mt-6 border-l-2 pl-6 italic">
-          “It's not at all important to get it right the first time. It's vitally important to get it right the last time.”
-        </blockquote>
-        <p class="mt-2 text-xs">- Andrew Hunt</p>
-      </div>
+      <p class="text-xs">
+        © 2024 · Crafted with ❤️ using <a
+          href="https://github.com/alvin-dennis"
+          target="_blank"
+          class="text-primary-500">Astro</a
+        > by Alvin Dennis.
+      </p>
     </Card>
-    <CertificationCard />
-    <ServiceStatusCard />
   </main>
-</BaseLayout>
+</Layout>

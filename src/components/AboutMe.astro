@@ -1,0 +1,68 @@
+---
+import Card from "./Card/index.astro";
+import Button from "./Button.astro";
+import { LINKS } from "../lib/constants";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+const PDF = '/RESUME.pdf'
+---
+
+<Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
+  <div class="flex w-full h-full">
+    <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
+      <div class="flex flex-col h-full">
+        <h1 class="text-2xl font-bold">🚀 About Me</h1>
+        <p class="m-0 font-light text-xl">
+          Hi, I'm <b class="font-bold">Alvin Dennis</b>, a Dynamic Electrical
+          Engineering student skilled in UI/UX, web development, IoT, and
+          automation. I bring creativity, adaptability, and strong teamwork to
+          deliver impactful solutions.
+        </p>
+      </div>
+      <div class="flex gap-4">
+        <a href={LINKS.github} aria-label="github profile" target="_blank">
+          <Button aria-label="github profile">
+            <Icon name="ri:github-fill" class="h-6" />
+            <span class="sr-only">GitHub Profile</span>
+          </Button>
+        </a>
+        <a href={LINKS.linkedin} aria-label="linkedin profile" target="_blank">
+          <Button aria-label="linkedin profile">
+            <Icon name="ri:linkedin-box-fill" class="h-6" />
+            <span class="sr-only">Linkedin Profile</span>
+          </Button>
+        </a>
+        <a
+          href={LINKS.instagram}
+          aria-label="instagram profile"
+          target="_blank"
+        >
+          <Button aria-label="instagram profile">
+            <Icon name="ri:instagram-fill" class="h-6" />
+            <span class="sr-only">Instagram Profile</span>
+          </Button>
+        </a>
+        <a href={LINKS.behance} aria-label="behance profile" target="_blank">
+          <Button aria-label="behance profile">
+            <Icon name="ri:behance-fill" class="h-6" />
+            <span class="sr-only">Behance Profile</span>
+          </Button>
+        </a>
+        <a target="_blank" href={PDF}>
+          <Button aria-label="resume">
+            <Icon name="ri:article-fill"  class="h-6"/>
+            <span class="sr-only">Download Resume</span>
+          </Button>
+        </a>
+      </div>
+    </div>
+    <Image
+      width="300"
+      height="300"
+      src="/me.webp"
+      class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
+      alt="Alvin Dennis"
+    />
+  </div>
+</Card>
