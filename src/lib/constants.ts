@@ -8,7 +8,6 @@ export const LINKS = {
   github: 'https://github.com/alvin-dennis/',
   linkedin: 'https://www.linkedin.com/in/alvin-dennis-0a70ba163/',
   instagram: 'https://www.instagram.com/_a.lvin._/',
-  behance: 'https://www.behance.net/alvindennis3/',
 }
 
 // Projects Page
