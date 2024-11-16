@@ -6,7 +6,7 @@ This platform serves as a digital showcase of my professional journey, skills, p
 
 ## Demo
 
-You can also check out the live demo of the portfolio website [here](https://alvindennis.vercel.app/).
+You can also check out the live demo of the portfolio website [here](https://alvindennis.tech).
 
 ## Technologies Utilized
 
@@ -20,7 +20,7 @@ You can also check out the live demo of the portfolio website [here](https://alv
 Clone the Repo
 
 ```bash
-git clone <reponame>
+git clone https://github.com/alvin-dennis/Personal-Portfolio-2.0.git
 ```
 
 Installation of dependencies
