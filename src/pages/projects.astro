@@ -15,37 +15,42 @@ import { Github, Link } from "lucide-astro";
 
 <Layout title="Alvin Dennis II Portfolio" description="My Projects Page">
   <main
-    class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8"
+    class="min-h-screen w-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8 relative"
   >
-  <a
-  href="/"
-  class="fixed text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border border-solid border-neutral-600 rounded-lg"
->
-  Back
-</a>
-<br />
-<br />
+    <a
+      href="/"
+      class="fixed text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border border-solid border-neutral-600 rounded-lg z-50"
+      style="top: 20px; left: 20px;"
+    >
+      Back
+    </a>
+
     <h1 class="text-4xl font-bold mb-4 text-neutral-100 text-center w-full">
       My Projects
     </h1>
+
     <ul class="w-full">
       {
-        PROJECTS.map((project) => (
-          <li class="mb-4">
+        PROJECTS.map((project, index) => (
+          <li class="mb-4" key={index}>
             <a href={project.url} class="text-primary-500 hover:underline">
               {project.name}
             </a>
             <p class="text-neutral-400">{project.description}</p>
             <div class="flex space-x-4 mt-2">
-              <a href={project.url} class="text-primary-500 hover:underline">
-                <Github />
-              </a>
-              <a
-                href={project.hosted_url}
-                class="text-primary-500 hover:underline"
-              >
-                <Link />
-              </a>
+              {project.url && (
+                <a href={project.url} class="text-primary-500 hover:underline">
+                  <Github />
+                </a>
+              )}
+              {project.hosted_url && (
+                <a
+                  href={project.hosted_url}
+                  class="text-primary-500 hover:underline"
+                >
+                  <Link />
+                </a>
+              )}
             </div>
           </li>
         ))
@@ -53,3 +58,4 @@ import { Github, Link } from "lucide-astro";
     </ul>
   </main>
 </Layout>
+

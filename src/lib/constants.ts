@@ -16,70 +16,56 @@ export const PROJECTS = [
     "name": "RC-SJCET",
     "description": "The official website for Radio Community SJCET, a student-led community for HAM radio enthusiasts.",
     "url": "https://github.com/Radio-Community-SJCET/RC-SJCET",
-    "hosted_url": "https://radio-community-sjcet.github.io/RC-SJCET/",
+    "hosted_url": "https://radiocommunity.sjcetpalai.ac.in/",
     "languages": ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Firebase"]
   },
 
   {
     "name": "RC-Admin",
     "description": "The admin dashboard for Radio Community SJCET, a student-led community for HAM radio enthusiasts.",
-    "html_url": "https://github.com/Radio-Community-SJCET/RC-Admin",
+    "url": "https://github.com/Radio-Community-SJCET/RC-Admin",
     "hosted_url": "https://alvindennis.vercel.app/",
     "languages": ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Firebase"]
   },
   {
-    "name": "Masterpiece Exhibits",
-    "description": "A platform for developers to showcase their projects and find collaborators.",
-    "html_url": "https://github.com/alvin-dennis/Masterpiece-Exhibits",
-    "hosted_url": "https://alvindennis.vercel.app/",
-    "languages": ["Next.js", "Refine", "Tailwind CSS", "Supabase"]
-  },
-  {
-    "name": "Project Shelf",
-    "description": "A platform for developers to showcase their projects and find collaborators.",
-    "html_url": "https://github.com/alvin-dennis/alvin-dennis.github.io",
-    "hosted_url": "https://alvin-dennis.github.io/",
-    "languages": ["Jekyll", "HTML", "CSS", "JavaScript"]
-  },
-  {
     "name": "Personal Portfolio",
     "description": "A personal developer portfolio created as a single page portfolio made as a bento grid.",
-    "html_url": "https://github.com/alvin-dennis/Personal-Portfolio-2.0",
-    "hosted_url": "https://alvindennis.vercel.app/",
+    "url": "https://github.com/alvin-dennis/Personal-Portfolio-2.0",
+    "hosted_url": "https://alvindennis.tech/",
     "languages": ["JavaScript", "Typescript", "React", "Astro", "CSS"]
   },
   {
     "name": "Event Dashboard",
     "description": "An Event Dashboard that provides a platform for managing and viewing events",
-    "html_url": "https://github.com/alvin-dennis/Sjcet-Events",
+    "url": "https://github.com/alvin-dennis/Sjcet-Events",
     "hosted_url": "https://sjcet-events.vercel.app/",
     "languages": ["Vue", "React", "Javascript", "HTML", "CSS"]
   },
   {
     "name": "AutoLux",
     "description": "A Full Stack E-Commerce website and admin dashboard",
-    "html_url": "https://github.com/alvin-dennis/AutoLux",
+    "url": "https://github.com/alvin-dennis/AutoLux",
     "hosted_url": "https://alvindennis.vercel.app/",
     "languages": ["Next.js", "JavaScript", "MongoDB"]
   },
   {
     "name": "DevMate",
     "description": "DevMate is a chatbot that assists developers in finding the code they need.",
-    "html_url": "https://github.com/alvin-dennis/DevMate",
+    "url": "https://github.com/alvin-dennis/DevMate",
     "hosted_url": "https://alvindennis.vercel.app/",
     "languages": ["Python", "Pathway", "OpenAI", "Streamlit"]
   },
   {
     "name": "Resume",
     "description": "A professional resume created using LaTeX and Overleaf.",
-    "html_url": "https://github.com/alvin-dennis/Resume",
+    "url": "https://github.com/alvin-dennis/Resume",
     "hosted_url": "https://alvindennis.vercel.app/",
     "languages": ["LaTeX"]
   },
   {
     "name": "Website Status Checker",
     "description": "This is a Python application  to check the status of websites.",
-    "html_url": "https://github.com/alvin-dennis/Website-Status-Checker",
+    "url": "https://github.com/alvin-dennis/Website-Status-Checker",
     "hosted_url": "https://alvindennis.vercel.app/",
     "languages": ["Python", "Streamlit", "Lighthouse API"]
   }
