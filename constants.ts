@@ -1,16 +1,9 @@
-export const loaderAnimation = [
-  ".loader",
-  { opacity: [1, 0], pointerEvents: "none" },
-  { easing: "ease-out" },
-];
-
 export const LINKS = {
   github: 'https://github.com/alvin-dennis/',
   linkedin: 'https://www.linkedin.com/in/alvin-dennis-0a70ba163/',
   instagram: 'https://www.instagram.com/_a.lvin._/',
 }
 
-// Projects Page
 export const PROJECTS = [
   {
     "name": "RC-SJCET",
@@ -71,7 +64,6 @@ export const PROJECTS = [
   }
 ]
 
-// Education Page
 export const EDUCATION = [
   {
     name: 'St. Josephs College of Engineering & Technology',
@@ -105,7 +97,6 @@ export const EDUCATION = [
   },
 ]
 
-// Experience Page
 export const EXPERIENCE = [
   {
     company: 'Radio Community SJCET',
