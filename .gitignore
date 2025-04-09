@@ -7,7 +7,7 @@ node_modules/
 
 # next.js
 .next/
-/out/
+out/
 
 # production
 /build
