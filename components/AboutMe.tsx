@@ -13,9 +13,6 @@ export default function AboutMe() {
     <div className="bg-[#161616] rounded-[2rem] p-6 relative border border-[#222222] hover:border-[#333333] transition-colors">
       <div className="flex justify-between items-start mb-6">
         <h2 className="text-[2rem] font-bold font-title">About Me</h2>
-        <div className="bg-black rounded-full p-2">
-          <ArrowUpRight className="w-6 h-6 text-white" />
-        </div>
       </div>
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/4">
