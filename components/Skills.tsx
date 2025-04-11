@@ -1,6 +1,6 @@
 export default function Skills() {
   return (
-    <div className="bg-[#161616] rounded-[2rem] p-6 relative border border-[#222222] hover:border-[#333333] transition-colors">
+    <div className="bg-[#161616]/40 rounded-[2rem] p-6 relative border border-white/10 hover:border-white/20 transition-colors backdrop-blur-md shadow-lg">
       <div className="flex justify-between items-start mb-6">
         <h2 className="text-[2rem] font-bold font-title">Skills</h2>
       </div>

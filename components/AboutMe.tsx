@@ -10,7 +10,7 @@ import { LINKS } from "@/lib/constants";
 
 export default function AboutMe() {
   return (
-    <div className="bg-[#161616] rounded-[2rem] p-6 relative border border-[#222222] hover:border-[#333333] transition-colors">
+    <div className="bg-[#161616]/40 rounded-[2rem] p-6 relative border border-white/10 hover:border-white/20 transition-colors backdrop-blur-md shadow-lg">
       <div className="flex justify-between items-start mb-6">
         <h2 className="text-[2rem] font-bold font-title">About Me</h2>
       </div>
@@ -35,13 +35,22 @@ export default function AboutMe() {
             solutions.
           </p>
           <div className="flex gap-3">
-            <a href={LINKS.github} className="bg-black p-3 rounded-full">
+            <a
+              href={LINKS.github}
+              className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
+            >
               <Github className="w-5 h-5 text-white" />
             </a>
-            <a href={LINKS.instagram} className="bg-black p-3 rounded-full">
+            <a
+              href={LINKS.instagram}
+              className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
+            >
               <Instagram className="w-5 h-5 text-white" />
             </a>
-            <a href={LINKS.linkedin} className="bg-black p-3 rounded-full">
+            <a
+              href={LINKS.linkedin}
+              className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
+            >
               <Linkedin className="w-5 h-5 text-white" />
             </a>
           </div>
