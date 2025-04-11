@@ -50,7 +50,7 @@ export function Sparkles({
   }, []);
 
   const id = useId();
-  const defaultOptions = {
+  const defaultOptions: RecursivePartial<IOptions> = {
     background: {
       color: {
         value: background,
