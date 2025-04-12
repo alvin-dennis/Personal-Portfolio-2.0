@@ -2,6 +2,8 @@ export const LINKS = {
   github: "https://github.com/alvin-dennis/",
   linkedin: "https://www.linkedin.com/in/alvin-dennis-0a70ba163/",
   instagram: "https://www.instagram.com/_a.lvin._/",
+  behance: "https://www.behance.net/alvindennis3",
+  resume: "https://resumes.alvindennis.tech/",
 };
 
 export const PROJECTS = [
@@ -78,7 +80,6 @@ export const EDUCATION = [
     start: "2021",
     link: "https://sjcetpalai.ac.in/",
     end: "2025",
-    tasks: [],
   }
 ];
 
@@ -98,7 +99,7 @@ export const EXPERIENCE = [
     position: "Campus Co-Lead",
     start: "June 2024",
     end: "Present",
-    link: "https://mulearn@sjcetpalai.ac.in",
+    link: "https://mulearn.sjcetpalai.ac.in",
     tasks: [
       "Co-led campus initiatives, managed QA Interest Group, and organized events and bootcamps.",
     ],
@@ -126,29 +127,9 @@ export const EXPERIENCE = [
     position: "Technical Lead",
     start: "November 2023",
     end: "August 2024",
-    link: "https://radiocommunitysjcet.vercel.app",
+    link: "https://radiocommunity.sjcetpalai.ac.in",
     tasks: [
       "Managed the technical team, organized events, and hosted workshops.",
-    ],
-  },
-  {
-    company: "Gtech Mulearn SJCET",
-    position: "Media Team & IoT IG Lead",
-    start: "December 2023",
-    end: "June 2024",
-    link: "https://mulearn@sjcetpalai.ac.in",
-    tasks: [
-      "Led the IoT Interest Group, managed the Media Team, and coordinated the organization of workshops.",
-    ],
-  },
-  {
-    company: "PHICSIT",
-    position: "Open-Source Contributor",
-    start: "March 2024",
-    end: "May 2024",
-    link: "https://phicsit.in/",
-    tasks: [
-      "Contributed to open-source projects, mentored students, and actively participated in hackathons.",
     ],
   },
   {

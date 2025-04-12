@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { LINKS } from "@/lib/constants";
+import RotatingText from "./ui/RotatingText";
 
 export default function AboutMe() {
   return (
