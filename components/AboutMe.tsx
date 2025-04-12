@@ -1,16 +1,14 @@
 import {
-  ArrowUpRight,
   Github,
   Instagram,
   Linkedin,
-  Twitter,
 } from "lucide-react";
 import Image from "next/image";
 import { LINKS } from "@/lib/constants";
 
 export default function AboutMe() {
   return (
-    <div className="bg-[#161616]/40 rounded-[2rem] p-6 relative border border-white/10 hover:border-white/20 transition-colors backdrop-blur-md shadow-lg">
+    <div className="bg-[#000000]/40 rounded-[2rem] p-6 relative border border-white/10 hover:border-white/20 transition-colors backdrop-blur-md shadow-lg">
       <div className="flex justify-between items-start mb-6">
         <h2 className="text-[2rem] font-bold font-title">About Me</h2>
       </div>

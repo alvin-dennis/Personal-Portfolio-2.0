@@ -2,7 +2,6 @@ export const LINKS = {
   github: "https://github.com/alvin-dennis/",
   linkedin: "https://www.linkedin.com/in/alvin-dennis-0a70ba163/",
   instagram: "https://www.instagram.com/_a.lvin._/",
-  twitter: "https://twitter.com/your-twitter-handle", // Add your Twitter handle here
 };
 
 export const PROJECTS = [
@@ -78,27 +77,9 @@ export const EDUCATION = [
     position: "B.Tech in Electrical & Electronics Engineering",
     start: "2021",
     link: "https://sjcetpalai.ac.in/",
-    end: "Present",
+    end: "2025",
     tasks: [],
-  },
-  {
-    name: "Sharjah Indian School",
-    location: "Sharjah, United Arab Emirates",
-    position: "Higher Secondary Education",
-    link: "https://sisjuwaiza.com/",
-    start: "2019",
-    end: "2021",
-    tasks: [],
-  },
-  {
-    name: "Sharjah Indian School",
-    link: "https://sisjuwaiza.com/",
-    location: "Sharjah, United Arab Emirates",
-    position: "High School Education",
-    start: "2015",
-    end: "2019",
-    tasks: [],
-  },
+  }
 ];
 
 export const EXPERIENCE = [

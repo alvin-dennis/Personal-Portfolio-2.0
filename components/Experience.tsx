@@ -1,13 +1,13 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { EXPERIENCE } from "@/lib/constants";
 
 export default function Experience() {
   return (
-    <div className="bg-[#161616]/40 rounded-[2rem] p-6 relative border border-white/10 hover:border-white/20 transition-colors backdrop-blur-md shadow-lg">
+    <div className="bg-[#000000]/40 rounded-[2rem] p-6 relative border border-white/10 hover:border-white/20 transition-colors backdrop-blur-md shadow-lg">
       <div className="flex justify-between items-start mb-4">
         <h2 className="text-[2rem] font-bold font-title">Experience</h2>
-        <div className="bg-black/60 backdrop-blur-sm rounded-full p-2">
-          <ArrowUpRight className="w-6 h-6 text-white" />
+        <div className="bg-white backdrop-blur-sm rounded-full p-2">
+          <ArrowUpRight className="w-6 h-6 text-black" />
         </div>
       </div>
       <div className="space-y-4 font-content">
