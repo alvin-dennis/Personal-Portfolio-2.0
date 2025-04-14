@@ -3,7 +3,7 @@ export const LINKS = {
   linkedin: "https://www.linkedin.com/in/alvin-dennis-0a70ba163/",
   instagram: "https://www.instagram.com/_a.lvin._/",
   behance: "https://www.behance.net/alvindennis3",
-  resume: "https://resumes.alvindennis.tech/",
+  resume: "https://resume.alvindennis.tech/",
 };
 
 export const PROJECTS = [
