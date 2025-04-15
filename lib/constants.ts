@@ -14,15 +14,7 @@ export const PROJECTS = [
     url: "https://github.com/Radio-Community-SJCET/RC-SJCET",
     hosted_url: "https://radiocommunity.sjcetpalai.ac.in/",
     languages: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Firebase"],
-  },
-
-  {
-    name: "RC-Admin",
-    description:
-      "The admin dashboard for Radio Community SJCET, a student-led community for HAM radio enthusiasts.",
-    url: "https://github.com/Radio-Community-SJCET/RC-Admin",
-    hosted_url: "https://alvindennis.vercel.app/",
-    languages: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Firebase"],
+    developed: "",
   },
   {
     name: "Personal Portfolio",
@@ -30,7 +22,8 @@ export const PROJECTS = [
       "A personal developer portfolio created as a single page portfolio made as a bento grid.",
     url: "https://github.com/alvin-dennis/Personal-Portfolio-2.0",
     hosted_url: "https://alvindennis.tech/",
-    languages: ["JavaScript", "Typescript", "React", "Astro", "CSS"],
+    languages: ["JavaScript", "Typescript", "React", "Astro", "Tailwind CSS"],
+    developed: "",
   },
   {
     name: "Event Dashboard",
@@ -38,14 +31,8 @@ export const PROJECTS = [
       "An Event Dashboard that provides a platform for managing and viewing events",
     url: "https://github.com/alvin-dennis/Sjcet-Events",
     hosted_url: "https://sjcet-events.vercel.app/",
-    languages: ["Vue", "React", "Javascript", "HTML", "CSS"],
-  },
-  {
-    name: "AutoLux",
-    description: "A Full Stack E-Commerce website and admin dashboard",
-    url: "https://github.com/alvin-dennis/AutoLux",
-    hosted_url: "https://alvindennis.vercel.app/",
-    languages: ["Next.js", "JavaScript", "MongoDB"],
+    languages: ["Vue", "React", "JavaScript", "Tailwind CSS", "Firebase"],
+    developed: "",
   },
   {
     name: "DevMate",
@@ -54,13 +41,15 @@ export const PROJECTS = [
     url: "https://github.com/alvin-dennis/DevMate",
     hosted_url: "https://alvindennis.vercel.app/",
     languages: ["Python", "Pathway", "OpenAI", "Streamlit"],
+    developed: "",
   },
   {
     name: "Resume",
     description: "A professional resume created using LaTeX and Overleaf.",
     url: "https://github.com/alvin-dennis/Resume",
-    hosted_url: "https://alvindennis.vercel.app/",
+    hosted_url: "https://resume.alvindennis.tech/",
     languages: ["LaTeX"],
+    developed: "",
   },
   {
     name: "Website Status Checker",
@@ -69,6 +58,7 @@ export const PROJECTS = [
     url: "https://github.com/alvin-dennis/Website-Status-Checker",
     hosted_url: "https://alvindennis.vercel.app/",
     languages: ["Python", "Streamlit", "Lighthouse API"],
+    developed: "",
   },
 ];
 
@@ -77,18 +67,28 @@ export const EDUCATION = [
     name: "St. Josephs College of Engineering & Technology",
     location: "Palai, Kerala, India",
     position: "B.Tech in Electrical & Electronics Engineering",
-    start: "2021",
+    start: " November 2021",
     link: "https://sjcetpalai.ac.in/",
-    end: "2025",
+    end: "July 2025",
   }
 ];
 
 export const EXPERIENCE = [
   {
+    company: "Tinkerhub",
+    position: "Community Management Intern",
+    start: "January 2025",
+    end: "Present",
+    link: "https://app.tinkerhub.org/",
+    tasks: [
+      "Managed community events, collaborated with teams, and facilitated workshops.",
+    ],
+  },
+  {
     company: "Radio Community SJCET",
     position: "Operations Lead",
     start: "September 2024",
-    end: "Present",
+    end: "March 2025",
     link: "https://radiocommunity.sjcetpalai.ac.in",
     tasks: [
       "Managed the operations team, organized events, and hosted workshops.",
@@ -98,7 +98,7 @@ export const EXPERIENCE = [
     company: "Gtech Mulearn SJCET",
     position: "Campus Co-Lead",
     start: "June 2024",
-    end: "Present",
+    end: "Febuary 2025",
     link: "https://mulearn.sjcetpalai.ac.in",
     tasks: [
       "Co-led campus initiatives, managed QA Interest Group, and organized events and bootcamps.",
@@ -108,7 +108,7 @@ export const EXPERIENCE = [
     company: "Startup Bootcamp SJCET-IEDC",
     position: "Chief Finance Officer",
     start: "September 2023",
-    end: "Present",
+    end: "March 2025",
     link: "https://iedc.sjcetpalai.ac.in/",
     tasks: ["Managed finances, organized events, and hosted workshops."],
   },

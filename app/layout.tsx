@@ -30,8 +30,6 @@ export const metadata: Metadata = {
   robots: "index, follow",
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -42,11 +40,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.variable} ${calSans.variable} font-sans antialiased bg-[#1a2e35]`}
-      >
-        {children}
-      </body>
-    </html>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <body
+    className={`${poppins.variable} ${calSans.variable} font-sans antialiased bg-[#1a2e35]`}
+  >
+    {children}
+  </body>
+</html>
   );
 }
