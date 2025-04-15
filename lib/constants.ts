@@ -67,10 +67,10 @@ export const EDUCATION = [
     name: "St. Josephs College of Engineering & Technology",
     location: "Palai, Kerala, India",
     position: "B.Tech in Electrical & Electronics Engineering",
-    start: " November 2021",
+    start: "November 2021",
     link: "https://sjcetpalai.ac.in/",
     end: "July 2025",
-  }
+  },
 ];
 
 export const EXPERIENCE = [
@@ -80,6 +80,7 @@ export const EXPERIENCE = [
     start: "January 2025",
     end: "Present",
     link: "https://app.tinkerhub.org/",
+    logo: "https://github.com/tinkerhub.png",
     tasks: [
       "Managed community events, collaborated with teams, and facilitated workshops.",
     ],
@@ -90,6 +91,7 @@ export const EXPERIENCE = [
     start: "September 2024",
     end: "March 2025",
     link: "https://radiocommunity.sjcetpalai.ac.in",
+    logo: "https://github.com/Radio-Community-SJCET.png",
     tasks: [
       "Managed the operations team, organized events, and hosted workshops.",
     ],
@@ -98,8 +100,9 @@ export const EXPERIENCE = [
     company: "Gtech Mulearn SJCET",
     position: "Campus Co-Lead",
     start: "June 2024",
-    end: "Febuary 2025",
+    end: "February 2025",
     link: "https://mulearn.sjcetpalai.ac.in",
+    logo: "https://github.com/mulearn-sjc.png",
     tasks: [
       "Co-led campus initiatives, managed QA Interest Group, and organized events and bootcamps.",
     ],
@@ -110,6 +113,7 @@ export const EXPERIENCE = [
     start: "September 2023",
     end: "March 2025",
     link: "https://iedc.sjcetpalai.ac.in/",
+    logo: "https://github.com/IEDC-SJCET.png",
     tasks: ["Managed finances, organized events, and hosted workshops."],
   },
   {
@@ -118,6 +122,7 @@ export const EXPERIENCE = [
     start: "August 2024",
     end: "November 2024",
     link: "https://phicsit.in/",
+    logo: "https://github.com/tinkerhub.png",
     tasks: [
       "Developed user-friendly web interfaces, collaborated with designers and developers, and optimized applications for performance and accessibility.",
     ],
@@ -128,6 +133,7 @@ export const EXPERIENCE = [
     start: "November 2023",
     end: "August 2024",
     link: "https://radiocommunity.sjcetpalai.ac.in",
+    logo: "https://github.com/Radio-Community-SJCET.png",
     tasks: [
       "Managed the technical team, organized events, and hosted workshops.",
     ],
@@ -137,7 +143,8 @@ export const EXPERIENCE = [
     position: "QA IG Lead Intern",
     start: "October 2023",
     end: "March 2024",
-    link: "https://mulearn.org",
+    link: "https://app.mulearn.org",
+    logo: "https://github.com/gtech-mulearn.png",
     tasks: [
       "Led quality assurance initiatives, facilitated testing processes, created tasks and mentored members in best practices for software quality.",
     ],
@@ -148,6 +155,7 @@ export const EXPERIENCE = [
     start: "June 2022",
     end: "August 2023",
     link: "https://iedc.sjcetpalai.ac.in/",
+    logo: "https://github.com/IEDC-SJCET.png",
     tasks: [
       "Managed the technical team, organized events, and facilitated workshops.",
     ],

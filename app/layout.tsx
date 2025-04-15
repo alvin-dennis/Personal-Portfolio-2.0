@@ -40,13 +40,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <body
-    className={`${poppins.variable} ${calSans.variable} font-sans antialiased bg-[#1a2e35]`}
-  >
-    {children}
-  </body>
-</html>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
+      <body
+        className={`${poppins.variable} ${calSans.variable} font-sans antialiased bg-[#1a2e35]`}
+      >
+        {children}
+      </body>
+    </html>
   );
 }

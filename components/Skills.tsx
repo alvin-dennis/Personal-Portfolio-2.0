@@ -5,7 +5,7 @@ export default function Skills() {
         <h2 className="text-[2rem] font-bold font-title">Skills</h2>
       </div>
       <img
-        src="https://skillicons.dev/icons?i=html,css,javascript,typescript,python,c,mint,markdown,latex,react,vue,astro,nextjs,flask,fastapi,nodejs,tailwindcss,scss,mongodb,postgres,supabase,firebase,prisma,git,github,postman,figma,vscode,pycharm,bash,powershell,cloudflare,workers,opencv,vercel,netlify,notion,githubactions,anaconda,arduino,raspberrypi,matlab,arch,bun,bots&perline=5"
+        src="https://skillicons.dev/icons?i=html,css,javascript,typescript,python,c,markdown,latex,react,vue,astro,nextjs,flask,fastapi,nodejs,tailwindcss,scss,mongodb,postgres,supabase,firebase,prisma,git,github,postman,figma,vscode,pycharm,bash,powershell,cloudflare,workers,opencv,vercel,netlify,notion,githubactions,anaconda,arduino,raspberrypi,matlab,mint,arch,bun,bots&perline=5"
         alt="Skills"
       />
     </div>

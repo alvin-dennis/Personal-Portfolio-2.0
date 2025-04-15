@@ -4,10 +4,7 @@ import { PROJECTS } from "@/lib/constants";
 export default function Projects() {
   return (
     <div className="col-span-12 lg:col-span-5 bg-[#000000]/40 rounded-[2rem] p-6 relative h-full md:min-h-0 min-h-[50vh] border border-white/10 hover:border-white/20 transition-colors backdrop-blur-md shadow-lg flex flex-col">
-      <div className="flex justify-between items-start mb-6 sticky top-0 z-10 pt-1 pb-2 backdrop-blur-md">
-        <h2 className="text-[2rem] font-bold font-title">Projects</h2>
-      </div>
-
+      <h2 className="text-[2rem] font-bold font-title mb-6">Projects</h2>
       <div className="font-content overflow-y-auto scrollbar-hide pr-1 flex-grow">
         {PROJECTS.map((project, index) => (
           <div key={index} className="mb-8">
