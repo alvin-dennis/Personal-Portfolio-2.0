@@ -14,7 +14,7 @@ export const PROJECTS = [
     url: "https://github.com/Radio-Community-SJCET/RC-SJCET",
     hosted_url: "https://radiocommunity.sjcetpalai.ac.in/",
     languages: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Firebase"],
-    developed: "",
+    developed: "Community project for radio enthusiasts at SJCET",
   },
   {
     name: "Personal Portfolio",
@@ -23,7 +23,7 @@ export const PROJECTS = [
     url: "https://github.com/alvin-dennis/Personal-Portfolio-2.0",
     hosted_url: "https://alvindennis.tech/",
     languages: ["JavaScript", "Typescript", "React", "Astro", "Tailwind CSS"],
-    developed: "",
+    developed: "Personal project to showcase skills and experience",
   },
   {
     name: "Event Dashboard",
@@ -32,7 +32,7 @@ export const PROJECTS = [
     url: "https://github.com/alvin-dennis/Sjcet-Events",
     hosted_url: "https://sjcet-events.vercel.app/",
     languages: ["Vue", "React", "JavaScript", "Tailwind CSS", "Firebase"],
-    developed: "",
+    developed: "College project to streamline event management",
   },
   {
     name: "DevMate",
@@ -41,7 +41,7 @@ export const PROJECTS = [
     url: "https://github.com/alvin-dennis/DevMate",
     hosted_url: "https://alvindennis.vercel.app/",
     languages: ["Python", "Pathway", "OpenAI", "Streamlit"],
-    developed: "",
+    developed: "Side project to help developers with code suggestions",
   },
   {
     name: "Resume",
@@ -49,7 +49,7 @@ export const PROJECTS = [
     url: "https://github.com/alvin-dennis/Resume",
     hosted_url: "https://resume.alvindennis.tech/",
     languages: ["LaTeX"],
-    developed: "",
+    developed: "Professional document created for job applications",
   },
   {
     name: "Website Status Checker",
@@ -58,7 +58,7 @@ export const PROJECTS = [
     url: "https://github.com/alvin-dennis/Website-Status-Checker",
     hosted_url: "https://alvindennis.vercel.app/",
     languages: ["Python", "Streamlit", "Lighthouse API"],
-    developed: "",
+    developed: "Utility tool built during a hackathon",
   },
 ];
 
