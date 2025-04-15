@@ -15,6 +15,7 @@ export const PROJECTS = [
     hosted_url: "https://radiocommunity.sjcetpalai.ac.in/",
     languages: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Firebase"],
     developed: "Community project for radio enthusiasts at SJCET",
+    photo: "/images/projects/rc-sjcet.png",
   },
   {
     name: "Personal Portfolio",
@@ -24,6 +25,7 @@ export const PROJECTS = [
     hosted_url: "https://alvindennis.tech/",
     languages: ["JavaScript", "Typescript", "React", "Astro", "Tailwind CSS"],
     developed: "Personal project to showcase skills and experience",
+    photo: "/images/projects/portfolio.png",
   },
   {
     name: "Event Dashboard",
@@ -33,6 +35,69 @@ export const PROJECTS = [
     hosted_url: "https://sjcet-events.vercel.app/",
     languages: ["Vue", "React", "JavaScript", "Tailwind CSS", "Firebase"],
     developed: "College project to streamline event management",
+    photo: "/images/projects/event-dashboard.png",
+  },
+  {
+    name: "BuilderBot",
+    description:
+      "A Discord bot that assists developers with project management and collaboration tools.",
+    url: "https://github.com/alvin-dennis/builderbot",
+    hosted_url: "https://builderbot.alvindennis.tech/",
+    languages: ["JavaScript", "Discord.js", "Node.js", "MongoDB"],
+    developed:
+      "Utility bot to enhance developer workflow in Discord communities",
+    photo: "https://builderbot.alvindennis.tech/screenshot.png",
+  },
+  {
+    name: "Puthivarsham Bot",
+    description:
+      "A Telegram bot developed for the Malayalam New Year celebrations, providing cultural information and greetings.",
+    url: "https://github.com/alvin-dennis/puthivarsham-bot",
+    hosted_url: "https://t.me/puthivarsham_bot",
+    languages: ["Python", "Telegram API", "AWS Lambda"],
+    developed: "Cultural celebration project for the Malayalam community",
+    photo: "https://t.me/puthivarsham_bot/screenshot.jpg",
+  },
+  {
+    name: "BuilderClan Site",
+    description:
+      "A community website for BuilderClan, a network of developers working on collaborative projects.",
+    url: "https://github.com/alvin-dennis/builderclan-site",
+    hosted_url: "https://builderclan.org/",
+    languages: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+    developed: "Open-source community project for developer collaboration",
+    photo: "https://builderclan.vercel.app/og-image.png",
+  },
+  {
+    name: "BuilderClan Backend API",
+    description:
+      "RESTful API service powering the BuilderClan platform and its associated applications.",
+    url: "https://github.com/alvin-dennis/builderclan-api",
+    hosted_url: "https://api.builderclan.org/",
+    languages: ["Node.js", "Express", "MongoDB", "JWT", "Docker"],
+    developed: "Backend infrastructure for the BuilderClan ecosystem",
+    photo: "https://api.builderclan.org/banner.png",
+  },
+  {
+    name: "Git Time Machine",
+    description:
+      "A tool that visualizes Git repository history and allows developers to explore changes over time.",
+    url: "https://github.com/alvin-dennis/git-time-machine",
+    hosted_url: "https://gittimemachine.alvindennis.tech/",
+    languages: ["JavaScript", "D3.js", "Git API", "React"],
+    developed: "Developer tool for better Git history visualization",
+    photo: "https://gittimemachine.alvindennis.tech/preview.jpg",
+  },
+  {
+    name: "SJCET URL Shortener",
+    description:
+      "A custom URL shortening service developed for St. Joseph's College of Engineering and Technology.",
+    url: "https://github.com/alvin-dennis/sjcet-url",
+    hosted_url: "https://sjcet.link/",
+    languages: ["JavaScript", "Express", "MongoDB", "React"],
+    developed:
+      "Utility tool for the college community to create short, branded links",
+    photo: "https://sjcet.link/screenshot.png",
   },
   {
     name: "DevMate",
@@ -42,6 +107,7 @@ export const PROJECTS = [
     hosted_url: "https://alvindennis.vercel.app/",
     languages: ["Python", "Pathway", "OpenAI", "Streamlit"],
     developed: "Side project to help developers with code suggestions",
+    photo: "/images/projects/devmate.png",
   },
   {
     name: "Resume",
@@ -50,6 +116,7 @@ export const PROJECTS = [
     hosted_url: "https://resume.alvindennis.tech/",
     languages: ["LaTeX"],
     developed: "Professional document created for job applications",
+    photo: "/images/projects/resume.png",
   },
   {
     name: "Website Status Checker",
@@ -59,6 +126,7 @@ export const PROJECTS = [
     hosted_url: "https://alvindennis.vercel.app/",
     languages: ["Python", "Streamlit", "Lighthouse API"],
     developed: "Utility tool built during a hackathon",
+    photo: "/images/projects/website-checker.png",
   },
 ];
 
@@ -122,7 +190,7 @@ export const EXPERIENCE = [
     start: "August 2024",
     end: "November 2024",
     link: "https://phicsit.in/",
-    logo: "https://github.com/tinkerhub.png",
+    logo: "https://github.com/phicsit.png",
     tasks: [
       "Developed user-friendly web interfaces, collaborated with designers and developers, and optimized applications for performance and accessibility.",
     ],

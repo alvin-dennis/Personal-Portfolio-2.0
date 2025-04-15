@@ -56,6 +56,7 @@
     "eslint-config-next": "13.5.1",
     "framer-motion": "^11.3.24",
     "input-otp": "^1.2.4",
+    "lottie-web": "^5.12.2",
     "lucide-react": "^0.446.0",
     "motion": "^12.6.5",
     "next": "^15.3.0",
