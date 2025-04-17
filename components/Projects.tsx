@@ -101,7 +101,7 @@ export default function Projects() {
             <div className="flex flex-col items-center gap-4">
               <div className="relative">
                 <div className="w-14 h-14 border-4 border-gray-800 border-t-gray-400 rounded-full animate-spin [animation-duration:1.5s]" />
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-700/30 to-gray-600/20 blur-md"/>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-700/30 to-gray-600/20 blur-md" />
               </div>
               <div className="bg-gradient-to-r from-gray-700 to-gray-800 p-[1px] rounded-lg">
                 <span className="block text-base font-content font-medium tracking-wide text-gray-300 px-4 py-2 rounded-[7px] bg-[#121212] backdrop-filter backdrop-blur-sm">
@@ -247,7 +247,7 @@ export default function Projects() {
               <div className="flex flex-col items-center gap-4">
                 <div className="relative">
                   <div className="w-14 h-14 border-4 border-gray-800 border-t-gray-400 rounded-full animate-spin [animation-duration:1.5s]" />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-700/30 to-gray-600/20 blur-md"/>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-700/30 to-gray-600/20 blur-md" />
                 </div>
                 <div className="bg-gradient-to-r from-gray-700 to-gray-800 p-[1px] rounded-lg">
                   <span className="block text-base font-content font-medium tracking-wide text-gray-300 px-4 py-2 rounded-[7px] bg-[#121212] backdrop-filter backdrop-blur-sm">
@@ -271,7 +271,7 @@ export default function Projects() {
             }
           />
         </div>
-
+        <div className="mb-6"/>
         <div className="flex gap-2 flex-wrap mb-4">
           {project.technologies?.map((langs: string, i: number) => (
             <span

@@ -3,6 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import type { ISourceOptions, MoveDirection } from "@tsparticles/engine";
 
 interface SparklesProps {
   className?: string;
@@ -12,7 +13,7 @@ interface SparklesProps {
   speed?: number;
   minSpeed?: number | null;
   opacity?: number;
-  direction?: string;
+  direction?: MoveDirection | string;
   opacitySpeed?: number;
   minOpacity?: number | null;
   color?: string;
@@ -50,7 +51,7 @@ export function Sparkles({
   }, []);
 
   const id = useId();
-  const defaultOptions: RecursivePartial<IOptions> = {
+  const defaultOptions: ISourceOptions = {
     background: {
       color: {
         value: background,
@@ -95,7 +96,7 @@ export function Sparkles({
       },
       move: {
         enable: true,
-        direction,
+        direction: direction as MoveDirection,
         speed: {
           min: minSpeed || speed / 130,
           max: speed,
