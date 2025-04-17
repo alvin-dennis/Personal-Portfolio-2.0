@@ -4,30 +4,34 @@ import { useState, useRef, useEffect } from "react";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
-  const [loadedIframes, setLoadedIframes] = useState<Record<string | number, boolean>>({});
+  const [loadedIframes, setLoadedIframes] = useState<
+    Record<string | number, boolean>
+  >({});
   const iframeRefs = useRef<Record<number, HTMLIFrameElement | null>>({});
 
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: '100px',
-      threshold: 0.1
+      rootMargin: "100px",
+      threshold: 0.1,
     };
 
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
-          const index = Number(entry.target.getAttribute('data-index'));
+          const index = Number(entry.target.getAttribute("data-index"));
           const iframe = iframeRefs.current[index];
-          if (iframe?.getAttribute('data-src')) {
-            iframe.setAttribute('src', iframe.getAttribute('data-src') || '');
+          if (iframe?.getAttribute("data-src")) {
+            iframe.setAttribute("src", iframe.getAttribute("data-src") || "");
           }
           observer.unobserve(entry.target);
         }
       }
     }, options);
 
-    for (const container of Array.from(document.querySelectorAll('.iframe-container'))) {
+    for (const container of Array.from(
+      document.querySelectorAll(".iframe-container")
+    )) {
       observer.observe(container);
     }
 
@@ -49,17 +53,17 @@ export default function Projects() {
   };
 
   const handleIframeLoad = (index: number) => {
-    setLoadedIframes(prev => ({ ...prev, [index]: true }));
+    setLoadedIframes((prev) => ({ ...prev, [index]: true }));
   };
 
-    interface Project {
-      name: string;
-      url: string;
-      hosted_url: string;
-      technologies?: string[];
-      description: string;
-      developed?: string;
-    }
+  interface Project {
+    name: string;
+    url: string;
+    hosted_url: string;
+    technologies?: string[];
+    description: string;
+    developed?: string;
+  }
 
   const getProjectCardContent = (project: Project, index: number) => {
     if (isGithubUrl(project.hosted_url)) {
@@ -80,7 +84,7 @@ export default function Projects() {
           </div>
           <div className="relative flex flex-col items-center gap-3 p-4 text-center z-10">
             <Github className="w-14 h-14 text-white mb-1" />
-            <div className="bg-white/10 px-3 py-1 rounded-full text-xs font-medium">
+            <div className="bg-white/10 px-3 py-1 rounded-full text-xs font-content font-medium">
               GitHub Repository
             </div>
           </div>
@@ -88,17 +92,27 @@ export default function Projects() {
       );
     }
     return (
-      <div className="w-full aspect-video rounded-xl relative iframe-container" data-index={index}>
+      <div
+        className="w-full aspect-video rounded-xl relative iframe-container"
+        data-index={index}
+      >
         {!loadedIframes[index] && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-900/80 rounded-xl">
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-10 h-10 border-2 border-t-transparent border-white rounded-full animate-spin"/>
-              <span className="text-sm text-gray-300">Loading preview...</span>
+          <div className="absolute inset-0 flex items-center justify-center bg-black/80 backdrop-blur-md rounded-xl">
+            <div className="flex flex-col items-center gap-4">
+              <div className="relative">
+                <div className="w-14 h-14 border-4 border-gray-800 border-t-gray-400 rounded-full animate-spin [animation-duration:1.5s]" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-700/30 to-gray-600/20 blur-md"/>
+              </div>
+              <div className="bg-gradient-to-r from-gray-700 to-gray-800 p-[1px] rounded-lg">
+                <span className="block text-base font-content font-medium tracking-wide text-gray-300 px-4 py-2 rounded-[7px] bg-[#121212] backdrop-filter backdrop-blur-sm">
+                  Loading preview
+                </span>
+              </div>
             </div>
           </div>
         )}
         <iframe
-          ref={el => {
+          ref={(el) => {
             if (el) {
               iframeRefs.current[index] = el;
             }
@@ -181,7 +195,7 @@ export default function Projects() {
                   <Github className="w-16 h-16 text-white" strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="backdrop-blur-lg bg-white/5 px-5 py-2 rounded-lg border border-white/10 shadow-sm text-sm font-medium">
+              <div className="backdrop-blur-lg bg-white/5 font-content px-5 py-2 rounded-lg border border-white/10 shadow-sm text-sm font-medium">
                 GitHub Repository
               </div>
               <a
@@ -190,8 +204,8 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="group relative mt-2 overflow-hidden rounded-lg"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative bg-black/20 backdrop-blur-sm px-7 py-3 flex items-center gap-2 text-white font-medium transform group-hover:translate-y-[-1px] transition-transform">
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-800 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative bg-black/20 backdrop-blur-sm px-7 py-3 font-content flex items-center gap-2 text-white font-medium transform group-hover:translate-y-[-1px] transition-transform">
                   <Github className="w-4 h-4" />
                   <span>View Repository</span>
                 </div>
@@ -208,7 +222,7 @@ export default function Projects() {
             {project.technologies?.map((tech: string, i: number) => (
               <span
                 key={tech}
-                className="text-sm px-3 py-1.5 rounded-md bg-[#1A1A1A] border-l-2 text-gray-300 font-content"
+                className="text-sm font-content px-3 py-1.5 rounded-md bg-[#1A1A1A] border-l-2 text-gray-300 font-content"
                 style={{
                   borderColor: `hsl(${(i * 137.5) % 360}, 70%, 40%)`,
                 }}
@@ -217,7 +231,7 @@ export default function Projects() {
               </span>
             ))}
             {!project.technologies?.length && (
-              <span className="text-xs px-3 py-1.5 rounded-md bg-[#1A1A1A] border-l-2 border-gray-500/50 text-gray-400">
+              <span className="text-sm font-content px-3 py-1.5 rounded-md bg-[#1A1A1A] border-l-2 border-gray-500/50 text-gray-400">
                 No technologies listed
               </span>
             )}
@@ -229,10 +243,17 @@ export default function Projects() {
       <div className="mb-6">
         <div className="w-full aspect-video rounded-xl relative">
           {!loadedIframes[`modal-${index}`] && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-900/80 rounded-xl z-10">
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-8 h-8 border-2 border-t-transparent border-white rounded-full animate-spin"/>
-                <span className="text-sm text-gray-300">Loading content...</span>
+            <div className="absolute inset-0 flex items-center justify-center bg-black/80 backdrop-blur-md rounded-xl z-10">
+              <div className="flex flex-col items-center gap-4">
+                <div className="relative">
+                  <div className="w-14 h-14 border-4 border-gray-800 border-t-gray-400 rounded-full animate-spin [animation-duration:1.5s]" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-700/30 to-gray-600/20 blur-md"/>
+                </div>
+                <div className="bg-gradient-to-r from-gray-700 to-gray-800 p-[1px] rounded-lg">
+                  <span className="block text-base font-content font-medium tracking-wide text-gray-300 px-4 py-2 rounded-[7px] bg-[#121212] backdrop-filter backdrop-blur-sm">
+                    Loading content
+                  </span>
+                </div>
               </div>
             </div>
           )}
@@ -242,15 +263,20 @@ export default function Projects() {
             className="w-full aspect-video rounded-xl mb-4"
             loading="lazy"
             allow="fullscreen"
-            onLoad={() => setLoadedIframes(prev => ({ ...prev, [`modal-${index}`]: true }))}
+            onLoad={() =>
+              setLoadedIframes((prev) => ({
+                ...prev,
+                [`modal-${index}`]: true,
+              }))
+            }
           />
         </div>
-        
+
         <div className="flex gap-2 flex-wrap mb-4">
           {project.technologies?.map((langs: string, i: number) => (
             <span
               key={langs}
-              className="text-sm px-3 py-1.5 rounded-md bg-[#1A1A1A] border-l-2 text-gray-300 font-content"
+              className="text-sm px-3 py-1.5 rounded-md font-content bg-[#1A1A1A] border-l-2 text-gray-300"
               style={{
                 borderColor: `hsl(${(i * 137.5) % 360}, 70%, 40%)`,
               }}
@@ -258,7 +284,7 @@ export default function Projects() {
               {langs}
             </span>
           )) ?? (
-            <span className="text-xs px-3 py-1.5 rounded-md bg-[#1A1A1A] border-l-2 border-gray-500/50 text-gray-400">
+            <span className="text-sm px-3 py-1.5 rounded-md font-content bg-[#1A1A1A] border-l-2 border-gray-500/50 text-gray-400">
               No technologies listed
             </span>
           )}
@@ -295,7 +321,7 @@ export default function Projects() {
           <div className="bg-gradient-to-b from-[#101010]/80 to-[#000000]/80 border border-white/10 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-xl shadow-black/50 animate-fadeIn">
             <div className="p-6">
               <div className="flex justify-between items-center mb-5">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                <h3 className="text-2xl font-bold font-content text-white">
                   {PROJECTS[selectedProject].name}
                 </h3>
                 <button
@@ -307,13 +333,16 @@ export default function Projects() {
                 </button>
               </div>
 
-              {getProjectModalContent(PROJECTS[selectedProject], selectedProject)}
+              {getProjectModalContent(
+                PROJECTS[selectedProject],
+                selectedProject
+              )}
 
-              <p className="text-gray-300 mb-5 leading-relaxed">
+              <p className="text-gray-300 mb-5 leading-relaxed font-content">
                 {PROJECTS[selectedProject].description}
               </p>
               {PROJECTS[selectedProject].developed && (
-                <p className="text-sm text-gray-400 mb-3 bg-white/5 inline-block px-3 py-1 rounded-lg">
+                <p className="text-sm text-gray-400 mb-3 bg-white/5 inline-block font-content px-3 py-1 rounded-lg">
                   {PROJECTS[selectedProject].developed}
                 </p>
               )}
