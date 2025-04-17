@@ -37,13 +37,6 @@ export default function Experience() {
             <p className="text-gray-400 font-content text-base sm:text-base">
               {exp.company}
             </p>
-            <ul className="text-sm sm:text-sm text-gray-500 list-disc font-content pl-4 space-y-1">
-              {exp.tasks.map((task, taskIndex) => (
-                <li key={taskIndex} className="break-words">
-                  {task}
-                </li>
-              ))}
-            </ul>
           </div>
         ))}
       </div>

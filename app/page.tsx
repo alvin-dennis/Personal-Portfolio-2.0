@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
@@ -6,12 +7,38 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Earth from "@/components/ui/globe";
 import { Sparkles } from "@/components/ui/sparkles";
-
+import Loader from "@/components/Loader";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [contentOpacity, setContentOpacity] = useState(0);
+  const loaderDuration = 3000;
+
+  useEffect(() => {
+    const contentFadeInStart = loaderDuration - 100;
+
+    const contentTimer = setTimeout(() => {
+      setContentOpacity(1);
+    }, contentFadeInStart);
+
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, loaderDuration);
+
+    return () => {
+      clearTimeout(contentTimer);
+      clearTimeout(loadingTimer);
+    };
+  }, []);
+
   return (
-    <div>
-      <main className="min-h-screen bg-[#000000] text-white p-4 md:p-8 lg:p-12 overflow-x-hidden relative flex items-center justify-center">
+    <div className="bg-black min-h-screen">
+      {isLoading && <Loader duration={loaderDuration} />}
+
+      <main
+        className="min-h-screen bg-[#000000] text-white p-4 md:p-8 lg:p-12 overflow-x-hidden relative flex items-center justify-center transition-opacity duration-500 ease-in-out"
+        style={{ opacity: contentOpacity }}
+      >
         <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none z-0">
           <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] opacity-90">
             <Earth />
