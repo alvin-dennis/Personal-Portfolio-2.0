@@ -1,6 +1,7 @@
 import { EXPERIENCE } from "@/lib/constants";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   return (
@@ -40,9 +41,21 @@ export default function Experience() {
           </div>
         ))}
       </div>
-      <div className="text-center text-sm sm:text-sm text-white mt-2 flex items-center justify-center gap-1 animate-pulse">
-        <span>Scroll for more</span>
-        <ChevronDown className="w-3 h-3" />
+      <div className="sticky bottom-0 left-0 w-full pointer-events-none mt-2">
+        <div className="h-12 flex flex-col items-center justify-end pb-2">
+          <motion.div
+            animate={{ y: [0, -5, 0] }}
+            transition={{
+              repeat: Number.POSITIVE_INFINITY,
+              duration: 2,
+              ease: "easeInOut",
+            }}
+            className="flex items-center gap-1.5"
+          >
+            <p className="text-sm text-white font-medium">Scroll for more</p>
+            <ChevronDown className="w-4 h-4 text-gray-400" />
+          </motion.div>
+        </div>
       </div>
     </div>
   );

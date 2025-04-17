@@ -1,17 +1,29 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
+
+declare global {
+  interface Navigator {
+    deviceMemory?: number;
+  }
+}
 import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
-import Earth from "@/components/ui/globe";
-import { Sparkles } from "@/components/ui/sparkles";
 import Loader from "@/components/Loader";
+
+const Earth = lazy(() => import("@/components/ui/globe"));
+const Sparkles = lazy(() =>
+  import("@/components/ui/sparkles").then((module) => ({
+    default: module.Sparkles,
+  }))
+);
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [contentOpacity, setContentOpacity] = useState(0);
+  const [shouldRenderEffects, setShouldRenderEffects] = useState(false);
   const loaderDuration = 3000;
 
   useEffect(() => {
@@ -23,11 +35,29 @@ export default function Home() {
 
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
+      setTimeout(() => setShouldRenderEffects(true), 500);
     }, loaderDuration);
+
+    const checkPerformance = () => {
+      const isMobile =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+
+      if (!isMobile && !hasLowMemory) {
+        setShouldRenderEffects(true);
+      } else {
+        setShouldRenderEffects(true);
+      }
+    };
+
+    window.addEventListener("load", checkPerformance);
 
     return () => {
       clearTimeout(contentTimer);
       clearTimeout(loadingTimer);
+      window.removeEventListener("load", checkPerformance);
     };
   }, []);
 
@@ -40,12 +70,20 @@ export default function Home() {
         style={{ opacity: contentOpacity }}
       >
         <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] opacity-90">
-            <Earth />
-          </div>
-          <div className="absolute top-0 left-0 w-full h-full">
-            <Sparkles className="w-full h-full" />
-          </div>
+          {shouldRenderEffects && (
+            <>
+              <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] opacity-90">
+                <Suspense fallback={null}>
+                  <Earth />
+                </Suspense>
+              </div>
+              <div className="absolute top-0 left-0 w-full h-full">
+                <Suspense fallback={null}>
+                  <Sparkles className="w-full h-full" />
+                </Suspense>
+              </div>
+            </>
+          )}
         </div>
 
         <div className="min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(76vh-6rem)] max-w-[1400px] w-full bg-gradient-to-br from-white/5 to-white/10 rounded-[2.5rem] p-4 md:p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] border border-white/20 hover:border-white/30 transition-colors relative z-10 animate-fadeIn">

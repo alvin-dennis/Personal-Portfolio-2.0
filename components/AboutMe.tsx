@@ -1,9 +1,9 @@
 import { Github, Instagram, Linkedin, File, Pencil } from "lucide-react";
 import Image from "next/image";
 import { LINKS } from "@/lib/constants";
-import RotatingText from "./ui/RotatingText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBehance } from "@fortawesome/free-brands-svg-icons";
+import { useState, useEffect } from "react";
 
 export default function AboutMe() {
   const skills = [
@@ -14,6 +14,16 @@ export default function AboutMe() {
     "Software Tester",
     "Freelancer",
   ];
+
+  const [currentSkill, setCurrentSkill] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSkill((prev) => (prev + 1) % skills.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="bg-[#000000]/40 rounded-[2rem] p-6 relative border border-white/10 hover:border-white/20 transition-colors backdrop-blur-md shadow-lg">
@@ -39,18 +49,8 @@ export default function AboutMe() {
             </span>
             , a{" "}
             <span className="inline-flex bg-blue-500 bg-clip-text text-transparent font-bold relative">
-              <div className="w-[165px] h-[30px] inline-flex">
-                <RotatingText
-                  texts={skills}
-                  staggerFrom={"last"}
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  exit={{ y: "-120%" }}
-                  staggerDuration={0.025}
-                  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                  rotationInterval={2000}
-                />
+              <div className="w-full sm:w-[165px] h-[30px] inline-flex overflow-hidden">
+                <span className="skill-text">{skills[currentSkill]}</span>
               </div>
             </span>{" "}
             with a drive for excellence. I combine technical expertise with
@@ -63,24 +63,32 @@ export default function AboutMe() {
             <a
               href={LINKS.github}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <Github className="w-5 h-5 text-white" />
             </a>
             <a
               href={LINKS.instagram}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <Instagram className="w-5 h-5 text-white" />
             </a>
             <a
               href={LINKS.linkedin}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <Linkedin className="w-5 h-5 text-white" />
             </a>
             <a
               href={LINKS.behance}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <FontAwesomeIcon
                 icon={faBehance}
@@ -90,12 +98,31 @@ export default function AboutMe() {
             <a
               href={LINKS.resume}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <File className="w-5 h-5 text-white" />
             </a>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .skill-text {
+          display: block;
+          animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }
