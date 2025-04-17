@@ -1,9 +1,40 @@
 import { ChevronDown, X, Github } from "lucide-react";
 import { PROJECTS } from "@/lib/constants";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [loadedIframes, setLoadedIframes] = useState<Record<string | number, boolean>>({});
+  const iframeRefs = useRef<Record<number, HTMLIFrameElement | null>>({});
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '100px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const index = Number(entry.target.getAttribute('data-index'));
+          const iframe = iframeRefs.current[index];
+          if (iframe?.getAttribute('data-src')) {
+            iframe.setAttribute('src', iframe.getAttribute('data-src') || '');
+          }
+          observer.unobserve(entry.target);
+        }
+      }
+    }, options);
+
+    for (const container of Array.from(document.querySelectorAll('.iframe-container'))) {
+      observer.observe(container);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const openProject = (index: number) => {
     setSelectedProject(index);
@@ -17,7 +48,20 @@ export default function Projects() {
     return url.toLowerCase().includes("github.com");
   };
 
-  const getProjectCardContent = (project: any) => {
+  const handleIframeLoad = (index: number) => {
+    setLoadedIframes(prev => ({ ...prev, [index]: true }));
+  };
+
+    interface Project {
+      name: string;
+      url: string;
+      hosted_url: string;
+      technologies?: string[];
+      description: string;
+      developed?: string;
+    }
+
+  const getProjectCardContent = (project: Project, index: number) => {
     if (isGithubUrl(project.hosted_url)) {
       return (
         <div className="w-full aspect-video rounded-xl flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
@@ -44,26 +88,33 @@ export default function Projects() {
       );
     }
     return (
-      <iframe
-        src={project.hosted_url}
-        title={`Preview of ${project.name}`}
-        className="w-full aspect-video rounded-xl pointer-events-none"
-        loading="lazy"
-        sandbox="allow-same-origin allow-scripts"
-      />
+      <div className="w-full aspect-video rounded-xl relative iframe-container" data-index={index}>
+        {!loadedIframes[index] && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-900/80 rounded-xl">
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-10 h-10 border-2 border-t-transparent border-white rounded-full animate-spin"/>
+              <span className="text-sm text-gray-300">Loading preview...</span>
+            </div>
+          </div>
+        )}
+        <iframe
+          ref={el => {
+            if (el) {
+              iframeRefs.current[index] = el;
+            }
+          }}
+          data-src={project.hosted_url}
+          title={`Preview of ${project.name}`}
+          className="w-full aspect-video rounded-xl pointer-events-none"
+          loading="lazy"
+          sandbox="allow-same-origin allow-scripts"
+          onLoad={() => handleIframeLoad(index)}
+        />
+      </div>
     );
   };
 
-  interface Project {
-    name: string;
-    url: string;
-    hosted_url: string;
-    technologies?: string[];
-    description: string;
-    developed?: string;
-  }
-
-  const getProjectModalContent = (project: Project) => {
+  const getProjectModalContent = (project: Project, index: number) => {
     if (isGithubUrl(project.hosted_url)) {
       return (
         <div className="mb-6">
@@ -176,13 +227,24 @@ export default function Projects() {
     }
     return (
       <div className="mb-6">
-        <iframe
-          src={project.hosted_url}
-          title={`Project ${project.name}`}
-          className="w-full aspect-video rounded-xl mb-4"
-          loading="lazy"
-          allow="fullscreen"
-        />
+        <div className="w-full aspect-video rounded-xl relative">
+          {!loadedIframes[`modal-${index}`] && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-900/80 rounded-xl z-10">
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-8 h-8 border-2 border-t-transparent border-white rounded-full animate-spin"/>
+                <span className="text-sm text-gray-300">Loading content...</span>
+              </div>
+            </div>
+          )}
+          <iframe
+            src={project.hosted_url}
+            title={`Project ${project.name}`}
+            className="w-full aspect-video rounded-xl mb-4"
+            loading="lazy"
+            allow="fullscreen"
+            onLoad={() => setLoadedIframes(prev => ({ ...prev, [`modal-${index}`]: true }))}
+          />
+        </div>
         
         <div className="flex gap-2 flex-wrap mb-4">
           {project.technologies?.map((langs: string, i: number) => (
@@ -217,7 +279,7 @@ export default function Projects() {
               className="bg-[#121212]/70 rounded-xl overflow-hidden cursor-pointer hover:bg-[#181818]/70 transition-all transform hover:scale-[1.02] border border-white/5"
               onClick={() => openProject(index)}
             >
-              {getProjectCardContent(project)}
+              {getProjectCardContent(project, index)}
               <div className="p-3">
                 <h3 className="text-md font-semibold font-content text-center">
                   {project.name}
@@ -245,7 +307,7 @@ export default function Projects() {
                 </button>
               </div>
 
-              {getProjectModalContent(PROJECTS[selectedProject])}
+              {getProjectModalContent(PROJECTS[selectedProject], selectedProject)}
 
               <p className="text-gray-300 mb-5 leading-relaxed">
                 {PROJECTS[selectedProject].description}
