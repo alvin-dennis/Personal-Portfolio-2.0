@@ -13,13 +13,6 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Loader from "@/components/Loader";
 
-const Earth = lazy(() => import("@/components/ui/globe"));
-const Sparkles = lazy(() =>
-  import("@/components/ui/sparkles").then((module) => ({
-    default: module.Sparkles,
-  }))
-);
-
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [contentOpacity, setContentOpacity] = useState(0);
@@ -69,23 +62,6 @@ export default function Home() {
         className="min-h-screen bg-[#000000] text-white p-4 md:p-8 lg:p-12 overflow-x-hidden relative flex items-center justify-center transition-opacity duration-500 ease-in-out"
         style={{ opacity: contentOpacity }}
       >
-        <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          {shouldRenderEffects && (
-            <>
-              <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] opacity-90">
-                <Suspense fallback={null}>
-                  <Earth />
-                </Suspense>
-              </div>
-              <div className="absolute top-0 left-0 w-full h-full">
-                <Suspense fallback={null}>
-                  <Sparkles className="w-full h-full" />
-                </Suspense>
-              </div>
-            </>
-          )}
-        </div>
-
         <div className="min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(76vh-6rem)] max-w-[1400px] w-full bg-gradient-to-br from-white/5 to-white/10 rounded-[2.5rem] p-4 md:p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] border border-white/20 hover:border-white/30 transition-colors relative z-10 animate-fadeIn">
           <div className="h-full overflow-y-auto scrollbar-none">
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">

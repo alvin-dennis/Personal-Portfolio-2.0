@@ -1,7 +1,6 @@
 import { EXPERIENCE } from "@/lib/constants";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 export default function Experience() {
   return (
@@ -24,6 +23,10 @@ export default function Experience() {
                       fill
                       sizes="(max-width: 640px) 28px, 32px"
                       className="object-cover"
+                      loading={index <= 1 ? "eager" : "lazy"}
+                      priority={index <= 1}
+                      placeholder="blur"
+                      blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMzMzIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzIyMiIgb2Zmc2V0PSI1MCUiIC8+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMzMzMiIG9mZnNldD0iNzAlIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSJ1cmwoI2cpIiAvPgo8L3N2Zz4="
                     />
                   </div>
                 )}
@@ -42,19 +45,9 @@ export default function Experience() {
         ))}
       </div>
       <div className="sticky bottom-0 left-0 w-full pointer-events-none mt-2">
-        <div className="h-12 flex flex-col items-center justify-end pb-2">
-          <motion.div
-            animate={{ y: [0, -5, 0] }}
-            transition={{
-              repeat: Number.POSITIVE_INFINITY,
-              duration: 2,
-              ease: "easeInOut",
-            }}
-            className="flex items-center gap-1.5"
-          >
+        <div className="h-12 flex flex-col items-center justify-end pb-2 animate-pulse">
             <p className="text-sm text-white font-medium">Scroll for more</p>
             <ChevronDown className="w-4 h-4 text-gray-400" />
-          </motion.div>
         </div>
       </div>
     </div>

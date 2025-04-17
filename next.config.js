@@ -2,6 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: "https",
@@ -10,6 +12,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "sjcetpalai.ac.in",
+      },
+      {
+        protocol: "https",
+        hostname: "skillicons.dev",
       },
     ],
   },
