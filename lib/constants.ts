@@ -11,7 +11,7 @@ export const PROJECTS = [
     name: "SJCET URL Shortener",
     description: "A custom URL shortening service developed for St. Joseph's College of Engineering and Technology.",
     url: "https://github.com/alvin-dennis/sjcet-url",
-    hosted_url: "https://sjcet.link/",
+    hosted_url: "https://shortx-sjcet.vercel.app/",
     technologies: ["Nextjs", "Tailwind CSS", "Shadcn", "Supabase"],
     developed: "Architected and implemented a full-stack URL shortening platform featuring custom analytics dashboards, secure user authentication, and branded link generation capabilities for institutional use.",
   },
