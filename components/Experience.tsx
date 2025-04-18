@@ -45,9 +45,9 @@ export default function Experience() {
         ))}
       </div>
       <div className="sticky bottom-0 left-0 w-full pointer-events-none mt-2">
-        <div className="h-12 flex flex-col items-center justify-end pb-2 animate-pulse">
-            <p className="text-sm text-white font-medium">Scroll for more</p>
-            <ChevronDown className="w-4 h-4 text-gray-400" />
+        <div className="h-12 flex items-center justify-center pb-2 animate-pulse">
+          <p className="text-sm text-white font-medium mr-1">Scroll for more</p>
+          <ChevronDown className="w-4 h-4 text-gray-400" />
         </div>
       </div>
     </div>
