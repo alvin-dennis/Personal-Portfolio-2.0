@@ -1,11 +1,5 @@
 "use client";
-import { useState, useEffect, lazy, Suspense } from "react";
-
-declare global {
-  interface Navigator {
-    deviceMemory?: number;
-  }
-}
+import { useState, useEffect } from "react";
 import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
@@ -16,7 +10,6 @@ import Loader from "@/components/Loader";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [contentOpacity, setContentOpacity] = useState(0);
-  const [shouldRenderEffects, setShouldRenderEffects] = useState(false);
   const loaderDuration = 3000;
 
   useEffect(() => {
@@ -28,29 +21,11 @@ export default function Home() {
 
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
-      setTimeout(() => setShouldRenderEffects(true), 500);
     }, loaderDuration);
-
-    const checkPerformance = () => {
-      const isMobile =
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        );
-      const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
-
-      if (!isMobile && !hasLowMemory) {
-        setShouldRenderEffects(true);
-      } else {
-        setShouldRenderEffects(true);
-      }
-    };
-
-    window.addEventListener("load", checkPerformance);
 
     return () => {
       clearTimeout(contentTimer);
       clearTimeout(loadingTimer);
-      window.removeEventListener("load", checkPerformance);
     };
   }, []);
 
@@ -59,10 +34,12 @@ export default function Home() {
       {isLoading && <Loader duration={loaderDuration} />}
 
       <main
-        className="min-h-screen bg-[#000000] text-white p-4 md:p-8 lg:p-12 overflow-x-hidden relative flex items-center justify-center transition-opacity duration-500 ease-in-out"
+        className="min-h-screen bg-black text-white p-4 md:p-8 lg:p-12 overflow-x-hidden relative flex items-center justify-center transition-opacity duration-500 ease-in-out"
         style={{ opacity: contentOpacity }}
       >
-        <div className="min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(76vh-6rem)] max-w-[1400px] w-full bg-gradient-to-br from-white/5 to-white/10 rounded-[2.5rem] p-4 md:p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] border border-white/20 hover:border-white/30 transition-colors relative z-10 animate-fadeIn">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff30_1px,transparent_1px),linear-gradient(to_bottom,#ffffff30_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] animate-pulse" />
+        <div className="absolute inset-0 pointer-events-none" />
+        <div className="min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(76vh-6rem)] max-w-[1400px] w-full bg-black/50 backdrop-blur-sm rounded-[2.5rem] p-4 md:p-6 shadow-[0_8px_32px_0_rgba(255,255,255,0.15)] border border-white/20 hover:border-white/30 transition-colors relative z-10 animate-fadeIn">
           <div className="h-full overflow-y-auto scrollbar-none">
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">
               <div className="sm:col-span-12 lg:col-span-7">

@@ -16,7 +16,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Portfolio - Alvin Dennis",
-  description: "Personal portfolio website showcasing projects and skills",
+  description: "A portfolio website showcasing my work and skills as a developer.",
   keywords: [
     "Alvin Dennis",
     "Portfolio",
@@ -42,7 +42,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="manifest" href="/site.webmanifest" />
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:;"
