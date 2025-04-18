@@ -37,9 +37,7 @@ export default function Home() {
         className="min-h-screen bg-black text-white p-4 md:p-8 lg:p-12 overflow-x-hidden relative flex items-center justify-center transition-opacity duration-500 ease-in-out"
         style={{ opacity: contentOpacity }}
       >
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff30_1px,transparent_1px),linear-gradient(to_bottom,#ffffff30_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] animate-pulse" />
-        <div className="absolute inset-0 pointer-events-none" />
-        <div className="min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(76vh-6rem)] max-w-[1400px] w-full bg-black rounded-[2.5rem] p-4 md:p-6 shadow-[0_8px_32px_0_rgba(255,255,255,0.15)] border border-white/20 hover:border-white/30 transition-colors relative z-10 animate-fadeIn">
+        <div className="min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(76vh-6rem)] max-w-[1400px] w-full bg-black rounded-[2.5rem] p-4 md:p-6 border border-white/20 hover:border-white/30 transition-colors relative z-10 animate-fadeIn">
           <div className="h-full overflow-y-auto scrollbar-none">
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">
               <div className="sm:col-span-12 lg:col-span-7">
