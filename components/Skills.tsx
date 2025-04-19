@@ -8,7 +8,7 @@ export default function Skills() {
       </div>
       <div className="relative w-full aspect-[5/9]">
         <Image
-          src="https://skillicons.dev/icons?i=html,css,javascript,typescript,python,c,markdown,latex,react,vue,astro,nextjs,flask,fastapi,nodejs,tailwindcss,scss,mongodb,postgres,supabase,firebase,prisma,git,github,postman,figma,vscode,pycharm,bash,powershell,cloudflare,workers,opencv,vercel,netlify,notion,githubactions,anaconda,arduino,raspberrypi,matlab,mint,arch,bun,bots&perline=5"
+          src="https://skillicons.dev/icons?i=html,css,javascript,python,c,markdown,latex,react,vue,astro,nextjs,flask,fastapi,nodejs,tailwindcss,scss,mongodb,postgres,supabase,firebase,prisma,git,github,postman,figma,vscode,pycharm,webpack,bash,powershell,cloudflare,workers,opencv,vercel,netlify,notion,githubactions,anaconda,arduino,raspberrypi,matlab,mint,arch,bun,bots&perline=5"
           alt="Skills"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
