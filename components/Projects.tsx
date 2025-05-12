@@ -497,9 +497,9 @@ export default function Projects() {
             if (e.target === e.currentTarget) closeProject();
           }}
         >
-          <div className="bg-[#050505] md:bg-gradient-to-b md:from-[#101010]/80 md:to-[#000000]/80 border border-white/10 rounded-none sm:rounded-2xl w-full max-w-2xl h-full sm:h-auto sm:max-h-[85vh] md:max-h-[90vh] overflow-y-auto shadow-xl shadow-black/50 relative flex flex-col">
-            <div className="p-4 sm:p-6 flex-1 overflow-y-auto pb-6 sm:pb-4">
-              <div className="flex justify-between items-center sticky top-0 z-20 bg-[#050505] md:bg-[#101010]/80 backdrop-blur-md py-3 -mt-4 -mx-4 sm:-mx-6 px-4 sm:px-6 border-b border-white/10 shadow-md mb-4 sm:mb-5">
+          <div className="bg-[#050505] md:bg-gradient-to-b md:from-[#101010]/80 md:to-[#000000]/80 border border-white/10 rounded-xl sm:rounded-2xl w-full max-w-2xl h-full sm:h-auto sm:max-h-[85vh] md:max-h-[90vh] overflow-y-auto shadow-xl shadow-black/50 relative flex flex-col">
+            <div className="p-5 sm:p-6 flex-1 overflow-y-auto pb-6 sm:pb-5">
+              <div className="flex justify-between items-center z-20 bg-[#050505] md:bg-[#101010]/80 backdrop-blur-md py-3 mb-6 sm:mb-6 border-b border-white/10 pb-4">
                 <h3 className="text-lg sm:text-2xl font-bold font-content text-white line-clamp-1 pr-2">
                   {PROJECTS[selectedProject].name}
                 </h3>
@@ -524,7 +524,7 @@ export default function Projects() {
                 {PROJECTS[selectedProject].description}
               </p>
               {PROJECTS[selectedProject].developed && (
-                <p className="text-xs sm:text-sm text-gray-400 mb-3 bg-white/5 inline-block font-content px-2 sm:px-3 py-1 rounded-lg">
+                <p className="text-xs sm:text-sm text-gray-400 mb-3 border-l-2 border-gray-500/40 pl-2 inline-block font-content py-0.5">
                   {PROJECTS[selectedProject].developed}
                 </p>
               )}
@@ -573,7 +573,7 @@ export default function Projects() {
                           <line x1="10" y1="14" x2="21" y2="3" />
                         </svg>
                       </div>
-                      <span className="text-base">Live Preview</span>
+                      <span className="text-base">Preview</span>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/20" />
                   </a>

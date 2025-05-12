@@ -1,11 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
-import AboutMe from "@/components/AboutMe";
-import Skills from "@/components/Skills";
-import Education from "@/components/Education";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
+import { useState, useEffect, lazy} from "react";
 import Loader from "@/components/Loader";
+
+const AboutMe = lazy(() => import("@/components/AboutMe"));
+const Skills = lazy(() => import("@/components/Skills"));
+const Education = lazy(() => import("@/components/Education"));
+const Experience = lazy(() => import("@/components/Experience"));
+const Projects = lazy(() => import("@/components/Projects"));
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
