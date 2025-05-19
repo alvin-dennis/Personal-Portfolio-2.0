@@ -11,7 +11,7 @@ export const PROJECTS = [
     name: "SJCET URL Shortener",
     description:
       "A custom URL shortening service developed for St. Joseph's College of Engineering and Technology.",
-    url: "https://github.com/alvin-dennis/sjcet-url",
+    url: "https://github.com/alvin-dennis/Sjcet-Url-Shortner",
     hosted_url: "https://shortx-sjcet.vercel.app/",
     technologies: ["Nextjs", "Tailwind CSS", "Shadcn", "Supabase"],
     developed:
@@ -135,8 +135,8 @@ export const EXPERIENCE = [
   {
     company: "Tinkerhub",
     position: "Community Management Intern",
-    start: "January 2025",
-    end: "Present",
+    start: "December 2024",
+    end: "May 2025",
     link: "https://app.tinkerhub.org/",
     logo: "https://github.com/tinkerhub.png",
   },
