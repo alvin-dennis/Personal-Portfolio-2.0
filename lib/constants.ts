@@ -11,7 +11,7 @@ export const PROJECTS = [
     name: "SJCET URL Shortener",
     description:
       "A custom URL shortening service developed for St. Joseph's College of Engineering and Technology.",
-    url: "https://github.com/alvin-dennis/Sjcet-Url-Shortner",
+    url: "https://github.com/nexussjcet/Sjcet-Url-Shortner",
     hosted_url: "https://shortx-sjcet.vercel.app/",
     technologies: ["Nextjs", "Tailwind CSS", "Shadcn", "Supabase"],
     developed:
@@ -81,7 +81,7 @@ export const PROJECTS = [
     name: "Event Dashboard",
     description:
       "Comprehensive event management solution with real-time updates, registration tracking, and administrative capabilities.",
-    url: "https://github.com/alvin-dennis/Sjcet-Events",
+    url: "https://github.com/nexussjcet/Sjcet-Events",
     hosted_url: "https://sjcet-events.vercel.app/",
     technologies: ["Vue", "React", "JavaScript", "Tailwind CSS", "Firebase"],
     developed:
