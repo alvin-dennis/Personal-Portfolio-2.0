@@ -1,4 +1,5 @@
-import { Github, Instagram, Linkedin, File} from "lucide-react";
+"use client";
+import { Github, Instagram, Linkedin, File } from "lucide-react";
 import Image from "next/image";
 import { LINKS } from "@/lib/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

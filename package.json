@@ -22,13 +22,9 @@
     "postcss": "8.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-lottie-player": "^2.1.0",
     "tailwind-merge": "^3.2.0",
     "tailwindcss": "^4.1.4",
     "tailwindcss-animate": "^1.0.7"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
   },
   "devDependencies": {
     "@types/node": "22.14.1",

@@ -1,5 +1,4 @@
 import "./globals.css";
-import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 
@@ -14,9 +13,10 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Portfolio - Alvin Dennis",
-  description: "A portfolio website showcasing my work and skills as a developer.",
+  description:
+    "A portfolio website showcasing my work and skills as a developer.",
   keywords: [
     "Alvin Dennis",
     "Portfolio",
@@ -33,11 +33,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>

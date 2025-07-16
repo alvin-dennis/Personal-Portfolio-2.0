@@ -1,9 +1,10 @@
+"use client";
 import { ChevronDown, X, Github } from "lucide-react";
 import { PROJECTS } from "@/lib/constants";
 import { useState, useEffect } from "react";
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function Projects() {
     };
   }, []);
 
-  const openProject = (index: number) => {
+  const openProject = (index) => {
     setSelectedProject(index);
     document.body.style.overflow = "hidden";
   };
@@ -29,20 +30,11 @@ export default function Projects() {
     document.body.style.overflow = "";
   };
 
-  const isGithubUrl = (url: string) => {
+  const isGithubUrl = (url) => {
     return url.toLowerCase().includes("github.com");
   };
 
-  interface Project {
-    name: string;
-    url: string;
-    hosted_url: string;
-    technologies?: string[];
-    description: string;
-    developed?: string;
-  }
-
-  const getProjectCardContent = (project: Project, index: number) => {
+  const getProjectCardContent = (project, index) => {
     return (
       <div className="w-full aspect-[2/1] bg-gradient-to-br from-black/50 to-black/70 flex items-center justify-center relative overflow-hidden group cursor-pointer">
         <div className="absolute inset-0 opacity-10">
@@ -136,7 +128,7 @@ export default function Projects() {
     );
   };
 
-  const getProjectModalContent = (project: Project, index: number) => {
+  const getProjectModalContent = (project, index) => {
     if (isGithubUrl(project.hosted_url)) {
       return (
         <div className="mb-6">
@@ -281,7 +273,7 @@ export default function Projects() {
           </div>
 
           <div className="flex gap-2 flex-wrap mb-4">
-            {project.technologies?.map((tech: string, i: number) => (
+            {project.technologies?.map((tech, i) => (
               <span
                 key={tech}
                 className="text-sm font-content px-3 py-1.5 rounded-md bg-[#161b22] border-l-2 text-gray-300 font-content"
@@ -445,7 +437,7 @@ export default function Projects() {
         </div>
 
         <div className="flex gap-2 flex-wrap mb-4">
-          {project.technologies?.map((langs: string, i: number) => (
+          {project.technologies?.map((langs, i) => (
             <span
               key={langs}
               className="text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-1.5 rounded-md font-content bg-[#1A1A1A] border-l-2 text-gray-300"
