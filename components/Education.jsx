@@ -21,6 +21,7 @@ export default function Education() {
                     fill
                     sizes="(max-width: 640px) 32px, 36px"
                     className="object-contain"
+                    priority
                   />
                 </div>
                 <h3 className="font-semibold text-lg font-content">

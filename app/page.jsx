@@ -1,11 +1,10 @@
-import { lazy } from "react";
+import BlurFade from "@/components/ui/blur-fade";
 
-const AboutMe = lazy(() => import("@/components/AboutMe"));
-const Skills = lazy(() => import("@/components/Skills"));
-const Education = lazy(() => import("@/components/Education"));
-const Experience = lazy(() => import("@/components/Experience"));
-const Projects = lazy(() => import("@/components/Projects"));
-const BlurFade = lazy(() => import("@/components/ui/blur-fade"));
+import AboutMe from "@/components/AboutMe";
+import Skills from "@/components/Skills"; 
+import Experience from "@/components/Experience";
+import Education from "@/components/Education";
+import Projects from "@/components/Projects";
 
 const BLUR_FADE_DELAY = 0.03;
 

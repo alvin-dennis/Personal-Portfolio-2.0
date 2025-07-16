@@ -149,6 +149,7 @@ export default function Projects() {
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-9 bg-[#161b22]/90 border-b border-white/10 flex items-center px-4">
                 <div className="flex space-x-1.5">
+                  ? "eager" : "lazy"{" "}
                   <div className="w-3 h-3 rounded-full bg-red-500/80 ring-1 ring-inset ring-white/10" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80 ring-1 ring-inset ring-white/10" />
                   <div className="w-3 h-3 rounded-full bg-green-500/80 ring-1 ring-inset ring-white/10" />
