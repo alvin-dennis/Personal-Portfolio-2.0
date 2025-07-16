@@ -11,7 +11,6 @@ const BLUR_FADE_DELAY = 0.03;
 export default function Home() {
   return (
     <div className="min-h-screen lg:h-screen text-white p-4 md:p-8 lg:p-12 bg-[#0f0f0f] lg:overflow-hidden relative flex items-center justify-center">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff30_1px,transparent_1px),linear-gradient(to_bottom,#ffffff30_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] animate-pulse" />
       <div className="absolute inset-0 pointer-events-none" />
       <div className="w-full lg:h-full lg:overflow-hidden pb-20 sm:pb-4 max-w-[1400px] relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 h-auto">
