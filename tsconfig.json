@@ -20,9 +20,6 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@/components/*": ["./components/*"],
-      "@/lib/*": ["./lib/*"],
-      "@/public/*": ["./public/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/page.jsx", "app/layout.jsx", "components/AboutMe.jsx", "components/Education.jsx", "components/Experience.jsx", "components/Loader.jsx", "components/Projects.jsx", "components/Skills.jsx"],

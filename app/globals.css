@@ -209,6 +209,15 @@
                   scrollbar-width: none;
                   /* Firefox */
                 }
+
+                /* Mobile touch scrolling improvements */
+                @media (max-width: 768px) {
+                  .scrollbar-hide {
+                    -webkit-overflow-scrolling: touch;
+                    overscroll-behavior: contain;
+                    touch-action: pan-y;
+                  }
+                }
                 /*
   ---break---
 */

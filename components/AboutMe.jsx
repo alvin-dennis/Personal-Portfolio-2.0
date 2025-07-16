@@ -1,31 +1,11 @@
-"use client";
+import React from "react";
 import { Github, Instagram, Linkedin, File } from "lucide-react";
 import Image from "next/image";
 import { LINKS } from "@/lib/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBehance } from "@fortawesome/free-brands-svg-icons";
-import { useState, useEffect } from "react";
 
 export default function AboutMe() {
-  const skills = [
-    "IoT Developer",
-    "UI/UX Designer",
-    "Web Developer",
-    "Bot Developer",
-    "Software Tester",
-    "Freelancer",
-  ];
-
-  const [currentSkill, setCurrentSkill] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSkill((prev) => (prev + 1) % skills.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="bg-[#000000]/40 rounded-[2rem] p-6 relative border border-white/10 hover:border-white/20 transition-colors backdrop-blur-md shadow-lg">
       <div className="flex justify-between items-start mb-6">
@@ -49,17 +29,16 @@ export default function AboutMe() {
               ALVIN DENNIS
             </span>
             , a{" "}
-            <span className="inline-flex bg-blue-500 bg-clip-text text-transparent font-bold relative">
-              <div className="w-full sm:w-[165px] h-[30px] inline-flex overflow-hidden">
-                <span className="skill-text">{skills[currentSkill]}</span>
-              </div>
+            <span className="inline-flex bg-blue-500 bg-clip-text text-transparent font-bold">
+              builder and maker
             </span>{" "}
-            with a drive for excellence. I combine technical expertise with
-            strong communication and collaboration skills. Adaptable and
-            disciplined, I excel in team environments and have extensive
-            experience in event management, delivering innovative, impactful
-            solutions that address real-world challenges.
+            with a drive for excellence. I fuse hands-on technical skills with
+            creative problem-solving. I thrive in building systems and managing
+            events that create meaningful, real-world impact. I believe in
+            turning ideas into functional, user-focused outcomes that solve
+            problems and inspire innovation.
           </div>
+
           <div className="flex gap-3">
             <a
               href={LINKS.github}
@@ -107,23 +86,6 @@ export default function AboutMe() {
           </div>
         </div>
       </div>
-      <style jsx>{`
-        .skill-text {
-          display: block;
-          animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }

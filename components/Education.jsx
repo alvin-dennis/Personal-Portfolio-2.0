@@ -19,6 +19,7 @@ export default function Education() {
                     src={edu.logo}
                     alt={`${edu.name} logo`}
                     fill
+                    sizes="(max-width: 640px) 32px, 36px"
                     className="object-contain"
                   />
                 </div>

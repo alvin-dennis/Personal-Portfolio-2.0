@@ -5,12 +5,15 @@ import localFont from "next/font/local";
 const calSans = localFont({
   src: "../public/fonts/CalSans-SemiBold.woff2",
   variable: "--font-calsans",
+  display: "swap",
 });
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
   variable: "--font-poppins",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata = {
@@ -38,6 +41,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preload"
+          href="/fonts/CalSans-SemiBold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:;"
