@@ -1,10 +1,11 @@
 import BlurFade from "@/components/ui/blur-fade";
 
 import AboutMe from "@/components/AboutMe";
-import Skills from "@/components/Skills"; 
+import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
 
 const BLUR_FADE_DELAY = 0.03;
 
@@ -37,9 +38,19 @@ export default function Home() {
           </BlurFade>
           <BlurFade
             delay={BLUR_FADE_DELAY * 3}
-            className="col-span-1 sm:col-span-12 lg:col-span-5 lg:row-start-1 lg:row-span-2 lg:col-start-8 mt-4 sm:mt-4 lg:mt-0 lg:sticky lg:top-0 lg:overflow-hidden lg:max-h-[calc(100vh-8rem)]"
+            className="col-span-1 sm:col-span-12 lg:col-span-5 lg:row-start-1 lg:row-span-2 lg:col-start-8 mt-4 sm:mt-4 lg:mt-0 lg:sticky lg:top-0 lg:overflow-hidden lg:max-h-[calc(54vh)]"
           >
-            <Projects />
+            <div className="w-full h-full">
+              <Projects />
+            </div>
+          </BlurFade>
+          <BlurFade
+            delay={BLUR_FADE_DELAY * 3.5}
+            className="col-span-1 sm:col-span-12 lg:col-span-5 lg:row-start-2 lg:row-span-1 lg:col-start-8 mt-1 sm:mt-4 lg:mt-56 lg:sticky lg:top-[calc(54vh+14rem)] lg:overflow-hidden"
+          >
+            <div className="w-full h-full">
+              <Contact />
+            </div>
           </BlurFade>
         </div>
       </div>

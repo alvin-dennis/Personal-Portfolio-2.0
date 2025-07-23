@@ -6,6 +6,10 @@ export const LINKS = {
   resume: "https://resume.alvindennis.tech/",
 };
 
+export const CONTACT = {
+  email: "alvindennis80@gmail.com",
+  cal_link: "https://cal.com/alvindennis",
+}
 export const PROJECTS = [
   {
     name: "SJCET URL Shortener",
