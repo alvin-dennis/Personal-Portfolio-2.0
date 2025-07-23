@@ -2,6 +2,7 @@
 import { ChevronDown, X, Github } from "lucide-react";
 import { PROJECTS } from "@/lib/constants";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -523,7 +524,7 @@ export default function Projects() {
               )}
 
               <div className="mt-5 sm:mt-6 pt-4 sm:pt-4 border-t border-white/10 flex flex-wrap gap-3 justify-center sm:justify-start">
-                <a
+                <Link
                   href={PROJECTS[selectedProject].url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -538,9 +539,9 @@ export default function Projects() {
                     <span className="text-base">Repository</span>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/20" />
-                </a>
+                </Link>
                 {!isGithubUrl(PROJECTS[selectedProject].hosted_url) && (
-                  <a
+                  <Link
                     href={PROJECTS[selectedProject].hosted_url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -569,7 +570,7 @@ export default function Projects() {
                       <span className="text-base">Preview</span>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/20" />
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>

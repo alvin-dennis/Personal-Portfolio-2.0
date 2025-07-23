@@ -1,7 +1,8 @@
 import React from "react";
 import { Github, Instagram, Linkedin, File } from "lucide-react";
 import Image from "next/image";
-import { LINKS } from "@/lib/constants";
+import Link from "next/link";
+import { SOCIALS } from "@/lib/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBehance } from "@fortawesome/free-brands-svg-icons";
 
@@ -40,32 +41,32 @@ export default function AboutMe() {
           </div>
 
           <div className="flex gap-3">
-            <a
-              href={LINKS.github}
+            <Link
+              href={SOCIALS.github}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
               rel="noopener noreferrer"
               target="_blank"
             >
               <Github className="w-5 h-5 text-white" />
-            </a>
-            <a
-              href={LINKS.instagram}
+            </Link>
+            <Link
+              href={SOCIALS.instagram}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
               rel="noopener noreferrer"
               target="_blank"
             >
               <Instagram className="w-5 h-5 text-white" />
-            </a>
-            <a
-              href={LINKS.linkedin}
+            </Link>
+            <Link
+              href={SOCIALS.linkedin}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
               rel="noopener noreferrer"
               target="_blank"
             >
               <Linkedin className="w-5 h-5 text-white" />
-            </a>
-            <a
-              href={LINKS.behance}
+            </Link>
+            <Link
+              href={SOCIALS.behance}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
               rel="noopener noreferrer"
               target="_blank"
@@ -74,15 +75,15 @@ export default function AboutMe() {
                 icon={faBehance}
                 className="w-5 h-5 text-white"
               />
-            </a>
-            <a
-              href={LINKS.resume}
+            </Link>
+            <Link
+              href={SOCIALS.resume}
               className="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-black/70 transition-colors"
               rel="noopener noreferrer"
               target="_blank"
             >
               <File className="w-5 h-5 text-white" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
