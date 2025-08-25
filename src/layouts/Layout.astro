@@ -1,5 +1,5 @@
 ---
-import Header from "@/components/Header.astro";
+import Navbar from "@/components/Navbar.astro";
 import "@fontsource/be-vietnam-pro";
 import "@fontsource-variable/gabarito";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -14,6 +14,7 @@ const {
   socialLinks,
   socialImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  contact
 } = SITE_CONFIG;
 
 const ogImgUrl = canonicalURL + socialImage;
@@ -41,11 +42,11 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImgUrl} />
   </head>
-  <body class="dark:bg-black bg-white font-sans">
-    <Header siteLogo={siteLogo} socialLinks={socialLinks} />
-    <main class="mx-auto max-w-3xl px-5">
+  <body class="flex min-h-screen flex-col bg-white font-sans dark:bg-black">
+    <main class="mx-auto max-w-3xl flex-1 px-5 pb-28">
       <slot />
+      <Footer email={contact.email} cal_link={contact.cal_link} />
     </main>
-    <Footer author={author} socialLinks={socialLinks} />
+    <Navbar siteLogo={siteLogo} socialLinks={socialLinks} />
   </body>
 </html>

@@ -1,4 +1,4 @@
-export interface SiteConfig extends HeaderProps {
+export interface SiteConfig extends NavbarProps {
   title: string;
   description: string;
   lang: string;
@@ -9,14 +9,14 @@ export interface SiteConfig extends HeaderProps {
 }
 
 export interface SiteContent {
-  header: HeaderProps;
+  header: NavbarProps;
   hero: HeroProps;
   education: Education[];
   experience: Experience[];
   projects: Projects;
 }
 
-export interface HeaderProps {
+export interface NavbarProps {
   siteLogo: string;
   socialLinks: { text: string; href: string; icon: React.ElementType }[];
 }
@@ -28,6 +28,11 @@ export interface HeroProps {
   summary: string;
   email: string;
   resume: { text: string; href: string; icon: React.ElementType };
+}
+
+export interface AboutProps {
+  description: string;
+  image: string;
 }
 
 export interface Socials {

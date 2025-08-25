@@ -13,15 +13,27 @@ const { experience } = Astro.props;
   {
     experience.map(({ company, position, start, end, link, logo }) => (
       <div class="mb-10">
-        <div class="flex items-center gap-3 mb-1.5">
+        <div class="mb-1.5 flex items-center gap-3">
           {logo && link ? (
             <a href={link} target="_blank" rel="noopener noreferrer">
-              <img src={logo} alt={company + ' logo'} width="40" height="40" class="rounded-full" />
+              <img
+                src={logo}
+                alt={company + " logo"}
+                width="40"
+                height="40"
+                class="rounded-full"
+              />
             </a>
           ) : logo ? (
-            <img src={logo} alt={company + ' logo'} width="40" height="40" class="rounded-full" />
+            <img
+              src={logo}
+              alt={company + " logo"}
+              width="40"
+              height="40"
+              class="rounded-full"
+            />
           ) : null}
-          <h3 class="font-serif text-2xl font-semibold text-white">
+          <h3 class="font-serif text-2xl font-semibold text-black dark:text-white">
             {company}
           </h3>
         </div>
@@ -29,7 +41,7 @@ const { experience } = Astro.props;
           <h4 class="mb-0.5 font-serif text-xl font-medium text-primary">
             {position}
           </h4>
-          <span class="pb-[2px] text-sm text-white/70">
+          <span class="text-black pb-[2px] text-sm dark:text-white">
             {start} — {end}
           </span>
         </div>

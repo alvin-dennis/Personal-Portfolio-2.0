@@ -1,0 +1,14 @@
+---
+import Section from "./Section.astro";
+import type { AboutProps, HeroProps } from "@/types";
+
+type Props = AboutProps & Pick<HeroProps, "name">;
+
+const { description } = Astro.props;
+---
+
+<Section text="About Me" href="about">
+  <div class="flex flex-col items-center gap-12 md:flex-row md:gap-8">
+    <p class="w-auto text-base text-black dark:text-white md:pr-5">{description}</p>
+  </div>
+</Section>

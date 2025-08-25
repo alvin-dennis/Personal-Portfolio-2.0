@@ -14,6 +14,10 @@ export const SITE_CONFIG = {
   ],
   socialImage: "/alvin-og.png",
   canonicalURL: "https://alvindennis.tech",
+  contact: {
+    email: "alvindennis80@gmail.com",
+    cal_link: "https://cal.com/alvindennis",
+  },
 };
 
 export const SITE_CONTENT = {
@@ -21,7 +25,7 @@ export const SITE_CONTENT = {
     name: "Alvin Dennis",
     specialty: "Developer & Community Builder",
     summary: `
-      Hi, I’m Alvin Dennis, a developer and student passionate about building impactful digital solutions. My work spans web development, IoT, and community leadership. I enjoy collaborating on open source and mentoring others in tech.
+      A developer and student passionate about building impactful digital solutions. My work spans web development, IoT, and community leadership. I enjoy collaborating on open source and mentoring others in tech.
     `,
     email: "alvindennis80@gmail.com",
     resume: {
@@ -29,6 +33,12 @@ export const SITE_CONTENT = {
       href: "https://resume.alvindennis.tech/",
       icon: FileIcon,
     },
+    image: "/alvin.webp",
+  },
+  about: {
+    description: `
+      I'm Alvin Dennis, a passionate developer and community builder dedicated to creating impactful digital solutions. With a strong foundation in web development and IoT, I thrive on collaborating with others to bring innovative ideas to life. As a proactive leader, I enjoy mentoring aspiring developers and contributing to open-source projects that drive positive change. My goal is to leverage technology to solve real-world problems and empower communities.
+    `,
     image: "/alvin.webp",
   },
   experience: [

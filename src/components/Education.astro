@@ -33,13 +33,13 @@ const { education } = Astro.props;
               class="rounded-full"
             />
           ) : null}
-          <h3 class="font-serif text-2xl font-semibold text-white">{name}</h3>
+          <h3 class="font-serif text-2xl font-semibold text-black dark:text-white">{name}</h3>
         </div>
         <div class="flex flex-col items-start pb-5">
-          <h4 class="mb-0.5 font-serif text-xl font-medium text-primary">
+          <h4 class="font-medium dark:text-white mb-0.5 font-serif text-xl text-black">
             {position}
           </h4>
-          <span class="pb-[2px] text-sm text-white/70">
+          <span class="pb-[2px] text-sm text-black dark:text-white">
             {start} — {end}
           </span>
         </div>
