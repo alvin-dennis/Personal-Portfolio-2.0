@@ -1,5 +1,4 @@
 import { GitHubLogoIcon, LinkedInLogoIcon, InstagramLogoIcon, FileIcon } from "@radix-ui/react-icons";
-import { BriefcaseBusiness, Code, GraduationCap, User } from "lucide-react";
 
 export const SITE_CONFIG = {
   title: "Alvin Dennis — Builder | Maker | Manager",
@@ -8,24 +7,13 @@ export const SITE_CONFIG = {
     "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
   lang: "en",
   siteLogo: "/logo.png",
-  navLinks: [
-    { text: "Experience", href: "#experience", icon: BriefcaseBusiness },
-    { text: "Projects", href: "#projects", icon: Code },
-    { text: "About", href: "#about", icon: User },
-    { text: "Education", href: "#education", icon: GraduationCap },
-  ],
   socialLinks: [
     { text: "Github", href: "https://github.com/alvin-dennis/", icon: GitHubLogoIcon },
     { text: "LinkedIn", href: "https://www.linkedin.com/in/alvin-dennis-0a70ba163/", icon: LinkedInLogoIcon },
     { text: "Instagram", href: "https://www.instagram.com/_a.lvin._/", icon: InstagramLogoIcon },
-    { text: "Resume", href: "https://resume.alvindennis.tech/", icon: FileIcon },
   ],
   socialImage: "/alvin-og.png",
   canonicalURL: "https://alvindennis.tech",
-  contact: [
-    { email: "alvindennis80@gmail.com" },
-    { cal_link: "https://cal.com/alvindennis" },
-  ]
 };
 
 export const SITE_CONTENT = {
@@ -36,11 +24,11 @@ export const SITE_CONTENT = {
       Hi, I’m Alvin Dennis, a developer and student passionate about building impactful digital solutions. My work spans web development, IoT, and community leadership. I enjoy collaborating on open source and mentoring others in tech.
     `,
     email: "alvindennis80@gmail.com",
-  },
-  about: {
-    description: `
-      "Hi, I'm ALVIN DENNIS, a builder and maker with a drive for excellence. I fuse hands-on technical skills with creative problem-solving. I thrive in building systems and managing events that create meaningful, real-world impact. I believe in turning ideas into functional, user-focused outcomes that solve problems and inspire innovation.",
-    `,
+    resume: {
+      text: "Resume",
+      href: "https://resume.alvindennis.tech/",
+      icon: FileIcon,
+    },
     image: "/alvin.webp",
   },
   experience: [
@@ -49,8 +37,8 @@ export const SITE_CONTENT = {
       position: "Frontend Developer",
       start: "Jul 2025",
       end: "Present",
-      link: "https://app.tinkerhub.org/",
-      logo: "https://github.com/tinkerhub.png",
+      link: "https://metaloom.vercel.app/",
+      logo: "https://github.com/MetaLoomLabs.png",
     },
     {
       company: "vHackBotz",
@@ -176,16 +164,6 @@ export const SITE_CONTENT = {
       technologies: ["Python", "Pathway", "OpenAI", "Streamlit"],
       developed:
         "Built an AI-powered coding assistant that integrates OpenAI's language models with a custom interface to provide contextualized code suggestions and explanations.",
-    },
-    {
-      name: "Website Status Checker",
-      description:
-        "This is a Python application to check the status of websites.",
-      url: "https://github.com/alvin-dennis/Website-Status-Checker",
-      hosted_url: "https://github.com/alvin-dennis/Website-Status-Checker",
-      technologies: ["Python", "Streamlit", "Lighthouse API"],
-      developed:
-        "Created a monitoring tool that performs real-time website status checks with performance metrics visualization using Lighthouse API integration.",
     },
   ],
 };

@@ -9,8 +9,8 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import type { PropsWithChildren } from "react";
 import React, { useRef } from "react";
+import type { PropsWithChildren } from "react";
 
 import { cn } from "@/lib/utils";
 

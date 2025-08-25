@@ -1,0 +1,49 @@
+---
+import Section from "./Section.astro";
+import type { Education } from "@/types";
+
+interface Props {
+  education: Education[];
+}
+
+const { education } = Astro.props;
+---
+
+<Section text="Education" href="education">
+  {
+    education.map(({ name, position, start, end, link, logo }) => (
+      <div class="mb-10">
+        <div class="mb-1.5 flex items-center gap-3">
+          {logo && link ? (
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              <img
+                src={logo}
+                alt={name + " logo"}
+                width="40"
+                height="40"
+                class="rounded-full"
+              />
+            </a>
+          ) : logo ? (
+            <img
+              src={logo}
+              alt={name + " logo"}
+              width="40"
+              height="40"
+              class="rounded-full"
+            />
+          ) : null}
+          <h3 class="font-serif text-2xl font-semibold text-white">{name}</h3>
+        </div>
+        <div class="flex flex-col items-start pb-5">
+          <h4 class="mb-0.5 font-serif text-xl font-medium text-primary">
+            {position}
+          </h4>
+          <span class="pb-[2px] text-sm text-white/70">
+            {start} — {end}
+          </span>
+        </div>
+      </div>
+    ))
+  }
+</Section>

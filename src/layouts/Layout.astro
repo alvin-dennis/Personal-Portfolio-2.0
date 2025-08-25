@@ -2,22 +2,19 @@
 import Header from "@/components/Header.astro";
 import "@fontsource/be-vietnam-pro";
 import "@fontsource-variable/gabarito";
-import { SITE_CONFIG } from "../lib/constants.ts";
+import { SITE_CONFIG } from "@/lib/constants";
 import Footer from "@/components/Footer.astro";
 
 const {
   title,
   description,
   siteLogo,
-  navLinks,
   lang,
   author,
   socialLinks,
   socialImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = SITE_CONFIG;
-
-
 
 const ogImgUrl = canonicalURL + socialImage;
 ---
@@ -44,8 +41,8 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImgUrl} />
   </head>
-  <body class="bg-black font-sans">
-    <Header siteLogo={siteLogo} navLinks={navLinks} />
+  <body class="dark:bg-black bg-white font-sans">
+    <Header siteLogo={siteLogo} socialLinks={socialLinks} />
     <main class="mx-auto max-w-3xl px-5">
       <slot />
     </main>

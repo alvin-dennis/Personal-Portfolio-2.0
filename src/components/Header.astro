@@ -1,109 +1,66 @@
 ---
-import { Menu } from "lucide-astro";
 import { Image } from "astro:assets";
 import type { HeaderProps } from "@/types";
+import { Dock, DockIcon } from "@/components/ui/dock";
+import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Separator } from "@/components/ui/separator";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type Props = HeaderProps;
 
-const { siteLogo, navLinks } = Astro.props;
+const { siteLogo, socialLinks } = Astro.props;
 ---
 
-<header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
->
-  <a href="/" aria-label="Home link">
-    <Image
-      class="rounded-full"
-      src={siteLogo}
-      width="45"
-      height="45"
-      alt="website logo"
-    />
-  </a>
-
-  <button
-    type="button"
-    id="menu-button"
-    class="px-1.5 text-neutral sm:hidden"
-    aria-expanded="false"
-    aria-controls="main-menu"
+<header>
+  <div
+    class="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-10 flex h-full max-h-14 origin-bottom"
   >
-    <Menu />
-  </button>
-
-  <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
-    id="main-menu"
-  >
-    <ul class="gap-2 sm:flex">
+    <Dock
+      className="pointer-events-auto relative z-50 mx-auto flex h-full min-h-full transform-gpu items-center bg-background px-1 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] dark:[border:1px_solid_rgba(255,255,255,.1)]"
+    >
+      <DockIcon>
+        <a
+          href="/"
+          aria-label="Home link"
+          class={cn(
+            buttonVariants({ variant: "ghost", size: "icon" }),
+            "size-12 flex items-center justify-center"
+          )}
+        >
+          <Image
+            class="rounded-full shadow-lg"
+            src={siteLogo}
+            width="32"
+            height="32"
+            alt="website logo"
+          />
+        </a>
+      </DockIcon>
+      <Separator orientation="vertical" className="h-full" />
       {
-        navLinks.map((link) => (
-          <li class="relative">
+        socialLinks.map((item) => (
+          <DockIcon>
             <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
-              href={link.href}
+              href={item.href}
+              aria-label={item.text}
+              class={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "flex size-12 items-center justify-center text-gray-800 dark:text-gray-200"
+              )}
             >
-              {link.text}
+              {item.icon && (
+                // @ts-ignore
+                <item.icon class="size-4 text-current" />
+              )}
             </a>
-          </li>
+          </DockIcon>
         ))
       }
-    </ul>
-  </nav>
+      <Separator orientation="vertical" className="h-full" />
+      <DockIcon>
+        <ModeToggle client:load />
+      </DockIcon>
+    </Dock>
+  </div>
 </header>
-
-<script>
-  const button = document.querySelector("#menu-button");
-  const menu = document.querySelector("#main-menu");
-  const navItems = document.querySelectorAll("#main-menu > ul > li > a");
-
-  const toggleMenu = () => {
-    menu?.classList.toggle("hidden");
-    const isHidden = menu?.classList.contains("hidden");
-    button?.setAttribute("aria-expanded", `${!isHidden}`);
-  };
-
-  button?.addEventListener("click", toggleMenu);
-  navItems.forEach((item) => {
-    item?.addEventListener("click", toggleMenu);
-  });
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("href") === `#${entry.target.id}`) {
-              item.classList.add("text-white", "md:after:opacity-100");
-            } else {
-              item.classList.remove("text-white", "md:after:opacity-100");
-            }
-          });
-        }
-      });
-    },
-    { threshold: 0.5 },
-  );
-
-  document.querySelectorAll("section").forEach((section) => {
-    observer.observe(section);
-  });
-
-  // Cleanup observer
-  document.onvisibilitychange = () => {
-    if (document.visibilityState === "hidden") {
-      observer.disconnect();
-    } else {
-      document.querySelectorAll("section").forEach((section) => {
-        observer.observe(section);
-      });
-    }
-  };
-</script>
-
-<style>
-  header {
-    animation-timeline: scroll();
-    animation-range: 0 650px;
-  }
-</style>

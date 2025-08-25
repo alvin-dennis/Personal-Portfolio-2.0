@@ -1,11 +1,24 @@
 ---
 import type { HeroProps } from "@/types";
+import { Image } from "astro:assets";
+
 type Props = HeroProps;
 
-const { name, specialty, summary, email } = Astro.props;
+const { name, image, specialty, summary, email } = Astro.props;
 ---
 
 <section class="py-24 md:py-32" id="#hero">
+  <div
+    class="h-80 w-64 flex-shrink-0 rotate-[5deg] bg-white p-4 md:rotate-[7deg]"
+  >
+    <Image
+      class="object-cover"
+      src={image}
+      width="260"
+      height="260"
+      alt={name}
+    />
+  </div>
   <h1
     class="mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl"
   >

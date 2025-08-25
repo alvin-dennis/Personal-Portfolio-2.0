@@ -2,9 +2,6 @@
 import type { SiteConfig } from "@/types";
 
 type Props = Pick<SiteConfig, "author" | "socialLinks">;
-
-const { author, socialLinks } = Astro.props;
-const currentYear = new Date().getFullYear();
 ---
 
 <footer id="contact" class="w-full px-4 py-12  text-center text-white">
@@ -19,7 +16,7 @@ const currentYear = new Date().getFullYear();
       <p class="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
         Want to chat? Just shoot me a DM
         <a
-          href={Astro.props.contactUrl}
+          href="#"
           class="text-blue-500 hover:underline"
           target="_blank"
         >

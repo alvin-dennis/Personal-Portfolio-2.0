@@ -1,6 +1,5 @@
 ---
 import Section from "./Section.astro";
-import { Image } from "astro:assets";
 import type { Projects } from "@/types";
 
 interface Props {
@@ -12,7 +11,8 @@ const { projects } = Astro.props;
 
 <Section text="Featured Projects" href="projects">
   {
-    projects.map(({ name, description, url, hosted_url, technologies, developed }, index) => {
+    projects.map(({ name, description, url, hosted_url }, index) => {
+      // pending technologies, developed
       const top = 98 + index * 40;
       return (
         <div

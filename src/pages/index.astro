@@ -1,41 +1,56 @@
 ---
 import { SITE_CONTENT } from "@/lib/constants";
-import Hero from "@/components/Hero.astro";
 import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero.astro";
 import Experience from "@/components/Experience.astro";
+import Education from "@/components/Education.astro";
 import Projects from "@/components/Projects.astro";
-import About from "@/components/About.astro";
+
+import { BlurFade } from "@/components/ui/blur-fade";
 
 import "../styles/global.css";
+
+const BLUR_FADE_DELAY = 0.04;
 ---
 
 <Layout>
-  <Hero {...SITE_CONTENT.hero} />
-  <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
-  <Experience experience={SITE_CONTENT.experience} />
-  <Projects projects={SITE_CONTENT.projects} />
-</Layout>
+  <BlurFade client:load delay={BLUR_FADE_DELAY * 3}>
+    <Hero {...SITE_CONTENT.hero} />
+  </BlurFade>
+  <BlurFade client:load delay={BLUR_FADE_DELAY * 6}>
+    <Experience experience={SITE_CONTENT.experience} />
+  </BlurFade>
+  <BlurFade client:load delay={BLUR_FADE_DELAY * 9}>
+    <Education education={SITE_CONTENT.education} />
+  </BlurFade>
+  <BlurFade client:load delay={BLUR_FADE_DELAY * 12}>
+    <Projects projects={SITE_CONTENT.projects} />
+  </BlurFade>
 
-<!-- <script is:inline>
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
+  <script is:inline>
+    const getThemePreference = () => {
+      if (
+        typeof localStorage !== "undefined" &&
+        localStorage.getItem("theme")
+      ) {
+        return localStorage.getItem("theme");
+      }
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    };
+    const isDark = getThemePreference() === "dark";
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+    if (typeof localStorage !== "undefined") {
+      const observer = new MutationObserver(() => {
+        const isDark = document.documentElement.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
     }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  };
-  const isDark = getThemePreference() === "dark";
-  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-  if (typeof localStorage !== "undefined") {
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-  }
-</script> -->
+  </script>
+</Layout>
