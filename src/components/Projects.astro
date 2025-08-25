@@ -1,0 +1,59 @@
+---
+import Section from "./Section.astro";
+import { Image } from "astro:assets";
+import type { Projects } from "@/types";
+
+interface Props {
+  projects: Projects[];
+}
+
+const { projects } = Astro.props;
+---
+
+<Section text="Featured Projects" href="projects">
+  {
+    projects.map(({ name, description, url, hosted_url, technologies, developed }, index) => {
+      const top = 98 + index * 40;
+      return (
+        <div
+          style={`top: ${top}px;`}
+          class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
+        >
+          <div class="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
+            <div class="px-6 pt-12">
+              <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
+                {name}
+              </h3>
+              <p class="text-base text-neutral">{description}</p>
+              <div class="flex gap-5 pt-10 text-white">
+                <a
+                  href={url}
+                  target="_blank"
+                  class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
+                >
+                  Source
+                </a>
+                <a
+                  href={hosted_url}
+                  target="_blank"
+                  class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
+                >
+                  Preview
+                </a>
+              </div>
+            </div>
+            <div class="flex items-end justify-end overflow-hidden">
+              {/* <Image
+                class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none object-left-top sm:h-[85%] sm:w-full"
+                src={image}
+                alt={name}
+                width="736"
+                height="483"
+              /> */}
+            </div>
+          </div>
+        </div>
+      );
+    })
+  }
+</Section>

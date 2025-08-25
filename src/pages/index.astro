@@ -1,0 +1,41 @@
+---
+import { SITE_CONTENT } from "@/lib/constants";
+import Hero from "@/components/Hero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Experience from "@/components/Experience.astro";
+import Projects from "@/components/Projects.astro";
+import About from "@/components/About.astro";
+
+import "../styles/global.css";
+---
+
+<Layout>
+  <Hero {...SITE_CONTENT.hero} />
+  <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
+  <Experience experience={SITE_CONTENT.experience} />
+  <Projects projects={SITE_CONTENT.projects} />
+</Layout>
+
+<!-- <script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script> -->
