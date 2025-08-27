@@ -37,7 +37,7 @@ export const SITE_CONTENT = {
   },
   about: {
     description: `
-      I'm Alvin Dennis, a passionate developer and community builder dedicated to creating impactful digital solutions. With a strong foundation in web development and IoT, I thrive on collaborating with others to bring innovative ideas to life. As a proactive leader, I enjoy mentoring aspiring developers and contributing to open-source projects that drive positive change. My goal is to leverage technology to solve real-world problems and empower communities.
+      I'm Alvin Dennis, a passionate developer and community builder dedicated to creating impactful digital solutions. With a strong foundation in web development and IoT, I thrive on collaborating with others to bring innovative ideas to life. As a proactive leader, I enjoy mentoring aspiring developers and contributing to open-source projects that drive positive change.
     `,
     image: "/alvin.webp",
   },
@@ -142,8 +142,6 @@ export const SITE_CONTENT = {
       url: "https://github.com/alvin-dennis/EleGuard",
       hosted_url: "https://github.com/alvin-dennis/EleGuard",
       technologies: ["Python", "Raspberry Pi", "Roboflow", "OpenCV", "Twilio"],
-      developed:
-        "Designed and built an IoT-based elephant monitoring system that detects elephants and alerts people in real-time using computer vision and machine learning techniques, enhancing wildlife safety and community awareness.",
     },
     {
       name: "Git Time Machine",
@@ -152,8 +150,6 @@ export const SITE_CONTENT = {
       url: "https://github.com/alvin-dennis/git-time-machine",
       hosted_url: "https://github.com/vHackBots/Git-Time-Machine",
       technologies: ["HTML", "Tailwind CSS", "JavaScript", "NPM", "GitHub API"],
-      developed:
-        "Implemented a repository visualization application leveraging GitHub API integration that presents commit history through an interactive timeline interface, facilitating efficient codebase evolution analysis.",
     },
     {
       name: "Personal Portfolio",
@@ -162,8 +158,6 @@ export const SITE_CONTENT = {
       url: "https://github.com/alvin-dennis/Personal-Portfolio-2.0",
       hosted_url: "https://alvindennis.tech/",
       technologies: ["Nextjs", "Tailwind CSS", "Shadcn", "TypeScript"],
-      developed:
-        "Engineered a responsive TypeScript-based Next.js application featuring theme customization, component-based architecture, and optimized performance metrics to effectively showcase technical expertise and project accomplishments.",
     },
     {
       name: "DevMate",
@@ -172,8 +166,6 @@ export const SITE_CONTENT = {
       url: "https://github.com/alvin-dennis/DevMate",
       hosted_url: "https://github.com/alvin-dennis/DevMate",
       technologies: ["Python", "Pathway", "OpenAI", "Streamlit"],
-      developed:
-        "Built an AI-powered coding assistant that integrates OpenAI's language models with a custom interface to provide contextualized code suggestions and explanations.",
     },
   ],
 };

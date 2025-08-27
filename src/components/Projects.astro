@@ -1,6 +1,7 @@
 ---
 import Section from "./Section.astro";
 import type { Projects } from "@/types";
+import { ArrowUpRight } from "lucide-react";
 
 interface Props {
   projects: Projects[];
@@ -11,49 +12,68 @@ const { projects } = Astro.props;
 
 <Section text="Featured Projects" href="projects">
   {
-    projects.map(({ name, description, url, hosted_url }, index) => {
-      // pending technologies, developed
-      const top = 98 + index * 40;
-      return (
-        <div
-          style={`top: ${top}px;`}
-          class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
-        >
-          <div class="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
-            <div class="px-6 pt-12">
-              <h3 class="mb-5 font-calsans text-3xl font-medium text-primary">
-                {name}
-              </h3>
-              <p class="text-base text-neutral">{description}</p>
-              <div class="flex gap-5 pt-10 text-white">
-                <a
-                  href={url}
-                  target="_blank"
-                  class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
-                >
-                  Source
-                </a>
-                <a
-                  href={hosted_url}
-                  target="_blank"
-                  class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
-                >
-                  Preview
-                </a>
+    projects.map(
+      ({ name, description, url, hosted_url, technologies }, index) => {
+        const top = 98 + index * 40;
+        return (
+          <div
+            style={`top: ${top}px;`}
+            class="sticky mb-12 rounded-2xl border border-black bg-white dark:border-white dark:bg-black"
+          >
+            <div class="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 rounded-2xl before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/noise-bg.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[7%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
+              <div class="px-6 pt-12">
+                <h3 class="mb-5 font-calsans text-3xl font-medium text-black dark:text-white">
+                  {name}
+                </h3>
+                <p class="text-base text-neutral">{description}</p>
+                {technologies && technologies.length > 0 && (
+                  <ul class="mt-4 flex flex-wrap gap-2">
+                    {technologies.map((tech) => (
+                      <li class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-black dark:border-neutral-700 dark:bg-neutral-800 dark:text-white">
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div class="flex gap-5 pt-10 text-black dark:text-white">
+                  <a
+                    href={url}
+                    target="_blank"
+                    class="dark:hover:text-primary-light inline-flex items-center gap-1 text-black hover:text-primary hover:underline dark:text-white"
+                  >
+                    Source
+                    <ArrowUpRight className="inline-block size-4 align-text-bottom dark:text-white text-black" />
+                  </a>
+                  {hosted_url && !hosted_url.includes("github.com") && (
+                    <a
+                      href={hosted_url}
+                      target="_blank"
+                      class="dark:hover:text-primary-light inline-flex items-center gap-1 text-black hover:text-primary hover:underline dark:text-white"
+                    >
+                      Preview
+                      <ArrowUpRight className="inline-block size-4 align-text-bottom dark:text-primary-light text-black dark:text-white" />
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-            <div class="flex items-end justify-end overflow-hidden">
-              {/* <Image
+              {/* <div class="flex items-end justify-end overflow-hidden">
+                <Image
                 class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none object-left-top sm:h-[85%] sm:w-full"
                 src={image}
                 alt={name}
                 width="736"
                 height="483"
-              /> */}
+                />
+                {hosted_url && hosted_url.includes("github.com") && (
+                  <div class="flex h-full w-full items-center justify-center rounded-2xl bg-neutral-100 dark:bg-neutral-800">
+                    <span class="text-xs text-neutral-400">No Preview</span>
+                  </div>
+                )}
+              </div> */}
             </div>
           </div>
-        </div>
-      );
-    })
+        );
+      }
+    )
   }
 </Section>
