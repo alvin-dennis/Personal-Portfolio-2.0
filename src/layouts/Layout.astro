@@ -1,7 +1,9 @@
 ---
 import Navbar from "@/components/Navbar.astro";
-import "@fontsource/be-vietnam-pro";
-import "@fontsource-variable/gabarito";
+import "@fontsource/cal-sans";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
 import { SITE_CONFIG } from "@/lib/constants";
 import Footer from "@/components/Footer.astro";
 
@@ -14,7 +16,7 @@ const {
   socialLinks,
   socialImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-  contact
+  contact,
 } = SITE_CONFIG;
 
 const ogImgUrl = canonicalURL + socialImage;
@@ -42,7 +44,7 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImgUrl} />
   </head>
-  <body class="flex min-h-screen flex-col bg-white font-sans dark:bg-black">
+  <body class="flex min-h-screen flex-col bg-white font-poppins dark:bg-black">
     <main class="mx-auto max-w-3xl flex-1 px-5 pb-28">
       <slot />
       <Footer email={contact.email} cal_link={contact.cal_link} />

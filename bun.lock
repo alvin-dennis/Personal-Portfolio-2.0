@@ -6,8 +6,8 @@
       "dependencies": {
         "@astrojs/check": "^0.9.4",
         "@astrojs/react": "^4.3.0",
-        "@fontsource-variable/gabarito": "^5.2.6",
-        "@fontsource/be-vietnam-pro": "^5.2.6",
+        "@fontsource/cal-sans": "^5.2.2",
+        "@fontsource/poppins": "^5.2.6",
         "@radix-ui/react-icons": "^1.3.2",
         "@radix-ui/react-separator": "^1.1.7",
         "@radix-ui/react-slot": "^1.2.3",
@@ -165,9 +165,9 @@
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.25.8", "", { "os": "win32", "cpu": "x64" }, "sha512-cn3Yr7+OaaZq1c+2pe+8yxC8E144SReCQjN6/2ynubzYjvyqZjTXfQJpAcQpsdJq3My7XADANiYGHoFC69pLQw=="],
 
-    "@fontsource-variable/gabarito": ["@fontsource-variable/gabarito@5.2.6", "", {}, "sha512-pXhojiApjvDdo8HWo3BtKIeccO8pRF9n+xiErGir1An2wLokWaKImXwjyo47aJHPiGOzEF75O0anzfeVCe0NMg=="],
+    "@fontsource/cal-sans": ["@fontsource/cal-sans@5.2.2", "", {}, "sha512-+9yKchvecxbY63K7cYQOH3gLhQdP8N3/qJ0pobYgf8nOmWG+dn4PFZDV/AoN2r/K2diu2P4VXUjbXyKfjA6q7w=="],
 
-    "@fontsource/be-vietnam-pro": ["@fontsource/be-vietnam-pro@5.2.6", "", {}, "sha512-OdXpfoB7RFk6e2nby+nzeMW1DKNBkl4aE8zVC9LOJLt9ixA0LrH1kUZeFA5t4zpyIoMa1MIKyuoH/lJbUKhWsQ=="],
+    "@fontsource/poppins": ["@fontsource/poppins@5.2.6", "", {}, "sha512-NFr0121+vWCfzLDVvSZOzwAjRUaNj6QHA9gtUh/KHHoWf1Qn23EkwVFs63XZ6UtF5K1b3UNmCx77YEMGgV7BOQ=="],
 
     "@img/sharp-darwin-arm64": ["@img/sharp-darwin-arm64@0.33.5", "", { "optionalDependencies": { "@img/sharp-libvips-darwin-arm64": "1.0.4" }, "os": "darwin", "cpu": "arm64" }, "sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ=="],
 
