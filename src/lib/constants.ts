@@ -73,6 +73,7 @@ export const SITE_CONTENT = {
       "IoT Enthusiast",
       "Manual Software Tester",
       "Bot Developer",
+      "Freelancer",
       "Community Manager",
       "Open Source Enthusiast",
       "Innovator",
@@ -222,9 +223,9 @@ export const SITE_CONTENT = {
       location: "Palai, Kerala, India",
       position: "B.Tech in Electrical & Electronics Engineering",
       start: "November 2021",
+      end: "July 2025",
       link: "https://sjcetpalai.ac.in/",
       logo: "https://sjcetpalai.ac.in/wp-content/uploads/2019/01/SJCET-LOGO-Orginal-1200x1161.png",
-      end: "July 2025",
     },
   ],
   projects: [
