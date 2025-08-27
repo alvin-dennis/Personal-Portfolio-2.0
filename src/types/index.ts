@@ -47,7 +47,6 @@ export interface Projects {
   url: string;
   hosted_url: string;
   technologies: string[];
-  developed: string;
 }
 
 export interface Education {
