@@ -1,7 +1,6 @@
 {
-  "name": "astro-zen",
+  "name": "personal-portfolio",
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
