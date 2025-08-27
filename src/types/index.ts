@@ -39,7 +39,6 @@ export interface Skills {
   tools: SkillProp[];
   hardware: SkillProp[];
   platforms: SkillProp[];
-  other: SkillProp[];
 }
 
 export interface Socials {
