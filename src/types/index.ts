@@ -1,4 +1,4 @@
-export interface SiteConfig extends NavbarProps {
+export interface SiteConfig extends Navbar {
   title: string;
   description: string;
   lang: string;
@@ -9,30 +9,37 @@ export interface SiteConfig extends NavbarProps {
 }
 
 export interface SiteContent {
-  header: NavbarProps;
-  hero: HeroProps;
+  header: Navbar[];
+  hero: Hero;
   education: Education[];
   experience: Experience[];
   projects: Projects;
 }
 
-export interface NavbarProps {
+export interface Navbar {
   siteLogo: string;
   socialLinks: { text: string; href: string; icon: React.ElementType }[];
 }
 
-export interface HeroProps {
+export interface Hero {
   name: string;
   image: string;
-  specialty: string;
+  specialty: string[];
   summary: string;
   email: string;
   resume: { text: string; href: string; icon: React.ElementType };
 }
 
-export interface AboutProps {
-  description: string;
-  image: string;
+export type SkillProp = string | { name: string; icon?: React.ElementType };
+
+export interface Skills {
+  languages: SkillProp[];
+  frameworks: SkillProp[];
+  databases: SkillProp[];
+  tools: SkillProp[];
+  hardware: SkillProp[];
+  platforms: SkillProp[];
+  other: SkillProp[];
 }
 
 export interface Socials {

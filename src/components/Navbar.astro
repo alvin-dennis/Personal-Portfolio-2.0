@@ -1,13 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import type { NavbarProps } from "@/types";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-type Props = NavbarProps;
+import type React from "react";
 
 const { siteLogo, socialLinks } = Astro.props;
 ---
@@ -39,23 +37,25 @@ const { siteLogo, socialLinks } = Astro.props;
       </DockIcon>
       <Separator orientation="vertical" className="h-full" />
       {
-        socialLinks.map((item) => (
-          <DockIcon>
-            <a
-              href={item.href}
-              aria-label={item.text}
-              class={cn(
-                buttonVariants({ variant: "ghost", size: "icon" }),
-                "flex size-12 items-center justify-center text-gray-800 dark:text-gray-200"
-              )}
-            >
-              {item.icon && (
-                // @ts-ignore
-                <item.icon class="size-4 text-current" />
-              )}
-            </a>
-          </DockIcon>
-        ))
+        socialLinks.map(
+          (item: { text: string; href: string; icon: React.ElementType }) => (
+            <DockIcon>
+              <a
+                href={item.href}
+                aria-label={item.text}
+                class={cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "flex size-12 items-center justify-center text-gray-800 dark:text-gray-200"
+                )}
+              >
+                {item.icon && (
+                  // @ts-ignore
+                  <item.icon class="size-4 text-current" />
+                )}
+              </a>
+            </DockIcon>
+          )
+        )
       }
       <Separator orientation="vertical" className="h-full" />
       <DockIcon>

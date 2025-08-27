@@ -1,0 +1,122 @@
+---
+import Section from "./Section.astro";
+import { Badge } from "./ui/badge";
+import type { Skills } from "@/types";
+
+interface Props {
+  skills: Skills;
+}
+
+const { skills } = Astro.props;
+---
+
+<Section text="Skills" href="skills">
+  <div class="flex flex-col gap-y-3">
+    <div class="flex flex-wrap items-start gap-1">
+      <Badge variant="secondary">Languages</Badge>
+      {
+        skills.languages.map((skill) =>
+          typeof skill === "string" ? (
+            <Badge>{skill}</Badge>
+          ) : (
+            <Badge>
+              {skill.icon && <skill.icon style={{ marginRight: "0.25em" }} />}
+              {skill.name}
+            </Badge>
+          )
+        )
+      }
+    </div>
+    <div class="flex flex-wrap gap-1">
+      <Badge variant="secondary">Frameworks</Badge>
+      {
+        skills.frameworks.map((skill) =>
+          typeof skill === "string" ? (
+            <Badge>{skill}</Badge>
+          ) : (
+            <Badge>
+              {skill.icon && <skill.icon style={{ marginRight: "0.25em" }} />}
+              {skill.name}
+            </Badge>
+          )
+        )
+      }
+    </div>
+    <div class="flex flex-wrap gap-1">
+      <Badge variant="secondary">Databases</Badge>
+      {
+        skills.databases.map((skill) =>
+          typeof skill === "string" ? (
+            <Badge>{skill}</Badge>
+          ) : (
+            <Badge>
+              {skill.icon && <skill.icon style={{ marginRight: "0.25em" }} />}
+              {skill.name}
+            </Badge>
+          )
+        )
+      }
+    </div>
+    <div class="flex flex-wrap gap-1">
+      <Badge variant="secondary">Tools</Badge>
+      {
+        skills.tools.map((skill) =>
+          typeof skill === "string" ? (
+            <Badge>{skill}</Badge>
+          ) : (
+            <Badge>
+              {skill.icon && <skill.icon style={{ marginRight: "0.25em" }} />}
+              {skill.name}
+            </Badge>
+          )
+        )
+      }
+    </div>
+    <div class="flex flex-wrap gap-1">
+      <Badge variant="secondary">Hardware</Badge>
+      {
+        skills.hardware.map((skill) =>
+          typeof skill === "string" ? (
+            <Badge>{skill}</Badge>
+          ) : (
+            <Badge>
+              {skill.icon && <skill.icon style={{ marginRight: "0.25em" }} />}
+              {skill.name}
+            </Badge>
+          )
+        )
+      }
+    </div>
+    <div class="flex flex-wrap gap-1">
+      <Badge variant="secondary">Platforms</Badge>
+      {
+        skills.platforms.map((skill) =>
+          typeof skill === "string" ? (
+            <Badge>{skill}</Badge>
+          ) : (
+            <Badge>
+              {skill.icon && <skill.icon style={{ marginRight: "0.25em" }} />}
+              {skill.name}
+            </Badge>
+          )
+        )
+      }
+    </div>
+    <div class="flex flex-wrap gap-1">
+      <Badge variant="secondary">Other</Badge>
+      {
+        skills.other.map((skill) =>
+          typeof skill === "string" ? (
+            <Badge>{skill}</Badge>
+          ) : (
+            <Badge>
+              {skill.icon && <skill.icon style={{ marginRight: "0.25em" }} />}
+              {skill.name}
+            </Badge>
+          )
+        )
+      }
+    </div>
+  </div>
+</Section>;
+

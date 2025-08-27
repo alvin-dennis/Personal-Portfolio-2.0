@@ -2,7 +2,7 @@
 import { SITE_CONTENT } from "@/lib/constants";
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/components/Hero.astro";
-import About from "@/components/About.astro";
+import Skills from "@/components/Skills.astro";
 import Experience from "@/components/Experience.astro";
 import Education from "@/components/Education.astro";
 import Projects from "@/components/Projects.astro";
@@ -19,7 +19,7 @@ const BLUR_FADE_DELAY = 0.04;
     <Hero {...SITE_CONTENT.hero} />
   </BlurFade>
   <BlurFade client:load delay={BLUR_FADE_DELAY * 6}>
-    <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
+    <Skills skills={SITE_CONTENT.skills} />
   </BlurFade>
   <BlurFade client:load delay={BLUR_FADE_DELAY * 9}>
     <Experience experience={SITE_CONTENT.experience} />

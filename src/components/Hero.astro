@@ -1,19 +1,17 @@
 ---
-import type { HeroProps } from "@/types";
+import RotatingText from "@/components/ui/RotatingText";
 import { Image } from "astro:assets";
-
-type Props = HeroProps;
 
 const { name, image, specialty, summary, email, resume } = Astro.props;
 ---
 
 <section
-  class="bg-white py-24 text-black md:py-32 dark:bg-neutral-950 dark:text-white"
+  class="bg-white py-12 text-black md:py-20 dark:bg-neutral-950 dark:text-white"
   id="#hero"
 >
   <div class="flex justify-center">
     <div
-      class="h-80 w-64 flex-shrink-0 rotate-[5deg] bg-black p-4 md:rotate-[7deg] dark:bg-white"
+      class="mb-4 h-80 w-64 flex-shrink-0 rotate-[5deg] bg-black p-4 sm:mb-6 md:rotate-[7deg] dark:bg-white"
     >
       <Image
         class="object-cover"
@@ -21,26 +19,33 @@ const { name, image, specialty, summary, email, resume } = Astro.props;
         width="250"
         height="250"
         alt={name}
-    />
+      />
     </div>
   </div>
-  <h1
-    class="mb-1.5 font-calsans text-7xl font-bold tracking-tightest text-neutral-900 sm:text-8xl md:mb-0 md:text-9xl dark:text-white"
-  >
-    {name}
-  </h1>
-  <p
-    class="mb-9 font-calsans text-4xl leading-[46px] font-bold tracking-tighter text-blue-500 sm:text-5xl md:text-6xl dark:text-blue-500"
-  >
-    {specialty}
-  </p>
-  <p
-    class="mb-16 text-base font-normal md:text-lg"
-  >
+  <div class="flex flex-col items-center justify-center text-center">
+    <h1
+      class="mb-1 font-calsans text-4xl font-bold tracking-tightest text-neutral-900 sm:text-7xl md:text-8xl dark:text-white"
+    >
+      {name}
+    </h1>
+    <div
+      class="mt-2 mb-4 font-calsans text-xl font-bold tracking-tighter text-blue-500 sm:text-4xl md:text-5xl dark:text-blue-500"
+    >
+      <RotatingText
+        texts={specialty}
+        mainClassName="inline"
+        splitBy="words"
+        rotationInterval={2000}
+        auto={true}
+        client:load
+      />
+    </div>
+  </div>
+  <p class="mb-8 text-base font-normal md:text-lg">
     {summary}
   </p>
 
-  <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+  <div class="flex flex-row flex-wrap items-center justify-center gap-4">
     <a
       class="inline-block rounded-full bg-blue-600 px-8 py-5 text-sm leading-5 font-medium text-white focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:outline-none"
       href={`mailto:${email}`}

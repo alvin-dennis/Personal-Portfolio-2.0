@@ -1,4 +1,18 @@
-import { GitHubLogoIcon, LinkedInLogoIcon, InstagramLogoIcon, FileIcon } from "@radix-ui/react-icons";
+import {
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+  InstagramLogoIcon,
+} from "@radix-ui/react-icons";
+
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaPython,
+  FaCuttlefish,
+  FaMarkdown,
+  FaFileCode,
+} from "react-icons/fa";
 
 export const SITE_CONFIG = {
   title: "Alvin Dennis — Builder | Maker | Manager",
@@ -8,9 +22,21 @@ export const SITE_CONFIG = {
   lang: "en",
   siteLogo: "/logo.png",
   socialLinks: [
-    { text: "Github", href: "https://github.com/alvin-dennis/", icon: GitHubLogoIcon },
-    { text: "LinkedIn", href: "https://www.linkedin.com/in/alvin-dennis-0a70ba163/", icon: LinkedInLogoIcon },
-    { text: "Instagram", href: "https://www.instagram.com/_a.lvin._/", icon: InstagramLogoIcon },
+    {
+      text: "Github",
+      href: "https://github.com/alvin-dennis/",
+      icon: GitHubLogoIcon,
+    },
+    {
+      text: "LinkedIn",
+      href: "https://www.linkedin.com/in/alvin-dennis-0a70ba163/",
+      icon: LinkedInLogoIcon,
+    },
+    {
+      text: "Instagram",
+      href: "https://www.instagram.com/_a.lvin._/",
+      icon: InstagramLogoIcon,
+    },
   ],
   socialImage: "/alvin-og.png",
   canonicalURL: "https://alvindennis.tech",
@@ -23,23 +49,60 @@ export const SITE_CONFIG = {
 export const SITE_CONTENT = {
   hero: {
     name: "Alvin Dennis",
-    specialty: "Developer & Community Builder",
+    specialty: [
+      "Electrical Engineer",
+      "Frontend Developer",
+      "UI/UX Designer",
+      "IoT Enthusiast",
+      "Manual Software Tester",
+      "Bot Developer",
+      "Community Manager",
+      "Open Source Enthusiast",
+      "Innovator",
+    ],
     summary: `
-      A developer and student passionate about building impactful digital solutions. My work spans web development, IoT, and community leadership. I enjoy collaborating on open source and mentoring others in tech.
+      Builder and Maker, combining technical skills with creative problem-solving to deliver impactful, user-focused solutions.
     `,
     email: "alvindennis80@gmail.com",
     resume: {
       text: "Resume",
       href: "https://resume.alvindennis.tech/",
-      icon: FileIcon,
     },
     image: "/alvin.webp",
   },
-  about: {
-    description: `
-      I'm Alvin Dennis, a passionate developer and community builder dedicated to creating impactful digital solutions. With a strong foundation in web development and IoT, I thrive on collaborating with others to bring innovative ideas to life. As a proactive leader, I enjoy mentoring aspiring developers and contributing to open-source projects that drive positive change.
-    `,
-    image: "/alvin.webp",
+  skills: {
+    languages: [
+      { name: "HTML", icon: FaHtml5 },
+      { name: "CSS", icon: FaCss3Alt },
+      { name: "JavaScript", icon: FaJs },
+      { name: "Python", icon: FaPython },
+      { name: "C", icon: FaCuttlefish },
+      { name: "Markdown", icon: FaMarkdown },
+      { name: "LaTeX", icon: FaFileCode },
+    ],
+    frameworks: ["React", "Vue", "Astro", "Next.js", "Node.js", "Tailwind CSS"],
+    databases: ["PostgreSQL", "Supabase", "Firebase", "Prisma"],
+    tools: [
+      "Git",
+      "GitHub",
+      "Postman",
+      "Figma",
+      "VS Code",
+      "PyCharm",
+      "Bash",
+      "PowerShell",
+      "Cloudflare",
+      "Cloudflare Workers",
+      "OpenCV",
+      "Vercel",
+      "Netlify",
+      "Notion",
+      "GitHub Actions",
+      "Anaconda",
+    ],
+    hardware: ["Arduino", "Raspberry Pi"],
+    platforms: ["Linux Mint", "Arch Linux", "Bun"],
+    other: ["Bot", "MATLAB"],
   },
   experience: [
     {
@@ -142,14 +205,6 @@ export const SITE_CONTENT = {
       url: "https://github.com/alvin-dennis/EleGuard",
       hosted_url: "https://github.com/alvin-dennis/EleGuard",
       technologies: ["Python", "Raspberry Pi", "Roboflow", "OpenCV", "Twilio"],
-    },
-    {
-      name: "Git Time Machine",
-      description:
-        "Interactive visualization platform for Git repository analysis that provides chronological mapping of project history.",
-      url: "https://github.com/alvin-dennis/git-time-machine",
-      hosted_url: "https://github.com/vHackBots/Git-Time-Machine",
-      technologies: ["HTML", "Tailwind CSS", "JavaScript", "NPM", "GitHub API"],
     },
     {
       name: "Personal Portfolio",
