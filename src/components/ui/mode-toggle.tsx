@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { RxMoon, RxSun} from "react-icons/rx";
 
 export function ModeToggle() {
   const [theme, setTheme] = React.useState<"light" | "dark">(() => {
@@ -41,9 +41,9 @@ export function ModeToggle() {
       onClick={toggleTheme}
     >
       {theme === "dark" ? (
-        <SunIcon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
+        <RxSun className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
       ) : (
-        <MoonIcon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
+        <RxMoon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
       )}
     </Button>
   );
