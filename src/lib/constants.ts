@@ -35,7 +35,8 @@ import {
   SiShadcnui,
   SiFramework,
   SiOpenai,
-  SiStreamlit
+  SiStreamlit,
+  SiJekyll
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 
@@ -113,6 +114,7 @@ export const SITE_CONTENT = {
     ],
     frameworks: [
       { name: "Next.js", icon: SiNextdotjs },
+      { name: "Jekyll", icon: SiJekyll },
       { name: "Node.js", icon: SiNodedotjs },
       { name: "Hono.js", icon: SiHono },
       {
