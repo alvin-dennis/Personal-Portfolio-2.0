@@ -10,15 +10,15 @@ You can also check out the live demo of the portfolio website [here](https://alv
 
 ## Technologies Utilized
 
-- **Next.js 15**: Modern React framework with App Router, providing server-side rendering, static site generation, and optimized performance with Turbopack.
-- **React 19**: Latest version of React with enhanced features for building dynamic and interactive user interfaces.
-- **JavaScript**: Modern JavaScript for enhanced developer productivity, type safety and code quality.
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development with responsive design and modern styling.
-- **Shadcn/UI**: Modern component library built on Radix UI primitives with customizable, accessible components.
-- **Lucide React**: Beautiful, customizable SVG icons for enhanced visual appeal.
-- **React Lottie Player**: Integration for smooth Lottie animations and micro-interactions.
-- **FontAwesome**: Professional icon library for brand and social media icons.
-- **Bun**: Fast JavaScript runtime and package manager for improved development experience.
+- **Astro** → All-in-one web framework for building fast, content-driven websites with partial hydration.
+- **React 19** → Latest React release with enhanced features for building dynamic and interactive user interfaces.  
+- **TypeScript** → Strongly typed JavaScript for improved developer productivity, maintainability, and code quality.  
+- **Tailwind CSS** → Utility-first CSS framework for rapid UI development, responsive design, and modern styling.  
+- **Shadcn/UI** → Accessible, customizable component library built on Radix UI primitives.  
+- **Lucide React** → Lightweight, customizable SVG icon set for modern UI design.  
+- **React-icons** → Unified icon library providing easy access to multiple icon packs in React.  
+- **Fontsource** → Self-hosted, open-source fonts for consistent typography without relying on external CDNs.
+- **Bun** → Fast JavaScript runtime and package manager for an improved development experience.  
 
 ## Installation
 
