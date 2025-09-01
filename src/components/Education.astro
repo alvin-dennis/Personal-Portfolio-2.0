@@ -1,5 +1,6 @@
 ---
 import Section from "./Section.astro";
+import { Image } from "astro:assets";
 import type { Education } from "@/types";
 
 interface Props {
@@ -14,29 +15,21 @@ const { education } = Astro.props;
     education.map(({ name, position, start, end, link, logo }) => (
       <div class="mb-10">
         <div class="mb-1.5 flex items-center gap-3">
-          {logo && link ? (
             <a href={link} target="_blank" rel="noopener noreferrer">
-              <img
+              <Image
                 src={logo}
-                alt={name + " logo"}
+                alt={name?.[0] ?? ""}
                 width="40"
                 height="40"
                 class="rounded-full"
               />
             </a>
-          ) : logo ? (
-            <img
-              src={logo}
-              alt={name + " logo"}
-              width="40"
-              height="40"
-              class="rounded-full"
-            />
-          ) : null}
-          <h3 class="font-calsans text-2xl font-semibold text-black dark:text-white">{name}</h3>
+          <h3 class="font-calsans text-2xl font-semibold text-black dark:text-white">
+            {name}
+          </h3>
         </div>
         <div class="flex flex-col items-start pb-5">
-          <h4 class="font-medium dark:text-white mb-0.5 font-calsans text-xl text-black">
+          <h4 class="mb-0.5 font-calsans text-xl font-medium text-black dark:text-white">
             {position}
           </h4>
           <span class="pb-[2px] text-sm text-black dark:text-white">

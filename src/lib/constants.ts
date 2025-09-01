@@ -2,6 +2,8 @@ import {
   SiJavascript,
   SiPython,
   SiMarkdown,
+  SiYaml,
+  SiLatex,
   SiReact,
   SiNextdotjs,
   SiAstro,
@@ -93,12 +95,15 @@ export const SITE_CONTENT = {
       { name: "JavaScript", icon: SiJavascript },
       { name: "Python", icon: SiPython },
       { name: "Markdown", icon: SiMarkdown },
+      { name: "YAML", icon: SiYaml },
+      { name: "LaTeX", icon: SiLatex }
     ],
     libraries: [
       { name: "React", icon: SiReact },
       { name: "Astro", icon: SiAstro },
       { name: "Tailwind CSS", icon: SiTailwindcss },
       { name: "OpenCV", icon: SiOpencv },
+      { name: "Prisma", icon: SiPrisma },
     ],
     frameworks: [
       { name: "Next.js", icon: SiNextdotjs },
@@ -108,7 +113,6 @@ export const SITE_CONTENT = {
         name: "oRPC",
         icon: SiTrpc,
       },
-      { name: "Prisma", icon: SiPrisma },
     ],
     databases: [
       { name: "Supabase", icon: SiSupabase },
@@ -239,6 +243,7 @@ export const SITE_CONTENT = {
     },
     {
       name: "Personal Portfolio",
+      image: "",
       description:
         "Professional developer portfolio utilizing modern bento grid layout with responsive design and accessibility features.",
       url: "https://github.com/alvin-dennis/Personal-Portfolio-2.0",

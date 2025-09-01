@@ -1,5 +1,6 @@
 ---
 import Section from "./Section.astro";
+import { Image } from "astro:assets";
 import type { Experience } from "@/types";
 
 interface Props {
@@ -14,33 +15,21 @@ const { experience } = Astro.props;
     experience.map(({ company, position, start, end, link, logo }) => (
       <div class="mb-10">
         <div class="mb-1.5 flex items-center gap-3">
-          {logo && link ? (
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <img
-                src={logo}
-                alt={company + " logo"}
-                width="40"
-                height="40"
-                class="rounded-full"
-              />
-            </a>
-          ) : logo ? (
-            <img
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <Image
               src={logo}
-              alt={company + " logo"}
+              alt={company?.[0] ?? ""}
               width="40"
               height="40"
               class="rounded-full"
             />
-          ) : null}
+          </a>
           <h3 class="font-calsans text-2xl font-semibold text-black dark:text-white">
             {company}
           </h3>
         </div>
         <div class="flex flex-col items-start pb-5 text-black dark:text-white">
-          <h4 class="mb-0.5 font-calsans text-xl font-medium">
-            {position}
-          </h4>
+          <h4 class="mb-0.5 font-calsans text-xl font-medium">{position}</h4>
           <span class="pb-[2px] text-sm">
             {start} — {end}
           </span>

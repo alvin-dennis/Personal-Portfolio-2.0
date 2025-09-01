@@ -28,6 +28,21 @@ const { skills } = Astro.props;
       }
     </div>
     <div class="flex flex-wrap gap-1">
+      <Badge variant="secondary">Libraries</Badge>
+      {
+        skills.libraries.map((skill) =>
+          typeof skill === "string" ? (
+            <Badge>{skill}</Badge>
+          ) : (
+            <Badge>
+              {skill.icon && <skill.icon style={{ marginRight: "0.25em" }} />}
+              {skill.name}
+            </Badge>
+          )
+        )
+      }
+    </div>
+    <div class="flex flex-wrap gap-1">
       <Badge variant="secondary">Frameworks</Badge>
       {
         skills.frameworks.map((skill) =>

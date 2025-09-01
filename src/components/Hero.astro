@@ -1,5 +1,7 @@
 ---
 import RotatingText from "@/components/ui/RotatingText";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { Button } from "./ui/button";
 import { Image } from "astro:assets";
 
 const { name, image, specialty, summary, email, resume } = Astro.props;
@@ -46,19 +48,25 @@ const { name, image, specialty, summary, email, resume } = Astro.props;
   </p>
 
   <div class="flex flex-row flex-wrap items-center justify-center gap-4">
-    <a
-      class="inline-block rounded-full bg-blue-600 px-8 py-5 text-sm leading-5 font-medium text-white focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:outline-none"
-      href={`mailto:${email}`}
+    <InteractiveHoverButton
+      className="px-8 py-5 text-sm leading-5 font-medium"
+      onClick={() => (window.location.href = `mailto:${email}`)}
     >
       Get in Touch
-    </a>
-    <a
-      class="inline-block rounded-full bg-black px-8 py-5 text-sm leading-5 font-medium text-white focus:ring-2 focus:ring-neutral-800 focus:ring-offset-2 focus:outline-none dark:bg-white dark:text-black dark:focus:ring-neutral-400"
-      href={resume.href}
-      target="_blank"
-      rel="noopener noreferrer"
+    </InteractiveHoverButton>
+
+    <Button
+      className="bg-black px-8 py-5 text-sm leading-5 font-medium text-white dark:bg-white dark:text-black"
+      asChild
     >
-      Resume
-    </a>
+      <a
+        href={resume.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:underline"
+      >
+        Resume
+      </a>
+    </Button>
   </div>
 </section>

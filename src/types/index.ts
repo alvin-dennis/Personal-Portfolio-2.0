@@ -34,6 +34,7 @@ export type SkillProp = string | { name: string; icon?: React.ElementType };
 
 export interface Skills {
   languages: SkillProp[];
+  libraries: SkillProp[];
   frameworks: SkillProp[];
   databases: SkillProp[];
   tools: SkillProp[];
