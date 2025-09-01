@@ -53,7 +53,7 @@ export interface Projects {
   description: string;
   url: string;
   hosted_url: string;
-  technologies: string[];
+  technologies: SkillProp[];
 }
 
 export interface Education {

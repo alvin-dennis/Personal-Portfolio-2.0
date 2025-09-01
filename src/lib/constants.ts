@@ -17,6 +17,7 @@ import {
   SiHono,
   SiTrpc,
   SiPrisma,
+  SiDrizzle,
   SiSupabase,
   SiFirebase,
   SiTurborepo,
@@ -29,7 +30,12 @@ import {
   SiCloudflare,
   SiTwilio,
   SiArduino,
-  SiRaspberrypi
+  SiRaspberrypi,
+  SiTypescript,
+  SiShadcnui,
+  SiFramework,
+  SiOpenai,
+  SiStreamlit
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 
@@ -96,7 +102,7 @@ export const SITE_CONTENT = {
       { name: "Python", icon: SiPython },
       { name: "Markdown", icon: SiMarkdown },
       { name: "YAML", icon: SiYaml },
-      { name: "LaTeX", icon: SiLatex }
+      { name: "LaTeX", icon: SiLatex },
     ],
     libraries: [
       { name: "React", icon: SiReact },
@@ -113,6 +119,8 @@ export const SITE_CONTENT = {
         name: "oRPC",
         icon: SiTrpc,
       },
+      { name: "Drizzle", icon: SiDrizzle },
+      { name: "Pathway", icon: SiFramework },
     ],
     databases: [
       { name: "Supabase", icon: SiSupabase },
@@ -133,7 +141,7 @@ export const SITE_CONTENT = {
     platforms: [
       { name: "Vercel", icon: SiVercel },
       { name: "Netlify", icon: SiNetlify },
-      { name: "Render", icon: SiRender },
+      { name: "Render", icSiFrameworkon: SiRender },
       { name: "Cloudflare", icon: SiCloudflare },
       { name: "Github", icon: SiGithub },
       { name: "Twilio", icon: SiTwilio },
@@ -239,16 +247,26 @@ export const SITE_CONTENT = {
         "Smart elephant monitoring system with real-time hazard detection and notification capabilities.",
       url: "https://github.com/alvin-dennis/EleGuard",
       hosted_url: "https://github.com/alvin-dennis/EleGuard",
-      technologies: ["Python", "Raspberry Pi", "Roboflow", "OpenCV", "Twilio"],
+      technologies: [
+        { name: "Python", icon: SiPython },
+        { name: "Raspberry Pi", icon: SiRaspberrypi },
+        { name: "Roboflow", icon: SiRoboflow },
+        { name: "OpenCV", icon: SiOpencv },
+        { name: "Twilio", icon: SiTwilio },
+      ],
     },
     {
       name: "Personal Portfolio",
-      image: "",
       description:
         "Professional developer portfolio utilizing modern bento grid layout with responsive design and accessibility features.",
       url: "https://github.com/alvin-dennis/Personal-Portfolio-2.0",
       hosted_url: "https://alvindennis.tech/",
-      technologies: ["Nextjs", "Tailwind CSS", "Shadcn", "TypeScript"],
+      technologies: [
+        { name: "Astro", icon: SiAstro },
+        { name: "TypeScript", icon: SiTypescript },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Shadcn/UI", icon: SiShadcnui },
+      ],
     },
     {
       name: "DevMate",
@@ -256,7 +274,12 @@ export const SITE_CONTENT = {
         "DevMate is a chatbot that assists developers in finding the code they need.",
       url: "https://github.com/alvin-dennis/DevMate",
       hosted_url: "https://github.com/alvin-dennis/DevMate",
-      technologies: ["Python", "Pathway", "OpenAI", "Streamlit"],
+      technologies: [
+        { name: "Python", icon: SiPython },
+        { name: "Pathway", icon: SiFramework },
+        { name: "OpenAI", icon: SiOpenai },
+        { name: "Streamlit", icon: SiStreamlit },
+      ],
     },
   ],
 };

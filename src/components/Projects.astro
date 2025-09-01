@@ -26,15 +26,24 @@ const { projects } = Astro.props;
                   {name}
                 </h3>
                 <p class="text-base text-neutral">{description}</p>
-                {technologies && technologies.length > 0 && (
+                {technologies?.length > 0 && (
                   <ul class="mt-4 flex flex-wrap gap-2">
-                    {technologies.map((tech) => (
-                      <li class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-black dark:border-neutral-700 dark:bg-neutral-800 dark:text-white">
-                        {tech}
-                      </li>
-                    ))}
+                    {technologies.map((tech) => {
+                      const { name, icon: Icon } =
+                        typeof tech === "string"
+                          ? { name: tech, icon: null }
+                          : tech;
+                          
+                      return (
+                        <li class="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-black dark:border-neutral-700 dark:bg-neutral-800 dark:text-white">
+                          {Icon && <Icon className="inline size-4" />}
+                          {name}
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
+
                 <div class="flex gap-5 pt-10 text-black dark:text-white">
                   <a
                     href={url}
