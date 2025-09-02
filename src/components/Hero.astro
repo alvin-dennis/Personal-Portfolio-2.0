@@ -1,0 +1,72 @@
+---
+import RotatingText from "@/components/ui/RotatingText";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { Button } from "./ui/button";
+import { Image } from "astro:assets";
+
+const { name, image, specialty, summary, email, resume } = Astro.props;
+---
+
+<section
+  class="bg-white py-12 text-black md:py-20 dark:bg-neutral-950 dark:text-white"
+  id="#hero"
+>
+  <div class="flex justify-center">
+    <div
+      class="mb-4 inline-block flex-shrink-0 rotate-[5deg] bg-black p-4 sm:mb-6 md:h-80 md:w-64 md:rotate-[7deg] dark:bg-white"
+    >
+      <Image
+        class="object-cover md:h-full md:w-full"
+        src={image}
+        width="200"
+        height="200"
+        alt={name}
+      />
+    </div>
+  </div>
+  <div class="flex flex-col items-center justify-center text-center">
+    <h1
+      class="mb-1 font-calsans text-4xl font-bold tracking-tightest text-neutral-900 sm:text-7xl md:text-8xl dark:text-white"
+    >
+      {name}
+    </h1>
+    <div
+      class="mt-2 mb-4 font-calsans text-xl font-bold tracking-tighter text-blue-500 sm:text-4xl md:text-5xl dark:text-blue-500"
+    >
+      <RotatingText
+        texts={specialty}
+        mainClassName="inline"
+        splitBy="words"
+        rotationInterval={2000}
+        auto={true}
+        client:load
+      />
+    </div>
+  </div>
+  <p class="mb-8 text-base font-normal md:text-lg">
+    {summary}
+  </p>
+
+  <div class="flex flex-row flex-wrap items-center justify-center gap-4">
+    <InteractiveHoverButton
+      className="px-8 py-5 text-sm leading-5 font-medium"
+      onClick={() => (window.location.href = `mailto:${email}`)}
+    >
+      Get in Touch
+    </InteractiveHoverButton>
+
+    <Button
+      className="bg-black px-8 py-5 text-sm leading-5 font-medium text-white dark:bg-white dark:text-black"
+      asChild
+    >
+      <a
+        href={resume.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:underline"
+      >
+        Resume
+      </a>
+    </Button>
+  </div>
+</section>

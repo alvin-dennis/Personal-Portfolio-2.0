@@ -1,0 +1,44 @@
+---
+const { email, cal_link } = Astro.props;
+---
+
+<footer
+  id="contact"
+  class="w-full px-4 py-12 text-center text-black dark:text-white"
+>
+  <div
+    class="grid w-full items-center justify-center gap-4 text-center md:px-6"
+  >
+    <div class="space-y-3">
+      <h2
+        class="font-calsans text-4xl font-bold tracking-tighter md:text-5xl"
+      >
+        Get in Touch
+      </h2>
+      <p
+        class="mx-auto max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
+      >
+        Having any questions or just want to say hello?
+        <br />
+        <a
+          href={`mailto:${email}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-blue-500 hover:underline"
+        >
+          Email
+        </a>
+        me or
+        <a
+          href={cal_link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-green-500 hover:underline"
+        >
+          Schedule
+        </a>
+        a Call
+      </p>
+    </div>
+  </div>
+</footer>

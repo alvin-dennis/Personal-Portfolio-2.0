@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import { Dock, DockIcon } from "@/components/ui/dock";
+import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Separator } from "@/components/ui/separator";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import type React from "react";
+
+const { siteLogo, socialLinks } = Astro.props;
+---
+
+<header>
+  <div
+    class="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-12 flex h-full max-h-14 origin-bottom"
+  >
+    <Dock
+      className="pointer-events-auto relative z-50 mx-auto flex h-full min-h-full transform-gpu items-center bg-background px-1 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:border-white dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
+    >
+      <DockIcon>
+        <div class="group relative flex items-center">
+          <a
+            href="/"
+            aria-label="Home link"
+            class={cn(
+              buttonVariants({ variant: "ghost", size: "icon" }),
+              "size-12 flex items-center justify-center"
+            )}
+          >
+            <Image
+              class="rounded-full shadow-lg"
+              src={siteLogo}
+              width="32"
+              height="32"
+              alt="website logo"
+            />
+          </a>
+          <span
+            class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 scale-95 rounded bg-gray-900 px-2 py-1 text-xs text-white opacity-0 transition duration-200 group-hover:scale-100 group-hover:opacity-100 dark:bg-white dark:text-gray-900"
+          >
+            Home
+            <span
+              class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900 dark:border-t-white"
+            ></span>
+          </span>
+        </div>
+      </DockIcon>
+
+      <Separator orientation="vertical" className="h-full" />
+
+      {
+        socialLinks.map(
+          (item: { text: string; href: string; icon: React.ElementType }) => (
+            <DockIcon>
+              <div class="group relative flex items-center">
+                <a
+                  href={item.href}
+                  aria-label={item.text}
+                  class={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    "flex size-12 items-center justify-center text-gray-800 dark:text-gray-200"
+                  )}
+                >
+                  {item.icon && (
+                    // @ts-ignore
+                    <item.icon class="size-4 text-current" />
+                  )}
+                </a>
+                <span class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 scale-95 rounded bg-gray-900 px-2 py-1 text-xs text-white opacity-0 transition duration-200 group-hover:scale-100 group-hover:opacity-100 dark:bg-white dark:text-gray-900">
+                  {item.text}
+                  <span class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900 dark:border-t-white" />
+                </span>
+              </div>
+            </DockIcon>
+          )
+        )
+      }
+
+      <Separator orientation="vertical" className="h-full" />
+
+      <DockIcon>
+        <div class="group relative flex items-center">
+          <ModeToggle client:load />
+        </div>
+      </DockIcon>
+    </Dock>
+  </div>
+</header>

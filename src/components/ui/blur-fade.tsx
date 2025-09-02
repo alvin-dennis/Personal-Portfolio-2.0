@@ -1,12 +1,10 @@
 "use client";
 
+import type { UseInViewOptions, Variants, MotionProps } from "motion/react";
 import {
   AnimatePresence,
   motion,
   useInView,
-  UseInViewOptions,
-  Variants,
-  MotionProps,
 } from "motion/react";
 import { useRef } from "react";
 
@@ -28,7 +26,7 @@ interface BlurFadeProps extends MotionProps {
   blur?: string;
 }
 
-export default function BlurFade({
+export function BlurFade({
   children,
   className,
   variant,
