@@ -36,7 +36,8 @@ import {
   SiFramework,
   SiOpenai,
   SiStreamlit,
-  SiJekyll
+  SiJekyll,
+  SiPostgresql
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 
@@ -127,7 +128,8 @@ export const SITE_CONTENT = {
     databases: [
       { name: "Supabase", icon: SiSupabase },
       { name: "Firebase", icon: SiFirebase },
-      { name: "Redis", icon: DiRedis },
+      { name: "Upstash Redis", icon: DiRedis },
+      { name: "Postgresql", icon: SiPostgresql },
     ],
     tools: [
       { name: "Turborepo", icon: SiTurborepo },
