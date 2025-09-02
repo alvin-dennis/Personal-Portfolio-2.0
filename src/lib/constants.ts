@@ -111,6 +111,7 @@ export const SITE_CONTENT = {
       { name: "Tailwind CSS", icon: SiTailwindcss },
       { name: "OpenCV", icon: SiOpencv },
       { name: "Prisma", icon: SiPrisma },
+      { name: "Drizzle", icon: SiDrizzle },
     ],
     frameworks: [
       { name: "Next.js", icon: SiNextdotjs },
@@ -121,7 +122,6 @@ export const SITE_CONTENT = {
         name: "oRPC",
         icon: SiTrpc,
       },
-      { name: "Drizzle", icon: SiDrizzle },
       { name: "Pathway", icon: SiFramework },
     ],
     databases: [
