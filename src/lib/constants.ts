@@ -145,7 +145,7 @@ export const SITE_CONTENT = {
     platforms: [
       { name: "Vercel", icon: SiVercel },
       { name: "Netlify", icon: SiNetlify },
-      { name: "Render", icSiFrameworkon: SiRender },
+      { name: "Render", icon: SiRender },
       { name: "Cloudflare", icon: SiCloudflare },
       { name: "Github", icon: SiGithub },
       { name: "Twilio", icon: SiTwilio },
