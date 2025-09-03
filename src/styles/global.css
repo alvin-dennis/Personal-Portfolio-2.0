@@ -39,10 +39,6 @@
   --text-9xl: 6rem;
   --text-9xl--line-height: 6.625rem;
 
-  --tracking-tightest: -2px;
-  --tracking-tighter: -1px;
-  --tracking-tight: -0.25px;
-
   --animate-slide-in: slide-in 600ms ease both;
 
   @keyframes slide-in {
