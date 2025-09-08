@@ -1,33 +1,37 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
-import { RxMoon, RxSun} from "react-icons/rx";
+import { RxMoon, RxSun } from "react-icons/rx";
 
 export function ModeToggle() {
-  const [theme, setTheme] = React.useState<"light" | "dark">(() => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      const stored = window.localStorage.getItem("theme");
-      if (stored === "dark" || stored === "light") return stored;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    }
-    return "light";
-  });
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
+  const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-      window.localStorage.setItem("theme", theme);
+    const stored = window.localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+
+    if (stored === "dark" || stored === "light") {
+      setTheme(stored);
+      document.documentElement.classList.toggle("dark", stored === "dark");
+    } else {
+      setTheme(prefersDark ? "dark" : "light");
+      document.documentElement.classList.toggle("dark", prefersDark);
     }
-  }, [theme]);
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      document.documentElement.classList.toggle("dark", next === "dark");
+      window.localStorage.setItem("theme", next);
+      return next;
+    });
   };
+
+  if (!mounted) return null;
 
   return (
     <Button
