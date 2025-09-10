@@ -152,19 +152,11 @@ export const SITE_CONTENT = {
   experience: [
     {
       company: "MetaLoom",
-      position: "Frontend Developer",
+      position: "Frontend Engineer",
       start: "Jul 2025",
       end: "Present",
       link: "https://metaloom.vercel.app/",
       logo: "https://github.com/MetaLoomLabs.png",
-    },
-    {
-      company: "vHackBotz",
-      position: "Frontend Developer",
-      start: "July 2025",
-      end: "Present",
-      link: "https://vhackbotz.vercel.app/",
-      logo: "https://github.com/vhackbotz.png",
     },
     {
       company: "BuilderClan",
