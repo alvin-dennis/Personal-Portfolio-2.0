@@ -1,9 +1,7 @@
 ---
+import { join } from "node:path";
 import Navbar from "@/components/Navbar.astro";
-import "@fontsource/cal-sans";
-import "@fontsource/poppins/400.css";
-import "@fontsource/poppins/500.css";
-import "@fontsource/poppins/600.css";
+import { AstroFont } from "astro-font";
 import { SITE_CONFIG } from "@/lib/constants";
 import Footer from "@/components/Footer.astro";
 
@@ -43,8 +41,69 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImgUrl} />
+    <AstroFont
+      config={[
+        {
+          name: "Druk Wide",
+          src: [
+            {
+              style: "normal",
+              weight: "900",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Druk-Super-Trial.otf"
+              ),
+            },
+          ],
+          preload: true,
+          display: "swap",
+          selector: "h1",
+          fallback: "sans-serif",
+        },
+        {
+          name: "Druk Super",
+          src: [
+            {
+              style: "normal",
+              weight: "400",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "DrukText-Super-Trial.otf"
+              ),
+            },
+          ],
+          preload: true,
+          display: "swap",
+          selector: "h2",
+          fallback: "sans-serif",
+        },
+        {
+          name: "Open Sans",
+          src: [
+            {
+              style: "normal",
+              weight: "400",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "LeagueSpartan-Regular.ttf"
+              ),
+            },
+          ],
+          preload: true,
+          display: "swap",
+          selector: "p, li, a, span",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
   </head>
-  <body class="flex min-h-screen flex-col bg-white font-poppins dark:bg-black">
+  <body class="font-poppins flex min-h-screen flex-col bg-white dark:bg-black">
     <main class="mx-auto max-w-3xl flex-1 px-5 pb-28">
       <slot />
       <Footer email={contact.email} cal_link={contact.cal_link} />

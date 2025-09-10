@@ -4,9 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-poppins: "Poppins", system-ui, sans-serif;
-  --font-calsans: 'Cal Sans', sans-serif;
-
   --color-primary: #2563eb;
   --color-neutral: #94a3b8;
   --color-white: #ffffff;

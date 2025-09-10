@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 import react from "@astrojs/react";
 
+import { astroFont } from "astro-font/integration";
 import compressor from "astro-compressor";
 
 // https://astro.build/config
@@ -12,5 +13,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [react(), compressor()],
+  integrations: [react(), compressor(), astroFont()],
 });

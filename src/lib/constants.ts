@@ -16,6 +16,7 @@ import {
   SiNodedotjs,
   SiHono,
   SiTrpc,
+  SiExpo,
   SiPrisma,
   SiDrizzle,
   SiSupabase,
@@ -34,8 +35,7 @@ import {
   SiTypescript,
   SiShadcnui,
   SiFramework,
-  SiOpenai,
-  SiStreamlit,
+  SiFramer,
   SiJekyll,
   SiPostgresql
 } from "react-icons/si";
@@ -119,10 +119,8 @@ export const SITE_CONTENT = {
       { name: "Jekyll", icon: SiJekyll },
       { name: "Node.js", icon: SiNodedotjs },
       { name: "Hono.js", icon: SiHono },
-      {
-        name: "oRPC",
-        icon: SiTrpc,
-      },
+      { name: "oRPC", icon: SiTrpc },
+      { name: "Expo", icon: SiExpo },
       { name: "Pathway", icon: SiFramework },
     ],
     databases: [
@@ -262,7 +260,7 @@ export const SITE_CONTENT = {
     {
       name: "Personal Portfolio",
       description:
-        "Professional developer portfolio utilizing modern bento grid layout with responsive design and accessibility features.",
+        "Professional developer portfolio utilizing modern minimal layout with responsive design and accessibility features.",
       url: "https://github.com/alvin-dennis/Personal-Portfolio-2.0",
       hosted_url: "https://alvindennis.tech/",
       technologies: [
@@ -273,16 +271,15 @@ export const SITE_CONTENT = {
       ],
     },
     {
-      name: "DevMate",
+      name: "BuilderClan Website",
       description:
-        "DevMate is a chatbot that assists developers in finding the code they need.",
-      url: "https://github.com/alvin-dennis/DevMate",
-      hosted_url: "https://github.com/alvin-dennis/DevMate",
+        "BuilderClan is a tech community for innovators, developers, and enthusiasts to collaborate on impactful projects.",
+      url: "https://github.com/BuilderClan/builderclan-site",
+      hosted_url: "https://builderclan.org/",
       technologies: [
-        { name: "Python", icon: SiPython },
-        { name: "Pathway", icon: SiFramework },
-        { name: "OpenAI", icon: SiOpenai },
-        { name: "Streamlit", icon: SiStreamlit },
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: SiFramer },
       ],
     },
   ],
