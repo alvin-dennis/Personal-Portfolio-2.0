@@ -20,7 +20,7 @@ const { name, image, specialty, summary, email, resume } = Astro.props;
         src={image}
         width="190"
         height="190"
-        alt={name}
+        alt={name?.[0] ?? ""}
       />
     </div>
   </div>
