@@ -36,16 +36,18 @@ const { name, image, specialty, summary, email, resume } = Astro.props;
       <RotatingText
         texts={specialty}
         mainClassName="inline font-bold"
-        splitBy="words" rotationInterval={2000}
+        splitBy="words"
+        rotationInterval={2000}
         auto={true}
-        client:load 
+        client:load
       />
     </div>
     <p class="mb-8 text-lg font-normal md:text-xl">
       {summary}
     </p>
 
-    <div class="flex flex-row flex-wrap items-center justify-center gap-4">
+    <div class="flex flex-row flex-wrap items-center justify-center gap-4 pb-10"
+    >
       <InteractiveHoverButton
         className="px-8 py-5 text-sm leading-5 font-medium"
         onClick={() => (window.location.href = `mailto:${email}`)}
