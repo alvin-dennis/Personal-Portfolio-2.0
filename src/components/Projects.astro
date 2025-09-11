@@ -25,7 +25,7 @@ const { projects } = Astro.props;
                 <h3 class="mb-5 text-3xl font-bold text-black dark:text-white">
                   {name}
                 </h3>
-                <p class="text-base text-neutral">{description}</p>
+                <p class="text-base text-black dark:text-white">{description}</p>
                 {technologies?.length > 0 && (
                   <ul class="mt-4 flex flex-wrap gap-2">
                     {technologies.map((tech) => {
