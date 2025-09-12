@@ -40,6 +40,7 @@ import {
   SiPostgresql
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
+import { FaFileAlt } from "react-icons/fa";
 
 export const SITE_CONFIG = {
   title: "Alvin Dennis — Builder | Maker | Manager",
@@ -49,6 +50,11 @@ export const SITE_CONFIG = {
   lang: "en",
   siteLogo: "/logo.png",
   socialLinks: [
+    {
+      text: "Resume",
+      href: "https://resume.alvindennis.tech/",
+      icon: FaFileAlt,
+    },
     {
       text: "Github",
       href: "https://github.com/alvin-dennis/",
@@ -91,12 +97,9 @@ export const SITE_CONTENT = {
     summary: `
       Builder and Maker, combining technical skills with creative problem-solving to deliver impactful, user-focused solutions.
     `,
-    email: "alvindennis80@gmail.com",
-    resume: {
-      text: "Resume",
-      href: "https://resume.alvindennis.tech/",
-    },
-    image: "/alvin.webp",
+    currentWork: "Frontend Engineer at MetaLoom",
+    location: "Kottayam, Kerala",
+    image: "https://github.com/alvin-dennis.png",
   },
   skills: {
     languages: [

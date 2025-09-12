@@ -1,15 +1,13 @@
 ---
 import RotatingText from "@/components/ui/RotatingText";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import { Button } from "./ui/button";
 import { Image } from "astro:assets";
 
-const { name, image, specialty, summary, email, resume } = Astro.props;
+const { name, image, specialty, summary, currentWork, location } = Astro.props;
 ---
 
 <section
   class="bg-white py-12 text-black md:py-20 dark:bg-neutral-950 dark:text-white"
-  id="#hero"
+  id="hero"
 >
   <div class="flex justify-center">
     <div
@@ -24,12 +22,14 @@ const { name, image, specialty, summary, email, resume } = Astro.props;
       />
     </div>
   </div>
+
   <div class="flex flex-col items-center justify-center text-center">
     <h1
       class="mb-1 text-4xl text-neutral-900 sm:text-7xl md:text-8xl dark:text-white"
     >
       {name}
     </h1>
+
     <div
       class="mt-2 mb-4 text-2xl font-bold text-blue-500 sm:text-4xl md:text-5xl dark:text-blue-500"
     >
@@ -42,31 +42,45 @@ const { name, image, specialty, summary, email, resume } = Astro.props;
         client:load
       />
     </div>
-    <p class="mb-5 sm:mb-8 text-lg font-normal md:text-xl">
-      {summary}
-    </p>
 
-    <div class="flex flex-row flex-wrap items-center justify-center gap-4">
-      <InteractiveHoverButton
-        className="px-8 py-5 text-sm leading-5 font-medium"
-        onClick={() => (window.location.href = `mailto:${email}`)}
-      >
-        Get in Touch
-      </InteractiveHoverButton>
+    <p class="mb-5 text-lg font-normal sm:mb-8 md:text-xl">{summary}</p>
 
-      <Button
-        className="bg-black px-8 py-5 text-sm leading-5 font-medium text-white dark:bg-white dark:text-black"
-        asChild
-      >
-        <a
-          href={resume.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:underline"
+    <div
+      class="flex flex-col items-center justify-center gap-1 text-black dark:text-white"
+    >
+      <div class="text-center sm:text-left">
+        <span class="font-semibold text-neutral-500 dark:text-neutral-400"
+          >Currently working as:</span
         >
-          Resume
-        </a>
-      </Button>
+        <span class="ml-1 font-medium">{currentWork ?? "…"}</span>
+      </div>
+
+      <div
+        class="flex flex-col items-center gap-1 font-mono text-sm sm:flex-row sm:items-center sm:justify-center sm:gap-2 sm:text-base"
+      >
+        <span id="current-time">--:--:--</span>
+        <span class="sm:ml-1">{location}</span>
+      </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  function updateTime() {
+    const now = new Date();
+    const options = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true,
+    };
+    const timeString = now.toLocaleString("en-US", options);
+    document.getElementById("current-time").textContent = timeString;
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+</script>

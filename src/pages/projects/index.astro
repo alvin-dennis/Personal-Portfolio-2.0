@@ -1,0 +1,23 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+
+import "@/styles/global.css";
+---
+
+<main
+  class="flex h-screen w-full items-center justify-center bg-white px-6 text-black dark:bg-neutral-950 dark:text-white"
+>
+  <div class="flex max-w-lg flex-col items-center text-center">
+    <img src="/logo.png" alt="Work in Progress" class="mb-8 h-64 w-64" />
+
+    <h1 class="mb-4 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      Currently Working On It
+    </h1>
+
+    <p class="mb-6 leading-7 text-gray-700 dark:text-gray-300">
+      This page is under construction. Check back soon!
+    </p>
+
+    <a href="/" class={buttonVariants()} rel="noreferrer"> Go Back Home </a>
+  </div>
+</main>

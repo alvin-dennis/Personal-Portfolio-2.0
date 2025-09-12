@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type React from "react";
+import { FaCode } from "react-icons/fa6";
 
 const { siteLogo, socialLinks } = Astro.props;
 ---
@@ -39,6 +40,29 @@ const { siteLogo, socialLinks } = Astro.props;
             class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 scale-95 rounded bg-gray-900 px-2 py-1 text-xs text-white opacity-0 transition duration-200 group-hover:scale-100 group-hover:opacity-100 dark:bg-white dark:text-gray-900"
           >
             Home
+            <span
+              class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900 dark:border-t-white"
+            ></span>
+          </span>
+        </div>
+      </DockIcon>
+
+      <DockIcon>
+        <div class="group relative flex items-center">
+          <a
+            href="/projects"
+            aria-label="Projects link"
+            class={cn(
+              buttonVariants({ variant: "ghost", size: "icon" }),
+              "size-12 flex items-center justify-center"
+            )}
+          >
+            <FaCode className="size-5 text-current" />
+          </a>
+          <span
+            class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 scale-95 rounded bg-gray-900 px-2 py-1 text-xs text-white opacity-0 transition duration-200 group-hover:scale-100 group-hover:opacity-100 dark:bg-white dark:text-gray-900"
+          >
+            Projects
             <span
               class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900 dark:border-t-white"
             ></span>
