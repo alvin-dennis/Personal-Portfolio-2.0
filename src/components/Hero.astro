@@ -7,7 +7,7 @@ const { name, image, specialty, summary, currentWork, location } = Astro.props;
 
 <section
   class="bg-white py-12 text-black md:py-20 dark:bg-neutral-950 dark:text-white"
-  id="hero"
+  id="#hero"
 >
   <div class="flex justify-center">
     <div
@@ -22,14 +22,12 @@ const { name, image, specialty, summary, currentWork, location } = Astro.props;
       />
     </div>
   </div>
-
   <div class="flex flex-col items-center justify-center text-center">
     <h1
       class="mb-1 text-4xl text-neutral-900 sm:text-7xl md:text-8xl dark:text-white"
     >
       {name}
     </h1>
-
     <div
       class="mt-2 mb-4 text-2xl font-bold text-blue-500 sm:text-4xl md:text-5xl dark:text-blue-500"
     >
@@ -42,9 +40,7 @@ const { name, image, specialty, summary, currentWork, location } = Astro.props;
         client:load
       />
     </div>
-
     <p class="mb-5 text-lg font-normal sm:mb-8 md:text-xl">{summary}</p>
-
     <div
       class="flex flex-col items-center justify-center gap-1 text-black dark:text-white"
     >
@@ -54,7 +50,6 @@ const { name, image, specialty, summary, currentWork, location } = Astro.props;
         >
         <span class="ml-1 font-medium">{currentWork ?? "…"}</span>
       </div>
-
       <div
         class="flex flex-col items-center gap-1 font-mono text-sm sm:flex-row sm:items-center sm:justify-center sm:gap-2 sm:text-base"
       >
