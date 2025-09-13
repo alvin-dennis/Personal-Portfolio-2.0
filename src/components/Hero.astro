@@ -72,6 +72,7 @@ const { name, image, specialty, summary, currentWork, location } = Astro.props;
       minute: "numeric",
       second: "numeric",
       hour12: true,
+      timeZone: "Asia/Kolkata",
     };
     const timeString = now.toLocaleString("en-US", options);
     document.getElementById("current-time").textContent = timeString;

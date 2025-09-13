@@ -53,6 +53,7 @@ export interface Projects {
   description: string;
   url: string;
   hosted_url: string;
+  // image: string;
   technologies: SkillProp[];
 }
 

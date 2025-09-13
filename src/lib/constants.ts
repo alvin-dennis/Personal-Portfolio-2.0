@@ -258,6 +258,7 @@ export const SITE_CONTENT = {
         "Professional developer portfolio utilizing modern minimal layout with responsive design and accessibility features.",
       url: "https://github.com/alvin-dennis/Personal-Portfolio-2.0",
       hosted_url: "https://alvindennis.tech/",
+      image: "/projects/personal-portfolio.webp",
       technologies: [
         { name: "Astro", icon: SiAstro },
         { name: "TypeScript", icon: SiTypescript },
@@ -271,6 +272,7 @@ export const SITE_CONTENT = {
         "BuilderClan is a tech community for innovators, developers, and enthusiasts to collaborate on impactful projects.",
       url: "https://github.com/BuilderClan/builderclan-site",
       hosted_url: "https://builderclan.org/",
+      image: "/projects/builderclan-website.webp",
       technologies: [
         { name: "Next.js", icon: SiNextdotjs },
         { name: "Tailwind CSS", icon: SiTailwindcss },
