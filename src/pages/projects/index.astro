@@ -1,23 +1,21 @@
 ---
-import { buttonVariants } from "@/components/ui/button";
+import { SlideTabs } from "@/components/ui/slide-tabs";
+
+import { BlurFade } from "@/components/ui/blur-fade";
 
 import "@/styles/global.css";
+
+const BLUR_FADE_DELAY = 0.04;
 ---
 
 <main
-  class="flex h-screen w-full items-center justify-center bg-white px-6 text-black dark:bg-neutral-950 dark:text-white"
+  class="flex min-h-screen w-full items-center justify-center bg-white px-4 text-black sm:px-6 md:px-8 dark:bg-neutral-950 dark:text-white"
 >
-  <div class="flex max-w-lg flex-col items-center text-center">
-    <img src="/logo.png" alt="Work in Progress" class="mb-8 h-64 w-64" />
-
-    <h1 class="mb-4 text-4xl font-extrabold tracking-tight lg:text-5xl">
-      Currently Working On It
-    </h1>
-
-    <p class="mb-6 leading-7 text-gray-700 dark:text-gray-300">
-      This page is under construction. Check back soon!
-    </p>
-
-    <a href="/" class={buttonVariants()} rel="noreferrer"> Go Back Home </a>
+  <div
+    class="grid min-h-screen w-full max-w-5xl place-content-center bg-white px-2 sm:px-4 md:px-6 dark:bg-black"
+  >
+    <BlurFade client:load delay={BLUR_FADE_DELAY * 3}>
+      <SlideTabs client:load />
+    </BlurFade>
   </div>
 </main>
