@@ -1,88 +1,13 @@
 ---
 import Layout from "@/layouts/ProjectLayout.astro";
 import Section from "@/components/Section.astro";
-
 import { SITE_CONTENT } from "@/lib/constants";
-import type { Projects } from "@/types";
-
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-import { BlurFade } from "@/components/ui/blur-fade";
-
-interface Props {
-  projects: Projects[];
-}
-
-const BLUR_FADE_DELAY = 0.04;
+import Projects from "@/components/ui/project-tabs";
 ---
 
 <Layout>
-  <Section text="" href="/projects">
-    <div class="mb-5 flex justify-center">
-      <h2 class="text-center text-3xl text-black md:text-5xl dark:text-white">
-        My Projects & Contributions
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-      {
-        SITE_CONTENT.projects.map(
-          ({ name, description, url, hosted_url, technologies }) => (
-            <BlurFade delay={BLUR_FADE_DELAY * 3} client:load>
-              <div class="rounded-2xl border border-black bg-white shadow-md transition hover:shadow-lg dark:border-white dark:bg-black">
-                <div class="bg-difu relative z-[1] h-[580px] w-full rounded-2xl before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/noise-bg.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[7%] before:content-[''] md:h-96">
-                  <div class="px-6 pt-12">
-                    <h3 class="mb-5 text-3xl font-bold text-black dark:text-white">
-                      {name}
-                    </h3>
-                    <p class="text-base text-black dark:text-white">
-                      {description}
-                    </p>
-
-                    {technologies?.length > 0 && (
-                      <ul class="mt-4 flex flex-wrap gap-2">
-                        {technologies.map((tech) => {
-                          const { name, icon: Icon } =
-                            typeof tech === "string"
-                              ? { name: tech, icon: null }
-                              : tech;
-
-                          return (
-                            <li class="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-black dark:border-neutral-700 dark:bg-neutral-800 dark:text-white">
-                              {Icon && <Icon className="inline size-4" />}
-                              {name}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
-
-                    <div class="flex gap-5 pt-10 text-black dark:text-white">
-                      <a
-                        href={url}
-                        target="_blank"
-                        class="dark:hover:text-primary-light inline-flex items-center gap-1 text-black hover:text-primary hover:underline dark:text-white"
-                      >
-                        Source
-                        <FaArrowUpRightFromSquare className="inline-block size-4 align-text-bottom dark:text-white text-black" />
-                      </a>
-                      {hosted_url && !hosted_url.includes("github.com") && (
-                        <a
-                          href={hosted_url}
-                          target="_blank"
-                          class="dark:hover:text-primary-light inline-flex items-center gap-1 text-black hover:text-primary hover:underline dark:text-white"
-                        >
-                          Preview
-                          <FaArrowUpRightFromSquare className="inline-block size-4 align-text-bottom text-black dark:text-white" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </BlurFade>
-          )
-        )
-      }
-    </div>
-  </Section>
+  <div class="mb-1 flex justify-center text-center">
+    <Section href="/projects" text="My Projects & Contributions" />
+  </div>
+  <Projects client:visible projects={SITE_CONTENT.projects} />
 </Layout>

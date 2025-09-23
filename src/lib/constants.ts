@@ -37,10 +37,12 @@ import {
   SiFramework,
   SiFramer,
   SiJekyll,
-  SiPostgresql
+  SiPostgresql,
+  SiJsonwebtokens,
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
-import { FaFileAlt } from "react-icons/fa";
+import { FaBrain, FaFileAlt, FaGlobe, FaLayerGroup, FaServer } from "react-icons/fa";
+import { HiMiniCpuChip, HiMiniCommandLine } from "react-icons/hi2";
 
 export const SITE_CONFIG = {
   title: "Alvin Dennis — Builder | Maker | Manager",
@@ -71,7 +73,7 @@ export const SITE_CONFIG = {
       icon: SiInstagram,
     },
   ],
-  socialImage: "/alvin-og.png",
+  socialImage: "/og.webp",
   canonicalURL: "https://alvindennis.tech",
   contact: {
     email: "alvindennis80@gmail.com",
@@ -237,11 +239,20 @@ export const SITE_CONTENT = {
       logo: "https://sjcetpalai.ac.in/wp-content/uploads/2019/01/SJCET-LOGO-Orginal-1200x1161.png",
     },
   ],
+  categories: [
+      { value: "all", label: "All", icon: FaLayerGroup},
+      { value: "frontend", label: "Frontend", icon: FaGlobe },
+      { value: "backend", label: "Backend", icon: FaServer },
+      { value: "tools", label: "Tools", icon: HiMiniCommandLine },
+      { value: "genai", label: "GenAI", icon: FaBrain },
+      { value: "hardware", label: "Hardware", icon: HiMiniCpuChip },
+    ],
   projects: [
     {
       name: "EleGuard",
       description:
         "Smart elephant monitoring system with real-time hazard detection and notification capabilities.",
+      category: "Hardware",
       url: "https://github.com/alvin-dennis/EleGuard",
       hosted_url: "https://github.com/alvin-dennis/EleGuard",
       technologies: [
@@ -256,9 +267,9 @@ export const SITE_CONTENT = {
       name: "Personal Portfolio",
       description:
         "Professional developer portfolio utilizing modern minimal layout with responsive design and accessibility features.",
-      url: "https://github.com/alvin-dennis/Personal-Portfolio-2.0",
+      category: "Frontend",
+      url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
       hosted_url: "https://alvindennis.tech/",
-      image: "/projects/personal-portfolio.webp",
       technologies: [
         { name: "Astro", icon: SiAstro },
         { name: "TypeScript", icon: SiTypescript },
@@ -270,13 +281,40 @@ export const SITE_CONTENT = {
       name: "BuilderClan Website",
       description:
         "BuilderClan is a tech community for innovators, developers, and enthusiasts to collaborate on impactful projects.",
+      category: "Frontend",
       url: "https://github.com/BuilderClan/builderclan-site",
       hosted_url: "https://builderclan.org/",
-      image: "/projects/builderclan-website.webp",
       technologies: [
         { name: "Next.js", icon: SiNextdotjs },
         { name: "Tailwind CSS", icon: SiTailwindcss },
         { name: "Framer Motion", icon: SiFramer },
+      ],
+    },
+    {
+      name: "Beyond Syllabus",
+      description:
+        "Beyond Syllabus a platform that transforms any syllabus into an interactive AI-powered learning companion.",
+      category: ["Frontend", "Backend", "GenAI"],
+      url: "https://github.com/The-Purple-Movement/Beyond-Syllabus",
+      hosted_url: "https://beyondsyllabus.in/",
+      technologies: [
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: SiFramer },
+        { name: "Elysia", icon: SiNodedotjs },
+      ],
+    },
+    {
+      name: "Availr",
+      description:
+        "An interactive CLI streamlines availability scheduling through CSV import, personalized email invites, and confirmation tracking.",
+      category: "Tools",
+      url: "https://github.com/alvin-dennis/Availr",
+      hosted_url: "https://github.com/alvin-dennis/Availr",
+      technologies: [
+        { name: "Nodejs", icon: SiNodedotjs },
+        { name: "Hono", icon: SiHono },
+        { name: "JWT", icon: SiJsonwebtokens },
       ],
     },
   ],

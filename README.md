@@ -1,6 +1,6 @@
 # Portfolio Website
 
-## 👋 Welcome to my portfolio website!
+## 👋 Welcome to my portfolio website
 
 This platform serves as a digital showcase of my professional journey, skills, projects, and achievements. Feel free to explore my portfolio and discover the projects I've worked on. From web development and design to digital marketing and beyond, each project represents a labor of love and a testament to my commitment to excellence.
 
@@ -31,14 +31,17 @@ git clone https://github.com/alvin-dennis/Personal-Portfolio-2.0.git
 Installation of dependencies
 
 ```bash
-bun i or bun install
+bun install
 ```
 
 Start Server
 
 ```bash
-bun run dev
+bun dev
 ```
+
+> [!NOTE]
+> The information contained in this template, including names, images, and content, has been created entirely by me and reflects my own work and experiences. Any resemblance to real-life people, events, or situations is purely coincidental. You are encouraged to replace this content with your own information if using it as a template.
 
 ## Contributing
 

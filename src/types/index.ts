@@ -30,7 +30,7 @@ export interface Hero {
   resume: { text: string; href: string; icon: React.ElementType };
 }
 
-export type SkillProp = string | { name: string; icon?: React.ElementType };
+export type SkillProp = string | { name: string; icon: React.ElementType };
 
 export interface Skills {
   languages: SkillProp[];
@@ -51,9 +51,9 @@ export interface Socials {
 export interface Projects {
   name: string;
   description: string;
+  category: string | string[];
   url: string;
   hosted_url: string;
-  // image: string;
   technologies: SkillProp[];
 }
 
