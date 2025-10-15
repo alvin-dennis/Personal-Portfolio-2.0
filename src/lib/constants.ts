@@ -64,7 +64,7 @@ export const SITE_CONFIG = {
     },
     {
       text: "LinkedIn",
-      href: "https://www.linkedin.com/in/alvin-dennis-0a70ba163/",
+      href: "https://www.linkedin.com/in/alvindennis/",
       icon: SiLinkedin,
     },
     {
