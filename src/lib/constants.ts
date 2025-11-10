@@ -240,27 +240,26 @@ export const SITE_CONTENT = {
     },
   ],
   categories: [
-      { value: "all", label: "All", icon: FaLayerGroup},
-      { value: "frontend", label: "Frontend", icon: FaGlobe },
-      { value: "backend", label: "Backend", icon: FaServer },
-      { value: "tools", label: "Tools", icon: HiMiniCommandLine },
-      { value: "genai", label: "GenAI", icon: FaBrain },
-      { value: "hardware", label: "Hardware", icon: HiMiniCpuChip },
-    ],
+    { value: "all", label: "All", icon: FaLayerGroup },
+    { value: "frontend", label: "Frontend", icon: FaGlobe },
+    { value: "backend", label: "Backend", icon: FaServer },
+    { value: "tools", label: "Tools", icon: HiMiniCommandLine },
+    { value: "genai", label: "GenAI", icon: FaBrain },
+    { value: "hardware", label: "Hardware", icon: HiMiniCpuChip },
+  ],
   projects: [
     {
-      name: "EleGuard",
+      name: "µLearn Home",
       description:
-        "Smart elephant monitoring system with real-time hazard detection and notification capabilities.",
-      category: "Hardware",
-      url: "https://github.com/alvin-dennis/EleGuard",
-      hosted_url: "https://github.com/alvin-dennis/EleGuard",
+        "µLearn is a synergic philosophy of education, with a culture of mutual learning through micro groups of peers.",
+      category: ["Frontend"],
+      url: "https://github.com/gtech-mulearn/mulearnhome",
+      hosted_url: "https://mulearnhome.vercel.app/",
       technologies: [
-        { name: "Python", icon: SiPython },
-        { name: "Raspberry Pi", icon: SiRaspberrypi },
-        { name: "Roboflow", icon: SiRoboflow },
-        { name: "OpenCV", icon: SiOpencv },
-        { name: "Twilio", icon: SiTwilio },
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: SiFramer },
+        { name: "Shadcn/UI", icon: SiShadcnui },
       ],
     },
     {
@@ -278,6 +277,20 @@ export const SITE_CONTENT = {
       ],
     },
     {
+      name: "Beyond Syllabus",
+      description:
+        "Beyond Syllabus a platform that transforms any syllabus into an interactive AI-powered learning companion.",
+      category: ["Frontend", "Backend", "GenAI"],
+      url: "https://github.com/The-Purple-Movement/Beyond-Syllabus",
+      hosted_url: "https://beyondsyllabus.in/",
+      technologies: [
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: SiFramer },
+        { name: "Elysia", icon: SiNodedotjs },
+      ],
+    },
+    {
       name: "BuilderClan Website",
       description:
         "BuilderClan is a tech community for innovators, developers, and enthusiasts to collaborate on impactful projects.",
@@ -291,17 +304,18 @@ export const SITE_CONTENT = {
       ],
     },
     {
-      name: "Beyond Syllabus",
+      name: "EleGuard",
       description:
-        "Beyond Syllabus a platform that transforms any syllabus into an interactive AI-powered learning companion.",
-      category: ["Frontend", "Backend", "GenAI"],
-      url: "https://github.com/The-Purple-Movement/Beyond-Syllabus",
-      hosted_url: "https://beyondsyllabus.in/",
+        "Smart elephant monitoring system with real-time hazard detection and notification capabilities.",
+      category: "Hardware",
+      url: "https://github.com/alvin-dennis/EleGuard",
+      hosted_url: "https://github.com/alvin-dennis/EleGuard",
       technologies: [
-        { name: "Next.js", icon: SiNextdotjs },
-        { name: "Tailwind CSS", icon: SiTailwindcss },
-        { name: "Framer Motion", icon: SiFramer },
-        { name: "Elysia", icon: SiNodedotjs },
+        { name: "Python", icon: SiPython },
+        { name: "Raspberry Pi", icon: SiRaspberrypi },
+        { name: "Roboflow", icon: SiRoboflow },
+        { name: "OpenCV", icon: SiOpencv },
+        { name: "Twilio", icon: SiTwilio },
       ],
     },
     {
