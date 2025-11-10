@@ -20,14 +20,14 @@ const { projects } = Astro.props;
         return (
           <div
             style={`top: ${top}px;`}
-            class="sticky mb-12 rounded-2xl border border-black bg-white dark:border-white dark:bg-black"
+            class="sticky mb-12 rounded-2xl border border-[#0a0a0a] bg-white dark:border-white dark:bg-[#0a0a0a]"
           >
             <div class="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 rounded-2xl before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/noise-bg.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[7%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
               <div class="px-6 pt-12">
-                <h3 class="mb-5 text-3xl font-bold text-black dark:text-white">
+                <h3 class="mb-5 text-3xl font-bold text-[#0a0a0a] dark:text-white">
                   {name}
                 </h3>
-                <p class="text-base text-black dark:text-white">
+                <p class="text-base text-[#0a0a0a] dark:text-white">
                   {description}
                 </p>
                 {technologies?.length > 0 && (
@@ -39,7 +39,7 @@ const { projects } = Astro.props;
                           : tech;
 
                       return (
-                        <li class="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-black dark:border-neutral-700 dark:bg-neutral-800 dark:text-white">
+                        <li class="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-[#0a0a0a] dark:border-neutral-700 dark:bg-neutral-800 dark:text-white">
                           {Icon && <Icon className="inline size-4" />}
                           {name}
                         </li>
@@ -48,23 +48,23 @@ const { projects } = Astro.props;
                   </ul>
                 )}
 
-                <div class="flex gap-5 pt-10 text-black dark:text-white">
+                <div class="flex gap-5 pt-10 text-[#0a0a0a] dark:text-white">
                   <a
                     href={url}
                     target="_blank"
-                    class="dark:hover:text-primary-light inline-flex items-center gap-1 text-black hover:text-primary hover:underline dark:text-white"
+                    class="dark:hover:text-primary-light inline-flex items-center gap-1 text-[#0a0a0a] hover:text-primary hover:underline dark:text-white"
                   >
                     Source
-                    <FaArrowUpRightFromSquare className="inline-block size-4 align-text-bottom dark:text-white text-black" />
+                    <FaArrowUpRightFromSquare className="inline-block size-4 align-text-bottom dark:text-white text-[#0a0a0a]" />
                   </a>
                   {hosted_url && !hosted_url.includes("github.com") && (
                     <a
                       href={hosted_url}
                       target="_blank"
-                      class="dark:hover:text-primary-light inline-flex items-center gap-1 text-black hover:text-primary hover:underline dark:text-white"
+                      class="dark:hover:text-primary-light inline-flex items-center gap-1 text-[#0a0a0a] hover:text-primary hover:underline dark:text-white"
                     >
                       Preview
-                      <FaArrowUpRightFromSquare className="inline-block size-4 align-text-bottom dark:text-primary-light text-black dark:text-white" />
+                      <FaArrowUpRightFromSquare className="inline-block size-4 align-text-bottom dark:text-primary-light text-[#0a0a0a] dark:text-white" />
                     </a>
                   )}
                 </div>
@@ -77,13 +77,9 @@ const { projects } = Astro.props;
   <div class="mt-10 flex justify-center">
     <Button
       variant="outline"
-      className="rounded-full bg-black px-5 py-2 text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+      className="rounded-full bg-[#0a0a0a] px-5 py-2 text-white hover:bg-gray-800 dark:bg-white dark:text-[#0a0a0a] dark:hover:bg-gray-200"
     >
-      <a
-        href="/projects"
-      >
-        View All Projects
-      </a>
+      <a href="/projects"> View All Projects </a>
     </Button>
   </div>
 </Section>

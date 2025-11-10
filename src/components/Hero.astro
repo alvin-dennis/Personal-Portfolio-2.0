@@ -6,12 +6,12 @@ const { name, image, specialty, summary, currentWork, location } = Astro.props;
 ---
 
 <section
-  class="bg-white py-12 text-black md:py-20 dark:bg-neutral-950 dark:text-white"
+  class="py-12 text-[#0a0a0a] md:py-20 dark:text-white"
   id="#hero"
 >
   <div class="flex justify-center">
     <div
-      class="mb-4 inline-block flex-shrink-0 rotate-[5deg] bg-black p-4 sm:mb-6 md:h-80 md:w-64 md:rotate-[7deg] dark:bg-white"
+      class="mb-4 inline-block flex-shrink-0 rotate-[5deg] bg-[#0a0a0a] p-4 sm:mb-6 md:h-80 md:w-64 md:rotate-[7deg] dark:bg-white"
     >
       <Image
         class="object-cover md:h-full md:w-full"
@@ -42,7 +42,7 @@ const { name, image, specialty, summary, currentWork, location } = Astro.props;
     </div>
     <p class="mb-5 text-lg font-normal sm:mb-8 md:text-xl">{summary}</p>
     <div
-      class="flex flex-col items-center justify-center gap-1 text-black dark:text-white"
+      class="flex flex-col items-center justify-center gap-1 text-[#0a0a0a] dark:text-white"
     >
       <div class="text-center sm:text-left">
         <span class="font-medium text-neutral-500 dark:text-neutral-400"

@@ -42,15 +42,15 @@ export default function Projects({ projects }: Props) {
           value === "all"
             ? projects
             : projects.filter((p) =>
-                Array.isArray(p.category)
-                  ? p.category.map((c) => c.toLowerCase()).includes(value)
-                  : p.category.toLowerCase() === value,
-              );
+              Array.isArray(p.category)
+                ? p.category.map((c) => c.toLowerCase()).includes(value)
+                : p.category.toLowerCase() === value,
+            );
         return (
           <TabsContent key={value} value={value}>
             <div className="pt-6">
               {filtered.length === 0 ? (
-                <p className="text-black dark:text-white">
+                <p className="text-[#0a0a0a] dark:text-white">
                   No projects in this category.
                 </p>
               ) : (
@@ -59,13 +59,13 @@ export default function Projects({ projects }: Props) {
                     { name, description, url, hosted_url, technologies }
                   ) => (
                     <BlurFade key={name} delay={BLUR_FADE_DELAY * 3}>
-                      <div className="mb-12 rounded-2xl border border-black bg-white dark:border-white dark:bg-black">
+                      <div className="mb-12 rounded-2xl border border-[#0a0a0a] bg-white dark:border-white dark:bg-[#0a0a0a]">
                         <div className="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 rounded-2xl before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/noise-bg.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[7%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
                           <div className="px-6 pt-12">
-                            <h3 className="mb-5 text-3xl font-bold text-black dark:text-white">
+                            <h3 className="mb-5 text-3xl font-bold text-[#0a0a0a] dark:text-white">
                               {name}
                             </h3>
-                            <p className="text-base text-black dark:text-white">
+                            <p className="text-base text-[#0a0a0a] dark:text-white">
                               {description}
                             </p>
                             {technologies?.length && (
@@ -78,7 +78,7 @@ export default function Projects({ projects }: Props) {
                                   return (
                                     <li
                                       key={i}
-                                      className="flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-black dark:text-white"
+                                      className="flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-[#0a0a0a] dark:text-white"
                                     >
                                       {Icon && (
                                         <Icon className="inline size-4" />
@@ -89,11 +89,11 @@ export default function Projects({ projects }: Props) {
                                 })}
                               </ul>
                             )}
-                            <div className="flex gap-5 pt-10 text-black dark:text-white">
+                            <div className="flex gap-5 pt-10 text-[#0a0a0a] dark:text-white">
                               <a
                                 href={url}
                                 target="_blank"
-                                className="inline-flex items-center gap-1 text-black hover:text-primary hover:underline dark:text-white"
+                                className="inline-flex items-center gap-1 text-[#0a0a0a] hover:text-primary hover:underline dark:text-white"
                               >
                                 Source
                                 <FaArrowUpRightFromSquare className="inline-block text-lg" />
@@ -103,7 +103,7 @@ export default function Projects({ projects }: Props) {
                                   <a
                                     href={hosted_url}
                                     target="_blank"
-                                    className="inline-flex items-center gap-1 text-black hover:text-primary hover:underline dark:text-white"
+                                    className="inline-flex items-center gap-1 text-[#0a0a0a] hover:text-primary hover:underline dark:text-white"
                                   >
                                     Preview
                                     <FaArrowUpRightFromSquare className="inline-block text-lg" />

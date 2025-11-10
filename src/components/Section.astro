@@ -8,9 +8,7 @@ const { text, href } = Astro.props;
 ---
 
 <section id={href} class="py-24">
-  <h2
-    class="mb-14 text-3xl text-black md:text-5xl dark:text-white"
-  >
+  <h2 class="mb-14 text-3xl text-[#0a0a0a] md:text-5xl dark:text-white">
     {text}
   </h2>
   <slot />
