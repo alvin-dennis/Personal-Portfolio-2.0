@@ -1,3 +1,13 @@
+import {
+  BriefcaseBusinessIcon,
+  CodeXmlIcon,
+  DraftingCompassIcon,
+  Globe,
+  GraduationCapIcon,
+} from "lucide-react";
+import { GiMoneyStack } from "react-icons/gi";
+import { RiUserCommunityFill } from "react-icons/ri";
+
 export interface SiteConfig extends Navbar {
   title: string;
   description: string;
@@ -67,14 +77,35 @@ export interface Education {
   end: string;
 }
 
-export interface Experience {
-  company: string;
-  position: string;
-  start: string;
-  end: string;
-  link: string;
-  logo: string;
-}
+export const iconMap = {
+  code: CodeXmlIcon,
+  education: GraduationCapIcon,
+  community: RiUserCommunityFill,
+  finance: GiMoneyStack,
+  operations: Globe,
+} as const;
+
+export type ExperiencePositionIconType = keyof typeof iconMap;
+
+export type ExperiencePositionItemType = {
+  id: string;
+  title: string;
+  employmentPeriod: string;
+  employmentType?: string;
+  description?: string;
+  icon?: string;
+  skills?: string[];
+  isExpanded?: boolean;
+};
+
+export type Experience = {
+  id: string;
+  companyName: string;
+  companyLink: string;
+  companyLogo?: string;
+  positions: ExperiencePositionItemType[];
+  isCurrentEmployer?: boolean;
+};
 
 export interface Contact {
   email: string;
