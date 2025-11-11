@@ -10,14 +10,13 @@ You can also check out the live demo of the portfolio website [here](https://alv
 
 ## Technologies Utilized
 
-- **Astro** → All-in-one web framework for building fast, content-driven websites with partial hydration.
+- **Nextjs** → All-in-one web framework for building fast, performance orientd websites.
 - **React 19** → Latest React release with enhanced features for building dynamic and interactive user interfaces.  
 - **TypeScript** → Strongly typed JavaScript for improved developer productivity, maintainability, and code quality.  
 - **Tailwind CSS** → Utility-first CSS framework for rapid UI development, responsive design, and modern styling.  
 - **Shadcn/UI** → Accessible, customizable component library built on Radix UI primitives.  
 - **Lucide React** → Lightweight, customizable SVG icon set for modern UI design.  
-- **React-icons** → Unified icon library providing easy access to multiple icon packs in React.  
-- **Fontsource** → Self-hosted, open-source fonts for consistent typography without relying on external CDNs.
+- **React-icons** → Unified icon library providing easy access to multiple icon packs in React.
 - **Bun** → Fast JavaScript runtime and package manager for an improved development experience.  
 
 ## Installation

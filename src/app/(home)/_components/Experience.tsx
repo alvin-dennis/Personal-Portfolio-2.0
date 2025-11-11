@@ -60,7 +60,7 @@ function ExperienceItem({ experience }: { experience: Experience }) {
         )}
       </div>
 
-      <div className="relative space-y-4 before:absolute before:left-5 before:h-full before:w-px before:bg-border">
+      <div className="relative space-y-4 before:absolute before:left-4 before:h-full before:w-px before:bg-border">
         {experience.positions.map((position) => (
           <ExperiencePositionItem key={position.id} position={position} />
         ))}
@@ -78,10 +78,10 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
         <CollapsibleTrigger className="group/experience not-prose block w-full text-left select-none">
           <div className="relative z-1 mb-1 flex items-center gap-3">
             <div
-              className="flex size-10 shrink-0 items-center justify-center rounded-full bg-muted"
+              className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted"
               aria-hidden
             >
-              <ExperienceIcon className="size-6" />
+              <ExperienceIcon className="size-4" />
             </div>
 
             <span className="flex-1 text-lg text-balance">{position.title}</span>
@@ -92,7 +92,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
             </div>
           </div>
 
-          <div className="flex items-center gap-2 pl-14 text-sm">
+          <div className="flex items-center gap-2 pl-11 text-sm">
             {position.employmentType && (
               <>
                 <dl>
@@ -113,13 +113,13 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
 
         <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
           {position.description && (
-            <Prose className="pt-2 pl-14">
+            <Prose className="pt-2 pl-11">
               <ReactMarkdown>{position.description}</ReactMarkdown>
             </Prose>
           )}
 
           {Array.isArray(position.skills) && position.skills.length > 0 && (
-            <ul className="not-prose flex flex-wrap gap-1.5 pt-2 pl-14">
+            <ul className="not-prose flex flex-wrap gap-1.5 pt-2 pl-11">
               {position.skills.map((skill, index) => (
                 <li key={index} className="flex">
                   <Skill>{skill}</Skill>
