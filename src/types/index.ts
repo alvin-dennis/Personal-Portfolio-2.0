@@ -1,7 +1,5 @@
 import {
-  BriefcaseBusinessIcon,
   CodeXmlIcon,
-  DraftingCompassIcon,
   Globe,
   GraduationCapIcon,
 } from "lucide-react";

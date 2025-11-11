@@ -39,6 +39,7 @@ import {
   SiJekyll,
   SiPostgresql,
   SiJsonwebtokens,
+  SiVite,
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 import {
@@ -141,6 +142,7 @@ export const SITE_CONTENT = {
       { name: "Postgresql", icon: SiPostgresql },
     ],
     tools: [
+      { name: "Vite", icon: SiVite },
       { name: "Turborepo", icon: SiTurborepo },
       { name: "HoppScotch", icon: SiHoppscotch },
       { name: "Figma", icon: SiFigma },
