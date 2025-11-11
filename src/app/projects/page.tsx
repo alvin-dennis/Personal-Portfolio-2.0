@@ -72,7 +72,7 @@ export default function Projects() {
                       </ul>
                     )}
 
-                    <div className="flex gap-5 text-[#0a0a0a] dark:text-white">
+                    <div className="mt-30 flex gap-5 text-[#0a0a0a] dark:text-white">
                       <Link
                         href={url}
                         target="_blank"

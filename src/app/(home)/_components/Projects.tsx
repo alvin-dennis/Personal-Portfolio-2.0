@@ -75,7 +75,7 @@ export default function Projects({ projects }: Props) {
                     </ul>
                   )}
 
-                  <div className="flex gap-5 text-[#0a0a0a] dark:text-white">
+                  <div className="flex mt-50 gap-5 text-[#0a0a0a] dark:text-white">
                     <Link
                       href={url}
                       target="_blank"
