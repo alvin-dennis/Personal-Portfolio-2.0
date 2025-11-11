@@ -7,23 +7,40 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "µLearn",
-  description: "Break the echo chamber",
-  authors: [{ name: "µLearn" }],
+  title: "Alvin Dennis — Builder | Maker | Manager",
+  description:
+    "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
+  authors: [{ name: "Alvin Dennis", url: "https://alvindennis.tech/" }],
   openGraph: {
-    title: "µLearn",
+    title: "Alvin Dennis — Builder | Maker | Manager",
     description:
-      "µLearn is a synergic philosophy of education, with a culture of mutual learning through micro groups of peers. µLearn is here to assist you in breaking through the echo chambers and free you from the shackles that have you grounded.",
-    siteName: "µLearn",
-    url: "https://mulearn.org/",
+      "DBuilder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
+    siteName: "Alvin Dennis — Builder | Maker | Manager",
+    url: "https://alvindennis.tech/",
     type: "website",
+    images: [
+      {
+        url: "/assets/og.webp",
+        width: 1200,
+        height: 630,
+        alt: "Alvin Dennis Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alvin Dennis — Builder | Maker | Manager",
+    description:
+      "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
     images: ["/assets/logo.png"],
   },
   icons: {
     icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
-  metadataBase: new URL("https://mulearn.org/"),
+  metadataBase: new URL("https://alvindennis.tech/"),
 };
+
 
 const drukwide = localFont({
   src: "../components/fonts/Druk-Super-Trial.otf",
