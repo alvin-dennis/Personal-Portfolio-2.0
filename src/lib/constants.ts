@@ -173,8 +173,12 @@ export const SITE_CONTENT = {
           employmentPeriod: "07.2025 — Present",
           employmentType: "Full-time",
           icon: "code",
-          description: `- Worked as Frontend Engineer at MetaLoom.`,
-          skills: ["React", "Next.js", "Tailwind CSS"],
+          description: `- Led multiple projects end-to-end, turning ideas into live features under tight timelines.
+- Built and scaled full-stack solutions using modern web technologies, optimizing for speed and reliability.
+- Reviewed and shipped code rapidly while maintaining quality and best practices.
+- Mentored teammates and interns, helping them take ownership and grow as engineers.
+- Collaborated closely with cross-functional teams to deliver products that make real impact.`,
+          skills: ["React", "Next.js", "Tailwind CSS", "Shadcn", "Supabase" , "Technical Leadership", "Team Management"],
           isExpanded: true,
         },
       ],
@@ -192,11 +196,20 @@ export const SITE_CONTENT = {
           employmentPeriod: "01.2025 — Present",
           employmentType: "Full-time",
           icon: "code",
-          description: `- Led technical initiatives and projects at BuilderClan.`,
+          description: `- Led technical initiatives and guided multiple project teams to successful delivery.
+- Architected and implemented scalable full-stack solutions using modern web technologies.
+- Conducted code reviews, ensuring code quality, maintainability, and adherence to best practices.
+- Mentored junior developers and interns, helping them improve coding skills and project ownership.
+- Coordinated cross-functional teams for timely deployment of products and features.`,
           skills: [
-            "Team Leadership",
-            "Project Management",
-            "Full-Stack Development",
+            "React",
+            "Next.js",
+            "Tailwind CSS",
+            "Shadcn",
+            "Supabase",
+            "Coordination",
+            "Technical Leadership",
+            "Team Management",
           ],
           isExpanded: false,
         },
@@ -215,8 +228,16 @@ export const SITE_CONTENT = {
           employmentPeriod: "12.2024 — 05.2025",
           employmentType: "Internship",
           icon: "community",
-          description: `- Managed community initiatives at Tinkerhub.`,
-          skills: ["Community Management", "Event Coordination"],
+          description: `- Managed community initiatives, fostering engagement across community members.
+- Coordinated online and offline events, improving participation rates.
+- Streamlined volunteer onboarding and communication channels.
+- Collected and analyzed member feedback to enhance community programs and activities.`,
+          skills: [
+            "Community Management",
+            "Event Coordination",
+            "Engagement",
+            "Communication",
+          ],
           isExpanded: false,
         },
       ],
@@ -234,8 +255,10 @@ export const SITE_CONTENT = {
           employmentPeriod: "09.2024 — 03.2025",
           employmentType: "Part-time",
           icon: "operations",
-          description: `- Led operations at Radio Community SJCET.`,
-          skills: ["Operations", "Management"],
+          description: `- Managed daily operations, ensuring smooth broadcasting and event scheduling.
+- Implemented efficient workflow systems, reducing operational delays.
+- Coordinated with volunteers and technical teams for timely execution of radio shows.`,
+          skills: ["Operations", "Management", "Scheduling", "Coordination"],
           isExpanded: false,
         },
         {
@@ -244,8 +267,15 @@ export const SITE_CONTENT = {
           employmentPeriod: "11.2023 — 08.2024",
           employmentType: "Part-time",
           icon: "code",
-          description: `- Served as Technical Lead at Radio Community SJCET.`,
-          skills: ["Technical Leadership", "Team Management"],
+          description: `- Oversaw technical aspects of the community.
+- Managed equipment setup, software deployment, and technical troubleshooting.
+- Led a technical team to improve broadcast quality and reliability.
+- Developed internal documentation and training guides for technical processes.`,
+          skills: [
+            "Technical Leadership",
+            "Team Management",
+            "Troubleshooting",
+          ],
           isExpanded: false,
         },
       ],
@@ -263,8 +293,16 @@ export const SITE_CONTENT = {
           employmentPeriod: "06.2024 — 02.2025",
           employmentType: "Part-time",
           icon: "community",
-          description: `- Co-led campus initiatives at Gtech Mulearn SJCET.`,
-          skills: ["Leadership", "Community Management"],
+          description: `- Co-led campus initiatives to promote educational and tech-based projects.
+- Organized workshops and events, engaging over 100 students.
+- Supported cross-campus collaborations and project incubations.
+- Mentored students on project execution, technical skills, and leadership.`,
+          skills: [
+            "Leadership",
+            "Community Management",
+            "Event Organization",
+            "Mentorship",
+          ],
           isExpanded: false,
         },
         {
@@ -273,8 +311,10 @@ export const SITE_CONTENT = {
           employmentPeriod: "10.2023 — 03.2024",
           employmentType: "Internship",
           icon: "code",
-          description: `- Managed QA and IG processes at Gtech Mulearn.`,
-          skills: ["QA", "Testing", "Process Management"],
+          description: `- Managed QA processes for internal and student-led projects, ensuring high-quality deliverables.
+- Oversaw task submission and workflow, maintaining accountability and meeting deadlines.
+- Mentored team members and peers on QA best practices, testing strategies, and process improvements.`,
+          skills: ["QA", "Testing", "Process Management", "Reporting"],
           isExpanded: false,
         },
       ],
@@ -292,8 +332,15 @@ export const SITE_CONTENT = {
           employmentPeriod: "09.2023 — 03.2025",
           employmentType: "Part-time",
           icon: "finance",
-          description: `- Managed financial operations at Startup Bootcamp SJCET-IEDC.`,
-          skills: ["Finance Management", "Budgeting", "Leadership"],
+          description: `- Managed financial operations, budgeting, and resource allocation for startup bootcamp programs.
+- Provided strategic financial guidance to project leads and student entrepreneurs.
+- Coordinated funding requests, sponsorships.`,
+          skills: [
+            "Finance Management",
+            "Budgeting",
+            "Leadership",
+            "Financial Planning",
+          ],
           isExpanded: false,
         },
         {
@@ -302,14 +349,22 @@ export const SITE_CONTENT = {
           employmentPeriod: "06.2022 — 08.2023",
           employmentType: "Part-time",
           icon: "code",
-          description: `- Served as Technical Officer at Startup Bootcamp SJCET-IEDC.`,
-          skills: ["Technical Support", "Project Coordination"],
+          description: `- Provided technical support to startup projects and events.
+- Coordinated project development efforts and ensured technical feasibility.
+- Assisted in prototype development, testing, and deployment.`,
+          skills: [
+            "Technical Support",
+            "Project Coordination",
+            "Prototyping",
+            "Training",
+          ],
           isExpanded: false,
         },
       ],
       isCurrentEmployer: false,
     },
   ],
+
   education: [
     {
       name: "St. Josephs College of Engineering & Technology",

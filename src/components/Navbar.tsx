@@ -6,9 +6,10 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FaCode } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/lib/constants";
+import Link from "next/link";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 export default function Header() {
-
   return (
     <header>
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-12 flex h-full max-h-14 origin-bottom">
@@ -18,55 +19,60 @@ export default function Header() {
             dark:border-white dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
         >
           <DockIcon>
-            <div className="group relative flex items-center">
-              <a
-                href="/"
-                aria-label="Home link"
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "icon" }),
-                  "size-12 flex items-center justify-center"
-                )}
-              >
-                <Image
-                  className="rounded-full shadow-lg"
-                  src={SITE_CONFIG.siteLogo}
-                  width={32}
-                  height={32}
-                  alt="website logo"
-                />
-              </a>
-              <span className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 scale-95 rounded bg-gray-900 px-2 py-1 text-xs text-white opacity-0 transition duration-200 group-hover:scale-100 group-hover:opacity-100 dark:bg-white dark:text-gray-900">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href="/"
+                  aria-label="Home link"
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    "size-12 flex items-center justify-center group"
+                  )}
+                >
+                  <Image
+                    className="rounded-full shadow-lg"
+                    src={SITE_CONFIG.siteLogo}
+                    width={32}
+                    height={32}
+                    alt="website logo"
+                  />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
                 Home
-                <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900 dark:border-t-white" />
-              </span>
-            </div>
+              </TooltipContent>
+            </Tooltip>
           </DockIcon>
 
+
           <DockIcon>
-            <div className="group relative flex items-center">
-              <a
-                href="/projects"
-                aria-label="Projects link"
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "icon" }),
-                  "size-12 flex items-center justify-center"
-                )}
-              >
-                <FaCode className="size-5 text-current" />
-              </a>
-              <span className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 scale-95 rounded bg-gray-900 px-2 py-1 text-xs text-white opacity-0 transition duration-200 group-hover:scale-100 group-hover:opacity-100 dark:bg-white dark:text-gray-900">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href="/projects"
+                  aria-label="Projects link"
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    "size-12 flex items-center justify-center group"
+                  )}
+                >
+                  <FaCode className="size-5 text-current" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
                 Projects
-                <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900 dark:border-t-white" />
-              </span>
-            </div>
+              </TooltipContent>
+            </Tooltip>
           </DockIcon>
+
 
           <Separator orientation="vertical" className="h-full" />
 
           {SITE_CONFIG.socialLinks.map((item) => (
             <DockIcon key={item.text}>
-              <div className="group relative flex items-center">
-                <a
+              <Tooltip>
+                <TooltipTrigger asChild>
+                <Link
                   href={item.href}
                   aria-label={item.text}
                   className={cn(
@@ -75,21 +81,28 @@ export default function Header() {
                   )}
                 >
                   {item.icon && <item.icon className="size-4 text-current" />}
-                </a>
-                <span className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 scale-95 rounded bg-gray-900 px-2 py-1 text-xs text-white opacity-0 transition duration-200 group-hover:scale-100 group-hover:opacity-100 dark:bg-white dark:text-gray-900">
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
                   {item.text}
-                  <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900 dark:border-t-white" />
-                </span>
-              </div>
+                </TooltipContent>
+              </Tooltip>
             </DockIcon>
           ))}
 
           <Separator orientation="vertical" className="h-full" />
 
           <DockIcon>
-            <div className="group relative flex items-center">
-              <ModeToggle />
-            </div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+              <div className="group relative flex items-center">
+                <ModeToggle />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                Mode Toggle
+              </TooltipContent>
+            </Tooltip>
           </DockIcon>
         </Dock>
       </div>

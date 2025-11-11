@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from "@/lib/constants";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -12,23 +13,23 @@ export default function Footer() {
           <p className="mx-auto max-w-[600px] text-lg md:text-xl">
             Having any questions or just want to say hello?
             <br />
-            <a
+            <Link
               href={`mailto:${SITE_CONFIG.contact.email}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:underline"
             >
               Email
-            </a>{" "}
+            </Link>{" "}
             me or{" "}
-            <a
+            <Link
               href={SITE_CONFIG.contact.cal_link}
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-500 hover:underline"
             >
               Schedule
-            </a>{" "}
+            </Link>{" "}
             a Call
           </p>
         </div>

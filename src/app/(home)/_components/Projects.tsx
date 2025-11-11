@@ -28,8 +28,7 @@ export default function Projects({ projects }: Props) {
                       scrolling="0"
                     />
                     <h3
-                      className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-black px-2 py-1 text-white text-lg
-                   max-w-[%] w-auto break-words whitespace-wrap text-left"
+                      className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-black px-2 py-1 text-white text-lg  w-auto h-auto break-words whitespace-wrap text-left"
                     >
                       {name}
                     </h3>
