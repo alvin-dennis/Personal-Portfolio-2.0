@@ -20,6 +20,7 @@ import { Projects } from "@/types";
 import { MotionDiv, MotionLi } from "@/components/Framer";
 import { Variants, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -113,7 +114,7 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project }: ProjectCardProps) {
-  const { name, description, url, hosted_url, technologies } = project;
+  const { name, description, url, image, hosted_url, technologies } = project;
 
   return (
     <FlipCard
@@ -124,17 +125,17 @@ function ProjectCard({ project }: ProjectCardProps) {
         {hosted_url && !hosted_url.includes("github.com") ? (
           <>
             <div className="absolute inset-0 bg-black/40 z-0" />
-            <iframe
-              src={hosted_url}
-              title={name}
-              className="h-full w-full rounded-2xl relative z-[-1]"
+            <Image
+              src={image}
+              alt={name}
+              fill
+              className="object-cover rounded-2xl z-[-1]"
               style={{
-                border: "none",
-                overflow: "hidden",
                 position: "absolute",
               }}
+              priority={true}
             />
-            <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-black px-2 py-1 text-white text-lg max-w-[70%] w-auto break-words text-left">
+            <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-[#FAF9F6] dark:bg-[#0a0a0a] px-2 py-1 text-black dark:text-white text-xl h-auto w-auto break-words text-left">
               {name}
             </h3>
           </>

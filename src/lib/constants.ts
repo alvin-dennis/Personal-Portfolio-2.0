@@ -180,7 +180,15 @@ export const SITE_CONTENT = {
 - Reviewed and shipped code rapidly while maintaining quality and best practices.
 - Mentored teammates and interns, helping them take ownership and grow as engineers.
 - Collaborated closely with cross-functional teams to deliver products that make real impact.`,
-          skills: ["React", "Next.js", "Tailwind CSS", "Shadcn", "Supabase" , "Technical Leadership", "Team Management"],
+          skills: [
+            "React",
+            "Next.js",
+            "Tailwind CSS",
+            "Shadcn",
+            "Supabase",
+            "Technical Leadership",
+            "Team Management",
+          ],
           isExpanded: true,
         },
       ],
@@ -391,7 +399,8 @@ export const SITE_CONTENT = {
       name: "µLearn Home",
       description:
         "µLearn is a synergic philosophy of education, with a culture of mutual learning through micro groups of peers.",
-      category: ["Frontend"],
+      category: "Frontend",
+      image: "/projects/mulearn.png",
       url: "https://github.com/gtech-mulearn/mulearnhome",
       hosted_url: "https://mulearnhome.vercel.app/",
       technologies: [
@@ -406,6 +415,7 @@ export const SITE_CONTENT = {
       description:
         "Professional developer portfolio utilizing modern minimal layout with responsive design and accessibility features.",
       category: "Frontend",
+      image: "/projects/portfolio.png",
       url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
       hosted_url: "https://alvindennis.tech/",
       technologies: [
@@ -420,6 +430,7 @@ export const SITE_CONTENT = {
       description:
         "Beyond Syllabus a platform that transforms any syllabus into an interactive AI-powered learning companion.",
       category: ["Frontend", "Backend", "GenAI"],
+      image: "/projects/beyondsyllabus.png",
       url: "https://github.com/The-Purple-Movement/Beyond-Syllabus",
       hosted_url: "https://beyondsyllabus.in/",
       technologies: [
@@ -434,6 +445,7 @@ export const SITE_CONTENT = {
       description:
         "BuilderClan is a tech community for innovators, developers, and enthusiasts to collaborate on impactful projects.",
       category: "Frontend",
+      image: "/projects/builderclan.png",
       url: "https://github.com/BuilderClan/builderclan-site",
       hosted_url: "https://builderclan.org/",
       technologies: [
@@ -447,6 +459,7 @@ export const SITE_CONTENT = {
       description:
         "Smart elephant monitoring system with real-time hazard detection and notification capabilities.",
       category: "Hardware",
+      image: "",
       url: "https://github.com/alvin-dennis/EleGuard",
       hosted_url: "https://github.com/alvin-dennis/EleGuard",
       technologies: [
@@ -462,6 +475,7 @@ export const SITE_CONTENT = {
       description:
         "An interactive CLI streamlines availability scheduling through CSV import, personalized email invites, and confirmation tracking.",
       category: "Tools",
+      image: "",
       url: "https://github.com/alvin-dennis/Availr",
       hosted_url: "https://github.com/alvin-dennis/Availr",
       technologies: [

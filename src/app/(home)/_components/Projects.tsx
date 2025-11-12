@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import type { Projects as ProjectsType } from "@/types";
 import Link from "next/link";
+import Image from "next/image";
 import { MotionDiv, MotionP, MotionLi } from "@/components/Framer";
 import { Variants } from "framer-motion";
 
@@ -39,24 +40,24 @@ export default function Projects({ projects }: Props) {
         className="grid gap-8"
       >
         {projects.slice(0, 3).map(
-          ({ name, description, url, hosted_url, technologies }) => (
+          ({ name, description, url, image, hosted_url, technologies }) => (
             <MotionDiv key={name} variants={fadeInUp}>
               <FlipCard flipDirection="vertical" className="h-96 w-full">
                 <FlipCardFront className="flex items-center justify-center rounded-2xl overflow-hidden">
                   {hosted_url && !hosted_url.includes("github.com") ? (
                     <>
                       <div className="absolute inset-0 bg-black/20 z-0" />
-                      <iframe
-                        src={hosted_url}
-                        title={name}
-                        className="h-full w-full rounded-2xl relative z-[-1]"
+                      <Image
+                        src={image}
+                        alt={name}
+                        fill
+                        className="object-cover rounded-2xl z-[-1]"
                         style={{
-                          border: "none",
-                          overflow: "hidden",
                           position: "absolute",
                         }}
+                        priority={true}
                       />
-                      <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-black px-2 py-1 text-white text-lg w-auto h-auto break-words whitespace-wrap text-left">
+                      <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-[#FAF9F6] dark:bg-[#0a0a0a] px-2 py-1 text-black dark:text-white text-xl w-auto h-auto break-words whitespace-wrap text-left">
                         {name}
                       </h3>
                     </>
@@ -92,7 +93,7 @@ export default function Projects({ projects }: Props) {
                               : tech;
 
                           return (
-                            <MotionLi 
+                            <MotionLi
                               variants={fadeInUp}
                               initial="hidden"
                               whileInView="visible"
