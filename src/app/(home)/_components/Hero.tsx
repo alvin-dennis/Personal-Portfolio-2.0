@@ -56,7 +56,7 @@ export default function Hero({
         variants={fadeInUp} className="flex justify-center">
         <div className="mb-4 inline-block flex-shrink-0 rotate-[5deg] bg-[#0a0a0a] p-4 sm:mb-6 md:h-80 md:w-64 md:rotate-[7deg] dark:bg-white">
           <Image
-            src={image}
+            src={`https://images.weserv.nl/?url=${image}&output=webp`}
             width={190}
             height={190}
             alt={name ?? ""}

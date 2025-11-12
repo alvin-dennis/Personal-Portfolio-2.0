@@ -67,10 +67,10 @@ function ExperienceItem({ experience }: { experience: Experience }) {
     <div className="space-y-4 py-4">
       <div className="not-prose flex items-center gap-3">
         <Link href={experience.companyLink} target="_blank" rel="noopener noreferrer">
-          <div className="size-10 items-start justify-start" aria-hidden>
+          <div className="size-10 items-start justify-start">
             {experience.companyLogo ? (
               <Image
-                src={experience.companyLogo}
+                src={`https://images.weserv.nl/?url=${experience.companyLogo}&output=webp`}
                 alt={experience.companyName}
                 width={50}
                 height={50}

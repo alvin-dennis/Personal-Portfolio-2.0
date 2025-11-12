@@ -45,7 +45,7 @@ export default function Education({ education }: Props) {
             <div className="mb-1.5 flex items-center gap-3">
               <Link href={link} target="_blank" rel="noopener noreferrer">
                 <Image
-                  src={logo}
+                  src={`https://images.weserv.nl/?url=${logo}&output=webp`}
                   alt={name ?? ""}
                   width={50}
                   height={50}
