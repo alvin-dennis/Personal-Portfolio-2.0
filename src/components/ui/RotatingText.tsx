@@ -15,7 +15,7 @@ import {
   type VariantLabels,
   type Target,
   type TargetAndTransition,
-} from "motion/react";
+} from "framer-motion";
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {
   return classes.filter(Boolean).join(" ");
