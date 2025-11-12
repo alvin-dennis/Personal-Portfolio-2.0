@@ -1,10 +1,13 @@
+"use client";
+
 import Section from "@/components/Section";
 import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "@/components/ui/tabs";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   FlipCard,
   FlipCardFront,
@@ -15,7 +18,8 @@ import { SITE_CONTENT } from "@/lib/constants";
 import Link from "next/link";
 import { Projects } from "@/types";
 import { MotionDiv, MotionLi } from "@/components/Framer";
-import { Variants } from "framer-motion";
+import { Variants, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -34,59 +38,48 @@ const fadeInUp: Variants = {
   },
 };
 
-const staggerTabs: Variants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.05 } },
-};
-
 export default function ProjectsPage() {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const filteredProjects =
+    selectedCategory === "all"
+      ? SITE_CONTENT.projects
+      : SITE_CONTENT.projects.filter((p) => {
+        const categories = Array.isArray(p.category)
+          ? p.category.map((c) => c.toLowerCase())
+          : [p.category.toLowerCase()];
+        return categories.includes(selectedCategory.toLowerCase());
+      });
+
   return (
     <div className="mb-1 flex justify-center text-center">
       <Section href="/projects" text="My Projects & Contributions">
         <MotionDiv
-          variants={staggerTabs}
+          variants={fadeInUp}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
+          className="flex flex-col items-center"
         >
-          <Tabs defaultValue="all" className="w-full">
-            <TabsList className="mb-8 flex flex-wrap justify-center gap-2 bg-transparent">
-              {SITE_CONTENT.categories.map(({ value, label, icon: Icon }) => (
-                <MotionDiv key={value} variants={fadeInUp}>
-                  <TabsTrigger
-                    value={value}
-                    className="flex items-center gap-2 rounded-full border border-neutral-300 bg-neutral-100 
-                    px-4 py-2 text-sm font-medium text-neutral-800 
-                    hover:bg-neutral-200 data-[state=active]:border-primary data-[state=active]:bg-neutral-200
-                    dark:border-neutral-700 dark:bg-neutral-800 dark:text-white 
-                    dark:hover:bg-neutral-700 dark:data-[state=active]:bg-neutral-700"
-                  >
-                    <Icon className="size-4" />
-                    {label}
-                  </TabsTrigger>
-                </MotionDiv>
-              ))}
-            </TabsList>
+          <Select
+            value={selectedCategory}
+            onValueChange={(value) => setSelectedCategory(value)}
+          >
+            <SelectTrigger className="mb-8 flex items-center gap-2 border border-neutral-300 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-800 hover:bg-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700">
+              <SelectValue placeholder="All" />
+            </SelectTrigger>
 
-            <TabsContent value="all">
-              <ProjectGrid projects={SITE_CONTENT.projects} />
-            </TabsContent>
-
-            {SITE_CONTENT.categories
-              .filter((cat) => cat.value !== "all")
-              .map(({ value }) => (
-                <TabsContent key={value} value={value}>
-                  <ProjectGrid
-                    projects={SITE_CONTENT.projects.filter((p) => {
-                      const categories = Array.isArray(p.category)
-                        ? p.category.map((c) => c.toLowerCase())
-                        : [p.category.toLowerCase()];
-                      return categories.includes(value.toLowerCase());
-                    })}
-                  />
-                </TabsContent>
+            <SelectContent>
+              {SITE_CONTENT.categories.map(({ value, label }) => (
+                <SelectItem key={value} value={value}>
+                  {label}
+                </SelectItem>
               ))}
-          </Tabs>
+            </SelectContent>
+          </Select>
+
+          <AnimatePresence mode="wait">
+            <ProjectGrid key={selectedCategory} projects={filteredProjects} />
+          </AnimatePresence>
         </MotionDiv>
       </Section>
     </div>
@@ -102,9 +95,9 @@ function ProjectGrid({ projects }: ProjectGridProps) {
     <MotionDiv
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2"
+      animate="visible"
+      exit="hidden"
+      className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"
     >
       {projects.map((project) => (
         <MotionDiv key={project.name} variants={fadeInUp}>
@@ -141,10 +134,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                 position: "absolute",
               }}
             />
-            <h3
-              className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-black px-2 py-1 text-white text-lg
-              max-w-[70%] w-auto break-words whitespace-wrap text-left"
-            >
+            <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-black px-2 py-1 text-white text-lg max-w-[70%] w-auto break-words text-left">
               {name}
             </h3>
           </>
@@ -161,9 +151,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       <FlipCardBack className="relative overflow-auto rounded-2xl bg-white p-6 dark:bg-[#0a0a0a]">
         <div className="absolute inset-0 z-0 rounded-2xl bg-[url('/noise-bg.png')] bg-repeat bg-[length:128px] opacity-10" />
         <div className="relative z-10">
-          <p className="mb-4 text-base text-[#0a0a0a] dark:text-white">
-            {description}
-          </p>
+          <p className="mb-4 text-base text-[#0a0a0a] dark:text-white">{description}</p>
 
           {technologies?.length > 0 && (
             <ul className="mb-4 flex flex-wrap gap-2">
@@ -173,29 +161,18 @@ function ProjectCard({ project }: ProjectCardProps) {
                     <MotionLi
                       key={idx}
                       variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      className="flex items-center gap-2 rounded-full border border-neutral-200 
-                      bg-neutral-100 px-3 py-1 text-xs text-[#0a0a0a] 
-                      dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
+                      className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-[#0a0a0a] dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
                     >
                       {tech}
                     </MotionLi>
                   );
                 }
-
                 const Icon = tech.icon;
                 return (
                   <MotionLi
                     key={idx}
                     variants={fadeInUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="flex items-center gap-2 rounded-full border border-neutral-200 
-                    bg-neutral-100 px-3 py-1 text-xs text-[#0a0a0a] 
-                    dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
+                    className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-[#0a0a0a] dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
                   >
                     {Icon && <Icon className="inline size-4" />}
                     {tech.name}
@@ -233,3 +210,4 @@ function ProjectCard({ project }: ProjectCardProps) {
     </FlipCard>
   );
 }
+
