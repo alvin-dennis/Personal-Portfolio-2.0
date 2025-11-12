@@ -400,7 +400,7 @@ export const SITE_CONTENT = {
       description:
         "µLearn is a synergic philosophy of education, with a culture of mutual learning through micro groups of peers.",
       category: "Frontend",
-      image: "/projects/mulearn.png",
+      image: "/projects/mulearn.webp",
       url: "https://github.com/gtech-mulearn/mulearnhome",
       hosted_url: "https://mulearnhome.vercel.app/",
       technologies: [
@@ -411,26 +411,11 @@ export const SITE_CONTENT = {
       ],
     },
     {
-      name: "Personal Portfolio",
-      description:
-        "Professional developer portfolio utilizing modern minimal layout with responsive design and accessibility features.",
-      category: "Frontend",
-      image: "/projects/portfolio.png",
-      url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
-      hosted_url: "https://alvindennis.tech/",
-      technologies: [
-        { name: "Astro", icon: SiAstro },
-        { name: "TypeScript", icon: SiTypescript },
-        { name: "Tailwind CSS", icon: SiTailwindcss },
-        { name: "Shadcn/UI", icon: SiShadcnui },
-      ],
-    },
-    {
       name: "Beyond Syllabus",
       description:
         "Beyond Syllabus a platform that transforms any syllabus into an interactive AI-powered learning companion.",
       category: ["Frontend", "Backend", "GenAI"],
-      image: "/projects/beyondsyllabus.png",
+      image: "/projects/beyondsyllabus.webp",
       url: "https://github.com/The-Purple-Movement/Beyond-Syllabus",
       hosted_url: "https://beyondsyllabus.in/",
       technologies: [
@@ -441,11 +426,26 @@ export const SITE_CONTENT = {
       ],
     },
     {
+      name: "Personal Portfolio",
+      description:
+        "Professional developer portfolio utilizing modern minimal layout with responsive design and accessibility features.",
+      category: "Frontend",
+      image: "/projects/portfolio.webp",
+      url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
+      hosted_url: "https://alvindennis.tech/",
+      technologies: [
+        { name: "Astro", icon: SiAstro },
+        { name: "TypeScript", icon: SiTypescript },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Shadcn/UI", icon: SiShadcnui },
+      ],
+    },
+    {
       name: "BuilderClan Website",
       description:
         "BuilderClan is a tech community for innovators, developers, and enthusiasts to collaborate on impactful projects.",
       category: "Frontend",
-      image: "/projects/builderclan.png",
+      image: "/projects/builderclan.webp",
       url: "https://github.com/BuilderClan/builderclan-site",
       hosted_url: "https://builderclan.org/",
       technologies: [

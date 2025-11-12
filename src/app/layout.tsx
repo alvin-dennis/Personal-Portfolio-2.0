@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Alvin Dennis — Builder | Maker | Manager",
     description:
       "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
-    images: ["/assets/logo.png"],
+    images: ["/assets/logo.svg"],
   },
   icons: {
     icon: "/favicon.ico",
