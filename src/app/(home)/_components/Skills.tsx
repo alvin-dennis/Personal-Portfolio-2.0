@@ -1,56 +1,85 @@
-import React from "react";
 import Section from "@/components/Section";
 import { Badge } from "@/components/ui/badge";
 import type { Skills as SkillsType } from "@/types";
+import { MotionSection, MotionDiv } from "@/components/Framer";
+import { Variants } from "framer-motion";
 
 interface Props {
   skills: SkillsType;
 }
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
+};
+
 export default function Skills({ skills }: Props) {
-  const renderSkill = (skill: string | { name: string; icon?: React.ElementType }) => {
-    if (typeof skill === "string") return <Badge key={skill}>{skill}</Badge>;
+  const renderSkill = (
+    skill: string | { name: string; icon?: React.ElementType }
+  ) => {
+    if (typeof skill === "string") {
+      return (
+        <MotionDiv variants={fadeInUp} key={skill}>
+          <Badge>{skill}</Badge>
+        </MotionDiv>
+      );
+    }
+
     const Icon = skill.icon;
     return (
-      <Badge key={skill.name}>
-        {Icon && <Icon style={{ marginRight: "0.25em" }} />}
-        {skill.name}
-      </Badge>
+      <MotionDiv viewport={{ once: true }} variants={fadeInUp} key={skill.name}>
+        <Badge>
+          {Icon && <Icon style={{ marginRight: "0.25em" }} />}
+          {skill.name}
+        </Badge>
+      </MotionDiv>
     );
   };
 
   return (
-    <Section text="Skills" href="skills">
-      <div className="flex flex-col gap-y-3">
-        <div className="flex flex-wrap items-start gap-1">
-          <Badge variant="secondary">Languages</Badge>
-          {skills.languages.map(renderSkill)}
-        </div>
-        <div className="flex flex-wrap gap-1">
-          <Badge variant="secondary">Libraries</Badge>
-          {skills.libraries.map(renderSkill)}
-        </div>
-        <div className="flex flex-wrap gap-1">
-          <Badge variant="secondary">Frameworks</Badge>
-          {skills.frameworks.map(renderSkill)}
-        </div>
-        <div className="flex flex-wrap gap-1">
-          <Badge variant="secondary">Databases</Badge>
-          {skills.databases.map(renderSkill)}
-        </div>
-        <div className="flex flex-wrap gap-1">
-          <Badge variant="secondary">Tools</Badge>
-          {skills.tools.map(renderSkill)}
-        </div>
-        <div className="flex flex-wrap gap-1">
-          <Badge variant="secondary">Hardware</Badge>
-          {skills.hardware.map(renderSkill)}
-        </div>
-        <div className="flex flex-wrap gap-1">
-          <Badge variant="secondary">Platforms</Badge>
-          {skills.platforms.map(renderSkill)}
-        </div>
-      </div>
-    </Section>
+    <MotionSection
+      id="skills"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={containerVariants}
+      className="py-12 md:py-20"
+    >
+      <Section text="Skills" href="skills">
+        <MotionDiv
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="flex flex-col gap-y-4"
+        >
+          {Object.entries(skills).map(([category, list]) => (
+            <MotionDiv
+              key={category}
+              variants={fadeInUp}
+              className="flex flex-wrap items-start gap-1"
+            >
+              <Badge variant="secondary">
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </Badge>
+              {list.map(renderSkill)}
+            </MotionDiv>
+          ))}
+        </MotionDiv>
+      </Section>
+    </MotionSection>
   );
 }

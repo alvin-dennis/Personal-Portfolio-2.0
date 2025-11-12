@@ -7,11 +7,27 @@ import { cn } from "@/lib/utils";
 import { FaCode } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/lib/constants";
 import Link from "next/link";
+import { MotionHeader } from "@/components/Framer";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Variants } from "framer-motion";
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
+};
+
 
 export default function Header() {
   return (
-    <header>
+    <MotionHeader
+      variants={fadeInUp}
+      initial="visible"
+      whileInView="visible"
+      viewport={{ once: true }}>
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-12 flex h-full max-h-14 origin-bottom">
         <Dock
           className="pointer-events-auto relative z-50 mx-auto flex h-full min-h-full transform-gpu items-center bg-background px-1 
@@ -106,6 +122,6 @@ export default function Header() {
           </DockIcon>
         </Dock>
       </div>
-    </header>
+    </MotionHeader>
   );
 }

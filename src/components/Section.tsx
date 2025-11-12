@@ -1,4 +1,5 @@
-import React from "react";
+import { Variants } from "framer-motion";
+import { MotionSection, MotionH2 } from "@/components/Framer";
 
 interface Props {
   text: string;
@@ -6,13 +7,32 @@ interface Props {
   children?: React.ReactNode;
 }
 
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
+};
+
 export default function Section({ text, href, children }: Props) {
   return (
-    <section id={href} className="py-24">
-      <h2 className="mb-14 text-3xl text-[#0a0a0a] md:text-5xl dark:text-white">
+    <MotionSection
+      id={href}
+      className="py-24"
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <MotionH2
+        className="mb-14 text-3xl text-[#0a0a0a] md:text-5xl dark:text-white"
+        variants={fadeInUp}
+      >
         {text}
-      </h2>
+      </MotionH2>
       {children}
-    </section>
+    </MotionSection>
   );
 }

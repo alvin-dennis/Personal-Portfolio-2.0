@@ -1,10 +1,11 @@
+"use client";
+
 import Section from "@/components/Section";
 import { ChevronsDownUpIcon, ChevronsUpDownIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ReactMarkdown from "react-markdown";
-
 import {
   Collapsible,
   CollapsibleContent,
@@ -14,18 +15,50 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { SITE_CONTENT } from "@/lib/constants";
 import { Experience, ExperiencePositionItemType, iconMap } from "@/types";
+import { MotionDiv, MotionLi } from "@/components/Framer";
+import { Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+  },
+};
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
+};
 
 export default function WorkExperience({ className }: { className?: string }) {
   const experiences: Experience[] = SITE_CONTENT.experience;
 
   return (
-    <Section text="Work Experience" href="experience">
-      <div className={cn("w-full", className)}>
+      <MotionDiv
+        className={cn("w-full", className)}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Section text="Work Experience" href="experience">
         {experiences.map((experience) => (
-          <ExperienceItem key={experience.id} experience={experience} />
+          <MotionDiv
+            key={experience.id}
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="mb-6 last:mb-0"
+          >
+            <ExperienceItem experience={experience} />
+          </MotionDiv>
         ))}
-      </div>
-    </Section>
+      </Section>
+      </MotionDiv>
   );
 }
 
@@ -34,22 +67,22 @@ function ExperienceItem({ experience }: { experience: Experience }) {
     <div className="space-y-4 py-4">
       <div className="not-prose flex items-center gap-3">
         <Link href={experience.companyLink} target="_blank" rel="noopener noreferrer">
-        <div className="size-10 items-start justify-start" aria-hidden>
-          {experience.companyLogo ? (
-            <Image
-              src={experience.companyLogo}
-              alt={experience.companyName}
-              width={50}
-              height={50}
-              className="rounded-full"
-            />
-          ) : (
-            <span className="flex size-2 rounded-full" />
-          )}
-        </div>
+          <div className="size-10 items-start justify-start" aria-hidden>
+            {experience.companyLogo ? (
+              <Image
+                src={experience.companyLogo}
+                alt={experience.companyName}
+                width={50}
+                height={50}
+                className="rounded-full"
+              />
+            ) : (
+              <span className="flex size-2 rounded-full" />
+            )}
+          </div>
         </Link>
 
-        <h3 className="text-lg">{experience.companyName}</h3>
+        <h3 className="text-lg font-semibold">{experience.companyName}</h3>
 
         {experience.isCurrentEmployer && (
           <span className="relative flex items-center justify-center">
@@ -62,7 +95,9 @@ function ExperienceItem({ experience }: { experience: Experience }) {
 
       <div className="relative space-y-4 before:absolute before:left-4 before:h-full before:w-px before:bg-border">
         {experience.positions.map((position) => (
-          <ExperiencePositionItem key={position.id} position={position} />
+          <MotionDiv key={position.id} variants={fadeInUp} viewport={{ once: true }}>
+            <ExperiencePositionItem position={position} />
+          </MotionDiv>
         ))}
       </div>
     </div>
@@ -100,7 +135,10 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
                   <dd>{position.employmentType}</dd>
                 </dl>
 
-                <Separator className="data-[orientation=vertical]:h-4" orientation="vertical" />
+                <Separator
+                  className="data-[orientation=vertical]:h-4"
+                  orientation="vertical"
+                />
               </>
             )}
 
@@ -121,9 +159,14 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
           {Array.isArray(position.skills) && position.skills.length > 0 && (
             <ul className="not-prose flex flex-wrap gap-1.5 pt-2 pl-11">
               {position.skills.map((skill, index) => (
-                <li key={index} className="flex">
+                <MotionLi key={index}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="flex">
                   <Skill>{skill}</Skill>
-                </li>
+                </MotionLi>
               ))}
             </ul>
           )}

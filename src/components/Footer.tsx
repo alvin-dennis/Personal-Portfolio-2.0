@@ -1,16 +1,42 @@
 import { SITE_CONFIG } from "@/lib/constants";
 import Link from "next/link";
+import { MotionFooter, MotionH2, MotionP } from "@/components/Framer";
+import { Variants } from "framer-motion";
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
+};
 
 export default function Footer() {
   return (
-    <footer
+    <MotionFooter
       id="contact"
       className="w-full px-4 py-12 text-center text-[#0a0a0a] dark:text-white"
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
     >
       <div className="grid w-full items-center justify-center gap-4 text-center md:px-6">
         <div className="space-y-3">
-          <h2 className="text-4xl md:text-5xl">Get in Touch</h2>
-          <p className="mx-auto max-w-[600px] text-lg md:text-xl">
+          <MotionH2
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold">Get in Touch
+          </MotionH2>
+          <MotionP
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mx-auto max-w-[600px] text-lg md:text-xl">
             Having any questions or just want to say hello?
             <br />
             <Link
@@ -31,10 +57,9 @@ export default function Footer() {
               Schedule
             </Link>{" "}
             a Call
-          </p>
+          </MotionP>
         </div>
       </div>
-    </footer>
+    </MotionFooter>
   );
 }
-
