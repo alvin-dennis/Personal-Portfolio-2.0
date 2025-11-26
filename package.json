@@ -17,7 +17,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
-    "lucide-react": "^0.554.0",
+    "lucide-react": "^0.555.0",
     "moment-timezone": "^0.6.0",
     "next": "^16.0.1",
     "next-themes": "^0.4.6",
