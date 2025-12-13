@@ -6,7 +6,7 @@ This platform serves as a digital showcase of my professional journey, skills, p
 
 ## Demo
 
-You can also check out the live demo of the portfolio website [here](https://alvindennis.tech).
+You can also check out the live demo of the portfolio website [here](https://alvinn.me).
 
 ## Technologies Utilized
 

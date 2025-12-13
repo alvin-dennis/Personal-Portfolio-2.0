@@ -6,8 +6,10 @@ Before you start contributing, please take a moment to read the following guidel
 
 ## Table of Contents
 
-1. [Getting Started](#getting-started)
-2. [How Can I Contribute?](#how-can-i-contribute)
+- [Contributing Guidelines](#contributing-guidelines)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+  - [How Can I Contribute?](#how-can-i-contribute)
     - [Reporting Bugs](#reporting-bugs)
     - [Suggesting Enhancements](#suggesting-enhancements)
     - [Working on Issues](#working-on-issues)
@@ -18,8 +20,8 @@ Before you start contributing, please take a moment to read the following guidel
 - Fork the repository on GitHub.
 - Clone your forked repository locally: `git clone https://github.com/alvin-dennis/Personal-Portfolio-2.0.git`
 - Change your directory to the project: `cd <name>`
-- Install project dependencies: `npm install`
-- Run in server: `npm run dev`
+- Install project dependencies: `bun install`
+- Run in server: `bun dev`
 
 ## How Can I Contribute?
 
