@@ -121,17 +121,15 @@ export default function Hero({
           variants={fadeInUp}
           className="flex flex-col items-center justify-center"
         >
-          <div className="text-center">
-            <div className="items-center justify-center">
+            <div className="items-center justify-center text-center">
               <BlurText
                 text={currentWork ?? "…"}
                 delay={60}
                 animateBy="words"
                 direction="top"
-                className="font-semibold text-xl mt-2"
+                className="font-semibold text-lg md:text-2xl mt-2"
               />
             </div>
-          </div>
         </MotionDiv>
       </div>
     </main>

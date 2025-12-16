@@ -61,7 +61,7 @@ export const SITE_CONFIG = {
   socialLinks: [
     {
       text: "Resume",
-      href: "https://resume.alvindennis.tech/",
+      href: "https://resume.alvinn.me/",
       icon: FaFileAlt,
     },
     {
@@ -81,7 +81,7 @@ export const SITE_CONFIG = {
     },
   ],
   socialImage: "/assets/og.webp",
-  canonicalURL: "https://alvindennis.tech",
+  canonicalURL: "https://alvinn.me",
   contact: {
     email: "alvindennis80@gmail.com",
     cal_link: "https://cal.com/alvindennis",
