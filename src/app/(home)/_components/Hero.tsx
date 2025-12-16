@@ -1,28 +1,8 @@
-import { Variants } from "framer-motion";
-import { MotionDiv, MotionSection, MotionH1, MotionP } from "@/components/Framer";
-import RotatingText from "@/components/ui/RotatingText";
 import Image from "next/image";
-import Timezone from "@/components/TimeZone"
-
-interface Props {
-  name: string;
-  image: string;
-  specialty: string[];
-  summary: string;
-  currentWork?: string;
-  location: string;
-}
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
+import BlurText from "@/components/ui/BlurText";
+import { MotionDiv } from "@/components/Framer";
+import { Variants } from "framer-motion";
+import RotatingText from "@/components/ui/RotatingText";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -33,91 +13,127 @@ const fadeInUp: Variants = {
   },
 };
 
+interface Props {
+  name: string;
+  image: string;
+  currentWork?: string;
+  summary: string;
+  specialty: string[];
+}
+
 export default function Hero({
   name,
   image,
-  specialty,
-  summary,
   currentWork,
-  location
+  summary,
+  specialty
 }: Props) {
-
   return (
-    <MotionSection
-      id="hero"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={containerVariants}
-      className="py-12 text-[#0a0a0a] md:py-20 dark:text-white"
-    >
-      <MotionDiv
-        viewport={{ once: true }}
-        variants={fadeInUp} className="flex justify-center">
-        <div className="mb-4 inline-block flex-shrink-0 rotate-[5deg] bg-[#0a0a0a] p-4 sm:mb-6 md:h-80 md:w-64 md:rotate-[7deg] dark:bg-white">
-          <Image
-            src={`https://images.weserv.nl/?url=${image}&output=webp`}
-            width={190}
-            height={190}
-            alt={name ?? ""}
-            className="object-cover md:h-full md:w-full"
-          />
-        </div>
-      </MotionDiv>
-
-      <MotionDiv
-        viewport={{ once: true }}
-        variants={containerVariants}
-        className="flex flex-col items-center justify-center text-center"
-      >
-          <MotionH1
+    <main className="min-h-screen flex flex-col">
+      <div className="absolute top-[34%] sm:top-[33%] md:top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+        <div className="text-center">
+          <MotionDiv
+            viewport={{ once: true }}
             variants={fadeInUp}
-            className="mb-1 text-4xl text-neutral-900 sm:text-7xl md:text-8xl dark:text-white">
-            {name}
-          </MotionH1>
+            initial="hidden"
+            whileInView="visible"
+            className="flex flex-col items-center justify-center"
+          >
+            <div>
+              <BlurText
+                text="ALVIN"
+                delay={50}
+                animateBy="letters"
+                direction="top"
+                className="font-bold text-[100px] text-[#C3E41D] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+              />
+            </div>
+            <div>
+              <BlurText
+                text="DENNIS"
+                delay={50}
+                animateBy="letters"
+                direction="top"
+                className="font-bold mt-5 text-[100px] text-[#C3E41D] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+              />
+            </div>
+          </MotionDiv>
 
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+            <MotionDiv
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              className="flex items-center justify-center"
+            >
+              <div className="w-[65px] h-20 sm:w-[90px] sm:h-[152px] md:w-[110px] md:h-[185px] lg:w-[129px] lg:h-[218px] rounded-full overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-110 cursor-pointer">
+                <Image
+                  src={`https://images.weserv.nl/?url=${image}&output=webp`}
+                  width={190}
+                  height={190}
+                  alt={name ?? ""}
+                  className="object-cover md:h-full md:w-full"
+                />
+              </div>
+            </MotionDiv>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute justify-center bottom-28 sm:bottom-32 md:bottom-36 lg:bottom-44 xl:bottom-52 left-1/2 -translate-x-1/2 w-full">
         <MotionDiv
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="mt-2 mb-4 text-2xl font-bold text-blue-500 sm:text-4xl md:text-5xl dark:text-blue-500"
+          className="flex flex-col items-center justify-center"
         >
-          <RotatingText
-            texts={specialty}
-            mainClassName="inline font-bold"
-            splitBy="words"
-            rotationInterval={2000}
-            auto={true}
-          />
+            <div className="items-center justify-center text-center">
+              <RotatingText
+                texts={specialty}
+                splitBy="words"
+                rotationInterval={2000}
+                auto={true}
+                mainClassName="md:mb-10 text-3xl font-bold sm:text-5xl md:text-6xl"
+                elementLevelClassName="inline-block"
+              />
+            </div>
         </MotionDiv>
-
-        <MotionP
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="mb-5 text-lg font-normal sm:mb-8 md:text-xl">
-          {summary}
-        </MotionP>
-
         <MotionDiv
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="flex flex-col items-center justify-center gap-1 text-[#0a0a0a] dark:text-white"
+          className="flex flex-col items-center justify-center"
         >
-          <div className="text-center sm:text-left">
-            <span className="font-medium text-neutral-500 dark:text-neutral-400">
-              Currently working as
-            </span>
-            <span className="ml-1 font-semibold">{currentWork ?? "…"}</span>
+          <div className="text-center">
+            <div className="items-center justify-center">
+              <BlurText
+                text={summary.trim().replace(/\s+/g, ' ')}
+                delay={60}
+                animateBy="words"
+                direction="top"
+                className="font-semibold text-sm sm:text-lg md:text-2xl max-w-full sm:max-w-md lg:max-w-2xl mx-auto leading-relaxed wrap-break-word text-center"
+              />
+            </div>
           </div>
         </MotionDiv>
 
         <MotionDiv
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="flex flex-col items-center gap-2 text-sm sm:flex-row sm:items-center sm:justify-center sm:gap-2 sm:text-base"
+          className="flex flex-col items-center justify-center"
         >
-          <Timezone timezone="Asia/Kolkata" location={location} />
+          <div className="text-center">
+            <div className="items-center justify-center">
+              <BlurText
+                text={currentWork ?? "…"}
+                delay={60}
+                animateBy="words"
+                direction="top"
+                className="font-semibold text-xl mt-2"
+              />
+            </div>
+          </div>
         </MotionDiv>
-      </MotionDiv>
-    </MotionSection>
+      </div>
+    </main>
   );
 }

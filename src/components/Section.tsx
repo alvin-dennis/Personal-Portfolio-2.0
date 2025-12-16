@@ -27,7 +27,7 @@ export default function Section({ text, href, children }: Props) {
       viewport={{ once: true }}
     >
       <MotionH2
-        className="mb-14 text-3xl text-[#0a0a0a] md:text-5xl dark:text-white"
+        className="mb-14 text-3xl md:text-5xl text-white"
         variants={fadeInUp}
       >
         {text}

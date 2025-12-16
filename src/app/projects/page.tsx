@@ -65,7 +65,7 @@ export default function ProjectsPage() {
             value={selectedCategory}
             onValueChange={(value) => setSelectedCategory(value)}
           >
-            <SelectTrigger className="mb-8 flex items-center gap-2 border border-neutral-300 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-800 hover:bg-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700">
+            <SelectTrigger className="mb-8 flex items-center gap-2 border px-4 py-2 text-sm font-medium border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700">
               <SelectValue placeholder="All" />
             </SelectTrigger>
 
@@ -135,24 +135,24 @@ function ProjectCard({ project }: ProjectCardProps) {
               }}
               priority={true}
             />
-            <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-[#FAF9F6] dark:bg-[#0a0a0a] px-2 py-1 text-black dark:text-white text-xl h-auto w-auto break-words text-left">
+            <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-black px-2 py-1 text-white text-xl h-auto w-auto break-words text-left">
               {name}
             </h3>
           </>
         ) : (
           <div className="flex items-center justify-center h-full w-full bg-gray-100 dark:bg-gray-900 relative">
               <div className="absolute inset-0 bg-[url('/assets/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10 rounded-2xl" />
-            <h3 className="relative text-2xl font-bold text-left text-[#0a0a0a] dark:text-white z-10">
+            <h3 className="relative text-2xl font-bold text-left text-white z-10">
               {name}
             </h3>
           </div>
         )}
       </FlipCardFront>
 
-      <FlipCardBack className="relative overflow-auto rounded-2xl bg-white p-6 dark:bg-[#0a0a0a]">
+      <FlipCardBack className="relative overflow-auto rounded-2xl p-6 bg-black">
         <div className="absolute inset-0 z-0 rounded-2xl bg-[url('/assets/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10" />
         <div className="relative z-10">
-          <p className="mb-4 text-base text-[#0a0a0a] dark:text-white">{description}</p>
+          <p className="mb-4 text-base text-white">{description}</p>
 
           {technologies?.length > 0 && (
             <ul className="mb-4 flex flex-wrap gap-2">
@@ -162,7 +162,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                     <MotionLi
                       key={idx}
                       variants={fadeInUp}
-                      className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-[#0a0a0a] dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
+                      className="flex items-center gap-2 rounded-full border px-3 py-1 text-xs border-neutral-700 bg-neutral-800 text-white"
                     >
                       {tech}
                     </MotionLi>
@@ -173,7 +173,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                   <MotionLi
                     key={idx}
                     variants={fadeInUp}
-                    className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-[#0a0a0a] dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
+                    className="flex items-center gap-2 rounded-full border px-3 py-1 text-xs border-neutral-700 bg-neutral-800 text-white"
                   >
                     {Icon && <Icon className="inline size-4" />}
                     {tech.name}
@@ -183,12 +183,12 @@ function ProjectCard({ project }: ProjectCardProps) {
             </ul>
           )}
 
-          <div className="mt-6 flex gap-5 text-[#0a0a0a] dark:text-white">
+          <div className="mt-10 flex gap-5 text-white">
             <Link
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 hover:text-primary dark:hover:text-primary-light"
+              className="inline-flex items-center gap-1 hover:text-primary-light"
             >
               Source
               <FaArrowUpRightFromSquare className="size-4 inline-block" />
@@ -199,7 +199,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                 href={hosted_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 hover:text-primary dark:hover:text-primary-light"
+                className="inline-flex items-center gap-1 hover:text-primary-light"
               >
                 Preview
                 <FaArrowUpRightFromSquare className="size-4 inline-block" />

@@ -55,9 +55,9 @@ export default function Education({ education }: Props) {
               <h3 className="text-lg font-semibold">{name}</h3>
             </div>
 
-            <div className="flex flex-col items-start text-[#0a0a0a] dark:text-white">
+            <div className="flex flex-col items-start text-white">
               <span className="text-lg">{position}</span>
-              <span className="text-sm text-neutral-600 dark:text-neutral-400">
+              <span className="text-sm text-neutral-400">
                 {start} — {end}
               </span>
               </div>

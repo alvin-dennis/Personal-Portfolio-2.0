@@ -9,7 +9,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import React, { useRef, type PropsWithChildren } from "react";
+import React, { useRef, useEffect, type PropsWithChildren } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -107,10 +107,38 @@ const DockIcon = ({
   const padding = Math.max(6, size * 0.2);
   const defaultMouseX = useMotionValue(Infinity);
 
-  const distanceCalc = useTransform(mouseX ?? defaultMouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-    return val - bounds.x - bounds.width / 2;
-  });
+  // Motion values for measured bounds — measured in an effect to avoid accessing refs during render
+  const boundsX = useMotionValue(0);
+  const boundsWidth = useMotionValue(0);
+
+  useEffect(() => {
+    const updateBounds = () => {
+      const rect = ref.current?.getBoundingClientRect();
+      boundsX.set(rect?.x ?? 0);
+      boundsWidth.set(rect?.width ?? 0);
+    };
+
+    updateBounds();
+
+    const ro = new ResizeObserver(() => updateBounds());
+    if (ref.current) ro.observe(ref.current);
+
+    window.addEventListener("resize", updateBounds);
+    window.addEventListener("scroll", updateBounds, true);
+
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", updateBounds);
+      window.removeEventListener("scroll", updateBounds, true);
+    };
+  }, [ref, boundsX, boundsWidth]);
+
+  const distanceCalc = useTransform(
+    [mouseX ?? defaultMouseX, boundsX, boundsWidth],
+    ([val, bx, bw]: number[]) => {
+      return val - bx - bw / 2;
+    }
+  );
 
   const sizeTransform = useTransform(
     distanceCalc,

@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <MotionFooter
       id="contact"
-      className="w-full px-4 py-12 text-center text-[#0a0a0a] dark:text-white"
+      className="w-full px-4 py-12 text-center text-white"
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"

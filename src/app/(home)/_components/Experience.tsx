@@ -116,7 +116,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
               className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted"
               aria-hidden
             >
-              <ExperienceIcon className="size-4" />
+              <ExperienceIcon className="size-4 text-black" />
             </div>
 
             <span className="flex-1 text-lg text-balance">{position.title}</span>
@@ -151,7 +151,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
 
         <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
           {position.description && (
-            <Prose className="pt-2 pl-11">
+            <Prose className="pt-2 pl-11 text-muted-foreground">
               <ReactMarkdown>{position.description}</ReactMarkdown>
             </Prose>
           )}
@@ -194,7 +194,7 @@ function Skill({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-lg border bg-muted/50 px-1.5 py-0.5 text-xs",
+        "inline-flex items-center rounded-lg border px-1.5 py-0.5 text-xs",
         className
       )}
       {...props}

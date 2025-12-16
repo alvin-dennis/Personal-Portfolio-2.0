@@ -104,11 +104,11 @@ export const SITE_CONTENT = {
       "Innovator",
     ],
     summary: `
-      Builder and Maker, combining technical skills with creative problem-solving to deliver impactful, user-focused solutions.
+      Developing human experiences in code.
     `,
     currentWork: "Frontend Engineer at MetaLoom",
-    location: "Kottayam, Kerala",
-    image: "https://github.com/alvin-dennis.png",
+    image:
+      "https://mulearn.org/muback-media/user/profile/65f1f78e-20bf-4265-bb44-30ec9cd6b5cc.png",
   },
   skills: {
     languages: [

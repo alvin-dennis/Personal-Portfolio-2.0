@@ -1,161 +1,218 @@
-import Section from "@/components/Section";
-import { FlipCard, FlipCardFront, FlipCardBack } from "@/components/ui/flip-card";
-import { Button } from "@/components/ui/button";
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-import type { Projects as ProjectsType } from "@/types";
-import Link from "next/link";
-import Image from "next/image";
-import { MotionDiv, MotionP, MotionLi } from "@/components/Framer";
-import { Variants } from "framer-motion";
+"use client"
 
-interface Props {
-  projects: ProjectsType[];
-}
+import { useState, useRef, useEffect } from "react"
+import { ArrowUpRight } from "lucide-react"
+import { Variants } from "framer-motion"
+import { MotionDiv } from "@/components/Framer"
+import Section from "@/components/Section"
+import Image from "next/image"
+import { SITE_CONTENT } from "@/lib/constants"
+import type { Projects } from "@/types"
+import Link from "next/link"
+import { FaGithub } from "react-icons/fa"
+import { Button } from "@/components/ui/button"
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-  },
-};
+export function Projects() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 })
+  const [isVisible, setIsVisible] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const animationRef = useRef<number | null>(null)
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
-  },
-};
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    },
+  };
 
-export default function Projects({ projects }: Props) {
+  useEffect(() => {
+    const lerp = (start: number, end: number, factor: number) => {
+      return start + (end - start) * factor
+    }
+    const animate = () => {
+      setSmoothPosition((prev) => ({
+        x: lerp(prev.x, mousePosition.x, 0.15),
+        y: lerp(prev.y, mousePosition.y, 0.15),
+      }))
+      animationRef.current = requestAnimationFrame(animate)
+    }
+    animationRef.current = requestAnimationFrame(animate)
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+    }
+  }, [mousePosition])
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect()
+      setMousePosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      })
+    }
+  }
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredIndex(index)
+    setIsVisible(true)
+  }
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null)
+    setIsVisible(false)
+  }
+
   return (
-    <Section text="Featured Projects" href="projects">
-      <MotionDiv
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="grid gap-8"
-      >
-        {projects.slice(0, 3).map(
-          ({ name, description, url, image, hosted_url, technologies }) => (
-            <MotionDiv key={name} variants={fadeInUp}>
-              <FlipCard flipDirection="vertical" className="h-96 w-full">
-                <FlipCardFront className="flex items-center justify-center rounded-2xl overflow-hidden">
-                  {hosted_url && !hosted_url.includes("github.com") ? (
-                    <>
-                      <div className="absolute inset-0 bg-black/20 z-0" />
-                      <Image
-                        src={image}
-                        alt={name}
-                        fill
-                        className="object-cover rounded-2xl z-[-1]"
-                        style={{
-                          position: "absolute",
-                        }}
-                        priority={true}
-                      />
-                      <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-[#FAF9F6] dark:bg-[#0a0a0a] px-2 py-1 text-black dark:text-white text-xl w-auto h-auto break-words whitespace-wrap text-left">
-                        {name}
-                      </h3>
-                    </>
-                  ) : (
-                    <div className="flex items-center justify-center h-full w-full bg-gray-100 dark:bg-gray-900 relative">
-                      <div className="absolute inset-0 bg-[url('/assets/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10 rounded-2xl" />
-                      <h3 className="relative text-2xl font-bold text-left text-[#0a0a0a] dark:text-white z-10">
-                        {name}
-                      </h3>
-                    </div>
-                  )}
-                </FlipCardFront>
-
-                <FlipCardBack className="relative overflow-auto rounded-2xl bg-white p-6 dark:bg-[#0a0a0a]">
-                  <div className="absolute inset-0 z-0 rounded-2xl bg-[url('/assets/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10" />
-
-                  <div className="relative z-10">
-                    <MotionP
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      className="mb-4 text-base text-[#0a0a0a] dark:text-white">
-                      {description}
-                    </MotionP>
-
-                    {technologies?.length > 0 && (
-                      <ul className="mb-4 flex flex-wrap gap-2">
-                        {technologies.map((tech, idx) => {
-                          const { name: techName, icon: Icon } =
-                            typeof tech === "string"
-                              ? { name: tech, icon: null }
-                              : tech;
-
-                          return (
-                            <MotionLi
-                              variants={fadeInUp}
-                              initial="hidden"
-                              whileInView="visible"
-                              viewport={{ once: true }}
-                              key={idx}
-                              className="flex items-center gap-2 rounded-full border border-neutral-200 
-                                bg-neutral-100 px-3 py-1 text-xs text-[#0a0a0a] 
-                                dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
-                            >
-                              {Icon && <Icon className="inline size-4" />}
-                              {techName}
-                            </MotionLi>
-                          );
-                        })}
-                      </ul>
-                    )}
-
-                    <div className="flex gap-5 text-[#0a0a0a] dark:text-white">
-                      <Link
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 hover:text-primary dark:hover:text-primary-light"
-                      >
-                        Source
-                        <FaArrowUpRightFromSquare className="size-4 inline-block" />
-                      </Link>
-
-                      {hosted_url && !hosted_url.includes("github.com") && (
-                        <Link
-                          href={hosted_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 hover:text-primary dark:hover:text-primary-light"
-                        >
-                          Preview
-                          <FaArrowUpRightFromSquare className="size-4 inline-block" />
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                </FlipCardBack>
-              </FlipCard>
-            </MotionDiv>
-          )
-        )}
-      </MotionDiv>
-
-      <MotionDiv
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="mt-10 flex justify-center"
-      >
-        <Button
-          variant="secondary"
-          className="rounded-full bg-[#0a0a0a] px-5 py-2 text-white hover:bg-gray-800 dark:bg-white dark:text-[#0a0a0a] dark:hover:bg-gray-200"
+    <Section text="Projects" href="projects">
+      <div ref={containerRef} onMouseMove={handleMouseMove} className="relative w-full max-w-full mx-auto px-6">
+        <div
+          className="pointer-events-none absolute z-50 overflow-hidden rounded-xl shadow-2xl"
+          style={{
+            left: 0,
+            top: 0,
+            transform: `translate3d(${smoothPosition.x + 20}px, ${smoothPosition.y - 100}px, 0)`,
+            opacity: isVisible ? 1 : 0,
+            scale: isVisible ? 1 : 0.8,
+            transition: "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
         >
-          <Link href="/projects">View All Projects</Link>
-        </Button>
-      </MotionDiv>
+          <div className="relative w-[280px] h-[180px] bg-secondary rounded-xl overflow-hidden">
+            {SITE_CONTENT.projects.map((project, index) => {
+              const isFallback = !project.image;
+
+              return (
+                <Image
+                  key={project.name}
+                  src={project.image || "/assets/noise-bg.webp"}
+                  alt={project.name}
+                  fill
+                  className="absolute inset-0 object-cover transition-all duration-500 ease-out"
+                  style={{
+                    opacity:
+                      hoveredIndex === index
+                        ? isFallback
+                          ? 0.25
+                          : 1
+                        : 0,
+                    transform: hoveredIndex === index ? "scale(1)" : "scale(1.1)",
+                    filter: hoveredIndex === index ? "none" : "blur(10px)",
+                  }}
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="space-y-0">
+          {SITE_CONTENT.projects.map((project, index) => (
+            <Link
+              key={project.name}
+              href={project.hosted_url}
+              className="group block"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="relative py-5 border-t border-border transition-all duration-300 ease-out">
+                <div
+                  className={`
+                  absolute inset-0 -mx-4 px-4 rounded-lg
+                  transition-all duration-300 ease-out
+                  ${hoveredIndex === index ? "opacity-100 scale-100" : "opacity-0 scale-95"}
+                `}
+                />
+
+                <div className="relative flex items-start justify-between gap-4">
+                  <div className="flex-1 min-w-0">
+                    <div className="inline-flex items-center gap-2">
+                      <h3 className="text-white font-medium text-lg tracking-tight">
+                        <span className="relative">
+                          {project.name}
+                          <span
+                            className={`
+                            absolute left-0 -bottom-0.5 h-px
+                            transition-all duration-300 ease-out
+                            ${hoveredIndex === index ? "w-full" : "w-0"}
+                          `}
+                          />
+                        </span>
+                      </h3>
+                      <ArrowUpRight
+                        className={`
+                        w-4 h-4 text-muted-foreground
+                        transition-all duration-300 ease-out
+                        ${hoveredIndex === index
+                            ? "opacity-100 translate-x-0 translate-y-0"
+                            : "opacity-0 -translate-x-2 translate-y-2"
+                          }
+                      `}
+                      />
+                    </div>
+                    <p
+                      className={`
+                      text-muted-foreground text-sm mt-1 leading-relaxed
+                      transition-all duration-300 ease-out
+                      ${hoveredIndex === index ? "text-foreground/70" : "text-muted-foreground"}
+                    `}
+                    >
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <Button
+                    variant="link"
+                    onMouseEnter={(e) => {
+                      e.stopPropagation()
+                      setIsVisible(false)
+                      setHoveredIndex(null)
+                    }}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      window.open(project.url, "_blank", "noopener,noreferrer")
+                    }}
+                    className="group inline-flex items-center gap-1.5 text-white"
+                    aria-label="Open GitHub repository"
+                  >
+                    <FaGithub
+                      className="
+                      h-3.5 w-3.5 transition-all duration-300 ease-out"
+                    />
+                    <span
+                      className="
+     text-xs tabular-nums transition-all duration-300 ease-out"
+
+                    >
+                      GitHub
+                    </span>
+                  </Button>
+                </div>
+              </div>
+            </Link>
+          ))}
+
+          <div className="border-t border-border" />
+        </div>
+        <MotionDiv
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mt-10 flex justify-center"
+        >
+          <Button
+            variant="secondary"
+            className="rounded-full px-5 py-2 bg-white text-black hover:bg-gray-200"
+          >
+            <Link href="/projects">View All Projects</Link>
+          </Button>
+        </MotionDiv>
+      </div>
     </Section>
-  );
+  )
 }

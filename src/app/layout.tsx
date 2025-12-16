@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
-import { ThemeProvider } from "@/app/theme-provider";
 
 import "./globals.css";
 
@@ -10,13 +9,13 @@ export const metadata: Metadata = {
   title: "Alvin Dennis — Builder | Maker | Manager",
   description:
     "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
-  authors: [{ name: "Alvin Dennis", url: "https://alvindennis.tech/" }],
+  authors: [{ name: "Alvin Dennis", url: "https://alvinn.me/" }],
   openGraph: {
     title: "Alvin Dennis — Builder | Maker | Manager",
     description:
-      "DBuilder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
+      "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
     siteName: "Alvin Dennis — Builder | Maker | Manager",
-    url: "https://alvindennis.tech/",
+    url: "https://alvinn.me/",
     type: "website",
     images: [
       {
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
   },
-  metadataBase: new URL("https://alvindennis.tech/"),
+  metadataBase: new URL("https://alvinn.me/"),
 };
 
 
@@ -72,19 +71,11 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${drukwide.variable} ${druksuper.variable} ${leaguespartan.variable}`}
       >
-        <body className="font-leaguespartan antialiased bg-[#FAF9F6] min-h-screen dark:bg-[#0a0a0a]">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            enableColorScheme
-            disableTransitionOnChange
-          >
+        <body className="font-leaguespartan antialiased min-h-screen bg-black text-white">
           <main className="mx-auto max-w-3xl flex-1 px-5 pb-28">
             {children}
           </main>
             <Navbar />
-          </ThemeProvider>
         </body>
       </html>
     </>
