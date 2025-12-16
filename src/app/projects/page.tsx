@@ -141,7 +141,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           </>
         ) : (
           <div className="flex items-center justify-center h-full w-full bg-gray-100 dark:bg-gray-900 relative">
-            <div className="absolute inset-0 bg-[url('/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10 rounded-2xl" />
+              <div className="absolute inset-0 bg-[url('/assets/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10 rounded-2xl" />
             <h3 className="relative text-2xl font-bold text-left text-[#0a0a0a] dark:text-white z-10">
               {name}
             </h3>
@@ -150,7 +150,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       </FlipCardFront>
 
       <FlipCardBack className="relative overflow-auto rounded-2xl bg-white p-6 dark:bg-[#0a0a0a]">
-        <div className="absolute inset-0 z-0 rounded-2xl bg-[url('/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10" />
+        <div className="absolute inset-0 z-0 rounded-2xl bg-[url('/assets/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10" />
         <div className="relative z-10">
           <p className="mb-4 text-base text-[#0a0a0a] dark:text-white">{description}</p>
 

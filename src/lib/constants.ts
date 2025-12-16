@@ -80,7 +80,7 @@ export const SITE_CONFIG = {
       icon: SiInstagram,
     },
   ],
-  socialImage: "/og.webp",
+  socialImage: "/assets/og.webp",
   canonicalURL: "https://alvindennis.tech",
   contact: {
     email: "alvindennis80@gmail.com",
