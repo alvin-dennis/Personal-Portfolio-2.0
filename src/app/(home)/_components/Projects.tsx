@@ -110,7 +110,7 @@ export function Projects() {
         </div>
 
         <div className="space-y-0">
-          {SITE_CONTENT.projects.map((project, index) => (
+          {SITE_CONTENT.projects.slice(0, 3).map((project, index) => (
             <Link
               key={project.name}
               href={project.hosted_url}

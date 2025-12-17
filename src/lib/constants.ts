@@ -34,7 +34,6 @@ import {
   SiRaspberrypi,
   SiTypescript,
   SiShadcnui,
-  SiFramework,
   SiFramer,
   SiJekyll,
   SiPostgresql,
@@ -93,7 +92,7 @@ export const SITE_CONTENT = {
     name: "Alvin Dennis",
     specialty: [
       "Electrical Engineer",
-      "Frontend Developer",
+      "Frontend Engineer",
       "UI/UX Designer",
       "IoT Enthusiast",
       "Manual Software Tester",
@@ -122,7 +121,6 @@ export const SITE_CONTENT = {
       { name: "React", icon: SiReact },
       { name: "Astro", icon: SiAstro },
       { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "OpenCV", icon: SiOpencv },
       { name: "Prisma", icon: SiPrisma },
       { name: "Drizzle", icon: SiDrizzle },
     ],
@@ -133,7 +131,6 @@ export const SITE_CONTENT = {
       { name: "Hono.js", icon: SiHono },
       { name: "oRPC", icon: SiTrpc },
       { name: "Expo", icon: SiExpo },
-      { name: "Pathway", icon: SiFramework },
     ],
     databases: [
       { name: "Supabase", icon: SiSupabase },
@@ -190,38 +187,6 @@ export const SITE_CONTENT = {
             "Team Management",
           ],
           isExpanded: true,
-        },
-      ],
-      isCurrentEmployer: true,
-    },
-    {
-      id: "builderclan",
-      companyName: "BuilderClan",
-      companyLink: "https://builderclan.org",
-      companyLogo: "https://github.com/builderclan.png",
-      positions: [
-        {
-          id: "builderclan-technical-001",
-          title: "Technical Lead",
-          employmentPeriod: "01.2025 — Present",
-          employmentType: "Full-time",
-          icon: "code",
-          description: `- Led technical initiatives and guided multiple project teams to successful delivery.
-- Architected and implemented scalable full-stack solutions using modern web technologies.
-- Conducted code reviews, ensuring code quality, maintainability, and adherence to best practices.
-- Mentored junior developers and interns, helping them improve coding skills and project ownership.
-- Coordinated cross-functional teams for timely deployment of products and features.`,
-          skills: [
-            "React",
-            "Next.js",
-            "Tailwind CSS",
-            "Shadcn",
-            "Supabase",
-            "Coordination",
-            "Technical Leadership",
-            "Team Management",
-          ],
-          isExpanded: false,
         },
       ],
       isCurrentEmployer: true,
@@ -403,6 +368,21 @@ export const SITE_CONTENT = {
       image: "/projects/mulearn.webp",
       url: "https://github.com/gtech-mulearn/mulearnhome",
       hosted_url: "https://mulearnhome.vercel.app/",
+      technologies: [
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: SiFramer },
+        { name: "Shadcn/UI", icon: SiShadcnui },
+      ],
+    },
+    {
+      name: "Punarjjani",
+      description:
+        "A Mission to Restore Health and Hope. Providing compassionate medical care to those in need — supporting underprivileged communities with essential healthcare, and restoring hope and dignity to vulnerable lives.",
+      category: "Tools",
+      image: "/projects/punarjjani.webp",
+      url: "https://github.com/alvin-dennis/Punarjjani",
+      hosted_url: "https://punarjjani.vercel.app/",
       technologies: [
         { name: "Next.js", icon: SiNextdotjs },
         { name: "Tailwind CSS", icon: SiTailwindcss },
