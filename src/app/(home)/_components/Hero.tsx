@@ -13,6 +13,24 @@ const fadeInUp: Variants = {
   },
 };
 
+const blurFadeIn: Variants = {
+  hidden: {
+    opacity: 0,
+    filter: "blur(12px)",
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.42, 0, 0.58, 1],
+    },
+  },
+};
+
+
 interface Props {
   name: string;
   image: string;
@@ -42,7 +60,7 @@ export default function Hero({
             <div>
               <BlurText
                 text="ALVIN"
-                delay={50}
+                delay={20}
                 animateBy="letters"
                 direction="top"
                 className="font-bold text-[100px] text-[#C3E41D] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
@@ -51,7 +69,7 @@ export default function Hero({
             <div>
               <BlurText
                 text="DENNIS"
-                delay={50}
+                delay={20}
                 animateBy="letters"
                 direction="top"
                 className="font-bold mt-5 text-[100px] text-[#C3E41D] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
@@ -84,19 +102,17 @@ export default function Hero({
       <div className="absolute justify-center bottom-28 sm:bottom-32 md:bottom-36 lg:bottom-44 xl:bottom-52 left-1/2 -translate-x-1/2 w-full">
         <MotionDiv
           viewport={{ once: true }}
-          variants={fadeInUp}
+          variants={blurFadeIn}
           className="flex flex-col items-center justify-center"
         >
-            <div className="items-center justify-center text-center">
-              <RotatingText
-                texts={specialty}
-                splitBy="words"
-                rotationInterval={2000}
-                auto={true}
-                mainClassName="md:mb-10 text-3xl font-bold sm:text-5xl md:text-6xl"
-                elementLevelClassName="inline-block"
-              />
-            </div>
+          <RotatingText
+            texts={specialty}
+            splitBy="words"
+            rotationInterval={2000}
+            auto={true}
+            mainClassName="md:mb-10 text-3xl font-bold sm:text-5xl md:text-6xl"
+            elementLevelClassName="inline-block"
+          />
         </MotionDiv>
         <MotionDiv
           viewport={{ once: true }}
@@ -107,7 +123,7 @@ export default function Hero({
             <div className="items-center justify-center">
               <BlurText
                 text={summary.trim().replace(/\s+/g, ' ')}
-                delay={60}
+                delay={30}
                 animateBy="words"
                 direction="top"
                 className="font-semibold text-sm sm:text-lg md:text-2xl max-w-full sm:max-w-md lg:max-w-2xl mx-auto leading-relaxed wrap-break-word text-center"
@@ -124,7 +140,7 @@ export default function Hero({
             <div className="items-center justify-center text-center">
               <BlurText
                 text={currentWork ?? "…"}
-                delay={60}
+                delay={20}
                 animateBy="words"
                 direction="top"
                 className="font-semibold text-lg md:text-2xl mt-2"

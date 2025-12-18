@@ -54,6 +54,16 @@ const MotionH2 = React.forwardRef<HTMLHeadingElement, HTMLMotionProps<"h2">>(
     }
 );
 
+const MotionH3 = React.forwardRef<HTMLHeadingElement, HTMLMotionProps<"h2">>(
+    function MotionH2({ children, ...props }, ref) {
+        return (
+            <motion.h3 ref={ref} {...props}>
+                {children}
+            </motion.h3>
+        );
+    }
+);
+
 const MotionP = React.forwardRef<HTMLParagraphElement, HTMLMotionProps<"p">>(
     function MotionP({ children, ...props }, ref) {
         return (
@@ -92,6 +102,7 @@ export {
     MotionHeader,
     MotionH1,
     MotionH2,
+    MotionH3,
     MotionP,
     MotionFooter,
     MotionLi

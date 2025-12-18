@@ -23,8 +23,6 @@ export default function Header() {
   return (
     <MotionHeader
       variants={fadeInUp}
-      initial="visible"
-      whileInView="visible"
       viewport={{ once: true }}>
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-12 flex h-full max-h-14 origin-bottom">
         <Dock

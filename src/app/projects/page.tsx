@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import Loader from "@/components/Loader";
 import Section from "@/components/Section";
 import {
   Select,
@@ -18,8 +20,7 @@ import { SITE_CONTENT } from "@/lib/constants";
 import Link from "next/link";
 import { Projects } from "@/types";
 import { MotionDiv, MotionLi } from "@/components/Framer";
-import { Variants, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { Variants, AnimatePresence, easeOut } from "framer-motion";
 import Image from "next/image";
 
 const containerVariants: Variants = {
@@ -40,7 +41,13 @@ const fadeInUp: Variants = {
 };
 
 export default function ProjectsPage() {
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("all");
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1900);
+    return () => clearTimeout(timer);
+  }, []);
 
   const filteredProjects =
     selectedCategory === "all"
@@ -53,37 +60,62 @@ export default function ProjectsPage() {
       });
 
   return (
-    <div className="mb-1 flex justify-center text-center">
-      <Section href="/projects" text="My Projects & Contributions">
+    <AnimatePresence mode="wait">
+      {loading ? (
         <MotionDiv
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center"
+          key="loader"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, ease: easeOut }}
         >
-          <Select
-            value={selectedCategory}
-            onValueChange={(value) => setSelectedCategory(value)}
-          >
-            <SelectTrigger className="mb-8 flex items-center gap-2 border px-4 py-2 text-sm font-medium border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700">
-              <SelectValue placeholder="All" />
-            </SelectTrigger>
-
-            <SelectContent>
-              {SITE_CONTENT.categories.map(({ value, label }) => (
-                <SelectItem key={value} value={value}>
-                  {label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          <AnimatePresence mode="wait">
-            <ProjectGrid key={selectedCategory} projects={filteredProjects} />
-          </AnimatePresence>
+          <Loader />
         </MotionDiv>
-      </Section>
-    </div>
+      ) : (
+        <MotionDiv
+          key="projects"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              ease: easeOut,
+            }}
+          className="mb-1 flex justify-center text-center"
+        >
+          <Section href="/projects" text="My Projects & Contributions">
+            <MotionDiv
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col items-center"
+            >
+              <Select
+                value={selectedCategory}
+                onValueChange={setSelectedCategory}
+              >
+                <SelectTrigger className="mb-8 flex items-center gap-2 border px-4 py-2 text-sm font-medium border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700">
+                  <SelectValue placeholder="All" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  {SITE_CONTENT.categories.map(({ value, label }) => (
+                    <SelectItem key={value} value={value}>
+                      {label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <AnimatePresence mode="wait">
+                <ProjectGrid
+                  key={selectedCategory}
+                  projects={filteredProjects}
+                />
+              </AnimatePresence>
+            </MotionDiv>
+          </Section>
+        </MotionDiv>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -130,19 +162,16 @@ function ProjectCard({ project }: ProjectCardProps) {
               alt={name}
               fill
               className="object-cover rounded-2xl z-[-1]"
-              style={{
-                position: "absolute",
-              }}
-              priority={true}
+              priority
             />
-            <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-black px-2 py-1 text-white text-xl h-auto w-auto break-words text-left">
+            <h3 className="absolute bottom-0 left-0 z-10 rounded-tr-2xl bg-black px-2 py-1 text-white text-xl">
               {name}
             </h3>
           </>
         ) : (
           <div className="flex items-center justify-center h-full w-full bg-gray-100 dark:bg-gray-900 relative">
-              <div className="absolute inset-0 bg-[url('/assets/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10 rounded-2xl" />
-            <h3 className="relative text-2xl font-bold text-left text-white z-10">
+            <div className="absolute inset-0 bg-[url('/assets/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10 rounded-2xl" />
+            <h3 className="relative text-2xl font-bold text-white z-10">
               {name}
             </h3>
           </div>
@@ -162,7 +191,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                     <MotionLi
                       key={idx}
                       variants={fadeInUp}
-                      className="flex items-center gap-2 rounded-full border px-3 py-1 text-xs border-neutral-700 bg-neutral-800 text-white"
+                      className="rounded-full border px-3 py-1 text-xs border-neutral-700 bg-neutral-800 text-white"
                     >
                       {tech}
                     </MotionLi>
@@ -175,7 +204,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                     variants={fadeInUp}
                     className="flex items-center gap-2 rounded-full border px-3 py-1 text-xs border-neutral-700 bg-neutral-800 text-white"
                   >
-                    {Icon && <Icon className="inline size-4" />}
+                    {Icon && <Icon className="size-4" />}
                     {tech.name}
                   </MotionLi>
                 );
@@ -184,25 +213,17 @@ function ProjectCard({ project }: ProjectCardProps) {
           )}
 
           <div className="mt-10 flex gap-5 text-white">
-            <Link
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 hover:text-primary-light"
-            >
-              Source
-              <FaArrowUpRightFromSquare className="size-4 inline-block" />
+            <Link href={url} target="_blank" className="inline-flex items-center gap-1">
+              Source <FaArrowUpRightFromSquare className="size-4" />
             </Link>
 
             {hosted_url && !hosted_url.includes("github.com") && (
               <Link
                 href={hosted_url}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 hover:text-primary-light"
+                className="inline-flex items-center gap-1"
               >
-                Preview
-                <FaArrowUpRightFromSquare className="size-4 inline-block" />
+                Preview <FaArrowUpRightFromSquare className="size-4" />
               </Link>
             )}
           </div>
@@ -211,4 +232,3 @@ function ProjectCard({ project }: ProjectCardProps) {
     </FlipCard>
   );
 }
-
