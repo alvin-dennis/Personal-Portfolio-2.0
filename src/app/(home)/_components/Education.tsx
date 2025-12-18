@@ -52,12 +52,12 @@ export default function Education({ education }: Props) {
                   className="rounded-full"
                 />
               </Link>
-              <h3 className="text-lg font-semibold">{name}</h3>
+              <h3 className="text-lg font-semibold text-muted-foreground">{name}</h3>
             </div>
 
-            <div className="flex flex-col items-start text-white">
+            <div className="flex flex-col items-start">
               <span className="text-lg">{position}</span>
-              <span className="text-sm text-neutral-400">
+              <span className="text-sm">
                 {start} — {end}
               </span>
               </div>

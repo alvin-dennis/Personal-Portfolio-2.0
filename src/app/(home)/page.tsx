@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeOut } from "framer-motion";
 import Loader from "@/components/Loader";
 import { SITE_CONTENT } from "@/lib/constants";
 import Hero from "@/app/(home)/_components/Hero";
@@ -9,6 +9,7 @@ import Skills from "@/app/(home)/_components/Skills";
 import Experience from "@/app/(home)/_components/Experience";
 import Education from "@/app/(home)/_components/Education";
 import { Projects } from "@/app/(home)/_components/Projects";
+// import { Testimonials } from "./_components/Testmonials";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -38,7 +39,7 @@ export default function Home() {
           key="loader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: easeOut }}
         >
           <Loader />
         </motion.div>
@@ -49,7 +50,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.6,
-            ease: "easeOut",
+            ease: easeOut,
           }}
         >
           <Hero {...SITE_CONTENT.hero} />
@@ -57,6 +58,7 @@ export default function Home() {
           <Experience />
           <Education education={SITE_CONTENT.education} />
           <Projects />
+          {/* <Testimonials /> */}
           <Footer />
         </motion.main>
       )}

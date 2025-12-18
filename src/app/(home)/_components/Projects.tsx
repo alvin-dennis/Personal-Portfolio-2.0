@@ -130,7 +130,7 @@ export function Projects() {
                 <div className="relative flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
                     <div className="inline-flex items-center gap-2">
-                      <h3 className="text-white font-medium text-lg tracking-tight">
+                      <h3 className="text-muted-foreground font-medium text-lg tracking-tight">
                         <span className="relative">
                           {project.name}
                           <span
@@ -155,9 +155,9 @@ export function Projects() {
                     </div>
                     <p
                       className={`
-                      text-muted-foreground text-sm mt-1 leading-relaxed
+                      text-foreground text-sm mt-1 leading-relaxed
                       transition-all duration-300 ease-out
-                      ${hoveredIndex === index ? "text-foreground/70" : "text-muted-foreground"}
+                      ${hoveredIndex === index ? "text-foreground" : "text-foreground"}
                     `}
                     >
                       {project.description}
@@ -176,7 +176,7 @@ export function Projects() {
                       e.stopPropagation()
                       window.open(project.url, "_blank", "noopener,noreferrer")
                     }}
-                    className="group inline-flex items-center gap-1.5 text-white"
+                    className="group inline-flex items-center gap-1.5 text-muted"
                     aria-label="Open GitHub repository"
                   >
                     <FaGithub
@@ -207,7 +207,7 @@ export function Projects() {
         >
           <Button
             variant="secondary"
-            className="rounded-full px-5 py-2 bg-white text-black hover:bg-gray-200"
+            className="rounded-full px-5 py-2"
           >
             <Link href="/projects">View All Projects</Link>
           </Button>

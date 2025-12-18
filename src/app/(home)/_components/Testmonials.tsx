@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import type { TestimonialCard } from '@/types';
 import { SITE_CONTENT } from '@/lib/constants';
+import Section from '@/components/Section';
 
 const testimonials = SITE_CONTENT.testimonials;
 
@@ -51,7 +52,7 @@ const TestimonialCard: React.FC<TestimonialCard> = ({
                 }}
             />
             <h5 className={cn(
-                "text-base sm:text-lg font-medium",
+                "text-xs md:text-lg",
                 isCenter ? "text-primary-foreground" : "text-foreground"
             )}>
                 &quot;{testimonial.testimonial}&quot;
@@ -98,8 +99,8 @@ export const Testimonials: React.FC = () => {
         window.addEventListener("resize", updateSize);
         return () => window.removeEventListener("resize", updateSize);
     }, []);
-
     return (
+        <Section text="Testimonials" href="testimonials">
         <div
             className="relative w-full overflow-hidden"
             style={{ height: 600 }}
@@ -140,6 +141,7 @@ export const Testimonials: React.FC = () => {
                     <ChevronRight />
                 </Button>
             </div>
-        </div>
+            </div>
+        </Section>
     );
 };

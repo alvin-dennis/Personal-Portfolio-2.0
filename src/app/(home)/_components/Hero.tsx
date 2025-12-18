@@ -3,6 +3,7 @@ import BlurText from "@/components/ui/BlurText";
 import { MotionDiv } from "@/components/Framer";
 import { Variants } from "framer-motion";
 import RotatingText from "@/components/ui/RotatingText";
+import { HeroProp } from "@/types";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -30,24 +31,26 @@ const blurFadeIn: Variants = {
   },
 };
 
-
-interface Props {
-  name: string;
-  image: string;
-  currentWork?: string;
-  summary: string;
-  specialty: string[];
-}
-
 export default function Hero({
   name,
   image,
   currentWork,
   summary,
   specialty
-}: Props) {
+}: HeroProp) {
   return (
     <main className="min-h-screen flex flex-col">
+      <header className="top-0 left-0 right-0 z-50 px-6 py-6">
+        <nav className="flex text-4xl items-center justify-center max-w-screen-2xl mx-auto">
+            <Image
+              src="/logo.svg"
+              alt="Logo"
+              width={50}
+              height={50}
+              className="object-contain"
+            />
+        </nav>
+      </header>
       <div className="absolute top-[34%] sm:top-[33%] md:top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
         <div className="text-center">
           <MotionDiv
@@ -63,7 +66,10 @@ export default function Hero({
                 delay={20}
                 animateBy="letters"
                 direction="top"
-                className="font-bold text-[100px] text-[#C3E41D] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+                className="font-bold text-[100px] text-primary sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+                style={{
+                  fontFamily: "'Fira Code', monospace"
+                }}
               />
             </div>
             <div>
@@ -72,7 +78,10 @@ export default function Hero({
                 delay={20}
                 animateBy="letters"
                 direction="top"
-                className="font-bold mt-5 text-[100px] text-[#C3E41D] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+                className="font-bold mt-5 text-[100px] text-primary sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+                style={{
+                  fontFamily: "'Fira Code', monospace"
+                }}
               />
             </div>
           </MotionDiv>
@@ -110,7 +119,7 @@ export default function Hero({
             splitBy="words"
             rotationInterval={2000}
             auto={true}
-            mainClassName="md:mb-10 text-3xl font-bold sm:text-5xl md:text-6xl"
+            mainClassName="md:mb-10 text-3xl text-input font-bold sm:text-5xl md:text-6xl"
             elementLevelClassName="inline-block"
           />
         </MotionDiv>

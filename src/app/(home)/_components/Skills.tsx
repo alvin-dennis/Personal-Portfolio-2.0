@@ -35,7 +35,7 @@ export default function Skills({ skills }: Props) {
     if (typeof skill === "string") {
       return (
         <MotionDiv variants={fadeInUp} key={skill}>
-          <Badge>{skill}</Badge>
+          <Badge className="bg-background text-foreground">{skill}</Badge>
         </MotionDiv>
       );
     }
@@ -43,7 +43,7 @@ export default function Skills({ skills }: Props) {
     const Icon = skill.icon;
     return (
       <MotionDiv viewport={{ once: true }} variants={fadeInUp} key={skill.name}>
-        <Badge>
+        <Badge className="bg-foreground text-background">
           {Icon && <Icon style={{ marginRight: "0.25em" }} />}
           {skill.name}
         </Badge>
@@ -72,7 +72,7 @@ export default function Skills({ skills }: Props) {
               variants={fadeInUp}
               className="flex flex-wrap items-start gap-1"
             >
-              <Badge variant="secondary">
+              <Badge className="bg-background text-foreground">
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </Badge>
               {list.map(renderSkill)}

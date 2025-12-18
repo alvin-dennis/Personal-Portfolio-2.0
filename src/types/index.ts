@@ -21,7 +21,7 @@ export interface SiteConfig extends Navbar {
 
 export interface SiteContent {
   header: Navbar[];
-  hero: Hero;
+  hero: HeroProp;
   education: Education[];
   experience: Experience[];
   projects: Projects;
@@ -32,13 +32,12 @@ export interface Navbar {
   socialLinks: { text: string; href: string; icon: React.ElementType }[];
 }
 
-export interface Hero {
+export interface HeroProp {
   name: string;
   image: string;
-  specialty: string[];
+  currentWork?: string;
   summary: string;
-  email: string;
-  resume: { text: string; href: string; icon: React.ElementType };
+  specialty: string[];
 }
 
 export type SkillProp = string | { name: string; icon: React.ElementType };

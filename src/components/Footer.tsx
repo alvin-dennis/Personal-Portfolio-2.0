@@ -51,7 +51,7 @@ export default function Footer() {
         >
           <div className="flex flex-col items-center gap-2">
             <span
-              className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground transition-all duration-500"
+              className="text-xs font-medium tracking-[0.3em] uppercase text-foreground transition-all duration-500"
               style={{
                 transform: showSuccess ? "translateY(0)" : "translateY(10px)",
                 opacity: showSuccess ? 1 : 0,
@@ -61,7 +61,7 @@ export default function Footer() {
               Perfect
             </span>
             <MotionH3
-              className="text-3xl font-light tracking-tight transition-all duration-500 sm:text-4xl"
+              className="text-3xl font-light text-primary tracking-tight transition-all duration-500 sm:text-4xl"
               style={{
                 transform: showSuccess ? "translateY(0)" : "translateY(10px)",
                 opacity: showSuccess ? 1 : 0,
@@ -111,7 +111,7 @@ export default function Footer() {
         >
           <div className="flex flex-col items-center gap-6">
             <MotionH2
-              className="relative text-center text-5xl font-light tracking-tight sm:text-6xl md:text-7xl lg:text-8xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="relative text-center text-primary text-5xl font-light tracking-tight sm:text-6xl md:text-7xl lg:text-8xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{
                 opacity: isClicked ? 0 : 1,
                 transform: isClicked ? "translateY(-40px) scale(0.95)" : "translateY(0) scale(1)",
@@ -144,11 +144,11 @@ export default function Footer() {
                 className="pointer-events-none absolute inset-0 rounded-full border transition-all ease-out"
                 style={{
                   borderColor: isHovered || isClicked
-                    ? "var(--foreground)"
+                    ? "var(--muted)"
                     : "var(--border)",
 
                   backgroundColor: isHovered && !isClicked
-                    ? "var(--foreground)"
+                    ? "var(--primary)"
                     : "transparent",
 
                   transform: isClicked
@@ -175,7 +175,7 @@ export default function Footer() {
 
                   color: isHovered && !isClicked
                     ? "var(--background)"
-                    : "var(--border)",
+                    : "var(--primary)",
 
                   transitionDuration: isClicked ? "600ms" : "500ms",
                 }}
@@ -219,7 +219,7 @@ export default function Footer() {
           <Button
             asChild
             variant="link"
-            className="text-xs tracking-widest uppercase text-white/60"
+            className="text-xs tracking-widest uppercase"
           >
             <Link
               href={`mailto:${SITE_CONFIG.contact.email}?subject=Project Enquiry`}

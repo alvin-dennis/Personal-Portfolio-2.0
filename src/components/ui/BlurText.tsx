@@ -113,7 +113,7 @@ const BlurText: React.FC<BlurTextProps> = ({
             style={{
               display: 'inline-block',
               willChange: 'transform, filter, opacity',
-              fontFamily: "'Fira Code', monospace"
+              ...style
             }}
           >
             {segment === ' ' ? '\u00A0' : segment}

@@ -82,7 +82,7 @@ function ExperienceItem({ experience }: { experience: Experience }) {
           </div>
         </Link>
 
-        <h3 className="text-lg font-semibold">{experience.companyName}</h3>
+        <h3 className="text-lg font-semibold text-muted-foreground">{experience.companyName}</h3>
 
         {experience.isCurrentEmployer && (
           <span className="relative flex items-center justify-center">
@@ -151,7 +151,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
 
         <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
           {position.description && (
-            <Prose className="pt-2 pl-11 text-muted-foreground">
+            <Prose className="pt-2 pl-11 text-foreground">
               <ReactMarkdown>{position.description}</ReactMarkdown>
             </Prose>
           )}

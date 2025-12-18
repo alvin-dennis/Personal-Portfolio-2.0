@@ -26,8 +26,8 @@ export default function Header() {
       viewport={{ once: true }}>
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-12 flex h-full max-h-14 origin-bottom">
         <Dock
-          className="pointer-events-auto relative z-50 mx-auto flex h-full min-h-full transform-gpu items-center bg-black px-1 
-            border-white [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
+          className="pointer-events-auto relative z-50 mx-auto flex h-full min-h-full transform-gpu items-center bg-background px-1 
+            border-primary"
         >
           <DockIcon>
             <Tooltip>
@@ -67,7 +67,7 @@ export default function Header() {
                     "size-12 flex items-center justify-center group"
                   )}
                 >
-                  <FaCode className="size-5 text-white" />
+                  <FaCode className="size-5" />
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
@@ -75,7 +75,6 @@ export default function Header() {
               </TooltipContent>
             </Tooltip>
           </DockIcon>
-
 
           <Separator orientation="vertical" className="h-full" />
 
@@ -88,7 +87,7 @@ export default function Header() {
                   aria-label={item.text}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "flex size-12 items-center justify-center text-white"
+                    "flex size-12 items-center justify-center"
                   )}
                 >
                   {item.icon && <item.icon className="size-4 text-current" />}
