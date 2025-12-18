@@ -465,4 +465,61 @@ export const SITE_CONTENT = {
       ],
     },
   ],
+  testimonials: [
+    {
+        id: 0,
+        testimonial: "Alvin Dennis brought a clean, user-friendly design to Punarjjani. He completely built our website with great attention to detail and usability, giving our charity a strong and professional digital presence. His dedication and passion for the work really stood out. A pleasure to work with!",
+        by: "Hanih PC, President at Punarjjani",
+    },
+    {
+        id: 1,
+        testimonial: "I'm confident my data is safe with COMPANY. I can't say that about other providers.",
+        by: "Dan, CTO at SecureNet",
+    },
+    {
+        id: 2,
+        testimonial: "I know it's cliche, but we were lost before we found COMPANY. Can't thank you guys enough!",
+        by: "Stephanie, COO at InnovateCo",
+    },
+    {
+        id: 3,
+        testimonial: "COMPANY's products make planning for the future seamless. Can't recommend them enough!",
+        by: "Marie, CFO at FuturePlanning",
+    },
+    {
+        id: 4,
+        testimonial: "If I could give 11 stars, I'd give 12.",
+        by: "Andre, Head of Design at CreativeSolutions",
+    },
+    {
+        id: 5,
+        testimonial: "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
+        by: "Jeremy, Product Manager at TimeWise",
+    },
+    {
+        id: 6,
+        testimonial: "Took some convincing, but now that we're on COMPANY, we're never going back.",
+        by: "Pam, Marketing Director at BrandBuilders",
+    },
+    {
+        id: 7,
+        testimonial: "I would be lost without COMPANY's in-depth analytics. The ROI is EASILY 100X for us.",
+        by: "Daniel, Data Scientist at AnalyticsPro",
+    },
+    {
+        id: 8,
+        testimonial: "It's just the best. Period.",
+        by: "Fernando, UX Designer at UserFirst",
+    },
+    {
+        id: 9,
+        testimonial: "I switched 5 years ago and never looked back.",
+        by: "Andy, DevOps Engineer at CloudMasters",
+    },
+    {
+        id: 10,
+        testimonial: "I've been searching for a solution like COMPANY for YEARS. So glad I finally found one!",
+        by: "Pete, Sales Director at RevenueRockets",
+    },
+],
 };

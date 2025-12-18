@@ -5,6 +5,9 @@ import {
 } from "lucide-react";
 import { GiMoneyStack } from "react-icons/gi";
 import { RiUserCommunityFill } from "react-icons/ri";
+import { SITE_CONTENT } from "@/lib/constants";
+
+const testimonials = SITE_CONTENT.testimonials;
 
 export interface SiteConfig extends Navbar {
   title: string;
@@ -64,6 +67,13 @@ export interface Projects {
   url: string;
   hosted_url: string;
   technologies: SkillProp[];
+}
+
+export interface TestimonialCard {
+    position: number;
+    testimonial: typeof testimonials[0];
+    handleMove: (steps: number) => void;
+    cardSize: number;
 }
 
 export interface Education {

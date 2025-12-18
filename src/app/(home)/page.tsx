@@ -5,6 +5,7 @@ import Experience from "@/app/(home)/_components/Experience";
 import Education from "@/app/(home)/_components/Education";
 import { Projects } from "@/app/(home)/_components/Projects";
 import Footer from "@/components/Footer";
+// import { Testimonials } from "./_components/Testmonials";
 
 export default function Home() {
   const sanitizedSkills = Object.fromEntries(
@@ -21,6 +22,7 @@ export default function Home() {
       <Experience />
       <Education education={SITE_CONTENT.education} />
       <Projects />
+      {/* <Testimonials /> */}
       <Footer />
     </>
   );
