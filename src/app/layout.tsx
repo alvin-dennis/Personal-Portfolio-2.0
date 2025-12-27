@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Alvin Dennis — Builder | Maker | Manager",
     description:
       "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
-    images: ["/assets/logo.svg"],
+    images: ["/logo.png"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -69,7 +69,7 @@ export default function RootLayout({
           <main className="mx-auto max-w-3xl flex-1 px-5 pb-28">
             {children}
           </main>
-            <Navbar />
+          <Navbar />
         </body>
       </html>
     </>

@@ -56,7 +56,7 @@ export const SITE_CONFIG = {
   description:
     "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
   lang: "en",
-  siteLogo: "/logo.svg",
+  siteLogo: "/assets/common/logo-nobg.png",
   socialLinks: [
     {
       text: "Resume",

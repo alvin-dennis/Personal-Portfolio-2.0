@@ -42,13 +42,13 @@ export default function Hero({
     <main className="min-h-screen flex flex-col">
       <header className="top-0 left-0 right-0 z-50 px-6 py-6">
         <nav className="flex text-4xl items-center justify-center max-w-screen-2xl mx-auto">
-            <Image
-              src="/logo.svg"
-              alt="Logo"
-              width={50}
-              height={50}
-              className="object-contain"
-            />
+          <Image
+            src="/assets/common/logo-nobg.png"
+            alt="Logo"
+            width={50}
+            height={50}
+            className="object-contain"
+          />
         </nav>
       </header>
       <div className="absolute top-[34%] sm:top-[33%] md:top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
@@ -146,15 +146,15 @@ export default function Hero({
           variants={fadeInUp}
           className="flex flex-col items-center justify-center"
         >
-            <div className="items-center justify-center text-center">
-              <BlurText
-                text={currentWork ?? "…"}
-                delay={20}
-                animateBy="words"
-                direction="top"
-                className="font-semibold text-lg md:text-2xl mt-2"
-              />
-            </div>
+          <div className="items-center justify-center text-center">
+            <BlurText
+              text={currentWork ?? "…"}
+              delay={20}
+              animateBy="words"
+              direction="top"
+              className="font-semibold text-lg md:text-2xl mt-2"
+            />
+          </div>
         </MotionDiv>
       </div>
     </main>

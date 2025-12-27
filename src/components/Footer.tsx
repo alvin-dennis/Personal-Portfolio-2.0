@@ -75,7 +75,7 @@ export default function Footer() {
           <Button
             asChild
             variant="default"
-            className="group relative flex items-center gap-3 rounded-full px-6 py-3 border border-border sm:px-8 sm:py-4"
+            className="group relative flex items-center gap-3 border border-border sm:px-8 sm:py-4"
           >
             <Link
               href={SITE_CONFIG.contact.cal_link}

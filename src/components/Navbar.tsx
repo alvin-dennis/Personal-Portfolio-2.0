@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { Separator } from "@/components/ui/separator";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FaCode } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -19,7 +18,7 @@ const fadeInUp: Variants = {
   },
 };
 
-export default function Header() {
+export default function Navbar() {
   return (
     <MotionHeader
       variants={fadeInUp}
@@ -36,15 +35,14 @@ export default function Header() {
                   href="/"
                   aria-label="Home link"
                   className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
                     "size-12 flex items-center justify-center group"
                   )}
                 >
                   <Image
-                    className="rounded-full shadow-lg"
+                    className="rounded-sm"
                     src={SITE_CONFIG.siteLogo}
-                    width={32}
-                    height={32}
+                    width={35}
+                    height={35}
                     alt="website logo"
                   />
                 </Link>
@@ -63,7 +61,6 @@ export default function Header() {
                   href="/projects"
                   aria-label="Projects link"
                   className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
                     "size-12 flex items-center justify-center group"
                   )}
                 >
@@ -86,7 +83,6 @@ export default function Header() {
                   href={item.href}
                   aria-label={item.text}
                   className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
                     "flex size-12 items-center justify-center"
                   )}
                 >

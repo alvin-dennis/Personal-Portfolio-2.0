@@ -89,7 +89,7 @@ export function Projects() {
               return (
                 <Image
                   key={project.name}
-                  src={project.image || "/assets/noise-bg.webp"}
+                  src={project.image || "/assets/common/noise-bg.webp"}
                   alt={project.name}
                   fill
                   className="absolute inset-0 object-cover transition-all duration-500 ease-out"
@@ -109,7 +109,7 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="space-y-0">
+        <div>
           {SITE_CONTENT.projects.slice(0, 3).map((project, index) => (
             <Link
               key={project.name}
@@ -205,13 +205,20 @@ export function Projects() {
           viewport={{ once: true }}
           className="mt-10 flex justify-center"
         >
-          <Button
-            variant="secondary"
-            className="rounded-full px-5 py-2"
-          >
-            <Link href="/projects">View All Projects</Link>
+          <Button variant="default" asChild>
+            <Link href="/projects" className="group flex items-center gap-2">
+              View All Projects
+              <ArrowUpRight
+                className="size-4 sm:size-5 transition-all duration-500
+                   group-hover:translate-x-[3px]
+                   group-hover:-translate-y-[3px]
+                   group-hover:scale-110"
+                strokeWidth={1.5}
+              />
+            </Link>
           </Button>
         </MotionDiv>
+
       </div>
     </Section>
   )
