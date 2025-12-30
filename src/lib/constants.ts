@@ -376,6 +376,21 @@ export const SITE_CONTENT = {
       ],
     },
     {
+      name: "KUHS-GMC",
+      description:
+        "This prestigious event brings together athletes from health science institutions across Kerala, providing a dynamic platform to showcase talent, foster camaraderie, and celebrate athletic excellence.",
+      category: "Frontend",
+      image: "/projects/kuhsgmc.webp",
+      url: "https://github.com/alvin-dennis/KUHS-GMC",
+      hosted_url: "https://kuhs-gmc.vercel.app/",
+      technologies: [
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: SiFramer },
+        { name: "Shadcn/UI", icon: SiShadcnui },
+      ],
+    },
+    {
       name: "Punarjjani",
       description:
         "A Mission to Restore Health and Hope. Providing compassionate medical care to those in need — supporting underprivileged communities with essential healthcare, and restoring hope and dignity to vulnerable lives.",
