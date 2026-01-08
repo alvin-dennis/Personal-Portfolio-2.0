@@ -115,6 +115,8 @@ export function Projects() {
               key={project.name}
               href={project.hosted_url}
               className="group block"
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
             >
@@ -156,7 +158,7 @@ export function Projects() {
                     <p
                       className={`
                       text-foreground text-sm mt-1 leading-relaxed
-                      transition-all duration-300 ease-out
+                      transition-all duration-300 ease-out text-justify
                       ${hoveredIndex === index ? "text-foreground" : "text-foreground"}
                     `}
                     >
@@ -184,9 +186,7 @@ export function Projects() {
                       h-3.5 w-3.5 transition-all duration-300 ease-out"
                     />
                     <span
-                      className="
-     text-xs tabular-nums transition-all duration-300 ease-out"
-
+                      className="text-xs transition-all duration-300 ease-out"
                     >
                       GitHub
                     </span>

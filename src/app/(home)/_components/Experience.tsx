@@ -1,5 +1,3 @@
-"use client";
-
 import Section from "@/components/Section";
 import { ChevronsDownUpIcon, ChevronsUpDownIcon } from "lucide-react";
 import Image from "next/image";
@@ -151,20 +149,37 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
 
         <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
           {position.description && (
-            <Prose className="pt-2 pl-11 text-foreground">
-              <ReactMarkdown>{position.description}</ReactMarkdown>
+            <Prose className="pt-2 pl-11 text-justify">
+              <ReactMarkdown
+                components={{
+                  ul: ({ children, ...props }) => (
+                    <ul className="list-disc pl-5 space-y-1" {...props}>
+                      {children}
+                    </ul>
+                  ),
+                  li: ({ children, ...props }) => (
+                    <li className="text-foreground" {...props}>
+                      {children}
+                    </li>
+                  ),
+                }}
+              >
+                {position.description}
+              </ReactMarkdown>
             </Prose>
           )}
 
           {Array.isArray(position.skills) && position.skills.length > 0 && (
             <ul className="not-prose flex flex-wrap gap-1.5 pt-2 pl-11">
               {position.skills.map((skill, index) => (
-                <MotionLi key={index}
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
+                <MotionLi
+                  key={index}
+                  className="list-none"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="flex">
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
                   <Skill>{skill}</Skill>
                 </MotionLi>
               ))}

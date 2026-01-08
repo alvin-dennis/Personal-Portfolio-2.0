@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
-
 import "./globals.css";
 
 
@@ -40,7 +39,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://alvinn.me/"),
 };
 
-
 const druksuper = localFont({
   src: "../components/fonts/DrukText-Super-Trial.otf",
   variable: "--font-druksuper",
@@ -63,9 +61,8 @@ export default function RootLayout({
       <html
         lang="en"
         suppressHydrationWarning
-        className={`${druksuper.variable} ${leaguespartan.variable}`}
       >
-        <body className="font-leaguespartan antialiased min-h-screen bg-background text-foreground">
+        <body className={`${druksuper.variable} ${leaguespartan.variable} font-leaguespartan antialiased min-h-screen bg-background text-foreground`}>
           <main className="mx-auto max-w-3xl flex-1 px-5 pb-28">
             {children}
           </main>

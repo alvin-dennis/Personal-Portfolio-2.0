@@ -16,8 +16,6 @@ import {
   SiNodedotjs,
   SiHono,
   SiTrpc,
-  SiExpo,
-  SiPrisma,
   SiDrizzle,
   SiSupabase,
   SiFirebase,
@@ -37,7 +35,6 @@ import {
   SiFramer,
   SiJekyll,
   SiPostgresql,
-  SiJsonwebtokens,
   SiVite,
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
@@ -48,7 +45,7 @@ import {
   FaLayerGroup,
   FaServer,
 } from "react-icons/fa";
-import { HiMiniCpuChip, HiMiniCommandLine } from "react-icons/hi2";
+import { HiMiniCpuChip } from "react-icons/hi2";
 
 export const SITE_CONFIG = {
   title: "Alvin Dennis — Builder | Maker | Manager",
@@ -96,7 +93,6 @@ export const SITE_CONTENT = {
       "UI/UX Designer",
       "IoT Enthusiast",
       "Manual Software Tester",
-      "Bot Developer",
       "Freelancer",
       "Community Manager",
       "Open Source Enthusiast",
@@ -121,7 +117,6 @@ export const SITE_CONTENT = {
       { name: "React", icon: SiReact },
       { name: "Astro", icon: SiAstro },
       { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Prisma", icon: SiPrisma },
       { name: "Drizzle", icon: SiDrizzle },
     ],
     frameworks: [
@@ -130,7 +125,6 @@ export const SITE_CONTENT = {
       { name: "Node.js", icon: SiNodedotjs },
       { name: "Hono.js", icon: SiHono },
       { name: "oRPC", icon: SiTrpc },
-      { name: "Expo", icon: SiExpo },
     ],
     databases: [
       { name: "Supabase", icon: SiSupabase },
@@ -257,7 +251,7 @@ export const SITE_CONTENT = {
       isCurrentEmployer: false,
     },
     {
-      id: "gtech-mulearn",
+      id: "gtech-mulearn-sjc",
       companyName: "Gtech Mulearn SJCET",
       companyLink: "https://mulearn.org",
       companyLogo: "https://github.com/mulearn-sjc.png",
@@ -280,8 +274,17 @@ export const SITE_CONTENT = {
           ],
           isExpanded: false,
         },
+      ],
+      isCurrentEmployer: false,
+    },
+    {
+      id: "gtech-mulearn",
+      companyName: "Gtech Mulearn",
+      companyLink: "https://mulearn.org",
+      companyLogo: "https://github.com/gtech-mulearn.png",
+      positions: [
         {
-          id: "gtech-mulearn-qa-002",
+          id: "gtech-mulearn-qa-001",
           title: "QA IG Lead Intern",
           employmentPeriod: "10.2023 — 03.2024",
           employmentType: "Internship",
@@ -339,7 +342,6 @@ export const SITE_CONTENT = {
       isCurrentEmployer: false,
     },
   ],
-
   education: [
     {
       name: "St. Josephs College of Engineering & Technology",
@@ -355,19 +357,33 @@ export const SITE_CONTENT = {
     { value: "all", label: "All", icon: FaLayerGroup },
     { value: "frontend", label: "Frontend", icon: FaGlobe },
     { value: "backend", label: "Backend", icon: FaServer },
-    { value: "tools", label: "Tools", icon: HiMiniCommandLine },
     { value: "genai", label: "GenAI", icon: FaBrain },
     { value: "hardware", label: "Hardware", icon: HiMiniCpuChip },
   ],
   projects: [
     {
+      name: "Illuµnate",
+      description:
+        "Designed and developed a Christmas-themed website as part of Illuµnate by µLearn. Focused on optimizing performance, ensuring smooth and stable interactions. Delivered a user-friendly experience with attention to responsive design and accessibility",
+      category: "Frontend",
+      image: "/projects/illumunate.webp",
+      url: "https://github.com/gtech-mulearn/Illumunate",
+      hosted_url: "https://illumunate.mulearn.org",
+      technologies: [
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: SiFramer },
+        { name: "Shadcn/UI", icon: SiShadcnui },
+      ],
+    },
+    {
       name: "µLearn Home",
       description:
-        "µLearn is a synergic philosophy of education, with a culture of mutual learning through micro groups of peers.",
+        "Contributed to the development of the μLearn homepage, focusing on a clean, responsive UI. Optimized performance through efficient component structuring and improved loading behavior to ensure a smooth, stable, and user-friendly experience",
       category: "Frontend",
       image: "/projects/mulearn.webp",
       url: "https://github.com/gtech-mulearn/mulearnhome",
-      hosted_url: "https://mulearnhome.vercel.app/",
+      hosted_url: "https://mulearn.org/",
       technologies: [
         { name: "Next.js", icon: SiNextdotjs },
         { name: "Tailwind CSS", icon: SiTailwindcss },
@@ -378,8 +394,8 @@ export const SITE_CONTENT = {
     {
       name: "KUHS-GMC",
       description:
-        "This prestigious event brings together athletes from health science institutions across Kerala, providing a dynamic platform to showcase talent, foster camaraderie, and celebrate athletic excellence.",
-      category: "Frontend",
+        "Developed the KUHS landing page and results page, using Google Sheets as a CMS for easy result management, ensuring a responsive UI and smooth data handling",
+      category: ["Frontend", "Backend"],
       image: "/projects/kuhsgmc.webp",
       url: "https://github.com/alvin-dennis/KUHS-GMC",
       hosted_url: "https://kuhs-gmc.vercel.app/",
@@ -393,7 +409,7 @@ export const SITE_CONTENT = {
     {
       name: "Punarjjani",
       description:
-        "A Mission to Restore Health and Hope. Providing compassionate medical care to those in need — supporting underprivileged communities with essential healthcare, and restoring hope and dignity to vulnerable lives.",
+        "Led the end-to-end development of the Punarjjani website, delivering a responsive and user-friendly platform. Collaborated with the team throughout the development process,  contribute to performance optimization, ensuring a seamless user experience.",
       category: "Frontend",
       image: "/projects/punarjjani.webp",
       url: "https://github.com/alvin-dennis/Punarjjani",
@@ -408,7 +424,7 @@ export const SITE_CONTENT = {
     {
       name: "Beyond Syllabus",
       description:
-        "Beyond Syllabus a platform that transforms any syllabus into an interactive AI-powered learning companion.",
+        "Built the Beyond syllabus chat UI and set up the backend to support real-time interactions. Worked across both frontend and backend, focusing on performance improvements, optimization, and smooth user experience.",
       category: ["Frontend", "Backend", "GenAI"],
       image: "/projects/beyondsyllabus.webp",
       url: "https://github.com/The-Purple-Movement/Beyond-Syllabus",
@@ -423,7 +439,7 @@ export const SITE_CONTENT = {
     {
       name: "Personal Portfolio",
       description:
-        "Professional developer portfolio utilizing modern minimal layout with responsive design and accessibility features.",
+        "Developed a professional developer portfolio featuring a modern, minimal layout. Ensured full responsiveness across devices with optimized performance. Implemented accessibility best practices for an inclusive user experience",
       category: "Frontend",
       image: "/projects/portfolio.webp",
       url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
@@ -438,7 +454,7 @@ export const SITE_CONTENT = {
     {
       name: "BuilderClan Website",
       description:
-        "BuilderClan is a tech community for innovators, developers, and enthusiasts to collaborate on impactful projects.",
+        "Contributed to BuilderClan homepage by building and optimizing the revamped frontend. Delivered a responsive, user-friendly interface with improved performance and modern design practices",
       category: "Frontend",
       image: "/projects/builderclan.webp",
       url: "https://github.com/BuilderClan/builderclan-site",
@@ -452,7 +468,7 @@ export const SITE_CONTENT = {
     {
       name: "EleGuard",
       description:
-        "Smart elephant monitoring system with real-time hazard detection and notification capabilities.",
+        "Built the software components for EleGuard, enabling real-time elephant monitoring with hazard detection and alert notifications to support wildlife safety.",
       category: "Hardware",
       image: "",
       url: "https://github.com/alvin-dennis/EleGuard",
@@ -463,20 +479,6 @@ export const SITE_CONTENT = {
         { name: "Roboflow", icon: SiRoboflow },
         { name: "OpenCV", icon: SiOpencv },
         { name: "Twilio", icon: SiTwilio },
-      ],
-    },
-    {
-      name: "Availr",
-      description:
-        "An interactive CLI streamlines availability scheduling through CSV import, personalized email invites, and confirmation tracking.",
-      category: "Tools",
-      image: "",
-      url: "https://github.com/alvin-dennis/Availr",
-      hosted_url: "https://github.com/alvin-dennis/Availr",
-      technologies: [
-        { name: "Nodejs", icon: SiNodedotjs },
-        { name: "Hono", icon: SiHono },
-        { name: "JWT", icon: SiJsonwebtokens },
       ],
     },
   ],

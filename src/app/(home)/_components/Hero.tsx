@@ -99,7 +99,7 @@ export default function Hero({
                   src={`https://images.weserv.nl/?url=${image}&output=webp`}
                   width={190}
                   height={190}
-                  alt={name ?? ""}
+                  alt={name}
                   className="object-cover md:h-full md:w-full"
                 />
               </div>
