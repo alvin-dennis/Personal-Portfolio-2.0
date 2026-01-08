@@ -158,7 +158,7 @@ export function Projects() {
                     <p
                       className={`
                       text-foreground text-sm mt-1 leading-relaxed
-                      transition-all duration-300 ease-out text-justify
+                      transition-all duration-300 ease-out
                       ${hoveredIndex === index ? "text-foreground" : "text-foreground"}
                     `}
                     >
