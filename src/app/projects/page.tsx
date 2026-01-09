@@ -181,7 +181,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       <FlipCardBack className="relative overflow-auto rounded-2xl p-6 bg-black">
         <div className="absolute inset-0 z-0 rounded-2xl bg-[url('/assets/common/noise-bg.webp')] bg-repeat bg-[length:128px] opacity-10" />
         <div className="relative z-10">
-          <p className="mb-4 text-base text-justify text-foreground">{description}</p>
+          <p className="mb-4 text-base text-foreground">{description}</p>
           {technologies?.length > 0 && (
             <ul className="mb-4 flex flex-wrap gap-2">
               {technologies.map((tech, idx) => {
