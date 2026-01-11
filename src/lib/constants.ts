@@ -155,6 +155,36 @@ export const SITE_CONTENT = {
   },
   experience: [
     {
+      id: "mulearn-foundation",
+      companyName: "µLearn Foundation",
+      companyLink: "https://mulearn.org",
+      companyLogo: "https://github.com/gtech-mulearn.png",
+      positions: [
+        {
+          id: "mulearn-tech-001",
+          title: "Frontend Developer Intern",
+          employmentPeriod: "12.2025 — Present",
+          employmentType: "Internship",
+          icon: "code",
+          description: `- Developed and maintained responsive web applications using Next.js and React.
+- Built reusable and accessible UI components with Shadcn and styled them with Tailwind CSS.
+- Managed state and data fetching efficiently using TanStack Query and related tools.
+- Collaborated with the team to optimize performance, implement best practices, and deliver high-quality features.`,
+          skills: [
+            "React",
+            "Next.js",
+            "Tailwind CSS",
+            "Shadcn",
+            "TanStack Query",
+            "TypeScript",
+            "Responsive Design",
+          ],
+          isExpanded: true,
+        },
+      ],
+      isCurrentEmployer: true,
+    },
+    {
       id: "metaloom",
       companyName: "MetaLoom",
       companyLink: "https://metaloom.in",
@@ -163,7 +193,7 @@ export const SITE_CONTENT = {
         {
           id: "metaloom-frontend-001",
           title: "Frontend Engineer",
-          employmentPeriod: "07.2025 — Present",
+          employmentPeriod: "07.2025 — 01.2026",
           employmentType: "Full-time",
           icon: "code",
           description: `- Led multiple projects end-to-end, turning ideas into live features under tight timelines.
@@ -180,10 +210,10 @@ export const SITE_CONTENT = {
             "Technical Leadership",
             "Team Management",
           ],
-          isExpanded: true,
+          isExpanded: false,
         },
       ],
-      isCurrentEmployer: true,
+      isCurrentEmployer: false,
     },
     {
       id: "tinkerhub",
@@ -272,27 +302,6 @@ export const SITE_CONTENT = {
             "Event Organization",
             "Mentorship",
           ],
-          isExpanded: false,
-        },
-      ],
-      isCurrentEmployer: false,
-    },
-    {
-      id: "gtech-mulearn",
-      companyName: "Gtech Mulearn",
-      companyLink: "https://mulearn.org",
-      companyLogo: "https://github.com/gtech-mulearn.png",
-      positions: [
-        {
-          id: "gtech-mulearn-qa-001",
-          title: "QA IG Lead Intern",
-          employmentPeriod: "10.2023 — 03.2024",
-          employmentType: "Internship",
-          icon: "code",
-          description: `- Managed QA processes for internal and student-led projects, ensuring high-quality deliverables.
-- Oversaw task submission and workflow, maintaining accountability and meeting deadlines.
-- Mentored team members and peers on QA best practices, testing strategies, and process improvements.`,
-          skills: ["QA", "Testing", "Process Management", "Reporting"],
           isExpanded: false,
         },
       ],
