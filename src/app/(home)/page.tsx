@@ -1,25 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence, easeOut } from "framer-motion";
-import Loader from "@/components/Loader";
-import { SITE_CONTENT } from "@/lib/constants";
+import dynamic from "next/dynamic";
+import { AnimatePresence, easeOut } from "framer-motion";
 import Hero from "@/app/(home)/_components/Hero";
-import Skills from "@/app/(home)/_components/Skills";
-import Experience from "@/app/(home)/_components/Experience";
-import Education from "@/app/(home)/_components/Education";
-import { Projects } from "@/app/(home)/_components/Projects";
-// import { Testimonials } from "./_components/Testmonials";
+import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
+import { SITE_CONTENT } from "@/lib/constants";
+import { MotionDiv, MotionMain } from "@/components/Framer";
+
+const Skills = dynamic(() => import("@/app/(home)/_components/Skills"));
+const Experience = dynamic(() => import("@/app/(home)/_components/Experience"));
+const Education = dynamic(() => import("@/app/(home)/_components/Education"));
+const Projects = dynamic(() => import("@/app/(home)/_components/Projects").then((m) => m.Projects));
+// const Testimonials = dynamic(() => import("@/app/(home)/_components/Testmonials").then((m) => m.Testimonials));
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1900);
-
+    const timer = setTimeout(() => setLoading(false), 1900);
     return () => clearTimeout(timer);
   }, []);
 
@@ -33,35 +33,34 @@ export default function Home() {
   ) as typeof SITE_CONTENT.skills;
 
   return (
-    <AnimatePresence mode="wait">
-      {loading ? (
-        <motion.div
-          key="loader"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: easeOut }}
-        >
-          <Loader />
-        </motion.div>
-      ) : (
-        <motion.main
-          key="content"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.6,
-            ease: easeOut,
-          }}
-        >
-          <Hero {...SITE_CONTENT.hero} />
-          <Skills skills={sanitizedSkills} />
-          <Experience />
-          <Education education={SITE_CONTENT.education} />
-          <Projects />
-          {/* <Testimonials /> */}
-          <Footer />
-        </motion.main>
-      )}
-    </AnimatePresence>
+    <>
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <MotionDiv
+            key="loader"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: easeOut }}
+          >
+            <Loader />
+          </MotionDiv>
+        ) : (
+          <MotionMain
+            key="content"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: easeOut }}
+          >
+            <Hero {...SITE_CONTENT.hero} />
+            <Skills skills={sanitizedSkills} />
+            <Experience />
+            <Education education={SITE_CONTENT.education} />
+            <Projects />
+            {/* <Testimonials /> */}
+            <Footer />
+          </MotionMain>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

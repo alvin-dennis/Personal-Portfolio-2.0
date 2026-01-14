@@ -12,7 +12,6 @@ const testimonials = SITE_CONTENT.testimonials;
 export interface SiteConfig extends Navbar {
   title: string;
   description: string;
-  lang: string;
   author: string;
   socialLinks: { text: string; href: string; icon: React.ElementType }[];
   socialImage: string;

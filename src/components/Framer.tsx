@@ -14,6 +14,16 @@ const MotionDiv = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
     }
 );
 
+const MotionMain = React.forwardRef<HTMLDivElement, HTMLMotionProps<"main">>(
+    function MotionDiv({ children, ...props }, ref) {
+        return (
+            <motion.main ref={ref} {...props}>
+                {children}
+            </motion.main>
+        );
+    }
+);
+
 const MotionSection = React.forwardRef<HTMLElement, HTMLMotionProps<"section">>(
     function MotionSection({ children, ...props }, ref) {
         return (
@@ -98,6 +108,7 @@ const MotionLi = React.forwardRef<HTMLLIElement, HTMLMotionProps<"li">>(
 
 export {
     MotionDiv,
+    MotionMain,
     MotionSection,
     MotionHeader,
     MotionH1,

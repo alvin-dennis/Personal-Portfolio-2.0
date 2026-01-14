@@ -36,6 +36,7 @@ import {
   SiJekyll,
   SiPostgresql,
   SiVite,
+  SiPrisma,
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 import {
@@ -52,7 +53,6 @@ export const SITE_CONFIG = {
   author: "Alvin Dennis",
   description:
     "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
-  lang: "en",
   siteLogo: "/assets/common/logo-nobg.png",
   socialLinks: [
     {
@@ -98,10 +98,8 @@ export const SITE_CONTENT = {
       "Open Source Enthusiast",
       "Innovator",
     ],
-    summary: `
-      Developing human experiences in code.
-    `,
-    currentWork: "Frontend Engineer at MetaLoom",
+    summary: `Developing human experiences in code`,
+    currentWork: "Frontend Intern at µLearn",
     image:
       "https://mulearn.org/muback-media/user/profile/65f1f78e-20bf-4265-bb44-30ec9cd6b5cc.png",
   },
@@ -118,13 +116,14 @@ export const SITE_CONTENT = {
       { name: "Astro", icon: SiAstro },
       { name: "Tailwind CSS", icon: SiTailwindcss },
       { name: "Drizzle", icon: SiDrizzle },
+      { name: "Prisma", icon: SiPrisma },
+      { name: "oRPC", icon: SiTrpc },
     ],
     frameworks: [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "Jekyll", icon: SiJekyll },
       { name: "Node.js", icon: SiNodedotjs },
       { name: "Hono.js", icon: SiHono },
-      { name: "oRPC", icon: SiTrpc },
     ],
     databases: [
       { name: "Supabase", icon: SiSupabase },
@@ -162,7 +161,7 @@ export const SITE_CONTENT = {
       positions: [
         {
           id: "mulearn-tech-001",
-          title: "Frontend Developer Intern",
+          title: "Frontend Developer",
           employmentPeriod: "12.2025 — Present",
           employmentType: "Internship",
           icon: "code",
@@ -223,7 +222,7 @@ export const SITE_CONTENT = {
       positions: [
         {
           id: "tinkerhub-intern-001",
-          title: "Community Management Intern",
+          title: "Community Management",
           employmentPeriod: "12.2024 — 05.2025",
           employmentType: "Internship",
           icon: "community",
@@ -418,7 +417,7 @@ export const SITE_CONTENT = {
     {
       name: "Punarjjani",
       description:
-        "Led the end-to-end development of the Punarjjani website, delivering a responsive and user-friendly platform. Collaborated with the team throughout the development process,  contribute to performance optimization, ensuring a seamless user experience.",
+        "Led the end-to-end development of the Punarjjani website, delivering a responsive and user-friendly platform. Collaborated with the team throughout the development process, contribute to performance optimization, ensuring a seamless user experience.",
       category: "Frontend",
       image: "/projects/punarjjani.webp",
       url: "https://github.com/alvin-dennis/Punarjjani",
@@ -443,6 +442,21 @@ export const SITE_CONTENT = {
         { name: "Tailwind CSS", icon: SiTailwindcss },
         { name: "Framer Motion", icon: SiFramer },
         { name: "Elysia", icon: SiNodedotjs },
+      ],
+    },
+    {
+      name: "MetaLoom",
+      description:
+        "Developed and launched the Metaloom website from start to finish, focusing on responsiveness, usability, and performance. Worked with the team to refine features and maintain a seamless experience across devices.",
+      category: "Frontend",
+      image: "/projects/metaloom.webp",
+      url: "https://github.com/metaloomhq/metaloom",
+      hosted_url: "https://metaloom.in/",
+      technologies: [
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: SiFramer },
+        { name: "Shadcn/UI", icon: SiShadcnui },
       ],
     },
     {

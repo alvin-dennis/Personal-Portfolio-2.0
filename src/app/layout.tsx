@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
-
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 export const metadata: Metadata = {
   title: "Alvin Dennis — Builder | Maker | Manager",
@@ -62,8 +62,9 @@ export default function RootLayout({
         lang="en"
         suppressHydrationWarning
       >
-        <body className={`${druksuper.variable} ${leaguespartan.variable} font-leaguespartan antialiased min-h-screen bg-background text-foreground`}>
-          <main className="mx-auto max-w-3xl flex-1 px-5 pb-28">
+        <body className={`${druksuper.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}>
+          <main className="mx-auto max-w-6xl flex-1 px-5 pb-28">
+            <ScrollProgress className="bg-primary" />
             {children}
           </main>
           <Navbar />
