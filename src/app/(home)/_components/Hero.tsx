@@ -44,7 +44,7 @@ export default function Hero({
               />
             </div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="w-[65px] h-[20px] sm:w-[90px] sm:h-[152px] md:w-[110px] md:h-[185px] lg:w-[129px] lg:h-[218px] rounded-full overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-110 cursor-pointer">
+              <div className="w-[65px] h-20 sm:w-[90px] sm:h-[152px] md:w-[110px] md:h-[185px] lg:w-[129px] lg:h-[218px] rounded-full overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-110 cursor-pointer">
                 <Image
                   src={`https://images.weserv.nl/?url=${image}&output=webp`}
                   width={190}
@@ -55,16 +55,15 @@ export default function Hero({
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="absolute bottom-16 sm:bottom-20 md:bottom-24 lg:bottom-32 xl:bottom-36 left-1/2 -translate-x-1/2 w-full px-6">
+      </div>
+      <div className="absolute justify-center bottom-28 sm:bottom-26 md:bottom-36 lg:bottom-44 xl:bottom-52 left-1/2 -translate-x-1/2 w-full">
           <div className="flex justify-center">
             <BlurText
               text={summary}
               delay={90}
               animateBy="words"
               direction="top"
-              className="font-semibold text-lg md:text-2xl mt-2 text-center"
+              className="font-semibold text-md md:text-2xl text-center"
             />
           </div>
           <div className="flex items-center justify-center">
