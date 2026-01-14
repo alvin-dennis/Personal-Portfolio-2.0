@@ -23,26 +23,26 @@ export default function Hero({
       </header>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4">
           <div className="relative text-center">
-            <div>
-              <BlurText
-                text="ALVIN"
-                delay={30}
-                animateBy="letters"
-                direction="top"
-                className="font-bold text-primary text-[100px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
-                style={{ fontFamily: "'Fira Code', monospace" }}
-              />
-            </div>
-            <div>
-              <BlurText
-                text="DENNIS"
-                delay={60}
-                animateBy="letters"
-                direction="top"
-                className="font-bold text-primary mt-5 text-[100px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
-                style={{ fontFamily: "'Fira Code', monospace" }}
-              />
-            </div>
+          <div>
+            <BlurText
+              text="ALVIN"
+              delay={30}
+              animateBy="letters"
+              direction="top"
+              className="font-bold text-primary text-[90px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+              style={{ fontFamily: "'Fira Code', monospace" }}
+            />
+          </div>
+          <div>
+            <BlurText
+              text="DENNIS"
+              delay={60}
+              animateBy="letters"
+              direction="top"
+              className="font-bold text-primary mt-5 text-[90px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+              style={{ fontFamily: "'Fira Code', monospace" }}
+            />
+          </div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
               <div className="w-[65px] h-20 sm:w-[90px] sm:h-[152px] md:w-[110px] md:h-[185px] lg:w-[129px] lg:h-[218px] rounded-full overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-110 cursor-pointer">
                 <Image
