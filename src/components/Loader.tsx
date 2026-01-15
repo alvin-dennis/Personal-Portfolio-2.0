@@ -3,7 +3,7 @@ import loader from "@/components/ui/loader.json"
 
 export default function Loader() {
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
             <Lottie
                 animationData={loader}
                 loop={false}

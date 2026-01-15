@@ -31,7 +31,6 @@ export default function Footer() {
     }, 500)
   }
 
-
   return (
     <MotionFooter
       className="flex items-center justify-center"

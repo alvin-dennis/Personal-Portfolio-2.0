@@ -41,6 +41,7 @@ import {
 import { DiRedis } from "react-icons/di";
 import {
   FaBrain,
+  FaCode,
   FaFileAlt,
   FaGlobe,
   FaLayerGroup,
@@ -55,6 +56,11 @@ export const SITE_CONFIG = {
     "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
   siteLogo: "/assets/common/logo-nobg.png",
   socialLinks: [
+    {
+      text: "Projects",
+      href: "/projects",
+      icon: FaCode,
+    },
     {
       text: "Resume",
       href: "https://resume.alvinn.me/",

@@ -1,102 +1,83 @@
-import Image from "next/image";
-import { Dock, DockIcon } from "@/components/ui/dock";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
-import { FaCode } from "react-icons/fa6";
-import { SITE_CONFIG } from "@/lib/constants";
-import Link from "next/link";
-import { MotionHeader } from "@/components/Framer";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Variants } from "framer-motion";
+"use client";
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
-  },
-};
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { SITE_CONFIG } from "@/lib/constants";
+import { MotionDiv } from "@/components/Framer";
+import Link from "next/link";
+import { Fan } from "lucide-react";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <MotionHeader
-      variants={fadeInUp}
-      viewport={{ once: true }}>
-      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-12 flex h-full max-h-14 origin-bottom">
-        <Dock
-          className="pointer-events-auto relative z-50 mx-auto flex h-full min-h-full transform-gpu items-center bg-background px-1 
-            border-primary"
+    <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end">
+      <Button
+        variant="default"
+        size={"icon-lg"}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <MotionDiv
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut",
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+          }}
         >
-          <DockIcon>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href="/"
-                  aria-label="Home link"
-                  className={cn(
-                    "size-12 flex items-center justify-center group"
-                  )}
-                >
-                  <Image
-                    className="rounded-sm"
-                    src={SITE_CONFIG.siteLogo}
-                    width={35}
-                    height={35}
-                    alt="website logo"
-                  />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                Home
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-
-
-          <DockIcon>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href="/projects"
-                  aria-label="Projects link"
-                  className={cn(
-                    "size-12 flex items-center justify-center group"
-                  )}
-                >
-                  <FaCode className="size-5" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                Projects
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-
-          <Separator orientation="vertical" className="h-full" />
-
-          {SITE_CONFIG.socialLinks.map((item) => (
-            <DockIcon key={item.text}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  aria-label={item.text}
-                  className={cn(
-                    "flex size-12 items-center justify-center"
-                  )}
-                >
-                  {item.icon && <item.icon className="size-4 text-current" />}
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  {item.text}
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-        </Dock>
-      </div>
-    </MotionHeader>
+          <Fan className="w-6 h-6 md:w-8 md:h-8" />
+        </MotionDiv>
+      </Button>
+      <AnimatePresence>
+        {isOpen && (
+          <MotionDiv
+            initial={{ opacity: 0, x: 10, y: 10, filter: "blur(10px)" }}
+            animate={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, x: 10, y: 10, filter: "blur(10px)" }}
+            transition={{
+              duration: 0.6,
+              type: "spring",
+              stiffness: 300,
+              damping: 20,
+              delay: 0.1,
+            }}
+            className="absolute bottom-10 right-0 mb-2"
+          >
+            <div className="flex flex-col items-end gap-3">
+              {SITE_CONFIG.socialLinks.map((option, index) => {
+                const Icon = option.icon;
+                return (
+                  <MotionDiv
+                    key={option.text}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <Button
+                      asChild
+                      variant="default"
+                      size="sm"
+                      className="flex items-center gap-2"
+                    >
+                      <Link
+                        href={option.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Icon className="w-4 h-4" />
+                        <span>{option.text}</span>
+                      </Link>
+                    </Button>
+                  </MotionDiv>
+                );
+              })}
+            </div>
+          </MotionDiv>
+        )}
+      </AnimatePresence>
+    </div>
   );
-}
+};
