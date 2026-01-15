@@ -160,6 +160,38 @@ export const SITE_CONTENT = {
   },
   experience: [
     {
+      id: "foodo-ai",
+      companyName: "Foodo",
+      companyLink: "https://foodo.ai",
+      companyLogo: "https://foodo.ai/logo.svg",
+      positions: [
+        {
+          id: "foodo-tech-001",
+          title: "Frontend Developer",
+          employmentPeriod: "01.2026 — Present",
+          employmentType: "Internship",
+          icon: "code",
+          description: `- Engineered responsive and high-performance web applications using Next.js and React.
+- Designed and implemented reusable, accessible UI components with Shadcn, styled with Tailwind CSS for consistency.
+- Streamlined state management and data fetching using TanStack Query, improving app efficiency.
+- Collaborated with cross-functional teams to optimize code quality, implement best practices, and deliver robust features.`,
+          skills: [
+            "React",
+            "Next.js",
+            "Tailwind CSS",
+            "Shadcn",
+            "TanStack Query",
+            "TypeScript",
+            "Responsive Design",
+            "UI/UX Optimization",
+          ],
+
+          isExpanded: true,
+        },
+      ],
+      isCurrentEmployer: true,
+    },
+    {
       id: "mulearn-foundation",
       companyName: "µLearn Foundation",
       companyLink: "https://mulearn.org",
@@ -184,7 +216,7 @@ export const SITE_CONTENT = {
             "TypeScript",
             "Responsive Design",
           ],
-          isExpanded: true,
+          isExpanded: false,
         },
       ],
       isCurrentEmployer: true,

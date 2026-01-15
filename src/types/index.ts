@@ -67,6 +67,12 @@ export interface Projects {
   technologies: SkillProp[];
 }
 
+export interface ProjectsModal {
+  project: Projects | null;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
 export interface TestimonialCard {
     position: number;
     testimonial: typeof testimonials[0];

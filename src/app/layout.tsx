@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
-import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 
@@ -67,7 +66,6 @@ export default function RootLayout({
             <ScrollProgress className="bg-primary" />
             {children}
           </main>
-          <Navbar />
         </body>
       </html>
     </>

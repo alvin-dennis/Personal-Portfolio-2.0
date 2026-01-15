@@ -8,6 +8,7 @@ import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 import { SITE_CONTENT } from "@/lib/constants";
 import { MotionDiv, MotionMain } from "@/components/Framer";
+import Navbar from "@/components/Navbar";
 
 const Skills = dynamic(() => import("@/app/(home)/_components/Skills"));
 const Experience = dynamic(() => import("@/app/(home)/_components/Experience"));
@@ -59,6 +60,7 @@ export default function Home() {
           <Projects />
           {/* <Testimonials /> */}
           <Footer />
+          <Navbar />
         </MotionMain>
       )}
     </AnimatePresence>
