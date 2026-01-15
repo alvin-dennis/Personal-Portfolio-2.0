@@ -161,7 +161,7 @@ export const SITE_CONTENT = {
   experience: [
     {
       id: "foodo-ai",
-      companyName: "Foodo",
+      companyName: "Foodo AI",
       companyLink: "https://foodo.ai",
       companyLogo: "https://foodo.ai/logo.svg",
       positions: [
@@ -504,7 +504,7 @@ export const SITE_CONTENT = {
       category: "Frontend",
       image: "/projects/portfolio.webp",
       url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
-      hosted_url: "https://alvindennis.tech/",
+      hosted_url: "https://alvinn.me/",
       technologies: [
         { name: "Astro", icon: SiAstro },
         { name: "TypeScript", icon: SiTypescript },
