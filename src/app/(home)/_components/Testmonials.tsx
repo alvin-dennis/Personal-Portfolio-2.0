@@ -100,7 +100,8 @@ export const Testimonials: React.FC = () => {
         return () => window.removeEventListener("resize", updateSize);
     }, []);
     return (
-        <Section text="Testimonials" href="testimonials">
+        <Section text="Testimonials" href="testimonials" paragraph="Feedback and testimonials from collaborators, clients, and peers that reflect my work ethic, technical expertise, and ability to deliver high-quality solutions in a professional environment."
+        >
         <div
             className="relative w-full overflow-hidden"
             style={{ height: 600 }}

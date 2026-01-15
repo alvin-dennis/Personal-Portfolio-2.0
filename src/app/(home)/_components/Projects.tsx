@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { ArrowUpRight } from "lucide-react"
 import { Variants } from "framer-motion"
+import { cn } from "@/lib/utils"
 import { MotionDiv } from "@/components/Framer"
 import Section from "@/components/Section"
 import Image from "next/image"
@@ -69,7 +70,7 @@ export function Projects() {
   }
 
   return (
-    <Section text="Projects" href="projects">
+    <Section text="Projects" href="projects" paragraph="A curated selection of projects that demonstrate my approach to building thoughtful, well-engineered applications, with an emphasis on performance, usability, and clean architecture.">
       <div ref={containerRef} onMouseMove={handleMouseMove} className="relative w-full max-w-full mx-auto px-6">
         <div
           className="pointer-events-none absolute z-50 overflow-hidden rounded-xl shadow-2xl"
@@ -110,7 +111,7 @@ export function Projects() {
         </div>
 
         <div>
-          {SITE_CONTENT.projects.slice(0, 3).map((project, index) => (
+          {SITE_CONTENT.projects.slice(0,4).map((project, index) => (
             <Link
               key={project.name}
               href={project.hosted_url}
@@ -131,29 +132,32 @@ export function Projects() {
 
                 <div className="relative flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <div className="inline-flex items-center gap-2">
-                      <h3 className="text-muted-foreground font-medium text-lg tracking-tight">
-                        <span className="relative">
-                          {project.name}
-                          <span
-                            className={`
-                            absolute left-0 -bottom-0.5 h-px
-                            transition-all duration-300 ease-out
-                            ${hoveredIndex === index ? "w-full" : "w-0"}
-                          `}
+                    <div className="relative overflow-hidden h-[60px] md:h-20 group">
+                      <div
+                        className="transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-1/2"
+                        style={{ transform: "translateY(0%)" }}
+                      >
+                        <div className="h-[60px] md:h-20 flex items-center">
+                          <h2 className="text-muted-foreground text-3xl md:text-5xl">
+                            {project.name}
+                          </h2>
+                        </div>
+
+                        <div className=" flex items-center gap-2">
+                          <h2 className="text-3xl md:text-5xl font-black italic text-primary">
+                            {project.name}
+                          </h2>
+
+                          <ArrowUpRight
+                            className={cn(
+                              "w-20 h-20 text-muted-foreground transition-all duration-300 ease-out",
+                              hoveredIndex === index
+                                ? "opacity-100 translate-x-0 translate-y-0"
+                                : "opacity-0 -translate-x-2 translate-y-2"
+                            )}
                           />
-                        </span>
-                      </h3>
-                      <ArrowUpRight
-                        className={`
-                        w-4 h-4 text-muted-foreground
-                        transition-all duration-300 ease-out
-                        ${hoveredIndex === index
-                            ? "opacity-100 translate-x-0 translate-y-0"
-                            : "opacity-0 -translate-x-2 translate-y-2"
-                          }
-                      `}
-                      />
+                        </div>
+                      </div>
                     </div>
                     <p
                       className={`

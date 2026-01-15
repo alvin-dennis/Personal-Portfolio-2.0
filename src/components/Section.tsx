@@ -1,9 +1,10 @@
 import { Variants } from "framer-motion";
-import { MotionSection, MotionH2 } from "@/components/Framer";
+import { MotionSection, MotionH2, MotionP } from "@/components/Framer";
 
 interface Props {
   text: string;
   href: string;
+  paragraph?: string;
   children?: React.ReactNode;
 }
 
@@ -16,7 +17,12 @@ const fadeInUp: Variants = {
   },
 };
 
-export default function Section({ text, href, children }: Props) {
+export default function Section({
+  text,
+  href,
+  paragraph,
+  children,
+}: Props) {
   return (
     <MotionSection
       id={href}
@@ -27,11 +33,19 @@ export default function Section({ text, href, children }: Props) {
       viewport={{ once: true }}
     >
       <MotionH2
-        className="mb-14 text-3xl md:text-5xl text-primary"
+        className="mb-6 text-5xl md:text-7xl text-primary"
         variants={fadeInUp}
       >
         {text}
       </MotionH2>
+      {paragraph && (
+        <MotionP
+          className="mb-14 max-w-2xl text-md text-justify leading-relaxed"
+          variants={fadeInUp}
+        >
+          {paragraph}
+        </MotionP>
+      )}
       {children}
     </MotionSection>
   );

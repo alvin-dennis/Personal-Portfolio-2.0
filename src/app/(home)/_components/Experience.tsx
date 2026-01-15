@@ -44,7 +44,7 @@ export default function WorkExperience({ className }: { className?: string }) {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <Section text="Work Experience" href="experience">
+      <Section text="Work Experience" href="experience" paragraph="A summary of my professional experience, focusing on real-world projects, collaborative development, and the practical application of modern technologies to deliver reliable and scalable solutions.">
         {experiences.map((experience) => (
           <MotionDiv
             key={experience.id}

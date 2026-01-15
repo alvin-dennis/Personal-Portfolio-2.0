@@ -63,7 +63,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <body className={`${druksuper.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}>
-          <main className="mx-auto max-w-6xl flex-1 px-5 pb-28">
+          <main className="mx-auto max-w-7xl flex-1 px-5">
             <ScrollProgress className="bg-primary" />
             {children}
           </main>
