@@ -36,7 +36,6 @@ export interface HeroProp {
   image: string;
   currentWork?: string;
   summary: string;
-  specialty: string[];
 }
 
 export type SkillProp = string | { name: string; icon: React.ElementType };
@@ -65,12 +64,6 @@ export interface Projects {
   url: string;
   hosted_url: string;
   technologies: SkillProp[];
-}
-
-export interface ProjectsModal {
-  project: Projects | null;
-  isOpen: boolean;
-  onClose: () => void;
 }
 
 export interface TestimonialCard {

@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { SITE_CONTENT } from "@/lib/constants";
 import { MotionDiv, MotionMain } from "@/components/Framer";
 import Navbar from "@/components/Navbar";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 const Skills = dynamic(() => import("@/app/(home)/_components/Skills"));
 const Experience = dynamic(() => import("@/app/(home)/_components/Experience"));
@@ -36,6 +37,8 @@ export default function Home() {
   ) as typeof SITE_CONTENT.skills;
 
   return (
+    <>
+    <ScrollProgress className="bg-primary" />
     <AnimatePresence mode="wait">
       {loading ? (
         <MotionDiv
@@ -64,6 +67,7 @@ export default function Home() {
         </MotionMain>
       )}
     </AnimatePresence>
+  </>
   );
 }
 
