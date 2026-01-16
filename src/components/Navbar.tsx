@@ -52,28 +52,10 @@ export default function Navbar() {
               </TooltipContent>
             </Tooltip>
           </DockIcon>
-          <DockIcon>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href="/projects"
-                  aria-label="Projects link"
-                  className={cn(
-                    "size-12 flex items-center justify-center group"
-                  )}
-                >
-                  <FaCode className="size-5" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                Projects
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-
+         
           <Separator orientation="vertical" className="h-full" />
 
-          {SITE_CONFIG.socialLinks.map((item) => (
+{SITE_CONFIG.socialLinks.map((item) => (
             <DockIcon key={item.text}>
               <Tooltip>
                 <TooltipTrigger asChild>
