@@ -8,15 +8,11 @@ import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 import { SITE_CONTENT } from "@/lib/constants";
 import { MotionDiv, MotionMain } from "@/components/Framer";
-import Navbar from "@/components/Navbar";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 const Skills = dynamic(() => import("@/app/(home)/_components/Skills"));
 const Experience = dynamic(() => import("@/app/(home)/_components/Experience"));
 const Education = dynamic(() => import("@/app/(home)/_components/Education"));
-const Projects = dynamic(() =>
-  import("@/app/(home)/_components/Projects").then((m) => m.Projects)
-);
+const Projects = dynamic(() => import("@/app/(home)/_components/Projects").then((m) => m.Projects));
 // const Testimonials = dynamic(() => import("@/app/(home)/_components/Testmonials").then((m) => m.Testimonials));
 
 export default function Home() {
@@ -37,8 +33,6 @@ export default function Home() {
   ) as typeof SITE_CONTENT.skills;
 
   return (
-    <>
-    <ScrollProgress className="bg-primary" />
     <AnimatePresence mode="wait">
       {loading ? (
         <MotionDiv
@@ -63,11 +57,9 @@ export default function Home() {
           <Projects />
           {/* <Testimonials /> */}
           <Footer />
-          <Navbar />
         </MotionMain>
       )}
     </AnimatePresence>
-  </>
   );
 }
 

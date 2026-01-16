@@ -496,7 +496,7 @@ export const SITE_CONTENT = {
       ],
     },
     {
-      name: "BuilderClan Website",
+      name: "BuilderClan",
       description:
         "Contributed to BuilderClan homepage by building and optimizing the revamped frontend. Delivered a responsive, user-friendly interface with improved performance and modern design practices",
       category: "Frontend",
