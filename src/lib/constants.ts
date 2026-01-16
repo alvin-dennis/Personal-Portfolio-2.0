@@ -56,11 +56,6 @@ export const SITE_CONFIG = {
   siteLogo: "/assets/common/logo-nobg.png",
   socialLinks: [
     {
-      text: "Resume",
-      href: "https://resume.alvinn.me/",
-      icon: FaFileAlt,
-    },
-    {
       text: "Github",
       href: "https://github.com/alvin-dennis/",
       icon: SiGithub,
@@ -75,6 +70,12 @@ export const SITE_CONFIG = {
       href: "https://www.instagram.com/_a.lvin._/",
       icon: SiInstagram,
     },
+  ],
+  menuItems: [
+    { label: "Resume", link: "https://resume.alvinn.me" },
+    { label: "Experience", link: "#experience" },
+    { label: "Projects", link: "#projects" },
+    { label: "Contact", link: "#contact" },
   ],
   socialImage: "/assets/og.webp",
   canonicalURL: "https://alvinn.me",

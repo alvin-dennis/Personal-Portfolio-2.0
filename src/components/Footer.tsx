@@ -7,6 +7,7 @@ import { MotionFooter, MotionDiv, MotionH2, MotionH3 } from "@/components/Framer
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { SITE_CONFIG } from "@/lib/constants"
+import Section from "./Section"
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -39,7 +40,7 @@ export default function Footer() {
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <div className="relative flex flex-col items-center gap-12">
+      <Section href="contact" className="relative flex flex-col items-center gap-12">
         <div
           className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
           style={{
@@ -215,20 +216,26 @@ export default function Footer() {
           <p className="max-w-md text-sm leading-relaxed">
             Have a project in mind? I&apos;d love to hear about it. Let&apos;s create something exceptional together.
           </p>
-          <Button
-            asChild
-            variant="link"
-            className="text-xs tracking-widest uppercase"
-          >
-            <Link
-              href={`mailto:${SITE_CONFIG.contact.email}?subject=Project Enquiry`}
-            >
-              {SITE_CONFIG.contact.email}
-            </Link>
-          </Button>
-
+          <div className="flex gap-2">
+            {SITE_CONFIG.socialLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <Button
+                  key={link.text}
+                  asChild
+                  variant="default"
+                  size="icon-lg"
+                  className="flex items-center gap-2 text-xs tracking-widest uppercase"
+                >
+                  <Link href={link.href} target="_blank" rel="noopener noreferrer">
+                    <Icon className="w-4 h-4" />
+                  </Link>
+                </Button>
+              );
+            })}
+          </div>
         </MotionDiv>
-      </div>
+      </Section>
     </MotionFooter>
   )
 }

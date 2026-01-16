@@ -2,10 +2,11 @@ import { Variants } from "framer-motion";
 import { MotionSection, MotionH2, MotionP } from "@/components/Framer";
 
 interface Props {
-  text: string;
+  text?: string;
   href: string;
   paragraph?: string;
   children?: React.ReactNode;
+  className?: string;
 }
 
 const fadeInUp: Variants = {
@@ -22,11 +23,12 @@ export default function Section({
   href,
   paragraph,
   children,
+  className
 }: Props) {
   return (
     <MotionSection
       id={href}
-      className="py-24"
+      className={`py-24 ${className}`}
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"
