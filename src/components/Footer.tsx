@@ -216,24 +216,6 @@ export default function Footer() {
           <p className="max-w-md text-sm leading-relaxed">
             Have a project in mind? I&apos;d love to hear about it. Let&apos;s create something exceptional together.
           </p>
-          <div className="flex gap-2">
-            {SITE_CONFIG.socialLinks.map((link) => {
-              const Icon = link.icon;
-              return (
-                <Button
-                  key={link.text}
-                  asChild
-                  variant="default"
-                  size="icon-lg"
-                  className="flex items-center gap-2 text-xs tracking-widest uppercase"
-                >
-                  <Link href={link.href} target="_blank" rel="noopener noreferrer">
-                    <Icon className="w-4 h-4" />
-                  </Link>
-                </Button>
-              );
-            })}
-          </div>
         </MotionDiv>
       </Section>
     </MotionFooter>

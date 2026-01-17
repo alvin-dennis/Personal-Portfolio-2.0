@@ -14,7 +14,7 @@ const Education = dynamic(() => import("@/app/(home)/_components/Education"));
 const Projects = dynamic(() => import("@/app/(home)/_components/Projects").then((m) => m.Projects));
 // const Testimonials = dynamic(() => import("@/app/(home)/_components/Testmonials").then((m) => m.Testimonials));
 
-const BLUR_FADE_DELAY = 0.04; // Base delay for stagger
+const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
   const sanitizedSkills = Object.fromEntries(

@@ -60,7 +60,7 @@ export interface Projects {
   name: string;
   description: string;
   category: string | string[];
-  image: string;
+  image: string | null;
   url: string;
   hosted_url: string;
   technologies: SkillProp[];

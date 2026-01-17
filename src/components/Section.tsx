@@ -42,7 +42,7 @@ export default function Section({
       </MotionH2>
       {paragraph && (
         <MotionP
-          className="mb-14 max-w-2xl text-md text-justify leading-relaxed"
+          className="mb-14 max-w-2xl text-md leading-relaxed"
           variants={fadeInUp}
         >
           {paragraph}

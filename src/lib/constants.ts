@@ -39,9 +39,9 @@ import {
   SiPrisma,
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
+import { FiMail } from "react-icons/fi";
 import {
   FaBrain,
-  FaFileAlt,
   FaGlobe,
   FaLayerGroup,
   FaServer,
@@ -55,6 +55,11 @@ export const SITE_CONFIG = {
     "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
   siteLogo: "/assets/common/logo-nobg.png",
   socialLinks: [
+    {
+      text: "Email",
+      href: "mailto:alvindennis80@gmail.com",
+      icon: FiMail,
+    },
     {
       text: "Github",
       href: "https://github.com/alvin-dennis/",
@@ -89,7 +94,7 @@ export const SITE_CONTENT = {
   hero: {
     name: "Alvin Dennis",
     summary: `Developing human experiences in code`,
-    currentWork: "Frontend Intern at µLearn",
+    currentWork: "FRONTEND INTERN AT µLEARN",
     image:
       "https://mulearn.org/muback-media/user/profile/65f1f78e-20bf-4265-bb44-30ec9cd6b5cc.png",
   },
@@ -394,7 +399,7 @@ export const SITE_CONTENT = {
     {
       name: "Illuµnate",
       description:
-        "Designed and developed a Christmas-themed website as part of Illuµnate by µLearn. Focused on optimizing performance, ensuring smooth and stable interactions. Delivered a user-friendly experience with attention to responsive design and accessibility",
+        "Designed and developed a Christmas-themed website as part of Illuµnate by µLearn. Focused on optimizing performance, ensuring smooth and stable interactions along with responsive design and accessibility",
       category: "Frontend",
       image: "/projects/illumunate.webp",
       url: "https://github.com/gtech-mulearn/Illumunate",
@@ -484,7 +489,7 @@ export const SITE_CONTENT = {
     {
       name: "Personal Portfolio",
       description:
-        "Developed a professional developer portfolio featuring a modern, minimal layout. Ensured full responsiveness across devices with optimized performance. Implemented accessibility best practices for an inclusive user experience",
+        "Developed a professional developer portfolio featuring a modern, minimal layout. Ensured full responsiveness across devices with optimized performance.",
       category: "Frontend",
       image: "/projects/portfolio.webp",
       url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
@@ -515,7 +520,7 @@ export const SITE_CONTENT = {
       description:
         "Built the software components for EleGuard, enabling real-time elephant monitoring with hazard detection and alert notifications to support wildlife safety.",
       category: "Hardware",
-      image: "",
+      image: null,
       url: "https://github.com/alvin-dennis/EleGuard",
       hosted_url: "https://github.com/alvin-dennis/EleGuard",
       technologies: [

@@ -68,7 +68,7 @@ function ExperienceItem({ experience }: { experience: Experience }) {
           <div className="size-10 items-start justify-start">
             {experience.companyLogo ? (
               <Image
-                src={`https://images.weserv.nl/?url=${experience.companyLogo}&output=webp`}
+                src={experience.companyLogo}
                 alt={experience.companyName}
                 width={50}
                 height={50}
@@ -149,7 +149,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
 
         <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
           {position.description && (
-            <Prose className="pt-2 pl-11 text-justify">
+            <Prose className="pt-2 pl-11">
               <ReactMarkdown
                 components={{
                   ul: ({ children, ...props }) => (

@@ -2,12 +2,12 @@ import Image from "next/image";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { FaCode } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/lib/constants";
 import Link from "next/link";
 import { MotionHeader } from "@/components/Framer";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Variants } from "framer-motion";
+import { FaFileAlt } from "react-icons/fa";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -49,6 +49,25 @@ export default function Navbar() {
               </TooltipTrigger>
               <TooltipContent>
                 Home
+              </TooltipContent>
+            </Tooltip>
+          </DockIcon>
+
+          <DockIcon>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href="https://resume.alvinn.me"
+                  aria-label="Resume link"
+                  className={cn(
+                    "size-12 flex items-center justify-center group"
+                  )}
+                >
+                  <FaFileAlt />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                Resume
               </TooltipContent>
             </Tooltip>
           </DockIcon>
