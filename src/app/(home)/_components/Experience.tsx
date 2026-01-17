@@ -117,7 +117,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
               <ExperienceIcon className="size-4 text-black" />
             </div>
 
-            <span className="flex-1 text-lg text-balance">{position.title}</span>
+            <span className="flex-1 text-lg text-balance group-data-[state=open]/experience:text-popover-foreground">{position.title}</span>
 
             <div className="shrink-0 [&_svg]:size-6" aria-hidden>
               <ChevronsDownUpIcon className="hidden group-data-[state=open]/experience:block" />
@@ -130,7 +130,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
               <>
                 <dl>
                   <dt className="sr-only">Employment Type</dt>
-                  <dd>{position.employmentType}</dd>
+                  <dd className="group-data-[state=open]/experience:text-popover-foreground">{position.employmentType}</dd>
                 </dl>
 
                 <Separator
@@ -142,7 +142,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
 
             <dl>
               <dt className="sr-only">Employment Period</dt>
-              <dd>{position.employmentPeriod}</dd>
+              <dd className="group-data-[state=open]/experience:text-popover-foreground">{position.employmentPeriod}</dd>
             </dl>
           </div>
         </CollapsibleTrigger>
