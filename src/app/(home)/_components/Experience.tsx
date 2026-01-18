@@ -50,7 +50,6 @@ export default function WorkExperience({ className }: { className?: string }) {
             key={experience.id}
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="mb-6 last:mb-0"
           >
             <ExperienceItem experience={experience} />
           </MotionDiv>

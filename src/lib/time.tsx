@@ -7,7 +7,7 @@ export const Clock = ({ timezone }: { timezone: string }) => {
   useEffect(() => {
   const interval = setInterval(() => {
     const now = moment().tz(timezone)
-    setDateTime(now.format('ddd, DD MM YYYY [a] h:mm:ss A'))
+    setDateTime(now.format('ddd, DD MMM YYYY h:mm:ss A'))
   }, 1000)
 
   return () => clearInterval(interval)

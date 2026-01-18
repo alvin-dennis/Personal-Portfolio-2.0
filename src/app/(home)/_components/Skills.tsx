@@ -58,7 +58,6 @@ export default function Skills({ skills }: Props) {
       whileInView="visible"
       viewport={{ once: true }}
       variants={containerVariants}
-      className="py-12 md:py-20"
     >
       <Section text="Skills" href="skills" paragraph="A comprehensive overview of the technologies, tools, and frameworks I work with, reflecting a strong focus on building scalable, maintainable, and high-quality web applications.">
         <MotionDiv

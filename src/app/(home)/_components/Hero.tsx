@@ -1,5 +1,3 @@
-"use client";
-
 import { HeroProp } from "@/types";
 import Image from "next/image";
 import { MotionDiv, MotionH1, MotionP, MotionSpan } from "@/components/Framer";
@@ -15,9 +13,9 @@ export default function Hero({
   const [firstName, lastName] = name.split(" ");
   return (
     <section className="min-h-screen flex flex-col relative overflow-hidden mt-2 pb-10 pt-5">
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-12 relative z-10 h-full border-2 border-border/40">
-        <div className="md:col-span-8 flex flex-col border-b-2 md:border-b-0 md:border-r-2 border-border/40 overflow-hidden">
-          <div className="p-6 md:p-8 flex justify-between items-center border-b-2 border-border/40">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-12 relative z-10 h-full">
+        <div className="md:col-span-8 flex flex-col overflow-hidden">
+          <div className="p-6 md:p-8 flex justify-between items-center">
             <MotionDiv
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
@@ -25,11 +23,10 @@ export default function Hero({
               className="flex items-center gap-3"
             >
               <div className="flex flex-col">
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-secondary/60">Currently working as</span>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-secondary/60">Currently working as</span>
                 <span className="text-xs font-bold tracking-tight text-primary">{currentWork}</span>
               </div>
             </MotionDiv>
-
             <MotionDiv
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
@@ -40,11 +37,10 @@ export default function Hero({
               <Clock timezone="Asia/Kolkata" />
             </MotionDiv>
           </div>
-
           <div className="flex-1 flex flex-col justify-center px-8 md:px-16 py-12">
             <div className="relative">
               <MotionH1
-                className="text-[20vw] md:text-[13vw] font-black leading-[0.75] uppercase text-primary select-none flex flex-col items-center md:items-start text-center md:text-left"
+                className="text-[20vw] md:text-[12vw] font-black leading-[0.75] uppercase text-primary select-none flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <div className="overflow-hidden">
                   <MotionSpan
@@ -69,9 +65,8 @@ export default function Hero({
               </MotionH1>
             </div>
           </div>
-
-          <div className="mt-auto grid grid-cols-1 lg:grid-cols-2 border-t-2 border-border/40">
-            <div className="p-8 md:p-10 border-b-2 lg:border-b-0 lg:border-r-2 border-border/40 bg-primary">
+          <div className="mt-auto grid grid-cols-1 lg:grid-cols-2">
+            <div className="p-8 md:p-10 bg-primary">
               <MotionP
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -91,7 +86,6 @@ export default function Hero({
             </div>
           </div>
         </div>
-
         <div className="md:col-span-4 relative bg-secondary/10 group overflow-hidden h-[400px] md:h-auto">
           <MotionDiv
             initial={{ opacity: 0, scale: 1.1 }}

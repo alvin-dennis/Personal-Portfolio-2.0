@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { SITE_CONFIG } from "@/lib/constants"
 import Section from "./Section"
+import { FiMail } from "react-icons/fi"
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -40,7 +41,7 @@ export default function Footer() {
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <Section href="contact" className="relative flex flex-col items-center gap-12">
+      <Section href="contact" className="relative flex flex-col items-center">
         <div
           className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
           style={{
@@ -61,7 +62,7 @@ export default function Footer() {
               Perfect
             </span>
             <MotionH3
-              className="text-3xl font-light text-primary tracking-tight transition-all duration-500 sm:text-4xl"
+              className="text-3xl font-light tracking-tight text-primary transition-all duration-500 sm:text-4xl"
               style={{
                 transform: showSuccess ? "translateY(0)" : "translateY(10px)",
                 opacity: showSuccess ? 1 : 0,
@@ -75,7 +76,7 @@ export default function Footer() {
           <Button
             asChild
             variant="default"
-            className="group relative flex items-center gap-3 border border-border sm:px-8 sm:py-4"
+            className="group relative flex items-center gap-3"
           >
             <Link
               href={SITE_CONFIG.contact.cal_link}
@@ -90,7 +91,26 @@ export default function Footer() {
               <span className="text-sm font-medium tracking-wide sm:text-base">
                 Book a call
               </span>
+              <ArrowUpRight
+                className="size-4 transition-all duration-500 sm:size-5 group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-hover:scale-110"
+              />
+            </Link>
+          </Button>
 
+          <Button
+            asChild
+            variant="default"
+            className="group relative flex items-center gap-3"
+          >
+            <Link
+              href={`mailto:${SITE_CONFIG.contact.email}?subject=${encodeURIComponent(
+                "Work Inquiry"
+              )}`}
+            >
+              <FiMail className="size-4 transition-all duration-500 sm:size-5" />
+              <span className="text-sm font-medium tracking-wide sm:text-base">
+                Email me
+              </span>
               <ArrowUpRight
                 className="size-4 transition-all duration-500 sm:size-5 group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-hover:scale-110"
                 strokeWidth={1.5}

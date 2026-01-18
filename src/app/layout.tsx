@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://alvinn.me/"),
 };
 
-const druksuper = localFont({
-  src: "../components/fonts/DrukText-Super-Trial.otf",
-  variable: "--font-druksuper",
+const nougat = localFont({
+  src: "../components/fonts/Nougat-ExtraBlack.ttf",
+  variable: "--font-nougat",
   display: "swap",
 });
 
@@ -58,7 +58,7 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en" suppressHydrationWarning>
-        <body className={`${druksuper.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}>
+        <body className={`${nougat.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}>
         <main className="mx-auto flex-1 px-5 pb-10">
           <ScrollProgress className="bg-primary" />
             {children}
