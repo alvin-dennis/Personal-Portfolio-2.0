@@ -46,10 +46,11 @@ export default function Education({ education }: Props) {
               <Link href={link} target="_blank" rel="noopener noreferrer">
                 <Image
                   src={logo}
-                  alt={name ?? ""}
+                  alt={name}
                   width={50}
                   height={50}
                   className="rounded-full"
+                  unoptimized
                 />
               </Link>
               <h3 className="text-lg font-semibold text-muted-foreground">{name}</h3>

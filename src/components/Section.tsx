@@ -28,7 +28,7 @@ export default function Section({
   return (
     <MotionSection
       id={href}
-      className={`py-24 ${className}`}
+      className={`py-20 ${className}`}
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"

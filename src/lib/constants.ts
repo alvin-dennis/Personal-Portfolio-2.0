@@ -40,12 +40,7 @@ import {
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 import { FiMail } from "react-icons/fi";
-import {
-  FaBrain,
-  FaGlobe,
-  FaLayerGroup,
-  FaServer,
-} from "react-icons/fa";
+import { FaBrain, FaGlobe, FaLayerGroup, FaServer } from "react-icons/fa";
 import { HiMiniCpuChip } from "react-icons/hi2";
 
 export const SITE_CONFIG = {
@@ -97,6 +92,10 @@ export const SITE_CONTENT = {
     currentWork: "FRONTEND INTERN AT µLEARN",
     image:
       "https://mulearn.org/muback-media/user/profile/65f1f78e-20bf-4265-bb44-30ec9cd6b5cc.png",
+    stats: [
+      { label: "Years Experience", value: "03+" },
+      { label: "Projects Completed", value: "10+" },
+    ],
   },
   skills: {
     languages: [

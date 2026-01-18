@@ -1,8 +1,4 @@
-import {
-  CodeXmlIcon,
-  Globe,
-  GraduationCapIcon,
-} from "lucide-react";
+import { CodeXmlIcon, Globe, GraduationCapIcon } from "lucide-react";
 import { GiMoneyStack } from "react-icons/gi";
 import { RiUserCommunityFill } from "react-icons/ri";
 import { SITE_CONTENT } from "@/lib/constants";
@@ -31,11 +27,17 @@ export interface Navbar {
   socialLinks: { text: string; href: string; icon: React.ElementType }[];
 }
 
+export interface HeroStat {
+  label: string;
+  value: string;
+}
+
 export interface HeroProp {
   name: string;
   image: string;
   currentWork?: string;
   summary: string;
+  stats?: HeroStat[];
 }
 
 export type SkillProp = string | { name: string; icon: React.ElementType };
@@ -67,10 +69,10 @@ export interface Projects {
 }
 
 export interface TestimonialCard {
-    position: number;
-    testimonial: typeof testimonials[0];
-    handleMove: (steps: number) => void;
-    cardSize: number;
+  position: number;
+  testimonial: (typeof testimonials)[0];
+  handleMove: (steps: number) => void;
+  cardSize: number;
 }
 
 export interface Education {
