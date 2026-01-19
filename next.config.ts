@@ -4,21 +4,10 @@ const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
   images: {
-    formats: ["image/webp"],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "github.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "sjcetpalai.ac.in",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "mulearn.org",
+        hostname: "images.weserv.nl",
         pathname: "/**",
       },
     ],

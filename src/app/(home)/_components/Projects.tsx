@@ -2,15 +2,14 @@
 
 import { useState, useRef, useEffect } from "react"
 import { ArrowUpRight } from "lucide-react"
+import type { Projects as ProjectsType } from "@/types"
+import Link from "next/link"
+import { FaGithub } from "react-icons/fa"
 import { Variants } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { MotionLi, MotionDiv } from "@/components/Framer"
 import Section from "@/components/Section"
 import Image from "next/image"
-import { SITE_CONTENT } from "@/lib/constants"
-import type { Projects } from "@/types"
-import Link from "next/link"
-import { FaGithub } from "react-icons/fa"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import {
@@ -20,13 +19,16 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+interface Props {
+  projects: ProjectsType[];
+}
 
-export function Projects() {
+export function Projects({ projects }: Props) {
   const [open, setOpen] = useState(false)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 })
-  const [activeProject, setActiveProject] = useState<Projects | null>(null)
+  const [activeProject, setActiveProject] = useState<ProjectsType | null>(null)
   const [isVisible, setIsVisible] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<number | null>(null)
@@ -42,7 +44,7 @@ export function Projects() {
       },
     },
   }
-  
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -110,8 +112,8 @@ export function Projects() {
                 "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
           >
-            <div className="relative w-[280px] h-[180px] bg-secondary rounded-xl overflow-hidden">
-              {SITE_CONTENT.projects.map((project, index) => {
+            <div className="relative w-70 h-45 bg-secondary rounded-xl overflow-hidden">
+              {projects.map((project, index) => {
                 if (!project.image) return null
                 return (
                   <Image
@@ -137,7 +139,7 @@ export function Projects() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {SITE_CONTENT.projects.map((project, index) => {
+            {projects.map((project, index) => {
               const categories: string[] = Array.isArray(project.category)
                 ? project.category
                 : [project.category]

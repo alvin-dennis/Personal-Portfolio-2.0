@@ -226,7 +226,7 @@ export default function Footer() {
 
         <MotionDiv
           variants={fadeInUp}
-          className="mt-8 flex flex-col items-center gap-4 text-center transition-all duration-500 delay-100"
+          className="mt-10 md:mt-8 flex flex-col items-center gap-4 text-center transition-all duration-500 delay-100"
           style={{
             opacity: isClicked ? 0 : 1,
             transform: isClicked ? "translateY(20px)" : "translateY(0)",

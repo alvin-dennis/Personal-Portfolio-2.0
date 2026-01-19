@@ -11,10 +11,13 @@ import {
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { SITE_CONTENT } from "@/lib/constants";
-import { Experience, ExperiencePositionItemType, iconMap } from "@/types";
+import { Experience as ExperienceType, ExperiencePositionItemType, iconMap } from "@/types";
 import { MotionDiv, MotionLi } from "@/components/Framer";
 import { Variants } from "framer-motion";
+
+interface Props {
+  experiences: ExperienceType[];
+}
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -33,17 +36,16 @@ const fadeInUp: Variants = {
   },
 };
 
-export default function WorkExperience({ className }: { className?: string }) {
-  const experiences: Experience[] = SITE_CONTENT.experience;
-
+export default function Experience({ experiences, className }: Props & { className?: string }) {
+  ;
   return (
-      <MotionDiv
-        className={cn("w-full", className)}
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
+    <MotionDiv
+      className={cn("w-full", className)}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <Section text="Work Experience" href="experience" paragraph="A summary of my professional experience, focusing on real-world projects, collaborative development, and the practical application of modern technologies to deliver reliable and scalable solutions.">
         {experiences.map((experience) => (
           <MotionDiv
@@ -55,11 +57,11 @@ export default function WorkExperience({ className }: { className?: string }) {
           </MotionDiv>
         ))}
       </Section>
-      </MotionDiv>
+    </MotionDiv>
   );
 }
 
-function ExperienceItem({ experience }: { experience: Experience }) {
+function ExperienceItem({ experience }: { experience: ExperienceType }) {
   return (
     <div className="space-y-4 py-4">
       <div className="not-prose flex items-center gap-3">
@@ -67,7 +69,7 @@ function ExperienceItem({ experience }: { experience: Experience }) {
           <div className="size-10 items-start justify-start">
             {experience.companyLogo ? (
               <Image
-                src={experience.companyLogo}
+                src={`https://images.weserv.nl/?url=${experience.companyLogo}&output=webp`}
                 alt={experience.companyName}
                 width={50}
                 height={50}
@@ -110,7 +112,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
         <CollapsibleTrigger className="group/experience not-prose block w-full text-left select-none">
           <div className="relative z-1 mb-1 flex items-center gap-3">
             <div
-              className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted"
+              className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted group-data-[state=open]/experience:bg-primary"
               aria-hidden
             >
               <ExperienceIcon className="size-4 text-black" />
@@ -133,7 +135,7 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
                 </dl>
 
                 <Separator
-                  className="data-[orientation=vertical]:h-4"
+                  className="data-[orientation=vertical]:h-4 group-data-[state=open]/experience:bg-primary"
                   orientation="vertical"
                 />
               </>

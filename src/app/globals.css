@@ -89,9 +89,9 @@
   --popover: #151501;
   --popover-foreground: #fefefe;
   --primary: #e1d816;
-  --primary-foreground: #0a0a0a;
+  --primary-foreground: #1a1a1a;
   --secondary: #9c9723;
-  --secondary-foreground: #0a0a0a;
+  --secondary-foreground: #1a1a1a;
   --muted: #3c3a05;
   --muted-foreground: #9c9723;
   --accent: #605c00;
@@ -130,7 +130,7 @@ h2,
 h3,
 h4,
 h5,
-h6{
+h6 {
   font-family: var(--font-nougat);
 }
 
@@ -142,5 +142,30 @@ h6{
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-primary leading-snug;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold text-primary;
+  }
+
+  h4 {
+    @apply text-lg font-semibold text-primary;
+  }
+
+  h5,
+  h6 {
+    @apply text-base font-medium text-primary;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
   }
 }

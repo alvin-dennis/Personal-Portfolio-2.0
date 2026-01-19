@@ -123,7 +123,7 @@ export const SITE_CONTENT = {
       { name: "Supabase", icon: SiSupabase },
       { name: "Firebase", icon: SiFirebase },
       { name: "Upstash Redis", icon: DiRedis },
-      { name: "Postgresql", icon: SiPostgresql },
+      { name: "PostgreSQL", icon: SiPostgresql },
     ],
     tools: [
       { name: "Vite", icon: SiVite },

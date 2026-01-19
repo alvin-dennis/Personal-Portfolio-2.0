@@ -1,8 +1,8 @@
 import Section from "@/components/Section";
-import { Badge } from "@/components/ui/badge";
-import type { Skills as SkillsType } from "@/types";
-import { MotionSection, MotionDiv } from "@/components/Framer";
+import type { Skills as SkillsType, SkillProp } from "@/types";
+import { MotionDiv } from "@/components/Framer";
 import { Variants } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
 
 interface Props {
   skills: SkillsType;
@@ -13,72 +13,67 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
+      staggerChildren: 0.05,
     },
   },
 };
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 50 },
+const itemVariants: Variants = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    transition: { duration: 0.4 },
   },
 };
 
 export default function Skills({ skills }: Props) {
-  const renderSkill = (
-    skill: string | { name: string; icon?: React.ElementType }
-  ) => {
-    if (typeof skill === "string") {
-      return (
-        <MotionDiv variants={fadeInUp} key={skill}>
-          <Badge className="bg-background text-foreground">{skill}</Badge>
-        </MotionDiv>
-      );
-    }
-
-    const Icon = skill.icon;
-    return (
-      <MotionDiv viewport={{ once: true }} variants={fadeInUp} key={skill.name}>
-        <Badge className="bg-foreground text-background">
-          {Icon && <Icon style={{ marginRight: "0.25em" }} />}
-          {skill.name}
-        </Badge>
-      </MotionDiv>
-    );
-  };
-
   return (
-    <MotionSection
-      id="skills"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={containerVariants}
+    <Section
+      text="Skills"
+      href="skills"
+      paragraph="A curated technical stack focused on modern web architectures and robust engineering."
     >
-      <Section text="Skills" href="skills" paragraph="A comprehensive overview of the technologies, tools, and frameworks I work with, reflecting a strong focus on building scalable, maintainable, and high-quality web applications.">
-        <MotionDiv
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="flex flex-col gap-y-4"
-        >
-          {Object.entries(skills).map(([category, list]) => (
-            <MotionDiv
-              key={category}
-              variants={fadeInUp}
-              className="flex flex-wrap items-start gap-1"
-            >
-              <Badge className="bg-background text-foreground">
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </Badge>
-              {list.map(renderSkill)}
-            </MotionDiv>
-          ))}
-        </MotionDiv>
-      </Section>
-    </MotionSection>
+      <MotionDiv
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+        className="flex flex-col gap-y-8"
+      >
+        {Object.entries(skills).map(([category, list]) => (
+          <MotionDiv
+            key={category}
+            variants={itemVariants}
+            className="flex flex-col md:flex-row gap-4 md:gap-25 group"
+          >
+            <h3 className="font-bold text-muted-foreground uppercase tracking-wider w-32 pt-2 transition-colors group-hover:text-primary">
+              {category}
+            </h3>
+            <div className="flex flex-wrap gap-x-3 gap-y-3 flex-1">
+              {list.map((skill: SkillProp) => {
+                const name = typeof skill === "string" ? skill : skill.name;
+                const Icon = typeof skill === "string" ? null : skill.icon;
+                return (
+                  <Badge
+                    variant={"secondary"}
+                    key={name}
+                    className="flex items-center"
+                  >
+                    {Icon && (
+                      <Icon className="size-8" />
+                    )}
+                    <span
+                      className="text-lg font-light"
+                    >
+                      {name}
+                    </span>
+                  </Badge>
+                );
+              })}
+            </div>
+          </MotionDiv>
+        ))}
+      </MotionDiv>
+    </Section>
   );
 }

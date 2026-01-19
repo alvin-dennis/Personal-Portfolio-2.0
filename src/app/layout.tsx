@@ -40,13 +40,19 @@ export const metadata: Metadata = {
 };
 
 const nougat = localFont({
-  src: "../components/fonts/Nougat-ExtraBlack.ttf",
+  src: "../components/fonts/Nougat.ttf",
   variable: "--font-nougat",
   display: "swap",
 });
 
+const payback = localFont({
+  src: "../components/fonts/PayBack.ttf",
+  variable: "--font-payback",
+  display: "swap",
+});
+
 const leaguespartan = localFont({
-  src: "../components/fonts/LeagueSpartan-Regular.ttf",
+  src: "../components/fonts/LeagueSpartan.ttf",
   variable: "--font-leaguespartan",
   display: "swap",
 });
@@ -58,7 +64,7 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en" suppressHydrationWarning>
-        <body className={`${nougat.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}>
+        <body className={`${nougat.variable} ${payback.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}>
         <main className="mx-auto flex-1 px-5 pb-10">
           <ScrollProgress className="bg-primary" />
             {children}

@@ -48,6 +48,7 @@ export default function Hero({
                     animate={{ y: 0 }}
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     className="block"
+                    style={{ fontFamily: "var(--font-payback)" }}
                   >
                     {firstName}
                   </MotionSpan>
@@ -58,6 +59,7 @@ export default function Hero({
                     animate={{ y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     className="block text-foreground mt-5 md:ml-60"
+                    style={{ fontFamily: "var(--font-payback)" }}
                   >
                     {lastName}
                   </MotionSpan>
@@ -94,12 +96,11 @@ export default function Hero({
             className="absolute inset-0 grayscale contrast-[1.1] group-hover:grayscale-0 transition-all duration-1000"
           >
             <Image
-              src={image}
+              src={`https://images.weserv.nl/?url=${image}&output=webp`}
               alt={name}
               fill
               className="object-cover object-top scale-105 group-hover:scale-100 transition-transform duration-1000"
               priority
-              unoptimized
             />
           </MotionDiv>
         </div>

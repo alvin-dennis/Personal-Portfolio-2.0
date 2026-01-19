@@ -29,7 +29,7 @@ export default function Home() {
     Object.entries(SITE_CONTENT.skills).map(([category, list]) => [
       category,
       list.map((skill) =>
-        typeof skill === "string" ? skill : { name: skill.name }
+        typeof skill === "string" ? skill : { name: skill.name, icon: skill.icon }
       ),
     ])
   ) as typeof SITE_CONTENT.skills;
@@ -61,7 +61,7 @@ export default function Home() {
           </BlurFade>
 
           <BlurFade delay={BLUR_FADE_DELAY * 6}>
-            <Experience />
+            <Experience experiences={SITE_CONTENT.experience} />
           </BlurFade>
 
           <BlurFade delay={BLUR_FADE_DELAY * 8}>
@@ -69,7 +69,7 @@ export default function Home() {
           </BlurFade>
 
           <BlurFade delay={BLUR_FADE_DELAY * 10}>
-            <Projects />
+            <Projects projects={SITE_CONTENT.projects} />
           </BlurFade>
 
           {/* <BlurFade delay={BLUR_FADE_DELAY * 12}>
