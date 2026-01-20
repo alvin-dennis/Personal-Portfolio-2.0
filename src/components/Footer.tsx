@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ArrowUpRight, Calendar } from "lucide-react"
-import { Variants } from "framer-motion"
-import { MotionFooter, MotionDiv, MotionH2, MotionH3 } from "@/components/Framer"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { SITE_CONFIG } from "@/lib/constants"
-import Section from "./Section"
-import { FiMail } from "react-icons/fi"
+import { Variants } from "framer-motion";
+import { ArrowUpRight, Calendar } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import { FiMail } from "react-icons/fi";
+import { MotionDiv, MotionFooter, MotionH2, MotionH3 } from "@/components/Framer";
+import { Button } from "@/components/ui/button";
+import { SITE_CONFIG } from "@/lib/constants";
+import Section from "./Section";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    transition: { duration: 0.3, ease: [0.42, 0, 0.58, 1] },
   },
 };
 
 export default function Footer() {
-  const [isHovered, setIsHovered] = useState(false)
-  const [isClicked, setIsClicked] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    setIsClicked(true)
+    e.preventDefault();
+    setIsClicked(true);
 
     setTimeout(() => {
-      setShowSuccess(true)
-    }, 500)
-  }
+      setShowSuccess(true);
+    }, 500);
+  };
 
   return (
     <MotionFooter
@@ -73,44 +73,26 @@ export default function Footer() {
             </MotionH3>
           </div>
 
-          <Button
-            asChild
-            variant="default"
-            className="group relative flex items-center gap-3"
-          >
-            <Link
-              href={SITE_CONFIG.contact.cal_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <Button asChild variant="default" className="group relative flex items-center gap-3">
+            <Link href={SITE_CONFIG.contact.cal_link} target="_blank" rel="noopener noreferrer">
               <Calendar
                 className="size-4 transition-all duration-500 sm:size-5"
                 strokeWidth={1.5}
               />
 
-              <span className="text-sm font-medium tracking-wide sm:text-base">
-                Book a call
-              </span>
-              <ArrowUpRight
-                className="size-4 transition-all duration-500 sm:size-5 group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-hover:scale-110"
-              />
+              <span className="text-sm font-medium tracking-wide sm:text-base">Book a call</span>
+              <ArrowUpRight className="size-4 transition-all duration-500 sm:size-5 group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-hover:scale-110" />
             </Link>
           </Button>
 
-          <Button
-            asChild
-            variant="default"
-            className="group relative flex items-center gap-3"
-          >
+          <Button asChild variant="default" className="group relative flex items-center gap-3">
             <Link
               href={`mailto:${SITE_CONFIG.contact.email}?subject=${encodeURIComponent(
-                "Work Inquiry"
+                "Work Inquiry",
               )}`}
             >
               <FiMail className="size-4 transition-all duration-500 sm:size-5" />
-              <span className="text-sm font-medium tracking-wide sm:text-base">
-                Email me
-              </span>
+              <span className="text-sm font-medium tracking-wide sm:text-base">Email me</span>
               <ArrowUpRight
                 className="size-4 transition-all duration-500 sm:size-5 group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-hover:scale-110"
                 strokeWidth={1.5}
@@ -163,19 +145,11 @@ export default function Footer() {
               <div
                 className="pointer-events-none absolute inset-0 rounded-full border transition-all ease-out"
                 style={{
-                  borderColor: isHovered || isClicked
-                    ? "var(--muted)"
-                    : "var(--border)",
+                  borderColor: isHovered || isClicked ? "var(--muted)" : "var(--border)",
 
-                  backgroundColor: isHovered && !isClicked
-                    ? "var(--primary)"
-                    : "transparent",
+                  backgroundColor: isHovered && !isClicked ? "var(--primary)" : "transparent",
 
-                  transform: isClicked
-                    ? "scale(3)"
-                    : isHovered
-                      ? "scale(1.1)"
-                      : "scale(1)",
+                  transform: isClicked ? "scale(3)" : isHovered ? "scale(1.1)" : "scale(1)",
 
                   opacity: isClicked ? 0 : 1,
                   transitionDuration: isClicked ? "700ms" : "500ms",
@@ -193,22 +167,23 @@ export default function Footer() {
 
                   opacity: isClicked ? 0 : 1,
 
-                  color: isHovered && !isClicked
-                    ? "var(--background)"
-                    : "var(--primary)",
+                  color: isHovered && !isClicked ? "var(--background)" : "var(--primary)",
 
                   transitionDuration: isClicked ? "600ms" : "500ms",
                 }}
               />
             </div>
-
           </div>
 
           <div className="absolute -left-8 top-1/2 -translate-y-1/2 sm:-left-16">
             <div
               className="h-px w-8 bg-border transition-all duration-500 sm:w-12"
               style={{
-                transform: isClicked ? "scaleX(0) translateX(-20px)" : isHovered ? "scaleX(1.5)" : "scaleX(1)",
+                transform: isClicked
+                  ? "scaleX(0) translateX(-20px)"
+                  : isHovered
+                    ? "scaleX(1.5)"
+                    : "scaleX(1)",
                 opacity: isClicked ? 0 : isHovered ? 1 : 0.5,
               }}
             />
@@ -217,27 +192,17 @@ export default function Footer() {
             <div
               className="h-px w-8 bg-border transition-all duration-500 sm:w-12"
               style={{
-                transform: isClicked ? "scaleX(0) translateX(20px)" : isHovered ? "scaleX(1.5)" : "scaleX(1)",
+                transform: isClicked
+                  ? "scaleX(0) translateX(20px)"
+                  : isHovered
+                    ? "scaleX(1.5)"
+                    : "scaleX(1)",
                 opacity: isClicked ? 0 : isHovered ? 1 : 0.5,
               }}
             />
           </div>
         </MotionDiv>
-
-        <MotionDiv
-          variants={fadeInUp}
-          className="mt-10 md:mt-8 flex flex-col items-center gap-4 text-center transition-all duration-500 delay-100"
-          style={{
-            opacity: isClicked ? 0 : 1,
-            transform: isClicked ? "translateY(20px)" : "translateY(0)",
-            pointerEvents: isClicked ? "none" : "auto",
-          }}
-        >
-          <p className="max-w-md text-sm leading-relaxed">
-            Have a project in mind? I&apos;d love to hear about it. Let&apos;s create something exceptional together.
-          </p>
-        </MotionDiv>
       </Section>
     </MotionFooter>
-  )
+  );
 }

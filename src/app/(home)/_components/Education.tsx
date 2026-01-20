@@ -1,9 +1,9 @@
+import { Variants } from "framer-motion";
 import Image from "next/image";
-import Section from "@/components/Section";
-import type { Education } from "@/types";
 import Link from "next/link";
 import { MotionDiv } from "@/components/Framer";
-import { Variants } from "framer-motion";
+import Section from "@/components/Section";
+import type { Education } from "@/types";
 
 interface Props {
   education: Education[];
@@ -22,17 +22,17 @@ const fadeInUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    transition: { duration: 0.3, ease: [0.42, 0, 0.58, 1] },
   },
 };
 
 export default function Education({ education }: Props) {
   return (
-      <MotionDiv
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+    <MotionDiv
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
     >
       <Section text="Education" href="education">
         {education.map(({ name, position, start, end, link, logo }) => (
@@ -50,7 +50,6 @@ export default function Education({ education }: Props) {
                   width={50}
                   height={50}
                   className="rounded-full"
-
                 />
               </Link>
               <h3 className="text-lg font-semibold text-muted-foreground">{name}</h3>
@@ -61,10 +60,10 @@ export default function Education({ education }: Props) {
               <span className="text-sm">
                 {start} — {end}
               </span>
-              </div>
+            </div>
           </MotionDiv>
         ))}
-      </Section >
+      </Section>
     </MotionDiv>
   );
 }

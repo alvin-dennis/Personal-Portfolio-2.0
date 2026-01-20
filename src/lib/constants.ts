@@ -1,47 +1,47 @@
-import {
-  SiJavascript,
-  SiPython,
-  SiMarkdown,
-  SiYaml,
-  SiLatex,
-  SiReact,
-  SiNextdotjs,
-  SiAstro,
-  SiTailwindcss,
-  SiGithub,
-  SiLinkedin,
-  SiInstagram,
-  SiFigma,
-  SiOpencv,
-  SiNodedotjs,
-  SiHono,
-  SiTrpc,
-  SiDrizzle,
-  SiSupabase,
-  SiFirebase,
-  SiTurborepo,
-  SiHoppscotch,
-  SiGithubactions,
-  SiRoboflow,
-  SiVercel,
-  SiNetlify,
-  SiRender,
-  SiCloudflare,
-  SiTwilio,
-  SiArduino,
-  SiRaspberrypi,
-  SiTypescript,
-  SiShadcnui,
-  SiFramer,
-  SiJekyll,
-  SiPostgresql,
-  SiVite,
-  SiPrisma,
-} from "react-icons/si";
 import { DiRedis } from "react-icons/di";
-import { FiMail } from "react-icons/fi";
 import { FaBrain, FaGlobe, FaLayerGroup, FaServer } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
 import { HiMiniCpuChip } from "react-icons/hi2";
+import {
+  SiArduino,
+  SiAstro,
+  SiCloudflare,
+  SiDrizzle,
+  SiFigma,
+  SiFirebase,
+  SiFramer,
+  SiGithub,
+  SiGithubactions,
+  SiHono,
+  SiHoppscotch,
+  SiInstagram,
+  SiJavascript,
+  SiJekyll,
+  SiLatex,
+  SiLinkedin,
+  SiMarkdown,
+  SiNetlify,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiOpencv,
+  SiPostgresql,
+  SiPrisma,
+  SiPython,
+  SiRaspberrypi,
+  SiReact,
+  SiRender,
+  SiRoboflow,
+  SiShadcnui,
+  SiSupabase,
+  SiTailwindcss,
+  SiTrpc,
+  SiTurborepo,
+  SiTwilio,
+  SiTypescript,
+  SiVercel,
+  SiVite,
+  SiYaml,
+} from "react-icons/si";
 
 export const SITE_CONFIG = {
   title: "Alvin Dennis — Builder | Maker | Manager",
@@ -89,9 +89,8 @@ export const SITE_CONTENT = {
   hero: {
     name: "Alvin Dennis",
     summary: `Developing human experiences in code`,
-    currentWork: "FRONTEND INTERN AT µLEARN",
-    image:
-      "https://mulearn.org/muback-media/user/profile/65f1f78e-20bf-4265-bb44-30ec9cd6b5cc.png",
+    currentWork: "Frontend Intern at µLearn",
+    image: "https://mulearn.org/muback-media/user/profile/65f1f78e-20bf-4265-bb44-30ec9cd6b5cc.png",
     stats: [
       { label: "Years Experience", value: "03+" },
       { label: "Projects Completed", value: "10+" },
@@ -100,6 +99,7 @@ export const SITE_CONTENT = {
   skills: {
     languages: [
       { name: "JavaScript", icon: SiJavascript },
+      { name: "TypeScript", icon: SiTypescript },
       { name: "Python", icon: SiPython },
       { name: "Markdown", icon: SiMarkdown },
       { name: "YAML", icon: SiYaml },
@@ -131,7 +131,6 @@ export const SITE_CONTENT = {
       { name: "HoppScotch", icon: SiHoppscotch },
       { name: "Figma", icon: SiFigma },
       { name: "GitHub Actions", icon: SiGithubactions },
-      { name: "RoboFlow", icon: SiRoboflow },
     ],
     hardware: [
       { name: "Arduino", icon: SiArduino },
@@ -256,12 +255,7 @@ export const SITE_CONTENT = {
 - Coordinated online and offline events, improving participation rates.
 - Streamlined volunteer onboarding and communication channels.
 - Collected and analyzed member feedback to enhance community programs and activities.`,
-          skills: [
-            "Community Management",
-            "Event Coordination",
-            "Engagement",
-            "Communication",
-          ],
+          skills: ["Community Management", "Event Coordination", "Engagement", "Communication"],
           isExpanded: false,
         },
       ],
@@ -295,11 +289,7 @@ export const SITE_CONTENT = {
 - Managed equipment setup, software deployment, and technical troubleshooting.
 - Led a technical team to improve broadcast quality and reliability.
 - Developed internal documentation and training guides for technical processes.`,
-          skills: [
-            "Technical Leadership",
-            "Team Management",
-            "Troubleshooting",
-          ],
+          skills: ["Technical Leadership", "Team Management", "Troubleshooting"],
           isExpanded: false,
         },
       ],
@@ -321,12 +311,7 @@ export const SITE_CONTENT = {
 - Organized workshops and events, engaging over 100 students.
 - Supported cross-campus collaborations and project incubations.
 - Mentored students on project execution, technical skills, and leadership.`,
-          skills: [
-            "Leadership",
-            "Community Management",
-            "Event Organization",
-            "Mentorship",
-          ],
+          skills: ["Leadership", "Community Management", "Event Organization", "Mentorship"],
           isExpanded: false,
         },
       ],
@@ -347,12 +332,7 @@ export const SITE_CONTENT = {
           description: `- Managed financial operations, budgeting, and resource allocation for startup bootcamp programs.
 - Provided strategic financial guidance to project leads and student entrepreneurs.
 - Coordinated funding requests, sponsorships.`,
-          skills: [
-            "Finance Management",
-            "Budgeting",
-            "Leadership",
-            "Financial Planning",
-          ],
+          skills: ["Finance Management", "Budgeting", "Leadership", "Financial Planning"],
           isExpanded: false,
         },
         {
@@ -364,12 +344,7 @@ export const SITE_CONTENT = {
           description: `- Provided technical support to startup projects and events.
 - Coordinated project development efforts and ensured technical feasibility.
 - Assisted in prototype development, testing, and deployment.`,
-          skills: [
-            "Technical Support",
-            "Project Coordination",
-            "Prototyping",
-            "Training",
-          ],
+          skills: ["Technical Support", "Project Coordination", "Prototyping", "Training"],
           isExpanded: false,
         },
       ],
@@ -535,7 +510,7 @@ export const SITE_CONTENT = {
     {
       id: 0,
       testimonial:
-        "Alvin Dennis brought a clean, user-friendly design to Punarjjani. He completely built our website with great attention to detail and usability, giving our charity a strong and professional digital presence. His dedication and passion for the work really stood out. A pleasure to work with!",
+        "Alvin Dennis brought a clean, user-friendly design to Punarjjani. He completely built our website with great attention to detail and usability, giving our charity a strong and professional digital presence. His dedication and passion for the work really stood out!",
       by: "Hanih PC, President at Punarjjani",
     },
     {
@@ -563,14 +538,12 @@ export const SITE_CONTENT = {
     },
     {
       id: 5,
-      testimonial:
-        "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
+      testimonial: "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
       by: "Jeremy, Product Manager at TimeWise",
     },
     {
       id: 6,
-      testimonial:
-        "Took some convincing, but now that we're on COMPANY, we're never going back.",
+      testimonial: "Took some convincing, but now that we're on COMPANY, we're never going back.",
       by: "Pam, Marketing Director at BrandBuilders",
     },
     {

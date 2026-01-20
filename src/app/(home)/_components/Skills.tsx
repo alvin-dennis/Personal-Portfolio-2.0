@@ -1,8 +1,8 @@
-import Section from "@/components/Section";
-import type { Skills as SkillsType, SkillProp } from "@/types";
-import { MotionDiv } from "@/components/Framer";
 import { Variants } from "framer-motion";
+import { MotionDiv } from "@/components/Framer";
+import Section from "@/components/Section";
 import { Badge } from "@/components/ui/badge";
+import type { SkillProp, Skills as SkillsType } from "@/types";
 
 interface Props {
   skills: SkillsType;
@@ -54,19 +54,9 @@ export default function Skills({ skills }: Props) {
                 const name = typeof skill === "string" ? skill : skill.name;
                 const Icon = typeof skill === "string" ? null : skill.icon;
                 return (
-                  <Badge
-                    variant={"secondary"}
-                    key={name}
-                    className="flex items-center"
-                  >
-                    {Icon && (
-                      <Icon className="size-8" />
-                    )}
-                    <span
-                      className="text-lg font-light"
-                    >
-                      {name}
-                    </span>
+                  <Badge variant={"secondary"} key={name} className="flex items-center">
+                    {Icon && <Icon className="size-12" />}
+                    <span className="text-lg">{name}</span>
                   </Badge>
                 );
               })}

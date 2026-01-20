@@ -1,19 +1,15 @@
-import Section from "@/components/Section";
+import { Variants } from "framer-motion";
 import { ChevronsDownUpIcon, ChevronsUpDownIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { MotionDiv, MotionLi } from "@/components/Framer";
+import Section from "@/components/Section";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { Experience as ExperienceType, ExperiencePositionItemType, iconMap } from "@/types";
-import { MotionDiv, MotionLi } from "@/components/Framer";
-import { Variants } from "framer-motion";
+import { ExperiencePositionItemType, Experience as ExperienceType, iconMap } from "@/types";
 
 interface Props {
   experiences: ExperienceType[];
@@ -32,12 +28,11 @@ const fadeInUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    transition: { duration: 0.3, ease: [0.42, 0, 0.58, 1] },
   },
 };
 
 export default function Experience({ experiences, className }: Props & { className?: string }) {
-  ;
   return (
     <MotionDiv
       className={cn("w-full", className)}
@@ -46,13 +41,13 @@ export default function Experience({ experiences, className }: Props & { classNa
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <Section text="Work Experience" href="experience" paragraph="A summary of my professional experience, focusing on real-world projects, collaborative development, and the practical application of modern technologies to deliver reliable and scalable solutions.">
+      <Section
+        text="Work Experience"
+        href="experience"
+        paragraph="A summary of my professional experience, focusing on real-world projects, collaborative development, and the practical application of modern technologies to deliver reliable and scalable solutions."
+      >
         {experiences.map((experience) => (
-          <MotionDiv
-            key={experience.id}
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
+          <MotionDiv key={experience.id} viewport={{ once: true }} variants={fadeInUp}>
             <ExperienceItem experience={experience} />
           </MotionDiv>
         ))}
@@ -118,7 +113,9 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
               <ExperienceIcon className="size-4 text-black" />
             </div>
 
-            <span className="flex-1 text-lg text-balance group-data-[state=open]/experience:text-popover-foreground">{position.title}</span>
+            <span className="flex-1 text-lg text-balance group-data-[state=open]/experience:text-popover-foreground">
+              {position.title}
+            </span>
 
             <div className="shrink-0 [&_svg]:size-6" aria-hidden>
               <ChevronsDownUpIcon className="hidden group-data-[state=open]/experience:block" />
@@ -131,7 +128,9 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
               <>
                 <dl>
                   <dt className="sr-only">Employment Type</dt>
-                  <dd className="group-data-[state=open]/experience:text-popover-foreground">{position.employmentType}</dd>
+                  <dd className="group-data-[state=open]/experience:text-popover-foreground">
+                    {position.employmentType}
+                  </dd>
                 </dl>
 
                 <Separator
@@ -143,7 +142,9 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
 
             <dl>
               <dt className="sr-only">Employment Period</dt>
-              <dd className="group-data-[state=open]/experience:text-popover-foreground">{position.employmentPeriod}</dd>
+              <dd className="group-data-[state=open]/experience:text-popover-foreground">
+                {position.employmentPeriod}
+              </dd>
             </dl>
           </div>
         </CollapsibleTrigger>
@@ -199,7 +200,7 @@ function Prose({ className, ...props }: React.ComponentProps<"div">) {
         "prose prose-sm max-w-none text-foreground prose-zinc dark:prose-invert",
         "prose-a:font-medium prose-a:break-words prose-a:text-foreground prose-a:underline prose-a:underline-offset-4",
         "prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none",
-        className
+        className,
       )}
       {...props}
     />
@@ -209,10 +210,7 @@ function Prose({ className, ...props }: React.ComponentProps<"div">) {
 function Skill({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
-      className={cn(
-        "inline-flex items-center rounded-lg border px-1.5 py-0.5 text-xs",
-        className
-      )}
+      className={cn("inline-flex items-center rounded-lg border px-1.5 py-0.5 text-xs", className)}
       {...props}
     />
   );

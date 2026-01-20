@@ -63,14 +63,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en" suppressHydrationWarning>
-        <body className={`${nougat.variable} ${payback.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${nougat.variable} ${payback.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}
+      >
         <main className="mx-auto flex-1 px-5 pb-10">
           <ScrollProgress className="bg-primary" />
-            {children}
+          {children}
         </main>
         <Navbar />
-        </body>
-      </html>
+      </body>
+    </html>
   );
 }

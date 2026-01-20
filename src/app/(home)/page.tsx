@@ -1,22 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
-import { AnimatePresence, easeOut } from "framer-motion";
+import { useEffect, useState } from "react";
 import Hero from "@/app/(home)/_components/Hero";
 import Footer from "@/components/Footer";
-import { SITE_CONTENT } from "@/lib/constants";
 import { MotionDiv, MotionMain } from "@/components/Framer";
-import { BlurFade } from "@/components/ui/blur-fade";
 import Loader from "@/components/Loader";
+import { SITE_CONTENT } from "@/lib/constants";
 
 const Skills = dynamic(() => import("@/app/(home)/_components/Skills"));
 const Experience = dynamic(() => import("@/app/(home)/_components/Experience"));
 const Education = dynamic(() => import("@/app/(home)/_components/Education"));
 const Projects = dynamic(() => import("@/app/(home)/_components/Projects").then((m) => m.Projects));
-// const Testimonials = dynamic(() => import("@/app/(home)/_components/Testmonials").then((m) => m.Testimonials));
-
-const BLUR_FADE_DELAY = 0.04;
+// const Testimonials = dynamic(() =>
+//   import("@/app/(home)/_components/Testmonials").then((m) => m.Testimonials),
+// );
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -29,9 +28,9 @@ export default function Home() {
     Object.entries(SITE_CONTENT.skills).map(([category, list]) => [
       category,
       list.map((skill) =>
-        typeof skill === "string" ? skill : { name: skill.name, icon: skill.icon }
+        typeof skill === "string" ? skill : { name: skill.name, icon: skill.icon },
       ),
-    ])
+    ]),
   ) as typeof SITE_CONTENT.skills;
 
   return (
@@ -41,7 +40,7 @@ export default function Home() {
           key="loader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: easeOut }}
+          transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
         >
           <Loader />
         </MotionDiv>
@@ -52,33 +51,13 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
         >
-          <BlurFade delay={BLUR_FADE_DELAY * 2}>
-            <Hero {...SITE_CONTENT.hero} />
-          </BlurFade>
-
-          <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <Skills skills={sanitizedSkills} />
-          </BlurFade>
-
-          <BlurFade delay={BLUR_FADE_DELAY * 6}>
-            <Experience experiences={SITE_CONTENT.experience} />
-          </BlurFade>
-
-          <BlurFade delay={BLUR_FADE_DELAY * 8}>
-            <Education education={SITE_CONTENT.education} />
-          </BlurFade>
-
-          <BlurFade delay={BLUR_FADE_DELAY * 10}>
-            <Projects projects={SITE_CONTENT.projects} />
-          </BlurFade>
-
-          {/* <BlurFade delay={BLUR_FADE_DELAY * 12}>
-          <Testimonials />
-        </BlurFade> */}
-
-          <BlurFade delay={BLUR_FADE_DELAY * 14}>
-            <Footer />
-          </BlurFade>
+          <Hero {...SITE_CONTENT.hero} />
+          <Skills skills={sanitizedSkills} />
+          <Experience experiences={SITE_CONTENT.experience} />
+          <Education education={SITE_CONTENT.education} />
+          <Projects projects={SITE_CONTENT.projects} />
+          {/* <Testimonials /> */}
+          <Footer />
         </MotionMain>
       )}
     </AnimatePresence>

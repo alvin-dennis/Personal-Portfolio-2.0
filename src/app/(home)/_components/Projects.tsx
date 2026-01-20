@@ -1,37 +1,38 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { ArrowUpRight } from "lucide-react"
-import type { Projects as ProjectsType } from "@/types"
-import Link from "next/link"
-import { FaGithub } from "react-icons/fa"
-import { Variants } from "framer-motion"
-import { cn } from "@/lib/utils"
-import { MotionLi, MotionDiv } from "@/components/Framer"
-import Section from "@/components/Section"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
+import { Variants } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import { MotionDiv, MotionLi } from "@/components/Framer";
+import Section from "@/components/Section";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import type { Projects as ProjectsType } from "@/types";
+
 interface Props {
   projects: ProjectsType[];
 }
 
 export function Projects({ projects }: Props) {
-  const [open, setOpen] = useState(false)
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 })
-  const [activeProject, setActiveProject] = useState<ProjectsType | null>(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const animationRef = useRef<number | null>(null)
+  const [open, setOpen] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
+  const [activeProject, setActiveProject] = useState<ProjectsType | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | null>(null);
 
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
@@ -43,7 +44,7 @@ export function Projects({ projects }: Props) {
         ease: [0.215, 0.61, 0.355, 1],
       },
     },
-  }
+  };
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -54,39 +55,39 @@ export function Projects({ projects }: Props) {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   useEffect(() => {
-    const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor
+    const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
     const animate = () => {
       setSmoothPosition((prev) => ({
         x: lerp(prev.x, mousePosition.x, 0.15),
         y: lerp(prev.y, mousePosition.y, 0.15),
-      }))
-      animationRef.current = requestAnimationFrame(animate)
-    }
-    animationRef.current = requestAnimationFrame(animate)
+      }));
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    animationRef.current = requestAnimationFrame(animate);
     return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current)
-    }
-  }, [mousePosition])
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, [mousePosition]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect()
-      setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top })
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
     }
-  }
+  };
 
   const handleMouseEnter = (index: number) => {
-    setHoveredIndex(index)
-    setIsVisible(true)
-  }
+    setHoveredIndex(index);
+    setIsVisible(true);
+  };
 
   const handleMouseLeave = () => {
-    setHoveredIndex(null)
-    setIsVisible(false)
-  }
+    setHoveredIndex(null);
+    setIsVisible(false);
+  };
 
   return (
     <Section
@@ -114,7 +115,7 @@ export function Projects({ projects }: Props) {
           >
             <div className="relative w-70 h-45 bg-secondary rounded-xl overflow-hidden">
               {projects.map((project, index) => {
-                if (!project.image) return null
+                if (!project.image) return null;
                 return (
                   <Image
                     key={project.name}
@@ -128,10 +129,9 @@ export function Projects({ projects }: Props) {
                       filter: hoveredIndex === index ? "none" : "blur(10px)",
                     }}
                   />
-                )
+                );
               })}
             </div>
-
           </div>
           <MotionDiv
             variants={containerVariants}
@@ -142,7 +142,7 @@ export function Projects({ projects }: Props) {
             {projects.map((project, index) => {
               const categories: string[] = Array.isArray(project.category)
                 ? project.category
-                : [project.category]
+                : [project.category];
               return (
                 <MotionDiv
                   key={project.name}
@@ -151,8 +151,8 @@ export function Projects({ projects }: Props) {
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   onClick={() => {
-                    setActiveProject(project)
-                    setOpen(true)
+                    setActiveProject(project);
+                    setOpen(true);
                   }}
                 >
                   <div
@@ -163,9 +163,7 @@ export function Projects({ projects }: Props) {
                     <div
                       className={cn(
                         "absolute inset-0 -mx-4 px-4 rounded-lg transition-all duration-300 ease-out",
-                        hoveredIndex === index
-                          ? "opacity-100 scale-100"
-                          : "opacity-0 scale-95"
+                        hoveredIndex === index ? "opacity-100 scale-100" : "opacity-0 scale-95",
                       )}
                     />
                     <div className="relative flex flex-col md:flex-row md:items-center gap-4">
@@ -190,7 +188,7 @@ export function Projects({ projects }: Props) {
                                   "w-20 h-20 text-muted-foreground transition-all duration-300 ease-out",
                                   hoveredIndex === index
                                     ? "opacity-100 translate-x-0 translate-y-0"
-                                    : "opacity-0 -translate-x-2 translate-y-2"
+                                    : "opacity-0 -translate-x-2 translate-y-2",
                                 )}
                               />
                             </div>
@@ -206,7 +204,7 @@ export function Projects({ projects }: Props) {
                               "text-xs md:text-sm uppercase tracking-wide rounded-full px-3 py-1 border transition-all duration-300 whitespace-nowrap",
                               hoveredIndex === index
                                 ? "bg-primary text-primary-foreground border-primary"
-                                : "text-muted-foreground border-border"
+                                : "text-muted-foreground border-border",
                             )}
                           >
                             {cat}
@@ -216,7 +214,7 @@ export function Projects({ projects }: Props) {
                     </div>
                   </div>
                 </MotionDiv>
-              )
+              );
             })}
           </MotionDiv>
 
@@ -248,11 +246,7 @@ export function Projects({ projects }: Props) {
                   </DialogHeader>
                 </MotionDiv>
 
-                <MotionDiv
-                  variants={fadeInUp}
-                  initial="hidden"
-                  animate="visible"
-                >
+                <MotionDiv variants={fadeInUp} initial="hidden" animate="visible">
                   <DialogDescription className="text-sm text-popover-foreground leading-relaxed whitespace-pre-line max-h-[40vh] overflow-y-auto pr-2">
                     {activeProject.description}
                   </DialogDescription>
@@ -260,11 +254,7 @@ export function Projects({ projects }: Props) {
 
                 {Array.isArray(activeProject.technologies) &&
                   activeProject.technologies.length > 0 && (
-                    <MotionDiv
-                      variants={fadeInUp}
-                      initial="hidden"
-                      animate="visible"
-                    >
+                    <MotionDiv variants={fadeInUp} initial="hidden" animate="visible">
                       <ul className="flex flex-wrap gap-2">
                         {activeProject.technologies.map((tech, index) => {
                           if (typeof tech === "string") {
@@ -280,9 +270,9 @@ export function Projects({ projects }: Props) {
                                   {tech}
                                 </span>
                               </MotionLi>
-                            )
+                            );
                           }
-                          const Icon = tech.icon
+                          const Icon = tech.icon;
                           return (
                             <MotionLi
                               key={tech.name}
@@ -296,9 +286,8 @@ export function Projects({ projects }: Props) {
                                 {tech.name}
                               </span>
                             </MotionLi>
-                          )
+                          );
                         })}
-
                       </ul>
                     </MotionDiv>
                   )}
@@ -338,5 +327,5 @@ export function Projects({ projects }: Props) {
         </div>
       </Dialog>
     </Section>
-  )
+  );
 }
