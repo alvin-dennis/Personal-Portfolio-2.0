@@ -48,7 +48,7 @@ export const SITE_CONFIG = {
   author: "Alvin Dennis",
   description:
     "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
-  siteLogo: "/assets/common/logo.png",
+  siteLogo: "/logo.png",
   socialLinks: [
     {
       text: "Email",
