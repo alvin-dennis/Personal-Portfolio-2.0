@@ -11,7 +11,6 @@ export interface SiteConfig extends Navbar {
   author: string;
   socialLinks: { text: string; href: string; icon: React.ElementType }[];
   socialImage: string;
-  canonicalURL?: string;
 }
 
 export interface SiteContent {

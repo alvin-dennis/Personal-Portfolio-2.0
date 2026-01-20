@@ -48,7 +48,7 @@ export const SITE_CONFIG = {
   author: "Alvin Dennis",
   description:
     "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
-  siteLogo: "/assets/common/logo-nobg.png",
+  siteLogo: "/assets/common/logo.png",
   socialLinks: [
     {
       text: "Email",
@@ -78,7 +78,6 @@ export const SITE_CONFIG = {
     { label: "Contact", link: "#contact" },
   ],
   socialImage: "/assets/og.webp",
-  canonicalURL: "https://alvinn.me",
   contact: {
     email: "alvindennis80@gmail.com",
     cal_link: "https://cal.com/alvindennis",
@@ -375,7 +374,7 @@ export const SITE_CONTENT = {
       description:
         "Designed and developed a Christmas-themed website as part of Illuµnate by µLearn. Focused on optimizing performance, ensuring smooth and stable interactions along with responsive design and accessibility",
       category: "Frontend",
-      image: "/projects/illumunate.webp",
+      image: "/assets/projects/illumunate.webp",
       url: "https://github.com/gtech-mulearn/Illumunate",
       hosted_url: "https://illumunate.mulearn.org",
       technologies: [
@@ -390,7 +389,7 @@ export const SITE_CONTENT = {
       description:
         "Contributed to the development of the μLearn homepage, focusing on a clean, responsive UI. Optimized performance through efficient component structuring and improved loading behavior to ensure a smooth, stable, and user-friendly experience",
       category: "Frontend",
-      image: "/projects/mulearn.webp",
+      image: "/assets/projects/mulearn.webp",
       url: "https://github.com/gtech-mulearn/mulearnhome",
       hosted_url: "https://mulearn.org/",
       technologies: [
@@ -405,7 +404,7 @@ export const SITE_CONTENT = {
       description:
         "Developed the KUHS landing page and results page, using Google Sheets as a CMS for easy result management, ensuring a responsive UI and smooth data handling",
       category: ["Frontend", "Backend"],
-      image: "/projects/kuhsgmc.webp",
+      image: "/assets/projects/kuhsgmc.webp",
       url: "https://github.com/alvin-dennis/KUHS-GMC",
       hosted_url: "https://kuhs-gmc.vercel.app/",
       technologies: [
@@ -420,7 +419,7 @@ export const SITE_CONTENT = {
       description:
         "Led the end-to-end development of the Punarjjani website, delivering a responsive and user-friendly platform. Collaborated with the team throughout the development process, contribute to performance optimization, ensuring a seamless user experience.",
       category: "Frontend",
-      image: "/projects/punarjjani.webp",
+      image: "/assets/projects/punarjjani.webp",
       url: "https://github.com/alvin-dennis/Punarjjani",
       hosted_url: "https://punarjjani.vercel.app/",
       technologies: [
@@ -435,7 +434,7 @@ export const SITE_CONTENT = {
       description:
         "Built the Beyond syllabus chat UI and set up the backend to support real-time interactions. Worked across both frontend and backend, focusing on performance improvements, optimization, and smooth user experience.",
       category: ["Frontend", "Backend", "GenAI"],
-      image: "/projects/beyondsyllabus.webp",
+      image: "/assets/projects/beyondsyllabus.webp",
       url: "https://github.com/The-Purple-Movement/Beyond-Syllabus",
       hosted_url: "https://beyondsyllabus.in/",
       technologies: [
@@ -450,7 +449,7 @@ export const SITE_CONTENT = {
       description:
         "Developed and launched the Metaloom website from start to finish, focusing on responsiveness, usability, and performance. Worked with the team to refine features and maintain a seamless experience across devices.",
       category: "Frontend",
-      image: "/projects/metaloom.webp",
+      image: "/assets/projects/metaloom.webp",
       url: "https://github.com/metaloomhq/metaloom",
       hosted_url: "https://metaloom.in/",
       technologies: [
@@ -465,7 +464,7 @@ export const SITE_CONTENT = {
       description:
         "Developed a professional developer portfolio featuring a modern, minimal layout. Ensured full responsiveness across devices with optimized performance.",
       category: "Frontend",
-      image: "/projects/portfolio.webp",
+      image: "/assets/projects/portfolio.webp",
       url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
       hosted_url: "https://alvinn.me/",
       technologies: [
@@ -480,7 +479,7 @@ export const SITE_CONTENT = {
       description:
         "Contributed to BuilderClan homepage by building and optimizing the revamped frontend. Delivered a responsive, user-friendly interface with improved performance and modern design practices",
       category: "Frontend",
-      image: "/projects/builderclan.webp",
+      image: "/assets/projects/builderclan.webp",
       url: "https://github.com/BuilderClan/builderclan-site",
       hosted_url: "https://builderclan.org/",
       technologies: [
