@@ -76,7 +76,9 @@ function ExperienceItem({ experience }: { experience: ExperienceType }) {
           </div>
         </Link>
 
-        <h3 className="text-lg font-semibold text-muted-foreground">{experience.companyName}</h3>
+        <h3 className="text-lg font-semibold text-muted-foreground group-data-[state=open]/experience:text-primary">
+          {experience.companyName}
+        </h3>
 
         {experience.isCurrentEmployer && (
           <span className="relative flex items-center justify-center">

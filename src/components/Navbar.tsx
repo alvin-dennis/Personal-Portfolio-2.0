@@ -1,13 +1,8 @@
 import { Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFileAlt } from "react-icons/fa";
-import { MotionHeader } from "@/components/Framer";
-import { Dock, DockIcon } from "@/components/ui/dock";
-import { Separator } from "@/components/ui/separator";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { SITE_CONFIG } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { MotionHeader } from "./Framer";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -21,67 +16,36 @@ const fadeInUp: Variants = {
 export default function Navbar() {
   return (
     <MotionHeader variants={fadeInUp} viewport={{ once: true }}>
-      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-12 flex h-full max-h-14 origin-bottom">
-        <Dock
-          className="pointer-events-auto relative z-50 mx-auto flex h-full min-h-full transform-gpu items-center bg-background px-1 
-            border-primary"
-        >
-          <DockIcon>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href="/"
-                  aria-label="Home link"
-                  className={cn("size-12 flex items-center justify-center group")}
-                >
-                  <Image
-                    className="rounded-sm"
-                    src={SITE_CONFIG.siteLogo}
-                    width={35}
-                    height={35}
-                    alt="website logo"
-                  />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>Home</TooltipContent>
-            </Tooltip>
-          </DockIcon>
-
-          <DockIcon>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href="https://resume.alvinn.me"
-                  aria-label="Resume link"
-                  className={cn("size-12 flex items-center justify-center group")}
-                >
-                  <FaFileAlt />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>Resume</TooltipContent>
-            </Tooltip>
-          </DockIcon>
-
-          <Separator orientation="vertical" className="h-full" />
-
-          {SITE_CONFIG.socialLinks.map((item) => (
-            <DockIcon key={item.text}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={item.href}
-                    aria-label={item.text}
-                    className={cn("flex size-12 items-center justify-center")}
-                  >
-                    {item.icon && <item.icon className="size-4 text-current" />}
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>{item.text}</TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-        </Dock>
-      </div>
+      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-primary">
+        <div className="max-w-full mx-auto px-6 py-4 flex items-center justify-center md:justify-between">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <Image
+              className="rounded-sm"
+              src={SITE_CONFIG.siteLogo}
+              width={35}
+              height={35}
+              alt={SITE_CONFIG.author}
+            />
+            <span
+              className="text-2xl md:text-3xl italic tracking-wide text-primary md:text-muted-foreground hover:text-primary transition-colors duration-200"
+              style={{ fontFamily: "var(--font-nougat)" }}
+            >
+              {SITE_CONFIG.author}
+            </span>
+          </Link>
+          <div className="hidden md:flex items-center gap-8">
+            {SITE_CONFIG.menuItems.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-muted-foreground hover:text-primary uppercase text-md tracking-[0.2em] transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
     </MotionHeader>
   );
 }

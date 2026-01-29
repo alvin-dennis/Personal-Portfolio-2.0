@@ -1,5 +1,5 @@
 import { DiRedis } from "react-icons/di";
-import { FaBrain, FaGlobe, FaLayerGroup, FaServer } from "react-icons/fa";
+import { FaBrain, FaFileAlt, FaGlobe, FaLayerGroup, FaServer } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { HiMiniCpuChip } from "react-icons/hi2";
 import {
@@ -51,6 +51,11 @@ export const SITE_CONFIG = {
   siteLogo: "/logo.png",
   socialLinks: [
     {
+      text: "Resume",
+      href: "https://resume.alvinn.me",
+      icon: FaFileAlt,
+    },
+    {
       text: "Email",
       href: "mailto:alvindennis80@gmail.com",
       icon: FiMail,
@@ -72,10 +77,10 @@ export const SITE_CONFIG = {
     },
   ],
   menuItems: [
-    { label: "Resume", link: "https://resume.alvinn.me" },
-    { label: "Experience", link: "#experience" },
-    { label: "Projects", link: "#projects" },
-    { label: "Contact", link: "#contact" },
+    { label: "Resume", href: "https://resume.alvinn.me" },
+    { label: "Experience", href: "#experience" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
   ],
   socialImage: "/assets/og.webp",
   contact: {

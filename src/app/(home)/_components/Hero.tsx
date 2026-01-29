@@ -6,7 +6,7 @@ import { HeroProp } from "@/types";
 export default function Hero({ name, image, summary, currentWork, stats }: HeroProp) {
   const [firstName, lastName] = name.split(" ");
   return (
-    <section className="min-h-screen flex flex-col relative overflow-hidden mt-2 pb-10 pt-5">
+    <section className="min-h-screen flex flex-col relative overflow-hidden pb-15">
       <div className="flex-1 grid grid-cols-1 md:grid-cols-12 relative z-10 h-full">
         <div className="md:col-span-8 flex flex-col overflow-hidden">
           <div className="p-6 md:p-8 flex justify-between items-center">

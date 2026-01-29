@@ -136,5 +136,5 @@ export {
   MotionSpan,
   MotionP,
   MotionFooter,
-  MotionLi,
+  MotionLi
 };

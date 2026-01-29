@@ -67,11 +67,11 @@ export default function RootLayout({
       <body
         className={`${nougat.variable} ${payback.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}
       >
+        <Navbar />
         <main className="mx-auto flex-1 px-5 pb-10">
           <ScrollProgress className="bg-primary" />
           {children}
         </main>
-        <Navbar />
       </body>
     </html>
   );

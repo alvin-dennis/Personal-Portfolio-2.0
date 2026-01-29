@@ -99,6 +99,29 @@ export default function Footer() {
               />
             </Link>
           </Button>
+          <div className="mt-12 flex items-center gap-4">
+            {SITE_CONFIG.socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <Button
+                  key={social.text}
+                  asChild
+                  variant="default"
+                  size="icon"
+                  className="size-10 rounded-full transition-colors"
+                >
+                  <Link
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.text}
+                  >
+                    <Icon className="size-5" />
+                  </Link>
+                </Button>
+              );
+            })}
+          </div>
         </div>
 
         <MotionDiv
