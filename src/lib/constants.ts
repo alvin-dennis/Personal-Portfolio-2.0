@@ -1,5 +1,11 @@
 import { DiRedis } from "react-icons/di";
-import { FaBrain, FaFileAlt, FaGlobe, FaLayerGroup, FaServer } from "react-icons/fa";
+import {
+  FaBrain,
+  FaFileAlt,
+  FaGlobe,
+  FaLayerGroup,
+  FaServer,
+} from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { HiMiniCpuChip } from "react-icons/hi2";
 import {
@@ -82,7 +88,7 @@ export const SITE_CONFIG = {
     { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
   ],
-  socialImage: "/assets/og.webp",
+  socialImage: "/assets/og.png",
   contact: {
     email: "alvindennis80@gmail.com",
     cal_link: "https://cal.com/alvindennis",
@@ -94,7 +100,8 @@ export const SITE_CONTENT = {
     name: "Alvin Dennis",
     summary: `Developing human experiences in code`,
     currentWork: "Frontend Intern at µLearn",
-    image: "https://mulearn.org/muback-media/user/profile/65f1f78e-20bf-4265-bb44-30ec9cd6b5cc.png",
+    image:
+      "https://mulearn.org/muback-media/user/profile/65f1f78e-20bf-4265-bb44-30ec9cd6b5cc.png",
     stats: [
       { label: "Years Experience", value: "03+" },
       { label: "Projects Completed", value: "10+" },
@@ -259,7 +266,12 @@ export const SITE_CONTENT = {
 - Coordinated online and offline events, improving participation rates.
 - Streamlined volunteer onboarding and communication channels.
 - Collected and analyzed member feedback to enhance community programs and activities.`,
-          skills: ["Community Management", "Event Coordination", "Engagement", "Communication"],
+          skills: [
+            "Community Management",
+            "Event Coordination",
+            "Engagement",
+            "Communication",
+          ],
           isExpanded: false,
         },
       ],
@@ -293,7 +305,11 @@ export const SITE_CONTENT = {
 - Managed equipment setup, software deployment, and technical troubleshooting.
 - Led a technical team to improve broadcast quality and reliability.
 - Developed internal documentation and training guides for technical processes.`,
-          skills: ["Technical Leadership", "Team Management", "Troubleshooting"],
+          skills: [
+            "Technical Leadership",
+            "Team Management",
+            "Troubleshooting",
+          ],
           isExpanded: false,
         },
       ],
@@ -315,7 +331,12 @@ export const SITE_CONTENT = {
 - Organized workshops and events, engaging over 100 students.
 - Supported cross-campus collaborations and project incubations.
 - Mentored students on project execution, technical skills, and leadership.`,
-          skills: ["Leadership", "Community Management", "Event Organization", "Mentorship"],
+          skills: [
+            "Leadership",
+            "Community Management",
+            "Event Organization",
+            "Mentorship",
+          ],
           isExpanded: false,
         },
       ],
@@ -336,7 +357,12 @@ export const SITE_CONTENT = {
           description: `- Managed financial operations, budgeting, and resource allocation for startup bootcamp programs.
 - Provided strategic financial guidance to project leads and student entrepreneurs.
 - Coordinated funding requests, sponsorships.`,
-          skills: ["Finance Management", "Budgeting", "Leadership", "Financial Planning"],
+          skills: [
+            "Finance Management",
+            "Budgeting",
+            "Leadership",
+            "Financial Planning",
+          ],
           isExpanded: false,
         },
         {
@@ -348,7 +374,12 @@ export const SITE_CONTENT = {
           description: `- Provided technical support to startup projects and events.
 - Coordinated project development efforts and ensured technical feasibility.
 - Assisted in prototype development, testing, and deployment.`,
-          skills: ["Technical Support", "Project Coordination", "Prototyping", "Training"],
+          skills: [
+            "Technical Support",
+            "Project Coordination",
+            "Prototyping",
+            "Training",
+          ],
           isExpanded: false,
         },
       ],
@@ -379,7 +410,7 @@ export const SITE_CONTENT = {
       description:
         "Designed and developed a Christmas-themed website as part of Illuµnate by µLearn. Focused on optimizing performance, ensuring smooth and stable interactions along with responsive design and accessibility",
       category: "Frontend",
-      image: "/assets/projects/illumunate.webp",
+      image: "/assets/projects/illumunate.png",
       url: "https://github.com/gtech-mulearn/Illumunate",
       hosted_url: "https://illumunate.mulearn.org",
       technologies: [
@@ -394,7 +425,7 @@ export const SITE_CONTENT = {
       description:
         "Contributed to the development of the μLearn homepage, focusing on a clean, responsive UI. Optimized performance through efficient component structuring and improved loading behavior to ensure a smooth, stable, and user-friendly experience",
       category: "Frontend",
-      image: "/assets/projects/mulearn.webp",
+      image: "/assets/projects/mulearn.png",
       url: "https://github.com/gtech-mulearn/mulearnhome",
       hosted_url: "https://mulearn.org/",
       technologies: [
@@ -409,7 +440,7 @@ export const SITE_CONTENT = {
       description:
         "Developed the KUHS landing page and results page, using Google Sheets as a CMS for easy result management, ensuring a responsive UI and smooth data handling",
       category: ["Frontend", "Backend"],
-      image: "/assets/projects/kuhsgmc.webp",
+      image: "/assets/projects/kuhsgmc.png",
       url: "https://github.com/alvin-dennis/KUHS-GMC",
       hosted_url: "https://kuhs-gmc.vercel.app/",
       technologies: [
@@ -424,7 +455,7 @@ export const SITE_CONTENT = {
       description:
         "Led the end-to-end development of the Punarjjani website, delivering a responsive and user-friendly platform. Collaborated with the team throughout the development process, contribute to performance optimization, ensuring a seamless user experience.",
       category: "Frontend",
-      image: "/assets/projects/punarjjani.webp",
+      image: "/assets/projects/punarjjani.png",
       url: "https://github.com/alvin-dennis/Punarjjani",
       hosted_url: "https://punarjjani.vercel.app/",
       technologies: [
@@ -439,7 +470,7 @@ export const SITE_CONTENT = {
       description:
         "Built the Beyond syllabus chat UI and set up the backend to support real-time interactions. Worked across both frontend and backend, focusing on performance improvements, optimization, and smooth user experience.",
       category: ["Frontend", "Backend", "GenAI"],
-      image: "/assets/projects/beyondsyllabus.webp",
+      image: "/assets/projects/beyondsyllabus.png",
       url: "https://github.com/The-Purple-Movement/Beyond-Syllabus",
       hosted_url: "https://beyondsyllabus.in/",
       technologies: [
@@ -454,7 +485,7 @@ export const SITE_CONTENT = {
       description:
         "Developed and launched the Metaloom website from start to finish, focusing on responsiveness, usability, and performance. Worked with the team to refine features and maintain a seamless experience across devices.",
       category: "Frontend",
-      image: "/assets/projects/metaloom.webp",
+      image: "/assets/projects/metaloom.png",
       url: "https://github.com/metaloomhq/metaloom",
       hosted_url: "https://metaloom.in/",
       technologies: [
@@ -469,7 +500,7 @@ export const SITE_CONTENT = {
       description:
         "Developed a professional developer portfolio featuring a modern, minimal layout. Ensured full responsiveness across devices with optimized performance.",
       category: "Frontend",
-      image: "/assets/projects/portfolio.webp",
+      image: "/assets/projects/portfolio.png",
       url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
       hosted_url: "https://alvinn.me/",
       technologies: [
@@ -484,7 +515,7 @@ export const SITE_CONTENT = {
       description:
         "Contributed to BuilderClan homepage by building and optimizing the revamped frontend. Delivered a responsive, user-friendly interface with improved performance and modern design practices",
       category: "Frontend",
-      image: "/assets/projects/builderclan.webp",
+      image: "/assets/projects/builderclan.png",
       url: "https://github.com/BuilderClan/builderclan-site",
       hosted_url: "https://builderclan.org/",
       technologies: [
@@ -542,12 +573,14 @@ export const SITE_CONTENT = {
     },
     {
       id: 5,
-      testimonial: "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
+      testimonial:
+        "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
       by: "Jeremy, Product Manager at TimeWise",
     },
     {
       id: 6,
-      testimonial: "Took some convincing, but now that we're on COMPANY, we're never going back.",
+      testimonial:
+        "Took some convincing, but now that we're on COMPANY, we're never going back.",
       by: "Pam, Marketing Director at BrandBuilders",
     },
     {
