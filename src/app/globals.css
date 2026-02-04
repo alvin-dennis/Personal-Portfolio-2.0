@@ -43,6 +43,8 @@
 }
 
 @theme inline {
+  --font-nougat: var(--font-nougat);
+  --font-payback: var(--font-payback);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

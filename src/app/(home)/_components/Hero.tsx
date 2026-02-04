@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import { MotionDiv, MotionH1, MotionP, MotionSpan } from "@/components/Framer";
 import { Clock } from "@/lib/time";
@@ -43,8 +45,7 @@ export default function Hero({ name, image, summary, currentWork, stats }: HeroP
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="block"
-                    style={{ fontFamily: "var(--font-payback)" }}
+                    className="block font-payback"
                   >
                     {firstName}
                   </MotionSpan>
@@ -54,8 +55,7 @@ export default function Hero({ name, image, summary, currentWork, stats }: HeroP
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="block text-foreground mt-5 md:ml-60"
-                    style={{ fontFamily: "var(--font-payback)" }}
+                    className="block font-payback text-foreground mt-5 md:ml-60"
                   >
                     {lastName}
                   </MotionSpan>

@@ -1,12 +1,10 @@
-"use client";
+"use client"
 
 import { AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
 import Hero from "@/app/(home)/_components/Hero";
 import Footer from "@/components/Footer";
-import { MotionDiv, MotionMain } from "@/components/Framer";
-import Loader from "@/components/Loader";
+import { MotionMain } from "@/components/Framer";
 import { SITE_CONTENT } from "@/lib/constants";
 
 const Skills = dynamic(() => import("@/app/(home)/_components/Skills"));
@@ -18,12 +16,6 @@ const Projects = dynamic(() => import("@/app/(home)/_components/Projects").then(
 // );
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1900);
-    return () => clearTimeout(timer);
-  }, []);
   const sanitizedSkills = Object.fromEntries(
     Object.entries(SITE_CONTENT.skills).map(([category, list]) => [
       category,
@@ -35,16 +27,6 @@ export default function Home() {
 
   return (
     <AnimatePresence mode="wait">
-      {loading ? (
-        <MotionDiv
-          key="loader"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
-        >
-          <Loader />
-        </MotionDiv>
-      ) : (
         <MotionMain
           key="content"
           initial={{ opacity: 0, y: 12 }}
@@ -59,7 +41,6 @@ export default function Home() {
           {/* <Testimonials /> */}
           <Footer />
         </MotionMain>
-      )}
     </AnimatePresence>
   );
 }

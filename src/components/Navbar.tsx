@@ -27,8 +27,7 @@ export default function Navbar() {
               alt={SITE_CONFIG.author}
             />
             <span
-              className="text-2xl md:text-3xl italic tracking-wide text-primary md:text-muted-foreground hover:text-primary transition-colors duration-200"
-              style={{ fontFamily: "var(--font-nougat)" }}
+              className="font-nougat text-2xl md:text-3xl italic tracking-wide text-primary md:text-muted-foreground hover:text-primary transition-colors duration-200"
             >
               {SITE_CONFIG.author}
             </span>

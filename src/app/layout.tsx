@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import Loader from "@/components/Loader";
 
 export const metadata: Metadata = {
   title: "Alvin Dennis — Builder | Maker | Manager",
@@ -72,6 +73,7 @@ export default function RootLayout({
           <ScrollProgress className="bg-primary" />
           {children}
         </main>
+        <Loader />
       </body>
     </html>
   );
