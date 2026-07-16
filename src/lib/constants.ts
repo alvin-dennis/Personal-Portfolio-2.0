@@ -162,9 +162,35 @@ export const SITE_CONTENT = {
       companyLogo: "https://foodo.ai/logo.svg",
       positions: [
         {
+          id: "foodo-tech-002",
+          title: "Frontend Developer",
+          employmentPeriod: "07.2026 — Present",
+          employmentType: "Full Time",
+          icon: "code",
+          description: `- Develop and maintain responsive, high-quality websites and web applications tailored to client requirements.
+- Deliver visually appealing, user-friendly, and performance-optimized websites.
+- Translate UI/UX designs into clean, reusable, and maintainable code using modern frontend technologies.
+- Collaborate with designers, backend developers, and project teams to ensure seamless feature implementation.
+- Ensure cross-browser compatibility, mobile responsiveness, and a consistent user experience across all devices.
+- Identify and resolve UI bugs, layout issues, and performance bottlenecks while following frontend best practices and coding standards.`,
+          skills: [
+            "React",
+            "Next.js",
+            "Tailwind CSS",
+            "Shadcn",
+            "TypeScript",
+            "REST APIs",
+            "TanStack Query",
+            "Responsive Design",
+            "Performance Optimization",
+            "UI/UX Optimization",
+          ],
+          isExpanded: true,
+        },
+        {
           id: "foodo-tech-001",
           title: "Frontend Developer",
-          employmentPeriod: "01.2026 — Present",
+          employmentPeriod: "01.2026 — 07.2026",
           employmentType: "Internship",
           icon: "code",
           description: `- Engineered responsive and high-performance web applications using Next.js and React.
@@ -181,8 +207,7 @@ export const SITE_CONTENT = {
             "Responsive Design",
             "UI/UX Optimization",
           ],
-
-          isExpanded: true,
+          isExpanded: false,
         },
       ],
       isCurrentEmployer: true,
