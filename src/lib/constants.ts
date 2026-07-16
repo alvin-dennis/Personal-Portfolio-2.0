@@ -99,7 +99,7 @@ export const SITE_CONTENT = {
   hero: {
     name: "Alvin Dennis",
     summary: `Developing human experiences in code`,
-    currentWork: "Frontend Intern at µLearn",
+    currentWork: "Frontend Developer at Foodo AI",
     image:
       "https://mulearn.org/muback-media/user/profile/65f1f78e-20bf-4265-bb44-30ec9cd6b5cc.png",
     stats: [
