@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
+import { Pacifico, League_Spartan, Dela_Gothic_One } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -47,9 +48,16 @@ const nougat = localFont({
   display: "swap",
 });
 
-const leaguespartan = localFont({
-  src: "../components/fonts/LeagueSpartan.ttf",
+const leaguespartan = League_Spartan({
+  subsets: ["latin"],
   variable: "--font-leaguespartan",
+  display: "swap",
+});
+
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pacifico",
   display: "swap",
 });
 
@@ -65,7 +73,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://images.weserv.nl" />
       </head>
       <body
-        className={`${nougat.variable} ${leaguespartan.variable} font-leaguespartan antialiased bg-background text-foreground`}
+        className={`${nougat.variable} ${leaguespartan.variable} ${pacifico.variable} font-leaguespartan antialiased bg-background text-foreground`}
       >
         <Navbar />
         <main className="mx-auto flex-1 px-5 pb-10">

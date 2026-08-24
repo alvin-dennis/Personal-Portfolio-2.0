@@ -44,7 +44,7 @@
 
 @theme inline {
   --font-nougat: var(--font-nougat);
-  --font-payback: var(--font-payback);
+  --font-pacifico: var(--font-pacifico);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -144,30 +144,5 @@ h6 {
 
   body {
     @apply bg-background text-foreground;
-  }
-
-  h1 {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight;
-  }
-
-  h2 {
-    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-primary leading-snug;
-  }
-
-  h3 {
-    @apply text-xl md:text-2xl font-semibold text-primary;
-  }
-
-  h4 {
-    @apply text-lg font-semibold text-primary;
-  }
-
-  h5,
-  h6 {
-    @apply text-base font-medium text-primary;
-  }
-
-  p {
-    @apply text-base leading-relaxed;
   }
 }

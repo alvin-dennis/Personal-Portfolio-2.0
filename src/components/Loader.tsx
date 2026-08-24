@@ -1,85 +1,106 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useRef } from "react";
+import type { Variants } from "framer-motion";
+import { useEffect, useState } from "react";
+import { MotionDiv, MotionP, MotionPath } from "@/components/Framer";
 
-gsap.registerPlugin(useGSAP);
+const words = ["Hello", "Bonjour", "Ciao", "Olà", "Hallå", "হ্যালো", "مرحبا", "നമസ്കാരം"];
 
-export default function Loader() {
-  const preloaderRef = useRef<HTMLDivElement>(null);
-  const letters = ["A", "L", "V", "I", "N"];
-  const numColumns = 10;
+const easeOutExpo = [0.76, 0, 0.24, 1] as const;
 
-  useGSAP(
-    () => {
-      const tl = gsap.timeline({
-        defaults: {
-          ease: "power2.inOut"
-        }
-      });
+const opacity: Variants = {
+  initial: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 0.75,
+    transition: { duration: 1, delay: 0.2 },
+  },
+};
 
-      tl.to(".name-text span", {
-        y: 0,
-        opacity: 1,
-        stagger: 0.12,
-        duration: 0.5,
-        willChange: "transform, opacity"
-      });
+const slideUp: Variants = {
+  initial: {
+    top: 0,
+  },
+  exit: {
+    top: "-100vh",
+    transition: { duration: 0.8, ease: easeOutExpo, delay: 0.2 },
+  },
+};
 
-      tl.to(
-        ".preloader-item",
-        {
-          delay: 0.7,
-          y: "100%",
-          scaleY: 0.7,
-          opacity: 0,
-          duration: 0.7,
-          stagger: 0.09,
-          willChange: "transform, opacity"
-        },
-        ">"
-      );
+interface LoaderProps {
+  onComplete?: () => void;
+}
 
-      tl.to(
-        ".name-text span",
-        {
-          y: 40,
-          opacity: 0,
-          stagger: 0.09,
-          duration: 0.4,
-          willChange: "transform, opacity"
-        },
-        "<0.2"
-      );
+export default function Loader({ onComplete }: LoaderProps) {
+  const [index, setIndex] = useState(0);
+  const [dimension, setDimension] = useState({ width: 0, height: 0 });
+  const [isExiting, setIsExiting] = useState(false);
 
-      tl.to(
-        preloaderRef.current,
-        {
-          autoAlpha: 0,
-          duration: 0.5
-        },
-        ">"
-      );
+  useEffect(() => {
+    setDimension({ width: window.innerWidth, height: window.innerHeight });
+  }, []);
+
+  useEffect(() => {
+    if (index === words.length - 1) {
+      setTimeout(() => {
+        setIsExiting(true);
+        setTimeout(() => {
+          onComplete?.();
+        }, 1000);
+      }, 1000);
+      return;
+    }
+
+    setTimeout(
+      () => {
+        setIndex(index + 1);
+      },
+      index === 0 ? 1000 : 150
+    );
+  }, [index, onComplete]);
+
+  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height + 300} 0 ${dimension.height} L0 0`;
+  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height} L0 0`;
+
+  const curve: Variants = {
+    initial: {
+      d: initialPath,
+      transition: { duration: 0.7, ease: easeOutExpo },
     },
-    { scope: preloaderRef }
-  );
+    exit: {
+      d: targetPath,
+      transition: { duration: 0.7, ease: easeOutExpo, delay: 0.3 },
+    },
+  };
 
   return (
-    <div className="fixed inset-0 z-9999 flex" ref={preloaderRef}>
-      {[...Array(numColumns)].map((_, index) => (
-        <div
-          key={index}
-          className="preloader-item bg-background h-full w-[10%]"
-        />
-      ))}
-      <p className="name-text text-primary font-nougat absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 overflow-hidden text-center text-[20vw] leading-none lg:text-[200px]">
-        {letters.map((letter, index) => (
-          <span key={index} className="inline-block translate-y-full opacity-0">
-            {letter}
-          </span>
-        ))}
-      </p>
-    </div>
+    <MotionDiv
+      variants={slideUp}
+      initial="initial"
+      animate={isExiting ? "exit" : "initial"}
+      className="bg-background fixed inset-0 z-9999 flex h-screen w-screen items-center justify-center"
+    >
+      {dimension.width > 0 && (
+        <>
+          <MotionP
+            variants={opacity}
+            initial="initial"
+            animate="enter"
+            className="font-pacifico text-primary absolute z-10 flex items-center text-6xl md:text-7xl lg:text-9xl"
+          >
+            {words[index]}
+          </MotionP>
+          <svg className="absolute top-0 h-[calc(100%+300px)] w-full" aria-hidden="true">
+            <MotionPath
+              variants={curve}
+              initial="initial"
+              animate={isExiting ? "exit" : "initial"}
+              className="fill-background"
+            />
+          </svg>
+        </>
+      )}
+    </MotionDiv>
   );
 }

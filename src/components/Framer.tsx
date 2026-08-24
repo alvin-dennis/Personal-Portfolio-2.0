@@ -14,6 +14,8 @@ const MotionP = motion.p;
 const MotionSpan = motion.span;
 const MotionFooter = motion.footer;
 const MotionLi = motion.li;
+const MotionSvg = motion.svg;
+const MotionPath = motion.path;
 
 export {
   MotionDiv,
@@ -27,4 +29,6 @@ export {
   MotionP,
   MotionFooter,
   MotionLi,
+  MotionSvg,
+  MotionPath,
 };
