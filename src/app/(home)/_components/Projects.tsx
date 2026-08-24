@@ -113,7 +113,7 @@ export function Projects({ projects }: Props) {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent
           side="bottom"
-          className="h-screen w-full rounded-t-2xl p-0 overflow-hidden border-0 focus:outline-none"
+          className="inset-x-3 bottom-3 top-3 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-[92vw] md:max-w-4xl md:top-[5vh] md:bottom-[5vh] h-auto rounded-2xl p-0 overflow-hidden border border-border shadow-2xl focus:outline-none"
           showCloseButton={false}
         >
           {activeProject && (
@@ -122,111 +122,126 @@ export function Projects({ projects }: Props) {
               variants={sheetContainer}
               initial="hidden"
               animate="visible"
-              className="h-full flex flex-col md:flex-row overflow-hidden"
+              className="relative h-full flex flex-col overflow-hidden"
             >
-              {/* ── Left / Top: Hero image ── */}
+              {/* ── Floating close button ── */}
+              <MotionDiv variants={sheetItem} className="absolute top-4 right-4 md:top-6 md:right-6 z-30">
+                <Button
+                  onClick={() => setOpen(false)}
+                  aria-label="Close"
+                  variant="default"
+                  size="icon"
+                >
+                  <X className="w-4 h-4" />
+                </Button>
+              </MotionDiv>
+
+              {/* ── Full-bleed hero image ── */}
               <MotionDiv
                 variants={sheetImage}
-                className="relative w-full md:w-1/2 h-[35vh] md:h-full shrink-0 bg-secondary overflow-hidden"
+                className="relative w-full aspect-[3/2] max-h-[46vh] shrink-0 bg-secondary overflow-hidden"
               >
                 {activeProject.image && (
                   <Image
                     src={activeProject.image}
                     alt={activeProject.name}
                     fill
-                    sizes="(max-width: 767px) 100vw, 50vw"
-                    className="object-cover"
+                    sizes="100vw"
+                    className="object-cover object-top"
                     priority
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent md:bg-gradient-to-r" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/0 to-transparent" />
               </MotionDiv>
 
-              {/* ── Right / Bottom: Content ── */}
-              <div className="flex-1 overflow-y-auto">
-                <div className="relative p-8 md:p-12 flex flex-col gap-6 min-h-full">
-                  <MotionDiv variants={sheetItem} className="flex justify-end">
-                    <Button
-                      onClick={() => setOpen(false)}
-                      aria-label="Close"
-                      variant="default"
-                      size={"icon"}
-                    >
-                      <X className="w-5 h-5 text-muted-foreground" />
-                    </Button>
-                  </MotionDiv>
-                  {Array.isArray(activeProject.category) && (
-                    <MotionDiv variants={sheetItem} className="flex flex-wrap gap-2">
-                      {(activeProject.category as string[]).map((cat) => (
-                        <span
-                          key={cat}
-                          className="text-xs uppercase tracking-widest rounded-full px-3 py-1 border border-border text-muted-foreground"
-                        >
-                          {cat}
-                        </span>
-                      ))}
+              {/* ── Content card, overlapping the image ── */}
+              <div className="relative z-10 -mt-8 md:-mt-12 flex-1 flex flex-col min-h-0 rounded-t-3xl bg-background overflow-hidden">
+                {/* Drag handle */}
+                <div className="flex justify-center pt-3 pb-1 shrink-0">
+                  <div className="h-1 w-10 rounded-full bg-border" />
+                </div>
+
+                <div className="flex-1 overflow-y-auto">
+                  <div className="mx-auto w-full max-w-2xl px-6 pt-4 pb-8 md:px-8 md:pt-6 flex flex-col gap-6">
+                    <MotionDiv variants={sheetItem}>
+                      <div className="flex items-start justify-between gap-4 flex-wrap">
+                        {Array.isArray(activeProject.category) && (
+                          <div className="flex flex-wrap gap-2">
+                            {(activeProject.category as string[]).map((cat) => (
+                              <span
+                                key={cat}
+                                className="text-xs uppercase tracking-widest rounded-full px-3 py-1 border border-border text-muted-foreground"
+                              >
+                                {cat}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <SheetTitle className="mt-4 text-4xl md:text-5xl font-black italic text-primary leading-none">
+                        {activeProject.name}
+                      </SheetTitle>
                     </MotionDiv>
-                  )}
 
-                  <MotionDiv variants={sheetItem}>
-                    <SheetTitle className="text-4xl md:text-6xl font-black italic text-primary leading-none">
-                      {activeProject.name}
-                    </SheetTitle>
-                  </MotionDiv>
+                    <Separator />
 
-                  <MotionDiv variants={sheetItem}>
-                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
-                      {activeProject.description}
-                    </p>
-                  </MotionDiv>
+                    <MotionDiv variants={sheetItem}>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
+                        {activeProject.description}
+                      </p>
+                    </MotionDiv>
 
-                  {Array.isArray(activeProject.technologies) &&
-                    activeProject.technologies.length > 0 && (
-                      <MotionDiv variants={sheetItem}>
-                        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
-                          Built with
-                        </p>
-                        <ul className="flex flex-wrap gap-2">
-                          {activeProject.technologies.map((tech, index) => {
-                            if (typeof tech === "string") {
+                    {Array.isArray(activeProject.technologies) &&
+                      activeProject.technologies.length > 0 && (
+                        <MotionDiv variants={sheetItem}>
+                          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                            Built with
+                          </p>
+                          <ul className="flex flex-wrap gap-2">
+                            {activeProject.technologies.map((tech, index) => {
+                              if (typeof tech === "string") {
+                                return (
+                                  <MotionLi
+                                    key={tech}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3 + index * 0.04 }}
+                                    className="list-none"
+                                  >
+                                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/40 px-2.5 py-1.5 text-xs">
+                                      {tech}
+                                    </span>
+                                  </MotionLi>
+                                );
+                              }
+                              const Icon = tech.icon;
                               return (
                                 <MotionLi
-                                  key={tech}
+                                  key={tech.name}
                                   initial={{ opacity: 0, y: 10 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   transition={{ delay: 0.3 + index * 0.04 }}
                                   className="list-none"
                                 >
-                                  <span className="inline-flex items-center gap-1.5 rounded-lg border px-2 py-1 text-xs">
-                                    {tech}
+                                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/40 px-2.5 py-1.5 text-xs">
+                                    {Icon && <Icon className="size-3.5" />}
+                                    {tech.name}
                                   </span>
                                 </MotionLi>
                               );
-                            }
-                            const Icon = tech.icon;
-                            return (
-                              <MotionLi
-                                key={tech.name}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 + index * 0.04 }}
-                                className="list-none"
-                              >
-                                <span className="inline-flex items-center gap-1.5 rounded-lg border px-2 py-1 text-xs">
-                                  {Icon && <Icon className="size-3.5" />}
-                                  {tech.name}
-                                </span>
-                              </MotionLi>
-                            );
-                          })}
-                        </ul>
-                      </MotionDiv>
-                    )}
+                            })}
+                          </ul>
+                        </MotionDiv>
+                      )}
+                  </div>
+                </div>
 
-                  <MotionDiv
-                    variants={sheetItem}
-                    className="flex flex-col sm:flex-row gap-3 mt-auto pt-4"
-                  >
+                {/* ── Sticky CTA footer ── */}
+                <MotionDiv
+                  variants={sheetItem}
+                  className="shrink-0 border-t border-border bg-background/95 backdrop-blur-md"
+                >
+                  <div className="mx-auto w-full max-w-2xl px-6 py-5 md:px-8 flex flex-col sm:flex-row gap-3">
                     <Button asChild className="flex-1">
                       <Link
                         href={activeProject.hosted_url}
@@ -237,18 +252,20 @@ export function Projects({ projects }: Props) {
                         <ArrowUpRight className="w-4 h-4 ml-2" />
                       </Link>
                     </Button>
-                    <Button variant="outline" asChild className="flex-1">
-                      <Link
-                        href={activeProject.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaGithub className="w-4 h-4 mr-2" />
-                        GitHub
-                      </Link>
-                    </Button>
-                  </MotionDiv>
-                </div>
+                    {!activeProject.freelance && (
+                      <Button variant="outline" asChild className="flex-1">
+                        <Link
+                          href={activeProject.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FaGithub className="w-4 h-4 mr-2" />
+                          GitHub
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
+                </MotionDiv>
               </div>
             </MotionDiv>
           )}
@@ -266,7 +283,7 @@ export function Projects({ projects }: Props) {
           style={{
             left: 0,
             top: 0,
-            transform: `translate3d(${smoothPosition.x + 20}px, ${smoothPosition.y - 100}px, 0)`,
+            transform: `translate3d(${smoothPosition.x + 20}px, ${Math.max(smoothPosition.y - 100, 0)}px, 0)`,
             opacity: isVisible ? 1 : 0,
             scale: isVisible ? 1 : 0.8,
             transition:

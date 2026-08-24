@@ -429,11 +429,26 @@ export const SITE_CONTENT = {
   ],
   projects: [
     {
+      name: "µLearn 5.0",
+      description:
+        "Rebuilt the µLearn dashboard from the ground up alongside role-aware home pages, Company and Mentor portals, task management, analytics, and μJourney. Hardened auth with cookie-based, edge-protected sessions, moved rendering server-side for speed, and shipped a unified data layer with consistent, accessible tables and forms across every admin screen.",
+      category: "Frontend",
+      image: "/assets/projects/mulearn-dashboard.webp",
+      url: "https://github.com/gtech-mulearn/mulearn-dashboard",
+      hosted_url: "https://app.mulearn.org",
+      technologies: [
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: SiFramer },
+        { name: "React Query", icon: SiReactquery },
+      ],
+    },
+    {
       name: "Illuµnate",
       description:
-        "Designed and developed a Christmas-themed website as part of Illuµnate by µLearn. Focused on optimizing performance, ensuring smooth and stable interactions along with responsive design and accessibility",
+        "Designed and developed the Christmas-themed microsite for µLearn's Illuµnate initiative, from initial UI design through implementation. Built with Next.js and Tailwind CSS, with Framer Motion driving seasonal interaction details, and engineered for consistent performance, responsive layout, and accessibility across devices.",
       category: "Frontend",
-      image: "/assets/projects/illumunate.png",
+      image: "/assets/projects/illumunate.webp",
       url: "https://github.com/gtech-mulearn/Illumunate",
       hosted_url: "https://illumunate.mulearn.org",
       technologies: [
@@ -446,9 +461,9 @@ export const SITE_CONTENT = {
     {
       name: "µLearn Home",
       description:
-        "Contributed to the development of the μLearn homepage, focusing on a clean, responsive UI. Optimized performance through efficient component structuring and improved loading behavior to ensure a smooth, stable, and user-friendly experience",
+        "Contributed to µLearn's public homepage, implementing a clean, responsive interface in Next.js and Tailwind CSS. Restructured components for efficient rendering and improved loading behavior, resulting in a smoother, more stable browsing experience.",
       category: "Frontend",
-      image: "/assets/projects/mulearn.png",
+      image: "/assets/projects/mulearn.webp",
       url: "https://github.com/gtech-mulearn/mulearnhome",
       hosted_url: "https://mulearn.org/",
       technologies: [
@@ -461,9 +476,9 @@ export const SITE_CONTENT = {
     {
       name: "KUHS-GMC",
       description:
-        "Developed the KUHS landing page and results page, using Google Sheets as a CMS for easy result management, ensuring a responsive UI and smooth data handling",
+        "Developed the KUHS landing page and results portal, integrating Google Sheets as a lightweight CMS so results could be updated without a database or backend deployment. Built with Next.js and Tailwind CSS for a responsive UI and reliable data handling under exam-season traffic.",
       category: ["Frontend", "Backend"],
-      image: "/assets/projects/kuhsgmc.png",
+      image: "/assets/projects/kuhsgmc.webp",
       url: "https://github.com/alvin-dennis/KUHS-GMC",
       hosted_url: "https://kuhs-gmc.vercel.app/",
       technologies: [
@@ -476,9 +491,9 @@ export const SITE_CONTENT = {
     {
       name: "Punarjjani",
       description:
-        "Led the end-to-end development of the Punarjjani website, delivering a responsive and user-friendly platform. Collaborated with the team throughout the development process, contribute to performance optimization, ensuring a seamless user experience.",
+        "Led end-to-end development of the Punarjjani website, from architecture through deployment, using Next.js and Tailwind CSS. Worked closely with the team throughout the build, optimizing performance and polish to deliver a responsive, user-friendly platform.",
       category: "Frontend",
-      image: "/assets/projects/punarjjani.png",
+      image: "/assets/projects/punarjjani.webp",
       url: "https://github.com/alvin-dennis/Punarjjani",
       hosted_url: "https://punarjjani.vercel.app/",
       technologies: [
@@ -489,56 +504,27 @@ export const SITE_CONTENT = {
       ],
     },
     {
-      name: "Beyond Syllabus",
-      description:
-        "Built the Beyond syllabus chat UI and set up the backend to support real-time interactions. Worked across both frontend and backend, focusing on performance improvements, optimization, and smooth user experience.",
-      category: ["Frontend", "Backend", "GenAI"],
-      image: "/assets/projects/beyondsyllabus.png",
-      url: "https://github.com/The-Purple-Movement/Beyond-Syllabus",
-      hosted_url: "https://beyondsyllabus.in/",
-      technologies: [
-        { name: "Next.js", icon: SiNextdotjs },
-        { name: "Tailwind CSS", icon: SiTailwindcss },
-        { name: "Framer Motion", icon: SiFramer },
-        { name: "Elysia", icon: SiNodedotjs },
-      ],
-    },
-    {
       name: "MetaLoom",
       description:
-        "Developed and launched the Metaloom website from start to finish, focusing on responsiveness, usability, and performance. Worked with the team to refine features and maintain a seamless experience across devices.",
+        "Developed and launched the MetaLoom website end to end as a freelance engagement, from initial build through production deployment. Iterated with the client's team on features and design, focusing on responsiveness, usability, and consistent performance across devices.",
       category: "Frontend",
-      image: "/assets/projects/metaloom.png",
+      image: "/assets/projects/metaloom.webp",
       url: "https://github.com/metaloomhq/metaloom",
       hosted_url: "https://metaloom.in/",
+      freelance: true,
       technologies: [
         { name: "Next.js", icon: SiNextdotjs },
         { name: "Tailwind CSS", icon: SiTailwindcss },
         { name: "Framer Motion", icon: SiFramer },
-        { name: "Shadcn/UI", icon: SiShadcnui },
-      ],
-    },
-    {
-      name: "Personal Portfolio",
-      description:
-        "Developed a professional developer portfolio featuring a modern, minimal layout. Ensured full responsiveness across devices with optimized performance.",
-      category: "Frontend",
-      image: "/assets/projects/portfolio.png",
-      url: "https://github.com/alvin-dennis/alvin-dennis.github.io",
-      hosted_url: "https://alvinn.me/",
-      technologies: [
-        { name: "Astro", icon: SiAstro },
-        { name: "TypeScript", icon: SiTypescript },
-        { name: "Tailwind CSS", icon: SiTailwindcss },
         { name: "Shadcn/UI", icon: SiShadcnui },
       ],
     },
     {
       name: "BuilderClan",
       description:
-        "Contributed to BuilderClan homepage by building and optimizing the revamped frontend. Delivered a responsive, user-friendly interface with improved performance and modern design practices",
+        "Contributed to the BuilderClan homepage revamp, building and optimizing the frontend in Next.js and Tailwind CSS. Delivered a responsive, user-friendly interface with Framer Motion detailing, improved performance, and current design practices.",
       category: "Frontend",
-      image: "/assets/projects/builderclan.png",
+      image: "/assets/projects/builderclan.webp",
       url: "https://github.com/BuilderClan/builderclan-site",
       hosted_url: "https://builderclan.org/",
       technologies: [
@@ -550,8 +536,8 @@ export const SITE_CONTENT = {
     {
       name: "EleGuard",
       description:
-        "Built the software components for EleGuard, enabling real-time elephant monitoring with hazard detection and alert notifications to support wildlife safety.",
-      category: "Hardware",
+        "Built the software stack for EleGuard, a real-time elephant monitoring system for wildlife safety. Used Roboflow and OpenCV for on-device detection on a Raspberry Pi, with Twilio integration for hazard alerts and notifications delivered to nearby communities.",
+      category: ["GenAI", "Hardware"],
       image: null,
       url: "https://github.com/alvin-dennis/EleGuard",
       hosted_url: "https://github.com/alvin-dennis/EleGuard",

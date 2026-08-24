@@ -65,6 +65,7 @@ export interface Projects {
   url: string;
   hosted_url: string;
   technologies: SkillProp[];
+  freelance?: boolean;
 }
 
 export interface TestimonialCard {
