@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ImageZoomOutIn, RevealText, SlideInBottom, SlideInLeft } from "@/components/animations";
+import { ImageZoomOutIn, SlideInBottom, SlideInLeft, SlideInTop } from "@/components/animations";
 import { Clock } from "@/lib/time";
 import { HeroProp } from "@/types";
 
@@ -28,9 +28,9 @@ export default function Hero({ name, image, summary, currentWork, stats }: HeroP
           <div className="flex-1 flex flex-col justify-center px-8 md:px-16 py-12">
             <div className="relative">
               <h1 className="text-[20vw] md:text-[12vw] font-black leading-[0.75] uppercase text-primary select-none flex flex-col items-center md:items-start text-center md:text-left">
-                <RevealText duration={0.7} viewportAmount={0.3} className="block">
+                <SlideInTop duration={0.6} className="block">
                   {firstName}
-                </RevealText>
+                </SlideInTop>
                 <SlideInBottom
                   duration={0.6}
                   delay={0.25}
