@@ -1,7 +1,4 @@
-"use client";
-
-import { Variants } from "framer-motion";
-import { MotionDiv } from "@/components/Framer";
+import { FloatingAnimation } from "@/components/animations";
 import Section from "@/components/Section";
 import { Badge } from "@/components/ui/badge";
 import type { SkillProp, Skills as SkillsType } from "@/types";
@@ -10,24 +7,6 @@ interface Props {
   skills: SkillsType;
 }
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.4 },
-  },
-};
-
 export default function Skills({ skills }: Props) {
   return (
     <Section
@@ -35,17 +14,12 @@ export default function Skills({ skills }: Props) {
       href="skills"
       paragraph="A curated technical stack focused on modern web architectures and robust engineering."
     >
-      <MotionDiv
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-        className="flex flex-col gap-y-8"
-      >
-        {Object.entries(skills).map(([category, list]) => (
-          <MotionDiv
+      <div className="flex flex-col gap-y-8">
+        {Object.entries(skills).map(([category, list], index) => (
+          <FloatingAnimation
             key={category}
-            variants={itemVariants}
+            delay={index * 0.08}
+            duration={0.5}
             className="flex flex-col md:flex-row gap-4 md:gap-25 group"
           >
             <h3 className="font-bold text-muted-foreground uppercase tracking-wider w-32 pt-2 transition-colors group-hover:text-primary">
@@ -63,9 +37,9 @@ export default function Skills({ skills }: Props) {
                 );
               })}
             </div>
-          </MotionDiv>
+          </FloatingAnimation>
         ))}
-      </MotionDiv>
+      </div>
     </Section>
   );
 }

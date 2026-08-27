@@ -1,23 +1,13 @@
 "use client";
 
-import { Variants } from "framer-motion";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { FiMail } from "react-icons/fi";
-import { MotionDiv, MotionFooter, MotionH2, MotionH3 } from "@/components/Framer";
+import { BounceIn, SlideInTop } from "@/components/animations";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
 import Section from "./Section";
-
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: [0.42, 0, 0.58, 1] },
-  },
-};
 
 export default function Footer() {
   const [isHovered, setIsHovered] = useState(false);
@@ -34,13 +24,8 @@ export default function Footer() {
   };
 
   return (
-    <MotionFooter
-      className="flex items-center justify-center"
-      variants={fadeInUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-    >
+    <SlideInTop duration={0.6}>
+      <footer className="flex items-center justify-center">
       <Section href="contact" className="relative flex flex-col items-center">
         <div
           className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
@@ -61,7 +46,7 @@ export default function Footer() {
             >
               Perfect
             </span>
-            <MotionH3
+            <h3
               className="text-3xl font-light tracking-tight text-primary transition-all duration-500 sm:text-4xl"
               style={{
                 transform: showSuccess ? "translateY(0)" : "translateY(10px)",
@@ -70,7 +55,7 @@ export default function Footer() {
               }}
             >
               Let&apos;s talk
-            </MotionH3>
+            </h3>
           </div>
 
           <Button asChild variant="default" className="group relative flex items-center gap-3">
@@ -124,8 +109,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <MotionDiv
-          variants={fadeInUp}
+        <BounceIn
+          delay={0.2}
+          duration={0.7}
           className="group relative cursor-pointer"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -135,7 +121,7 @@ export default function Footer() {
           }}
         >
           <div className="flex flex-col items-center gap-6">
-            <MotionH2
+            <h2
               className="relative text-center text-primary text-5xl font-light tracking-tight sm:text-6xl md:text-7xl lg:text-8xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{
                 opacity: isClicked ? 0 : 1,
@@ -162,7 +148,7 @@ export default function Footer() {
                   together
                 </span>
               </span>
-            </MotionH2>
+            </h2>
 
             <div className="relative mt-4 flex size-16 items-center justify-center sm:size-20">
               <div
@@ -224,8 +210,9 @@ export default function Footer() {
               }}
             />
           </div>
-        </MotionDiv>
+        </BounceIn>
       </Section>
-    </MotionFooter>
+      </footer>
+    </SlideInTop>
   );
 }

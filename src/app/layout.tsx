@@ -1,10 +1,9 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
-import { Pacifico, League_Spartan, Dela_Gothic_One } from "next/font/google";
+import { Pacifico, League_Spartan } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
 import Loader from "@/components/Loader";
 
 export const metadata: Metadata = {
@@ -77,7 +76,6 @@ export default function RootLayout({
       >
         <Navbar />
         <main className="mx-auto flex-1 px-5 pb-10">
-          <ScrollProgress className="bg-primary" />
           {children}
         </main>
         <Loader />

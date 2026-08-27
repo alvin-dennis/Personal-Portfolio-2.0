@@ -1,12 +1,11 @@
 "use client";
 
-import { Variants } from "framer-motion";
 import { ChevronsDownUpIcon, ChevronsUpDownIcon } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import ReactMarkdown from "react-markdown";
-import { MotionDiv, MotionLi } from "@/components/Framer";
+import { ScaleUp, SlideInBottom, SlideInLeft } from "@/components/animations";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,32 +17,9 @@ interface Props {
   education: Education[];
 }
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-  },
-};
-
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: [0.42, 0, 0.58, 1] },
-  },
-};
-
 export default function ExperienceTabs({ experiences, education }: Props) {
   return (
-    <MotionDiv
-      variants={containerVariants}
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
-      className="w-full"
-    >
+    <div className="w-full">
       <Tabs defaultValue="experience" className="">
         <TabsList className="mb-6" shape="pill">
           <TabsTrigger value="experience"className="font-nougat text-2xl md:text-5xl">Experience</TabsTrigger>
@@ -51,18 +27,19 @@ export default function ExperienceTabs({ experiences, education }: Props) {
         </TabsList>
 
         <TabsContent value="experience">
-          {experiences.map((experience) => (
-            <MotionDiv key={experience.id} variants={fadeInUp}>
+          {experiences.map((experience, index) => (
+            <ScaleUp key={experience.id} delay={index * 0.08} duration={0.5}>
               <ExperienceItem experience={experience} />
-            </MotionDiv>
+            </ScaleUp>
           ))}
         </TabsContent>
 
         <TabsContent value="education">
-          {education.map(({ name, position, start, end, link, logo }) => (
-            <MotionDiv
+          {education.map(({ name, position, start, end, link, logo }, index) => (
+            <ScaleUp
               key={name}
-              variants={fadeInUp}
+              delay={index * 0.08}
+              duration={0.5}
               className="mb-10 last:mb-0"
             >
               <div className="mb-1.5 flex items-center gap-3">
@@ -84,11 +61,11 @@ export default function ExperienceTabs({ experiences, education }: Props) {
                   {start} — {end}
                 </span>
               </div>
-            </MotionDiv>
+            </ScaleUp>
           ))}
         </TabsContent>
       </Tabs>
-    </MotionDiv>
+    </div>
   );
 }
 
@@ -124,10 +101,10 @@ function ExperienceItem({ experience }: { experience: ExperienceType }) {
       </div>
 
       <div className="relative space-y-4 before:absolute before:left-4 before:h-full before:w-px before:bg-border">
-        {experience.positions.map((position) => (
-          <MotionDiv key={position.id} variants={fadeInUp}>
+        {experience.positions.map((position, index) => (
+          <SlideInLeft key={position.id} delay={index * 0.06} duration={0.5}>
             <ExperiencePositionItem position={position} />
-          </MotionDiv>
+          </SlideInLeft>
         ))}
       </div>
     </div>
@@ -210,15 +187,11 @@ function ExperiencePositionItem({ position }: { position: ExperiencePositionItem
           {Array.isArray(position.skills) && position.skills.length > 0 && (
             <ul className="not-prose flex flex-wrap gap-1.5 pt-2 pl-11">
               {position.skills.map((skill, index) => (
-                <MotionLi
-                  key={index}
-                  className="list-none"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  <Skill>{skill}</Skill>
-                </MotionLi>
+                <li key={index} className="list-none">
+                  <SlideInBottom delay={index * 0.05} duration={0.35}>
+                    <Skill>{skill}</Skill>
+                  </SlideInBottom>
+                </li>
               ))}
             </ul>
           )}

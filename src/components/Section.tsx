@@ -1,5 +1,4 @@
-import { Variants } from "framer-motion";
-import { MotionH2, MotionP, MotionSection } from "@/components/Framer";
+import { SlideInLeft, SlideInRight } from "@/components/animations";
 
 interface Props {
   text?: string;
@@ -9,34 +8,20 @@ interface Props {
   className?: string;
 }
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: [0.42, 0, 0.58, 1] },
-  },
-};
-
 export default function Section({ text, href, paragraph, children, className }: Props) {
   return (
-    <MotionSection
-      id={href}
-      className={`py-20 ${className}`}
-      variants={fadeInUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-    >
-      <MotionH2 className="mb-6 text-5xl md:text-7xl text-primary" variants={fadeInUp}>
-        {text}
-      </MotionH2>
+    <section id={href} className={`py-20 ${className}`}>
+      {text && (
+        <SlideInLeft className="mb-6 block">
+          <h2 className="text-5xl md:text-7xl text-primary">{text}</h2>
+        </SlideInLeft>
+      )}
       {paragraph && (
-        <MotionP className="mb-14 max-w-2xl text-md leading-relaxed" variants={fadeInUp}>
-          {paragraph}
-        </MotionP>
+        <SlideInRight delay={0.15} className="mb-14 block max-w-2xl">
+          <p className="text-md leading-relaxed">{paragraph}</p>
+        </SlideInRight>
       )}
       {children}
-    </MotionSection>
+    </section>
   );
 }

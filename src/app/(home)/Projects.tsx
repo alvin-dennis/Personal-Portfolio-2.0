@@ -1,24 +1,21 @@
 "use client";
 
-import { Variants } from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa";
-import { MotionDiv, MotionLi } from "@/components/Framer";
+import { RotateIn, ScaleUp, SlideInBottom } from "@/components/animations";
 import Section from "@/components/Section";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
+import { SITE_CONTENT } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import type { Projects as ProjectsType } from "@/types";
 
-interface Props {
-  projects: ProjectsType[];
-}
-
-export function Projects({ projects }: Props) {
+export function Projects() {
+  const projects = SITE_CONTENT.projects;
   const [open, setOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -27,49 +24,6 @@ export function Projects({ projects }: Props) {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
-
-  const fadeInUp: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4, ease: [0.215, 0.61, 0.355, 1] },
-    },
-  };
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-    },
-  };
-
-  const sheetContainer: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.08, delayChildren: 0.15 },
-    },
-  };
-
-  const sheetItem: Variants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: [0.215, 0.61, 0.355, 1] },
-    },
-  };
-
-  const sheetImage: Variants = {
-    hidden: { opacity: 0, scale: 1.05 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.6, ease: [0.215, 0.61, 0.355, 1] },
-    },
-  };
 
   useEffect(() => {
     const lerp = (start: number, end: number, factor: number) =>
@@ -117,15 +71,12 @@ export function Projects({ projects }: Props) {
           showCloseButton={false}
         >
           {activeProject && (
-            <MotionDiv
+            <div
               key={activeProject.name}
-              variants={sheetContainer}
-              initial="hidden"
-              animate="visible"
               className="relative h-full flex flex-col overflow-hidden"
             >
               {/* ── Floating close button ── */}
-              <MotionDiv variants={sheetItem} className="absolute top-4 right-4 md:top-6 md:right-6 z-30">
+              <SlideInBottom delay={0.05} duration={0.4} className="absolute top-4 right-4 md:top-6 md:right-6 z-30">
                 <Button
                   onClick={() => setOpen(false)}
                   aria-label="Close"
@@ -134,11 +85,12 @@ export function Projects({ projects }: Props) {
                 >
                   <X className="w-4 h-4" />
                 </Button>
-              </MotionDiv>
+              </SlideInBottom>
 
               {/* ── Full-bleed hero image ── */}
-              <MotionDiv
-                variants={sheetImage}
+              <ScaleUp
+                delay={0.1}
+                duration={0.5}
                 className="relative w-full aspect-[3/2] max-h-[46vh] shrink-0 bg-secondary overflow-hidden"
               >
                 {activeProject.image && (
@@ -152,7 +104,7 @@ export function Projects({ projects }: Props) {
                   />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/0 to-transparent" />
-              </MotionDiv>
+              </ScaleUp>
 
               {/* ── Content card, overlapping the image ── */}
               <div className="relative z-10 -mt-8 md:-mt-12 flex-1 flex flex-col min-h-0 rounded-t-3xl bg-background overflow-hidden">
@@ -163,7 +115,7 @@ export function Projects({ projects }: Props) {
 
                 <div className="flex-1 overflow-y-auto">
                   <div className="mx-auto w-full max-w-2xl px-6 pt-4 pb-8 md:px-8 md:pt-6 flex flex-col gap-6">
-                    <MotionDiv variants={sheetItem}>
+                    <SlideInBottom delay={0.18} duration={0.4}>
                       <div className="flex items-start justify-between gap-4 flex-wrap">
                         {Array.isArray(activeProject.category) && (
                           <div className="flex flex-wrap gap-2">
@@ -181,19 +133,19 @@ export function Projects({ projects }: Props) {
                       <SheetTitle className="mt-4 text-4xl md:text-5xl font-black italic text-primary leading-none">
                         {activeProject.name}
                       </SheetTitle>
-                    </MotionDiv>
+                    </SlideInBottom>
 
                     <Separator />
 
-                    <MotionDiv variants={sheetItem}>
+                    <SlideInBottom delay={0.24} duration={0.4}>
                       <p className="text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
                         {activeProject.description}
                       </p>
-                    </MotionDiv>
+                    </SlideInBottom>
 
                     {Array.isArray(activeProject.technologies) &&
                       activeProject.technologies.length > 0 && (
-                        <MotionDiv variants={sheetItem}>
+                        <SlideInBottom delay={0.3} duration={0.4}>
                           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
                             Built with
                           </p>
@@ -201,44 +153,37 @@ export function Projects({ projects }: Props) {
                             {activeProject.technologies.map((tech, index) => {
                               if (typeof tech === "string") {
                                 return (
-                                  <MotionLi
-                                    key={tech}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3 + index * 0.04 }}
-                                    className="list-none"
-                                  >
-                                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/40 px-2.5 py-1.5 text-xs">
-                                      {tech}
-                                    </span>
-                                  </MotionLi>
+                                  <li key={tech} className="list-none">
+                                    <SlideInBottom delay={0.36 + index * 0.04} duration={0.35}>
+                                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/40 px-2.5 py-1.5 text-xs">
+                                        {tech}
+                                      </span>
+                                    </SlideInBottom>
+                                  </li>
                                 );
                               }
                               const Icon = tech.icon;
                               return (
-                                <MotionLi
-                                  key={tech.name}
-                                  initial={{ opacity: 0, y: 10 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: 0.3 + index * 0.04 }}
-                                  className="list-none"
-                                >
-                                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/40 px-2.5 py-1.5 text-xs">
-                                    {Icon && <Icon className="size-3.5" />}
-                                    {tech.name}
-                                  </span>
-                                </MotionLi>
+                                <li key={tech.name} className="list-none">
+                                  <SlideInBottom delay={0.36 + index * 0.04} duration={0.35}>
+                                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/40 px-2.5 py-1.5 text-xs">
+                                      {Icon && <Icon className="size-3.5" />}
+                                      {tech.name}
+                                    </span>
+                                  </SlideInBottom>
+                                </li>
                               );
                             })}
                           </ul>
-                        </MotionDiv>
+                        </SlideInBottom>
                       )}
                   </div>
                 </div>
 
                 {/* ── Sticky CTA footer ── */}
-                <MotionDiv
-                  variants={sheetItem}
+                <SlideInBottom
+                  delay={0.4}
+                  duration={0.4}
                   className="shrink-0 border-t border-border bg-background/95 backdrop-blur-md"
                 >
                   <div className="mx-auto w-full max-w-2xl px-6 py-5 md:px-8 flex flex-col sm:flex-row gap-3">
@@ -265,9 +210,9 @@ export function Projects({ projects }: Props) {
                       </Button>
                     )}
                   </div>
-                </MotionDiv>
+                </SlideInBottom>
               </div>
-            </MotionDiv>
+            </div>
           )}
         </SheetContent>
       </Sheet>
@@ -312,20 +257,16 @@ export function Projects({ projects }: Props) {
           </div>
         </div>
 
-        <MotionDiv
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div>
           {projects.map((project, index) => {
             const categories: string[] = Array.isArray(project.category)
               ? project.category
               : [project.category];
             return (
-              <MotionDiv
+              <RotateIn
                 key={project.name}
-                variants={fadeInUp}
+                delay={index * 0.06}
+                duration={0.55}
                 className="group block w-full mx-auto cursor-pointer"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -389,10 +330,10 @@ export function Projects({ projects }: Props) {
                     </div>
                   </div>
                 </div>
-              </MotionDiv>
+              </RotateIn>
             );
           })}
-        </MotionDiv>
+        </div>
 
         <Separator orientation="horizontal" className="my-2" />
       </div>

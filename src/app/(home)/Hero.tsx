@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { MotionDiv, MotionH1, MotionP, MotionSpan } from "@/components/Framer";
+import { ImageZoomOutIn, RevealText, SlideInBottom, SlideInLeft } from "@/components/animations";
 import { Clock } from "@/lib/time";
 import { HeroProp } from "@/types";
 
@@ -29,40 +27,28 @@ export default function Hero({ name, image, summary, currentWork, stats }: HeroP
           </div>
           <div className="flex-1 flex flex-col justify-center px-8 md:px-16 py-12">
             <div className="relative">
-              <MotionH1 className="text-[20vw] md:text-[12vw] font-black leading-[0.75] uppercase text-primary select-none flex flex-col items-center md:items-start text-center md:text-left">
-                <div className="overflow-hidden">
-                  <MotionSpan
-                    initial={{ y: "100%" }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="block"
-                  >
-                    {firstName}
-                  </MotionSpan>
-                </div>
-                <div className="overflow-hidden">
-                  <MotionSpan
-                    initial={{ y: "100%" }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="block text-foreground mt-5 md:ml-60"
-                  >
-                    {lastName}
-                  </MotionSpan>
-                </div>
-              </MotionH1>
+              <h1 className="text-[20vw] md:text-[12vw] font-black leading-[0.75] uppercase text-primary select-none flex flex-col items-center md:items-start text-center md:text-left">
+                <RevealText duration={0.7} viewportAmount={0.3} className="block">
+                  {firstName}
+                </RevealText>
+                <SlideInBottom
+                  duration={0.6}
+                  delay={0.25}
+                  className="block text-foreground mt-5 md:ml-60"
+                >
+                  {lastName}
+                </SlideInBottom>
+              </h1>
             </div>
           </div>
           <div className="mt-auto grid grid-cols-1 lg:grid-cols-2">
             <div className="p-8 md:p-10 bg-primary">
-              <MotionP
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="text-lg md:text-xl font-bold uppercase leading-tight text-primary-foreground text-center md:text-left"
+              <SlideInLeft
+                duration={0.6}
+                className="block text-lg md:text-xl font-bold uppercase leading-tight text-primary-foreground text-center md:text-left"
               >
                 {summary}
-              </MotionP>
+              </SlideInLeft>
             </div>
             <div className="flex bg-secondary/5 divide-x-2 divide-border/40">
               {stats?.map((stat, index) => (
@@ -82,10 +68,8 @@ export default function Hero({ name, image, summary, currentWork, stats }: HeroP
           </div>
         </div>
         <div className="md:col-span-4 relative bg-secondary/10 group overflow-hidden h-[400px] md:h-auto">
-          <MotionDiv
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, ease: "circOut" }}
+          <ImageZoomOutIn
+            duration={0.9}
             className="absolute inset-0 grayscale contrast-[1.1] group-hover:grayscale-0 transition-all duration-1000"
           >
             <Image
@@ -97,7 +81,7 @@ export default function Hero({ name, image, summary, currentWork, stats }: HeroP
               className="object-cover object-top scale-105 group-hover:scale-100 transition-transform duration-1000"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-          </MotionDiv>
+          </ImageZoomOutIn>
         </div>
       </div>
     </section>
