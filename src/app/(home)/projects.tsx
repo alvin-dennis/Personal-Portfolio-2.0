@@ -6,16 +6,19 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { RotateIn, ScaleUp, SlideInBottom } from "@/components/animations";
-import Section from "@/components/Section";
+import Section from "@/components/section";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { SITE_CONTENT } from "@/lib/constants";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { skillIconMap } from "@/lib/icon-maps";
 import { cn } from "@/lib/utils";
 import type { Projects as ProjectsType } from "@/types";
 
-export function Projects() {
-  const projects = SITE_CONTENT.projects;
+interface Props {
+  projects: ProjectsType[];
+}
+
+export function Projects({ projects }: Props) {
   const [open, setOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -26,8 +29,7 @@ export function Projects() {
   const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const lerp = (start: number, end: number, factor: number) =>
-      start + (end - start) * factor;
+    const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
     const animate = () => {
       setSmoothPosition((prev) => ({
         x: lerp(prev.x, mousePosition.x, 0.15),
@@ -71,12 +73,13 @@ export function Projects() {
           showCloseButton={false}
         >
           {activeProject && (
-            <div
-              key={activeProject.name}
-              className="relative h-full flex flex-col overflow-hidden"
-            >
+            <div key={activeProject.name} className="relative h-full flex flex-col overflow-hidden">
               {/* ── Floating close button ── */}
-              <SlideInBottom delay={0.05} duration={0.4} className="absolute top-4 right-4 md:top-6 md:right-6 z-30">
+              <SlideInBottom
+                delay={0.05}
+                duration={0.4}
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-30"
+              >
                 <Button
                   onClick={() => setOpen(false)}
                   aria-label="Close"
@@ -162,7 +165,7 @@ export function Projects() {
                                   </li>
                                 );
                               }
-                              const Icon = tech.icon;
+                              const Icon = skillIconMap[tech.icon];
                               return (
                                 <li key={tech.name} className="list-none">
                                   <SlideInBottom delay={0.36 + index * 0.04} duration={0.35}>
@@ -199,11 +202,7 @@ export function Projects() {
                     </Button>
                     {!activeProject.freelance && (
                       <Button variant="outline" asChild className="flex-1">
-                        <Link
-                          href={activeProject.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <Link href={activeProject.url} target="_blank" rel="noopener noreferrer">
                           <FaGithub className="w-4 h-4 mr-2" />
                           GitHub
                         </Link>
@@ -239,7 +238,7 @@ export function Projects() {
             {projects.map((project, index) => {
               if (!project.image) return null;
               return (
-               <Image
+                <Image
                   key={project.name}
                   src={project.image}
                   alt={project.name}
@@ -283,9 +282,7 @@ export function Projects() {
                   <div
                     className={cn(
                       "absolute inset-0 -mx-4 px-4 rounded-lg transition-all duration-300 ease-out",
-                      hoveredIndex === index
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-95",
+                      hoveredIndex === index ? "opacity-100 scale-100" : "opacity-0 scale-95",
                     )}
                   />
                   <div className="relative flex flex-col md:flex-row md:items-center gap-4">

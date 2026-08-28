@@ -1,29 +1,20 @@
 import { CodeXmlIcon, Globe, GraduationCapIcon } from "lucide-react";
 import { GiMoneyStack } from "react-icons/gi";
 import { RiUserCommunityFill } from "react-icons/ri";
-import { SITE_CONTENT } from "@/lib/constants";
-
-const testimonials = SITE_CONTENT.testimonials;
 
 export interface SiteConfig extends Navbar {
   title: string;
   description: string;
   author: string;
-  socialLinks: { text: string; href: string; icon: React.ElementType }[];
+  socialLinks: { text: string; href: string; icon: string }[];
   socialImage: string;
-}
-
-export interface SiteContent {
-  header: Navbar[];
-  hero: HeroProp;
-  education: Education[];
-  experience: Experience[];
-  projects: Projects;
+  contact: Contact;
 }
 
 export interface Navbar {
   siteLogo: string;
-  socialLinks: { text: string; href: string; icon: React.ElementType }[];
+  socialLinks: { text: string; href: string; icon: string }[];
+  menuItems: { label: string; href: string }[];
 }
 
 export interface HeroStat {
@@ -39,7 +30,7 @@ export interface HeroProp {
   stats?: HeroStat[];
 }
 
-export type SkillProp = string | { name: string; icon: React.ElementType };
+export type SkillProp = string | { name: string; icon: string };
 
 export interface Skills {
   languages: SkillProp[];
@@ -49,12 +40,6 @@ export interface Skills {
   tools: SkillProp[];
   hardware: SkillProp[];
   platforms: SkillProp[];
-}
-
-export interface Socials {
-  github: string;
-  linkedin: string;
-  instagram: string;
 }
 
 export interface Projects {
@@ -68,9 +53,15 @@ export interface Projects {
   freelance?: boolean;
 }
 
+export interface Testimonial {
+  id: string;
+  testimonial: string;
+  by: string;
+}
+
 export interface TestimonialCard {
   position: number;
-  testimonial: (typeof testimonials)[0];
+  testimonial: Testimonial;
   handleMove: (steps: number) => void;
   cardSize: number;
 }

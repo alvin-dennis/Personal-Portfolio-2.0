@@ -2,13 +2,10 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import Section from "@/components/Section";
+import Section from "@/components/section";
 import { Button } from "@/components/ui/button";
-import { SITE_CONTENT } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import type { TestimonialCard } from "@/types";
-
-const testimonials = SITE_CONTENT.testimonials;
+import type { Testimonial, TestimonialCard } from "@/types";
 
 const SQRT_5000 = Math.sqrt(5000);
 
@@ -71,7 +68,11 @@ const TestimonialCard: React.FC<TestimonialCard> = ({
   );
 };
 
-export const Testimonials: React.FC = () => {
+interface Props {
+  testimonials: Testimonial[];
+}
+
+export const Testimonials: React.FC<Props> = ({ testimonials }) => {
   const [cardSize, setCardSize] = useState(365);
   const [testimonialsList, setTestimonialsList] = useState(testimonials);
 
@@ -81,13 +82,13 @@ export const Testimonials: React.FC = () => {
       for (let i = steps; i > 0; i--) {
         const item = newList.shift();
         if (!item) return;
-        newList.push({ ...item, id: Math.random() });
+        newList.push({ ...item, id: crypto.randomUUID() });
       }
     } else {
       for (let i = steps; i < 0; i++) {
         const item = newList.pop();
         if (!item) return;
-        newList.unshift({ ...item, id: Math.random() });
+        newList.unshift({ ...item, id: crypto.randomUUID() });
       }
     }
     setTestimonialsList(newList);

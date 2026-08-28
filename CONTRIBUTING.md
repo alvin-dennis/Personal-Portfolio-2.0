@@ -14,6 +14,7 @@ Before you start contributing, please take a moment to read the following guidel
     - [Suggesting Enhancements](#suggesting-enhancements)
     - [Working on Issues](#working-on-issues)
     - [Submitting Pull Requests](#submitting-pull-requests)
+  - [Reporting Security Issues](#reporting-security-issues)
 
 ## Getting Started
 
@@ -45,5 +46,9 @@ Feel free to pick any open issue from our [issue tracker](https://github.com/alv
 4. Create a pull request to the `main` branch of the original repository.
 5. Clearly describe your changes and why you think they should be merged.
 6. Be willing to make any requested changes or improvements.
+
+## Reporting Security Issues
+
+Found a vulnerability? Do not open a public issue for it — see [SECURITY.md](./SECURITY.md) for the private reporting process.
 
 Thank you for contributing! 🚀

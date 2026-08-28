@@ -66,6 +66,9 @@ All complaints will be reviewed and investigated promptly and fairly.
 All community leaders are obligated to respect the privacy and security of the
 reporter of any incident.
 
+For security vulnerabilities in the project itself (as opposed to conduct
+issues), see [SECURITY.md](./SECURITY.md) instead of this document.
+
 ## Enforcement Guidelines
 
 Community leaders will follow these Community Impact Guidelines in determining

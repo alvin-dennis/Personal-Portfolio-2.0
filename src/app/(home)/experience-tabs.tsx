@@ -1,16 +1,21 @@
 "use client";
 
 import { ChevronsDownUpIcon, ChevronsUpDownIcon } from "lucide-react";
-import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import { ScaleUp, SlideInBottom, SlideInLeft } from "@/components/animations";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
-import { ExperiencePositionItemType, Experience as ExperienceType, Education, iconMap } from "@/types";
+import {
+  Education,
+  ExperiencePositionItemType,
+  Experience as ExperienceType,
+  iconMap,
+} from "@/types";
 
 interface Props {
   experiences: ExperienceType[];
@@ -22,8 +27,12 @@ export default function ExperienceTabs({ experiences, education }: Props) {
     <div className="w-full">
       <Tabs defaultValue="experience" className="">
         <TabsList className="mb-6" shape="pill">
-          <TabsTrigger value="experience"className="font-nougat text-2xl md:text-5xl">Experience</TabsTrigger>
-          <TabsTrigger value="education"className="font-nougat text-2xl md:text-5xl">Education</TabsTrigger>
+          <TabsTrigger value="experience" className="font-nougat text-2xl md:text-5xl">
+            Experience
+          </TabsTrigger>
+          <TabsTrigger value="education" className="font-nougat text-2xl md:text-5xl">
+            Education
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="experience">
@@ -36,16 +45,11 @@ export default function ExperienceTabs({ experiences, education }: Props) {
 
         <TabsContent value="education">
           {education.map(({ name, position, start, end, link, logo }, index) => (
-            <ScaleUp
-              key={name}
-              delay={index * 0.08}
-              duration={0.5}
-              className="mb-10 last:mb-0"
-            >
+            <ScaleUp key={name} delay={index * 0.08} duration={0.5} className="mb-10 last:mb-0">
               <div className="mb-1.5 flex items-center gap-3">
                 <Link href={link} target="_blank" rel="noopener noreferrer">
                   <Image
-                    src={`https://images.weserv.nl/?url=${logo}&output=webp`}
+                    src={logo}
                     alt={name}
                     width={50}
                     height={50}
@@ -77,7 +81,7 @@ function ExperienceItem({ experience }: { experience: ExperienceType }) {
           <div className="size-10 items-start justify-start">
             {experience.companyLogo ? (
               <Image
-                src={`https://images.weserv.nl/?url=${experience.companyLogo}&output=webp`}
+                src={experience.companyLogo}
                 alt={experience.companyName}
                 width={50}
                 height={50}

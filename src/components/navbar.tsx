@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SlideInBottom } from "@/components/animations";
-import { SITE_CONFIG } from "@/lib/constants";
+import { getSiteSettings } from "@/sanity/lib/queries";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const siteSettings = await getSiteSettings();
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-primary">
       <SlideInBottom duration={0.5}>
@@ -11,19 +12,17 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
               className="rounded-sm"
-              src={SITE_CONFIG.siteLogo}
+              src={siteSettings.siteLogo}
               width={35}
               height={35}
-              alt={SITE_CONFIG.author}
+              alt={siteSettings.author}
             />
-            <span
-              className="font-nougat text-2xl md:text-3xl italic tracking-wide text-primary md:text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
-              {SITE_CONFIG.author}
+            <span className="font-nougat text-2xl md:text-3xl italic tracking-wide text-primary md:text-muted-foreground hover:text-primary transition-colors duration-200">
+              {siteSettings.author}
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
-            {SITE_CONFIG.menuItems.map((link) => (
+            {siteSettings.menuItems.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}

@@ -1,13 +1,12 @@
 import { FloatingAnimation } from "@/components/animations";
-import Section from "@/components/Section";
+import Section from "@/components/section";
 import { Badge } from "@/components/ui/badge";
-import type { SkillProp, Skills as SkillsType } from "@/types";
+import { skillIconMap } from "@/lib/icon-maps";
+import { getSkills } from "@/sanity/lib/queries";
+import type { SkillProp } from "@/types";
 
-interface Props {
-  skills: SkillsType;
-}
-
-export default function Skills({ skills }: Props) {
+export default async function Skills() {
+  const skills = await getSkills();
   return (
     <Section
       text="Skills"
@@ -28,7 +27,7 @@ export default function Skills({ skills }: Props) {
             <div className="flex flex-wrap gap-x-3 gap-y-3 flex-1">
               {list.map((skill: SkillProp) => {
                 const name = typeof skill === "string" ? skill : skill.name;
-                const Icon = typeof skill === "string" ? null : skill.icon;
+                const Icon = typeof skill === "string" ? null : skillIconMap[skill.icon];
                 return (
                   <Badge variant={"secondary"} key={name} className="flex items-center">
                     {Icon && <Icon className="size-12" />}

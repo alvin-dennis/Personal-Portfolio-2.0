@@ -1,6 +1,6 @@
-'use client';
-import type { HTMLMotionProps } from 'framer-motion';
-import { motion, useScroll, useTransform } from 'framer-motion';
+"use client";
+import type { HTMLMotionProps } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   type CSSProperties,
   type FC,
@@ -9,11 +9,19 @@ import {
   useEffect,
   useRef,
   useState,
-} from 'react';
+} from "react";
 
 type RestMotionProps = Omit<
-  HTMLMotionProps<'div'>,
-  'initial' | 'animate' | 'whileInView' | 'viewport' | 'transition' | 'variants' | 'style' | 'className' | 'children'
+  HTMLMotionProps<"div">,
+  | "initial"
+  | "animate"
+  | "whileInView"
+  | "viewport"
+  | "transition"
+  | "variants"
+  | "style"
+  | "className"
+  | "children"
 >;
 
 interface AnimatedContentProps extends RestMotionProps {
@@ -46,14 +54,14 @@ interface TextAnimationProps {
 }
 
 const combineClasses = (...classes: (string | undefined)[]): string =>
-  classes.filter(Boolean).join(' ');
+  classes.filter(Boolean).join(" ");
 
 const EASE_OUT: [number, number, number, number] = [0.23, 1, 0.32, 1];
 
 // 1. Slide in from left
 export const SlideInLeft: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   delay = 0,
   duration = 0.75,
@@ -61,7 +69,7 @@ export const SlideInLeft: FC<AnimatedContentProps> = ({
 }) => (
   <motion.div
     className={className}
-    style={{ willChange: 'transform, opacity', ...style }}
+    style={{ willChange: "transform, opacity", ...style }}
     initial={{ opacity: 0, x: -32 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true, amount: 0.5 }}
@@ -75,7 +83,7 @@ export const SlideInLeft: FC<AnimatedContentProps> = ({
 // 2. Slide in from right
 export const SlideInRight: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   delay = 0,
   duration = 0.75,
@@ -83,7 +91,7 @@ export const SlideInRight: FC<AnimatedContentProps> = ({
 }) => (
   <motion.div
     className={className}
-    style={{ willChange: 'transform, opacity', ...style }}
+    style={{ willChange: "transform, opacity", ...style }}
     initial={{ opacity: 0, x: 32 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true, amount: 0.5 }}
@@ -97,7 +105,7 @@ export const SlideInRight: FC<AnimatedContentProps> = ({
 // 3. Scale up
 export const ScaleUp: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   delay = 0,
   duration = 0.65,
@@ -105,7 +113,7 @@ export const ScaleUp: FC<AnimatedContentProps> = ({
 }) => (
   <motion.div
     className={className}
-    style={{ willChange: 'transform, opacity', ...style }}
+    style={{ willChange: "transform, opacity", ...style }}
     initial={{ opacity: 0, scale: 0.88, y: 16 }}
     whileInView={{ opacity: 1, scale: 1, y: 0 }}
     viewport={{ once: true, amount: 0.5 }}
@@ -119,7 +127,7 @@ export const ScaleUp: FC<AnimatedContentProps> = ({
 // 4. Rotate in
 export const RotateIn: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   delay = 0,
   duration = 0.8,
@@ -127,7 +135,7 @@ export const RotateIn: FC<AnimatedContentProps> = ({
 }) => (
   <motion.div
     className={className}
-    style={{ willChange: 'transform, opacity', ...style }}
+    style={{ willChange: "transform, opacity", ...style }}
     initial={{ opacity: 0, rotate: -8, scale: 0.92 }}
     whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
     viewport={{ once: true, amount: 0.5 }}
@@ -141,7 +149,7 @@ export const RotateIn: FC<AnimatedContentProps> = ({
 // 5. Staggered children
 export const StaggeredContainer: FC<StaggeredContainerProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   staggerDelay = 0.2,
   delayChildren = 0.1,
@@ -156,7 +164,7 @@ export const StaggeredContainer: FC<StaggeredContainerProps> = ({
   };
   return (
     <motion.div
-      className={combineClasses('mx-auto flex flex-nowrap gap-5 md:flex-row', className)}
+      className={combineClasses("mx-auto flex flex-nowrap gap-5 md:flex-row", className)}
       style={style}
       variants={containerVariants}
       initial="hidden"
@@ -179,15 +187,15 @@ export const StaggeredContainer: FC<StaggeredContainerProps> = ({
 // 6. Parallax scroll
 export const ParallaxScroll: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   duration = 1,
 }) => {
   const [scrollY, setScrollY] = useState(0);
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
     <motion.div
@@ -206,7 +214,7 @@ export const ParallaxScroll: FC<AnimatedContentProps> = ({
 // 7. Bounce in
 export const BounceIn: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   delay = 0,
   duration = 0.8,
@@ -228,7 +236,7 @@ export const BounceIn: FC<AnimatedContentProps> = ({
 // 8. Reveal text (clip)
 export const RevealText: FC<AnimatedContentProps & { viewportAmount?: number }> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   duration = 1.0,
   viewportAmount = 0.5,
@@ -236,9 +244,9 @@ export const RevealText: FC<AnimatedContentProps & { viewportAmount?: number }> 
 }) => (
   <motion.div
     className={className}
-    style={{ willChange: 'clip-path', ...style }}
-    initial={{ clipPath: 'inset(0 100% 0 0)' }}
-    whileInView={{ clipPath: 'inset(0 0% 0 0)' }}
+    style={{ willChange: "clip-path", ...style }}
+    initial={{ clipPath: "inset(0 100% 0 0)" }}
+    whileInView={{ clipPath: "inset(0 0% 0 0)" }}
     viewport={{ once: true, amount: viewportAmount }}
     transition={{ duration, ease: EASE_OUT }}
     {...rest}
@@ -250,7 +258,7 @@ export const RevealText: FC<AnimatedContentProps & { viewportAmount?: number }> 
 // 9. Floating entrance
 export const FloatingAnimation: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   delay = 0,
   duration = 0.8,
@@ -272,7 +280,7 @@ export const FloatingAnimation: FC<AnimatedContentProps> = ({
 // 10. Magnetic hover
 export const MagneticHover: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   duration = 0.3,
 }) => (
@@ -293,19 +301,19 @@ export const MagneticHover: FC<AnimatedContentProps> = ({
 // 11. Image zoom out→in
 export const ImageZoomOutIn: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   delay = 0,
   duration = 1.5,
   ...rest
 }) => (
   <motion.div
-    className={combineClasses('overflow-hidden', className)}
+    className={combineClasses("overflow-hidden", className)}
     style={style}
     initial={{ scale: 1.2, opacity: 0 }}
     whileInView={{ scale: 1, opacity: 1 }}
     viewport={{ once: true }}
-    transition={{ duration, delay, ease: 'easeOut' }}
+    transition={{ duration, delay, ease: "easeOut" }}
     {...rest}
   >
     {children}
@@ -315,17 +323,17 @@ export const ImageZoomOutIn: FC<AnimatedContentProps> = ({
 // 12. Image zoom in→out
 export const ImageZoomInOut: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   duration = 1.2,
 }) => (
   <motion.div
-    className={combineClasses('overflow-hidden', className)}
+    className={combineClasses("overflow-hidden", className)}
     style={style}
     initial={{ scale: 0.8, opacity: 0 }}
     whileInView={{ scale: 1.1, opacity: 1 }}
     viewport={{ once: true }}
-    transition={{ duration, ease: 'easeInOut' }}
+    transition={{ duration, ease: "easeInOut" }}
   >
     {children}
   </motion.div>
@@ -334,18 +342,18 @@ export const ImageZoomInOut: FC<AnimatedContentProps> = ({
 // 13. Continuous zoom (breathing)
 export const ContinuousZoom: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   duration = 4,
 }) => (
   <motion.div
-    className={combineClasses('overflow-hidden', className)}
+    className={combineClasses("overflow-hidden", className)}
     style={style}
     initial={{ scale: 1, opacity: 0 }}
     whileInView={{ opacity: 1 }}
     animate={{ scale: [1, 1.05, 1] }}
     transition={{
-      scale: { duration, repeat: Infinity, ease: 'easeInOut' },
+      scale: { duration, repeat: Infinity, ease: "easeInOut" },
       opacity: { duration: 0.8 },
     }}
     viewport={{ once: true }}
@@ -357,18 +365,18 @@ export const ContinuousZoom: FC<AnimatedContentProps> = ({
 // 14. Hover zoom
 export const HoverZoomImage: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   duration = 0.6,
 }) => (
   <motion.div
-    className={combineClasses('cursor-pointer overflow-hidden', className)}
+    className={combineClasses("cursor-pointer overflow-hidden", className)}
     style={style}
     initial={{ scale: 0.9, opacity: 0 }}
     whileInView={{ scale: 1, opacity: 1 }}
     whileHover={{ scale: 1.1 }}
     viewport={{ once: true }}
-    transition={{ duration, ease: 'easeOut' }}
+    transition={{ duration, ease: "easeOut" }}
   >
     {children}
   </motion.div>
@@ -377,17 +385,17 @@ export const HoverZoomImage: FC<AnimatedContentProps> = ({
 // 15. Zoom with rotation
 export const ZoomRotate: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   duration = 1.8,
 }) => (
   <motion.div
-    className={combineClasses('overflow-hidden', className)}
+    className={combineClasses("overflow-hidden", className)}
     style={style}
     initial={{ scale: 1.3, rotate: 5, opacity: 0 }}
     whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
     viewport={{ once: true }}
-    transition={{ duration, ease: 'easeOut' }}
+    transition={{ duration, ease: "easeOut" }}
   >
     {children}
   </motion.div>
@@ -396,18 +404,18 @@ export const ZoomRotate: FC<AnimatedContentProps> = ({
 // 16. Pulse zoom
 export const PulseZoom: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   duration = 2,
 }) => (
   <motion.div
-    className={combineClasses('overflow-hidden', className)}
+    className={combineClasses("overflow-hidden", className)}
     style={style}
     initial={{ scale: 0.8, opacity: 0 }}
     whileInView={{ scale: 1, opacity: 1 }}
     animate={{ scale: [1, 1.02, 1] }}
     transition={{
-      scale: { duration, repeat: Infinity, ease: 'easeInOut' },
+      scale: { duration, repeat: Infinity, ease: "easeInOut" },
       opacity: { duration: 0.8 },
     }}
     viewport={{ once: true }}
@@ -419,7 +427,7 @@ export const PulseZoom: FC<AnimatedContentProps> = ({
 // 17. Slide in from bottom
 export const SlideInBottom: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   delay = 0,
   duration = 0.7,
@@ -427,7 +435,7 @@ export const SlideInBottom: FC<AnimatedContentProps> = ({
 }) => (
   <motion.div
     className={className}
-    style={{ willChange: 'transform, opacity', ...style }}
+    style={{ willChange: "transform, opacity", ...style }}
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.5 }}
@@ -441,7 +449,7 @@ export const SlideInBottom: FC<AnimatedContentProps> = ({
 // 18. Slide in from top
 export const SlideInTop: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
   delay = 0,
   duration = 0.7,
@@ -449,7 +457,7 @@ export const SlideInTop: FC<AnimatedContentProps> = ({
 }) => (
   <motion.div
     className={className}
-    style={{ willChange: 'transform, opacity', ...style }}
+    style={{ willChange: "transform, opacity", ...style }}
     initial={{ opacity: 0, y: -24 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.5 }}
@@ -463,24 +471,24 @@ export const SlideInTop: FC<AnimatedContentProps> = ({
 // 19. Scroll animate
 export const ScrollAnimate: FC<AnimatedContentProps> = ({
   children,
-  className = '',
+  className = "",
   style = {},
 }) => {
   const [scrollY, setScrollY] = useState(0);
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
     <motion.div
       className={combineClasses(
-        'relative z-40 flex h-full flex-col items-center justify-center gap-3 text-white',
+        "relative z-40 flex h-full flex-col items-center justify-center gap-3 text-white",
         className,
       )}
       style={style}
       animate={{ y: Math.max(50 - scrollY * 0.5, -200) }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       {children}
     </motion.div>
@@ -490,18 +498,18 @@ export const ScrollAnimate: FC<AnimatedContentProps> = ({
 // 20. Entrance wave (per-character)
 export const EntranceWave: FC<TextAnimationProps> = ({
   text,
-  className = '',
+  className = "",
   delay = 0,
   duration = 0.6,
 }) => {
   let lines = text.split(/<br\s*\/?>/i);
-  if (lines.length === 1) lines = text.split('\n');
+  if (lines.length === 1) lines = text.split("\n");
   let charIndex = 0;
   return (
-    <div className={combineClasses('flex flex-col', className)}>
+    <div className={combineClasses("flex flex-col", className)}>
       {lines.map((line: string, lineIndex: number) => (
         <div key={lineIndex} className="flex">
-          {line.split('').map((char: string, index: number) => {
+          {line.split("").map((char: string, index: number) => {
             const ci = charIndex++;
             return (
               <motion.span
@@ -509,10 +517,10 @@ export const EntranceWave: FC<TextAnimationProps> = ({
                 className="inline-block"
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration, delay: delay + ci * 0.1, ease: 'easeOut' }}
+                transition={{ duration, delay: delay + ci * 0.1, ease: "easeOut" }}
                 whileHover={{ y: -10, transition: { duration: 0.2 } }}
               >
-                {char === ' ' ? ' ' : char}
+                {char === " " ? " " : char}
               </motion.span>
             );
           })}
@@ -525,19 +533,19 @@ export const EntranceWave: FC<TextAnimationProps> = ({
 // 21. Continuous wave
 export const ContinuousWave: FC<TextAnimationProps> = ({
   text,
-  className = '',
+  className = "",
   delay = 0,
   duration = 2,
 }) => (
-  <div className={combineClasses('flex', className)}>
-    {text.split('').map((char: string, index: number) => (
+  <div className={combineClasses("flex", className)}>
+    {text.split("").map((char: string, index: number) => (
       <motion.span
         key={index}
         className="inline-block"
         animate={{ y: [0, -12, 0], scaleY: [1, 1.2, 1] }}
-        transition={{ duration, repeat: Infinity, delay: delay + index * 0.1, ease: 'easeInOut' }}
+        transition={{ duration, repeat: Infinity, delay: delay + index * 0.1, ease: "easeInOut" }}
       >
-        {char === ' ' ? ' ' : char}
+        {char === " " ? " " : char}
       </motion.span>
     ))}
   </div>
@@ -546,18 +554,18 @@ export const ContinuousWave: FC<TextAnimationProps> = ({
 // 22. Parallax depth (scroll-driven zoom)
 export const ParallaxDepth: FC<ImageAnimationProps> = ({
   children,
-  className = '',
+  className = "",
   duration = 1,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1, 1.2]);
   return (
     <div ref={ref} className={`overflow-hidden ${className}`}>
       <motion.div
         style={{ y, scale }}
-        transition={{ duration, ease: 'easeOut' }}
+        transition={{ duration, ease: "easeOut" }}
         className="will-change-transform"
       >
         {children}
@@ -567,7 +575,7 @@ export const ParallaxDepth: FC<ImageAnimationProps> = ({
 };
 
 // 23. Magnetic image (follows cursor)
-export const MagneticImage: FC<ImageAnimationProps> = ({ children, className = '' }) => {
+export const MagneticImage: FC<ImageAnimationProps> = ({ children, className = "" }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -594,7 +602,7 @@ export const MagneticImage: FC<ImageAnimationProps> = ({ children, className = '
         y: isHovered ? mousePosition.y : 0,
         scale: isHovered ? 1.05 : 1,
       }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       {children}
     </motion.div>
@@ -604,21 +612,21 @@ export const MagneticImage: FC<ImageAnimationProps> = ({ children, className = '
 // 24. Left-to-right reveal
 export const RevealMaskLeft: FC<ImageAnimationProps> = ({
   children,
-  className = '',
+  className = "",
   duration = 1.5,
   viewportAmount = 0.5,
 }) => (
   <motion.div
     className={`overflow-hidden ${className}`}
-    initial={{ clipPath: 'inset(0 100% 0 0)' }}
-    whileInView={{ clipPath: 'inset(0 0% 0 0)' }}
+    initial={{ clipPath: "inset(0 100% 0 0)" }}
+    whileInView={{ clipPath: "inset(0 0% 0 0)" }}
     viewport={{ once: true, amount: viewportAmount }}
-    transition={{ duration, ease: 'easeInOut' }}
+    transition={{ duration, ease: "easeInOut" }}
   >
     <motion.div
       initial={{ scale: 1.3 }}
       whileInView={{ scale: 1 }}
-      transition={{ duration: duration * 1.2, ease: 'easeOut' }}
+      transition={{ duration: duration * 1.2, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -628,21 +636,21 @@ export const RevealMaskLeft: FC<ImageAnimationProps> = ({
 // 25. Right-to-left reveal
 export const RevealMaskRight: FC<ImageAnimationProps> = ({
   children,
-  className = '',
+  className = "",
   duration = 1.5,
 }) => (
   <div className={`relative overflow-hidden ${className}`}>
     <motion.div
       className="absolute inset-0 z-10 bg-black"
-      initial={{ x: '0%' }}
-      whileInView={{ x: '100%' }}
+      initial={{ x: "0%" }}
+      whileInView={{ x: "100%" }}
       viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration, ease: 'easeInOut' }}
+      transition={{ duration, ease: "easeInOut" }}
     />
     <motion.div
       initial={{ scale: 1.3 }}
       whileInView={{ scale: 1 }}
-      transition={{ duration: duration * 1.2, ease: 'easeOut' }}
+      transition={{ duration: duration * 1.2, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -652,20 +660,20 @@ export const RevealMaskRight: FC<ImageAnimationProps> = ({
 // 26. Top-to-bottom reveal
 export const RevealMaskTop: FC<ImageAnimationProps> = ({
   children,
-  className = '',
+  className = "",
   duration = 1.5,
 }) => (
   <motion.div
     className={`overflow-hidden ${className}`}
-    initial={{ clipPath: 'inset(100% 0 0 0)' }}
-    whileInView={{ clipPath: 'inset(0% 0 0 0)' }}
+    initial={{ clipPath: "inset(100% 0 0 0)" }}
+    whileInView={{ clipPath: "inset(0% 0 0 0)" }}
     viewport={{ once: true, amount: 0.5 }}
-    transition={{ duration, ease: 'easeInOut' }}
+    transition={{ duration, ease: "easeInOut" }}
   >
     <motion.div
       initial={{ scale: 1.3 }}
       whileInView={{ scale: 1 }}
-      transition={{ duration: duration * 1.2, ease: 'easeOut' }}
+      transition={{ duration: duration * 1.2, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -675,20 +683,20 @@ export const RevealMaskTop: FC<ImageAnimationProps> = ({
 // 27. Bottom-to-top reveal
 export const RevealMaskBottom: FC<ImageAnimationProps> = ({
   children,
-  className = '',
+  className = "",
   duration = 1.5,
 }) => (
   <motion.div
     className={`overflow-hidden ${className}`}
-    initial={{ clipPath: 'inset(0 0 100% 0)' }}
-    whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
+    initial={{ clipPath: "inset(0 0 100% 0)" }}
+    whileInView={{ clipPath: "inset(0 0 0% 0)" }}
     viewport={{ once: true, amount: 0.5 }}
-    transition={{ duration, ease: 'easeInOut' }}
+    transition={{ duration, ease: "easeInOut" }}
   >
     <motion.div
       initial={{ scale: 1.3 }}
       whileInView={{ scale: 1 }}
-      transition={{ duration: duration * 1.2, ease: 'easeOut' }}
+      transition={{ duration: duration * 1.2, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -698,20 +706,20 @@ export const RevealMaskBottom: FC<ImageAnimationProps> = ({
 // 28. Center expand reveal
 export const RevealMaskCenter: FC<ImageAnimationProps> = ({
   children,
-  className = '',
+  className = "",
   duration = 1.5,
 }) => (
   <motion.div
     className={`overflow-hidden ${className}`}
-    initial={{ clipPath: 'inset(0 50% 0 50%)' }}
-    whileInView={{ clipPath: 'inset(0 0% 0 0%)' }}
+    initial={{ clipPath: "inset(0 50% 0 50%)" }}
+    whileInView={{ clipPath: "inset(0 0% 0 0%)" }}
     viewport={{ once: true, amount: 0.5 }}
-    transition={{ duration, ease: 'easeInOut' }}
+    transition={{ duration, ease: "easeInOut" }}
   >
     <motion.div
       initial={{ scale: 1.3 }}
       whileInView={{ scale: 1 }}
-      transition={{ duration: duration * 1.2, ease: 'easeOut' }}
+      transition={{ duration: duration * 1.2, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -719,7 +727,7 @@ export const RevealMaskCenter: FC<ImageAnimationProps> = ({
 );
 
 // 29. Tilt image (3D hover)
-export const TiltImage: FC<ImageAnimationProps> = ({ children, className = '' }) => {
+export const TiltImage: FC<ImageAnimationProps> = ({ children, className = "" }) => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -739,8 +747,8 @@ export const TiltImage: FC<ImageAnimationProps> = ({ children, className = '' })
         setRotateY(0);
       }}
       animate={{ rotateX, rotateY }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
     >
       <motion.div whileHover={{ z: 50 }} className="will-change-transform">
         {children}
@@ -750,12 +758,12 @@ export const TiltImage: FC<ImageAnimationProps> = ({ children, className = '' })
 };
 
 // 30. Fixed top scroll progress bar
-export const ScrollProgressBar: FC<{ className?: string }> = ({ className = '' }) => {
+export const ScrollProgressBar: FC<{ className?: string }> = ({ className = "" }) => {
   const { scrollYProgress } = useScroll();
   return (
     <motion.div
       className={combineClasses(
-        'fixed inset-x-0 top-0 z-50 h-px origin-left bg-gradient-to-r from-[#A97CF8] via-[#F38CB8] to-[#FDCC92]',
+        "fixed inset-x-0 top-0 z-50 h-px origin-left bg-gradient-to-r from-[#A97CF8] via-[#F38CB8] to-[#FDCC92]",
         className,
       )}
       style={{ scaleX: scrollYProgress }}

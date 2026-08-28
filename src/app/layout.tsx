@@ -1,44 +1,26 @@
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
+import { League_Spartan, Pacifico } from "next/font/google";
 import localFont from "next/font/local";
-import { Pacifico, League_Spartan } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Loader from "@/components/Loader";
+import { constructMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/config/site";
 
-export const metadata: Metadata = {
-  title: "Alvin Dennis — Builder | Maker | Manager",
-  description:
-    "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
-  authors: [{ name: "Alvin Dennis", url: "https://alvinn.me/" }],
-  openGraph: {
-    title: "Alvin Dennis — Builder | Maker | Manager",
-    description:
-      "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
-    siteName: "Alvin Dennis — Builder | Maker | Manager",
-    url: "https://alvinn.me/",
-    type: "website",
-    images: [
-      {
-        url: "/assets/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Alvin Dennis Portfolio",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Alvin Dennis — Builder | Maker | Manager",
-    description:
-      "Builder, maker, and developer passionate about crafting digital solutions and innovative technology. I blend creativity with technical expertise to solve real-world problems and empower communities.",
-    images: ["/logo.png"],
-  },
-  icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-  },
-  metadataBase: new URL("https://alvinn.me/"),
+export const metadata: Metadata = constructMetadata();
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1a1a1a",
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.creator,
+  url: siteConfig.url,
+  jobTitle: siteConfig.jobTitle,
+  description: siteConfig.description,
+  sameAs: [],
 };
 
 const nougat = localFont({
@@ -68,18 +50,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://images.weserv.nl" />
-        <link rel="dns-prefetch" href="https://images.weserv.nl" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
       </head>
       <body
         className={`${nougat.variable} ${leaguespartan.variable} ${pacifico.variable} font-leaguespartan antialiased bg-background text-foreground`}
       >
-        <Navbar />
-        <main className="mx-auto flex-1 px-5 pb-10">
-          {children}
-        </main>
-        <Loader />
-        <Analytics />
+        <main className="mx-auto flex-1 px-5 pb-28 md:pb-10">{children}</main>
       </body>
     </html>
   );

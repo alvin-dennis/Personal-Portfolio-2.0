@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { ImageZoomOutIn, SlideInBottom, SlideInLeft, SlideInTop } from "@/components/animations";
 import { Clock } from "@/lib/time";
-import { HeroProp } from "@/types";
+import { getHero } from "@/sanity/lib/queries";
 
-export default function Hero({ name, image, summary, currentWork, stats }: HeroProp) {
+export default async function Hero() {
+  const { name, image, summary, currentWork, stats } = await getHero();
   const [firstName, lastName] = name.split(" ");
   return (
     <section className="min-h-screen flex flex-col relative overflow-hidden pb-15">
@@ -73,7 +74,7 @@ export default function Hero({ name, image, summary, currentWork, stats }: HeroP
             className="absolute inset-0 grayscale contrast-[1.1] group-hover:grayscale-0 transition-all duration-1000"
           >
             <Image
-              src={`https://images.weserv.nl/?url=${image}&output=webp`}
+              src={image}
               alt={name}
               fill
               fetchPriority="high"
