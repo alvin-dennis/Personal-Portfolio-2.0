@@ -114,7 +114,7 @@ export async function getSkills(): Promise<Skills> {
       icon: skill.icon,
     }));
   }
-  return result as Skills;
+  return result as unknown as Skills;
 }
 
 export async function getExperience(): Promise<Experience[]> {
