@@ -31,22 +31,28 @@ export default function Loader({ onComplete }: LoaderProps) {
 
   useEffect(() => {
     if (index === words.length - 1) {
-      setTimeout(() => {
+      const exitTimeout = setTimeout(() => {
         setIsExiting(true);
-        setTimeout(() => {
-          onComplete?.();
-        }, 1000);
       }, 1000);
-      return;
+      return () => clearTimeout(exitTimeout);
     }
 
-    setTimeout(
+    const nextTimeout = setTimeout(
       () => {
         setIndex(index + 1);
       },
       index === 0 ? 1000 : 150,
     );
-  }, [index, onComplete]);
+    return () => clearTimeout(nextTimeout);
+  }, [index]);
+
+  useEffect(() => {
+    if (!isExiting) return;
+    const completeTimeout = setTimeout(() => {
+      onComplete?.();
+    }, 1000);
+    return () => clearTimeout(completeTimeout);
+  }, [isExiting, onComplete]);
 
   useEffect(() => {
     if (!isExiting) return;
@@ -82,6 +88,7 @@ export default function Loader({ onComplete }: LoaderProps) {
       style={{
         top: isExiting ? "-100vh" : 0,
         transition: `top 0.8s ${EASE_OUT_EXPO_CSS} 0.2s`,
+        pointerEvents: isExiting ? "none" : "auto",
       }}
     >
       {dimension.width > 0 && (
