@@ -20,6 +20,9 @@ const educationQuery = defineQuery(`*[_type == "education"] | order(order asc)`)
 const projectsQuery = defineQuery(
   `*[_type == "project"] | order(order asc){..., category[]->{title}}`,
 );
+const projectBySlugQuery = defineQuery(
+  `*[_type == "project" && slug.current == $slug][0]{..., category[]->{title}}`,
+);
 const testimonialsQuery = defineQuery(`*[_type == "testimonial"] | order(order asc)`);
 
 // 1 hour Next.js data-cache revalidation, tagged per content type so a
@@ -58,6 +61,7 @@ interface RawEducation {
 
 interface RawProject {
   name: string;
+  slug: { current: string };
   description: string;
   category: { title: string }[];
   image?: Parameters<typeof urlFor>[0] | null;
@@ -159,6 +163,7 @@ export async function getProjects(): Promise<Projects[]> {
   const projects: RawProject[] = await client.fetch(projectsQuery, {}, revalidate("project"));
   return projects.map((project) => ({
     name: project.name,
+    slug: project.slug.current,
     description: project.description,
     category: project.category.map((c: { title: string }) => c.title),
     image: project.image ? urlFor(project.image).width(1600).url() : null,
@@ -167,6 +172,26 @@ export async function getProjects(): Promise<Projects[]> {
     technologies: project.technologies.map((tech) => ({ name: tech.name, icon: tech.icon })),
     freelance: project.freelance,
   }));
+}
+
+export async function getProjectBySlug(slug: string): Promise<Projects | null> {
+  const project: RawProject | null = await client.fetch(
+    projectBySlugQuery,
+    { slug },
+    revalidate("project"),
+  );
+  if (!project) return null;
+  return {
+    name: project.name,
+    slug: project.slug.current,
+    description: project.description,
+    category: project.category.map((c: { title: string }) => c.title),
+    image: project.image ? urlFor(project.image).width(1600).url() : null,
+    url: project.url,
+    hosted_url: project.hosted_url,
+    technologies: project.technologies.map((tech) => ({ name: tech.name, icon: tech.icon })),
+    freelance: project.freelance,
+  };
 }
 
 export async function getTestimonials(): Promise<Testimonial[]> {

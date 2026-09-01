@@ -2,8 +2,9 @@ import { Metadata, Viewport } from "next";
 import { League_Spartan, Pacifico } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { constructMetadata } from "@/lib/metadata";
+import Loader from "@/components/loader";
 import { siteConfig } from "@/config/site";
+import { constructMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = constructMetadata();
 
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body
         className={`${nougat.variable} ${leaguespartan.variable} ${pacifico.variable} font-leaguespartan antialiased bg-background text-foreground`}
       >
+        <Loader />
         <main className="mx-auto flex-1 px-5 pb-28 md:pb-10">{children}</main>
       </body>
     </html>

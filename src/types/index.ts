@@ -44,6 +44,7 @@ export interface Skills {
 
 export interface Projects {
   name: string;
+  slug: string;
   description: string;
   category: string | string[];
   image: string | null;

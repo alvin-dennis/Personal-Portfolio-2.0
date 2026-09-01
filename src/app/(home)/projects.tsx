@@ -1,16 +1,12 @@
 "use client";
 
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FaGithub } from "react-icons/fa";
-import { RotateIn, ScaleUp, SlideInBottom } from "@/components/animations";
+import { RotateIn } from "@/components/animations";
 import Section from "@/components/section";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
-import { skillIconMap } from "@/lib/icon-maps";
 import { cn } from "@/lib/utils";
 import type { Projects as ProjectsType } from "@/types";
 
@@ -19,11 +15,9 @@ interface Props {
 }
 
 export function Projects({ projects }: Props) {
-  const [open, setOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
-  const [activeProject, setActiveProject] = useState<ProjectsType | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
@@ -66,156 +60,6 @@ export function Projects({ projects }: Props) {
       href="projects"
       paragraph="A curated selection of projects that demonstrate my approach to building thoughtful, well-engineered applications, with an emphasis on performance, usability, and clean architecture."
     >
-      <Sheet open={open} onOpenChange={setOpen}>
-        <SheetContent
-          side="bottom"
-          className="inset-x-3 bottom-3 top-3 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-[92vw] md:max-w-4xl md:top-[5vh] md:bottom-[5vh] h-auto rounded-2xl p-0 overflow-hidden border border-border shadow-2xl focus:outline-none"
-          showCloseButton={false}
-        >
-          {activeProject && (
-            <div key={activeProject.name} className="relative h-full flex flex-col overflow-hidden">
-              {/* ── Floating close button ── */}
-              <SlideInBottom
-                delay={0.05}
-                duration={0.4}
-                className="absolute top-4 right-4 md:top-6 md:right-6 z-30"
-              >
-                <Button
-                  onClick={() => setOpen(false)}
-                  aria-label="Close"
-                  variant="default"
-                  size="icon"
-                >
-                  <X className="w-4 h-4" />
-                </Button>
-              </SlideInBottom>
-
-              {/* ── Full-bleed hero image ── */}
-              <ScaleUp
-                delay={0.1}
-                duration={0.5}
-                className="relative w-full aspect-[3/2] max-h-[46vh] shrink-0 bg-secondary overflow-hidden"
-              >
-                {activeProject.image && (
-                  <Image
-                    src={activeProject.image}
-                    alt={activeProject.name}
-                    fill
-                    sizes="100vw"
-                    className="object-cover object-top"
-                    priority
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/0 to-transparent" />
-              </ScaleUp>
-
-              {/* ── Content card, overlapping the image ── */}
-              <div className="relative z-10 -mt-8 md:-mt-12 flex-1 flex flex-col min-h-0 rounded-t-3xl bg-background overflow-hidden">
-                {/* Drag handle */}
-                <div className="flex justify-center pt-3 pb-1 shrink-0">
-                  <div className="h-1 w-10 rounded-full bg-border" />
-                </div>
-
-                <div className="flex-1 overflow-y-auto">
-                  <div className="mx-auto w-full max-w-2xl px-6 pt-4 pb-8 md:px-8 md:pt-6 flex flex-col gap-6">
-                    <SlideInBottom delay={0.18} duration={0.4}>
-                      <div className="flex items-start justify-between gap-4 flex-wrap">
-                        {Array.isArray(activeProject.category) && (
-                          <div className="flex flex-wrap gap-2">
-                            {(activeProject.category as string[]).map((cat) => (
-                              <span
-                                key={cat}
-                                className="text-xs uppercase tracking-widest rounded-full px-3 py-1 border border-border text-muted-foreground"
-                              >
-                                {cat}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                      <SheetTitle className="mt-4 text-4xl md:text-5xl font-black italic text-primary leading-none">
-                        {activeProject.name}
-                      </SheetTitle>
-                    </SlideInBottom>
-
-                    <Separator />
-
-                    <SlideInBottom delay={0.24} duration={0.4}>
-                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
-                        {activeProject.description}
-                      </p>
-                    </SlideInBottom>
-
-                    {Array.isArray(activeProject.technologies) &&
-                      activeProject.technologies.length > 0 && (
-                        <SlideInBottom delay={0.3} duration={0.4}>
-                          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
-                            Built with
-                          </p>
-                          <ul className="flex flex-wrap gap-2">
-                            {activeProject.technologies.map((tech, index) => {
-                              if (typeof tech === "string") {
-                                return (
-                                  <li key={tech} className="list-none">
-                                    <SlideInBottom delay={0.36 + index * 0.04} duration={0.35}>
-                                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/40 px-2.5 py-1.5 text-xs">
-                                        {tech}
-                                      </span>
-                                    </SlideInBottom>
-                                  </li>
-                                );
-                              }
-                              const Icon = skillIconMap[tech.icon];
-                              return (
-                                <li key={tech.name} className="list-none">
-                                  <SlideInBottom delay={0.36 + index * 0.04} duration={0.35}>
-                                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/40 px-2.5 py-1.5 text-xs">
-                                      {Icon && <Icon className="size-3.5" />}
-                                      {tech.name}
-                                    </span>
-                                  </SlideInBottom>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </SlideInBottom>
-                      )}
-                  </div>
-                </div>
-
-                {/* ── Sticky CTA footer ── */}
-                <SlideInBottom
-                  delay={0.4}
-                  duration={0.4}
-                  className="shrink-0 border-t border-border bg-background/95 backdrop-blur-md"
-                >
-                  <div className="mx-auto w-full max-w-2xl px-6 py-5 md:px-8 flex flex-col sm:flex-row gap-3">
-                    <Button asChild className="flex-1">
-                      <Link
-                        href={activeProject.hosted_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        View Project
-                        <ArrowUpRight className="w-4 h-4 ml-2" />
-                      </Link>
-                    </Button>
-                    {!activeProject.freelance && (
-                      <Button variant="outline" asChild className="flex-1">
-                        <Link href={activeProject.url} target="_blank" rel="noopener noreferrer">
-                          <FaGithub className="w-4 h-4 mr-2" />
-                          GitHub
-                        </Link>
-                      </Button>
-                    )}
-                  </div>
-                </SlideInBottom>
-              </div>
-            </div>
-          )}
-        </SheetContent>
-      </Sheet>
-
       {/* ── Project list ── */}
       <div
         ref={containerRef}
@@ -266,16 +110,11 @@ export function Projects({ projects }: Props) {
                 key={project.name}
                 delay={index * 0.06}
                 duration={0.55}
-                className="group block w-full mx-auto cursor-pointer"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                onClick={() => {
-                  setActiveProject(project);
-                  setOpen(true);
-                }}
+                className="block w-full mx-auto"
               >
-                <div
-                  className="relative py-5 border-t border-border transition-all duration-300 ease-out"
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="group relative block py-5 border-t border-border transition-all duration-300 ease-out"
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -326,7 +165,7 @@ export function Projects({ projects }: Props) {
                       ))}
                     </div>
                   </div>
-                </div>
+                </Link>
               </RotateIn>
             );
           })}
