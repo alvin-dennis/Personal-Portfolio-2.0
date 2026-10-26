@@ -10,7 +10,7 @@ interface Props {
 
 export default function Section({ text, href, paragraph, children, className }: Props) {
   return (
-    <section id={href} className={`py-20 ${className}`}>
+    <section id={href} className={`py-20 max-w-[1800px] mx-auto w-full ${className}`}>
       {text && (
         <SlideInLeft className="mb-6 block">
           <h2 className="text-5xl md:text-7xl text-primary">{text}</h2>

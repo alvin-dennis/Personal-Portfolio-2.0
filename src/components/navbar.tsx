@@ -8,7 +8,7 @@ export default async function Navbar() {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-primary">
       <SlideInBottom duration={0.5}>
-        <div className="max-w-full mx-auto px-6 py-4 flex items-center justify-center md:justify-between">
+        <div className="mx-auto px-6 py-4 flex items-center justify-center md:justify-between">
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
               className="rounded-sm"

@@ -24,7 +24,7 @@ interface Props {
 
 export default function ExperienceTabs({ experiences, education }: Props) {
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[1800px] mx-auto">
       <Tabs defaultValue="experience" className="">
         <TabsList className="mb-6" shape="pill">
           <TabsTrigger value="experience" className="font-nougat text-2xl md:text-5xl">

@@ -64,7 +64,7 @@ export function Projects({ projects }: Props) {
       <div
         ref={containerRef}
         onMouseMove={handleMouseMove}
-        className="relative w-full max-w-full mx-auto px-6"
+        className="relative w-full max-w-[1800px] mx-auto px-6"
       >
         <div
           className="pointer-events-none absolute z-50 hidden md:block overflow-hidden rounded-xl shadow-2xl"

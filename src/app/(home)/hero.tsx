@@ -8,7 +8,7 @@ export default async function Hero() {
   const [firstName, lastName] = name.split(" ");
   return (
     <section className="min-h-screen flex flex-col relative overflow-hidden pb-15">
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-12 relative z-10 h-full">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-12 relative z-10 h-full max-w-[1800px] mx-auto w-full">
         <div className="md:col-span-8 flex flex-col overflow-hidden">
           <div className="p-6 md:p-8 flex justify-between items-center">
             <div className="flex items-center gap-3">
