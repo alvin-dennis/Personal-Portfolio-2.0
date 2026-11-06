@@ -42,6 +42,11 @@ export interface Skills {
   platforms: SkillProp[];
 }
 
+export interface ProjectCard {
+  title: string;
+  description: string;
+}
+
 export interface Projects {
   name: string;
   slug: string;
@@ -52,6 +57,16 @@ export interface Projects {
   hosted_url: string;
   technologies: SkillProp[];
   freelance?: boolean;
+  subtitle?: string;
+  role?: string;
+  status?: string;
+  overview?: string;
+  objectives?: ProjectCard[];
+  challenges?: ProjectCard[];
+  // biome-ignore lint/suspicious/noExplicitAny: portable text block shape from Sanity
+  approach?: any[];
+  results?: ProjectCard[];
+  conclusion?: string;
 }
 
 export interface Testimonial {

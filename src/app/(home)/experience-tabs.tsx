@@ -48,13 +48,7 @@ export default function ExperienceTabs({ experiences, education }: Props) {
             <ScaleUp key={name} delay={index * 0.08} duration={0.5} className="mb-10 last:mb-0">
               <div className="mb-1.5 flex items-center gap-3">
                 <Link href={link} target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src={logo}
-                    alt={name}
-                    width={50}
-                    height={50}
-                    className="rounded-full"
-                  />
+                  <Image src={logo} alt={name} width={50} height={50} className="rounded-full" />
                 </Link>
                 <h3 className="text-lg font-semibold text-muted-foreground">{name}</h3>
               </div>

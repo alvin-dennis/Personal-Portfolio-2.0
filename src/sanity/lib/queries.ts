@@ -59,6 +59,11 @@ interface RawEducation {
   logo?: Parameters<typeof urlFor>[0];
 }
 
+interface RawProjectCard {
+  title: string;
+  description: string;
+}
+
 interface RawProject {
   name: string;
   slug: { current: string };
@@ -69,6 +74,16 @@ interface RawProject {
   hosted_url: string;
   technologies: { name: string; icon: string }[];
   freelance?: boolean;
+  subtitle?: string;
+  role?: string;
+  status?: string;
+  overview?: string;
+  objectives?: RawProjectCard[];
+  challenges?: RawProjectCard[];
+  // biome-ignore lint/suspicious/noExplicitAny: portable text block shape from Sanity
+  approach?: any[];
+  results?: RawProjectCard[];
+  conclusion?: string;
 }
 
 interface RawTestimonial {
@@ -191,6 +206,15 @@ export async function getProjectBySlug(slug: string): Promise<Projects | null> {
     hosted_url: project.hosted_url,
     technologies: project.technologies.map((tech) => ({ name: tech.name, icon: tech.icon })),
     freelance: project.freelance,
+    subtitle: project.subtitle,
+    role: project.role,
+    status: project.status,
+    overview: project.overview,
+    objectives: project.objectives,
+    challenges: project.challenges,
+    approach: project.approach,
+    results: project.results,
+    conclusion: project.conclusion,
   };
 }
 
